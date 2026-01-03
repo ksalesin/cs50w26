@@ -18,11 +18,11 @@ Please see the [syllabus](/syllabus) for class details.
 
 Office hours: TBD | ECSC 014
 
-## Section Leaders
+### Section Leaders
 
 Yitao Jiang, Shayan Yasir, Ahmad Wahab, Colin Wolfe, and Kelly Lao
 
-## Learning Fellows
+### Learning Fellows
 
 Winnie Waiya, Arnav Singh, Lorenzo Cuellar, Vishal Powell, and Olivia Cong
 
