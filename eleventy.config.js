@@ -22,6 +22,6 @@ module.exports = async function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("github-markdown.css");
 
     return {
-        pathPrefix: "/~ksalesin/"
+        pathPrefix: "/~ksalesin/cs50/"
     };
 }
