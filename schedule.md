@@ -23,9 +23,9 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Jan 5</td>
     <td>Getting started with COSC 50; Linux shell and commands <br>
     <strong>Reading: TBD</strong></td>
-    <td>Create a GitHub account, Setup SSH access, <a href="/activities/activity0/readme.html">Hello Linux!</a></td>
+    <td>Create a GitHub account, Setup SSH access, <a href="/activities/activity0/readme">Hello Linux!</a></td>
     <td></td>
-    <td><a href="/labs/lab0/readme.html">Lab 0</a></td>
+    <td><a href="/labs/lab0/readme">Lab 0</a></td>
 </tr>
 <tr>
     <td>Jan 7</td>
@@ -33,7 +33,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <strong>Reading: TBD</strong></td>
     <td>Billboard 100, Shell games</td>
     <td>Lab 0</td>
-    <td><a href="/labs/lab1/readme.html">Lab 1</a></td>
+    <td><a href="/labs/lab1/readme">Lab 1</a></td>
 </tr>
 
 <tr>
