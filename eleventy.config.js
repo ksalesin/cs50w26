@@ -1,7 +1,10 @@
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 const markdownIt = require("markdown-it");
 const markdownItGithubAlerts = require("markdown-it-github-alerts").default;
 
-module.exports = function(eleventyConfig) {
+module.exports = async function(eleventyConfig) {
+    eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+
     // Set up markdown-it with options
     const mdOptions = {
         html: true,
@@ -17,4 +20,8 @@ module.exports = function(eleventyConfig) {
     // Run manual file passthrough copy
     eleventyConfig.addPassthroughCopy("styles.css");
     eleventyConfig.addPassthroughCopy("github-markdown.css");
+
+    return {
+        pathPrefix: "/~ksalesin/"
+    };
 }
