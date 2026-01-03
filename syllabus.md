@@ -1,6 +1,6 @@
 ---
 layout: layout.html
-title: CS 50 | Syllacus
+title: CS 50 | Syllabus
 permalink: /syllabus.html
 ---
 
