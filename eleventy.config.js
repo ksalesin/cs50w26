@@ -18,6 +18,7 @@ module.exports = async function(eleventyConfig) {
     eleventyConfig.setLibrary("md", mdLib);
     
     // Run manual file passthrough copy
+    eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("styles.css");
     eleventyConfig.addPassthroughCopy("github-markdown.css");
 

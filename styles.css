@@ -93,3 +93,10 @@ body {
 .schedule th:nth-child(5) {
   width: 10.5%;
 }
+
+.headshot {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
