@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>CS50 TSE Indexer</h1>
+<h2>Requirements Spec</h2>
+<blockquote>
+<p>In a requirements spec, <strong>shall do</strong> means <strong>must do</strong>.</p>
+</blockquote>
+<p>The TSE <em>indexer</em> is a standalone program that reads the document files produced by the TSE crawler, builds an index, and writes that index to a file.
+Its companion, the <em>index tester,</em> loads an index file produced by the indexer and saves it to another file.</p>
+<h3>indexer</h3>
+<p>The indexer <strong>shall</strong>:</p>
+<ol>
+<li>
+<p>execute from a command line with usage syntax</p>
+<ul>
+<li><code>./indexer pageDirectory indexFilename</code></li>
+<li>where <code>pageDirectory</code> is the pathname of a directory produced by the Crawler, and</li>
+<li>where <code>indexFilename</code> is the pathname of a file into which the index should be written; the indexer creates the file (if needed) and overwrites the file (if it already exists).</li>
+</ul>
+</li>
+<li>
+<p>validate it received exactly two command-line arguments and that</p>
+<ul>
+<li><code>pageDirectory</code> is the pathname for a directory produced by the Crawler, and</li>
+<li><code>indexFilename</code> is the pathname of a file that can be written;</li>
+</ul>
+</li>
+<li>
+<p>read documents from the <code>pageDirectory</code>, each of which has a unique document ID, wherein</p>
+<ul>
+<li>the document <code>id</code> starts at 1 and increments by 1 for each new page,</li>
+<li>and the filename is of form <code>pageDirectory/id</code>,</li>
+<li>and the first line of the file is the URL,</li>
+<li>and the second line of the file is the depth,</li>
+<li>and the rest of the file is the page content (the HTML, unchanged).</li>
+</ul>
+</li>
+<li>
+<p>build an inverted-index data structure mapping from <em>words</em> to <em>(documentID, count)</em> pairs, wherein each <em>count</em> represents the number of occurrences of the given word in the given document.
+Ignore words with fewer than three characters, and &quot;normalize&quot; the word before indexing.
+(Here, &quot;normalize&quot; means to convert all letters to lower-case.)</p>
+</li>
+<li>
+<p>create a file <code>indexFilename</code> and write the index to that file, in the format described below.</p>
+</li>
+<li>
+<p>output nothing to stdout</p>
+</li>
+<li>
+<p>exit zero if successful; exit with an error message to stderr and non-zero exit status on encountering an unrecoverable error, including</p>
+<ul>
+<li>out of memory,</li>
+<li>invalid command-line arguments,</li>
+<li>unable to read a file named <code>pageDirectory/.crawler</code>,</li>
+<li>unable to read a file named <code>pageDirectory/1</code></li>
+<li>unable to write a file named <code>indexFilename</code></li>
+</ul>
+</li>
+</ol>
+<p>The indexer <em>may assume</em> that</p>
+<ul>
+<li><code>pageDirectory</code> has files named 1, 2, 3, ..., without gaps.</li>
+<li>The content of files in <code>pageDirectory</code> follow the format as defined in the specs; thus your code (to read the files) need not have extensive error checking.</li>
+</ul>
+<h3>index tester</h3>
+<p>The index tester <strong>shall</strong>:</p>
+<ol>
+<li>execute from a command line with usage syntax
+<ul>
+<li><code>./indextest oldIndexFilename newIndexFilename</code></li>
+<li>where <code>oldIndexFilename</code> is the name of a file produced by the indexer, and</li>
+<li>where <code>newIndexFilename</code> is the name of a file into which the index should be written.</li>
+</ul>
+</li>
+<li>load the index from the <code>oldIndexFilename</code> into an inverted-index data structure.</li>
+<li>create a file <code>newIndexFilename</code> and write the index to that file, in the format described below.</li>
+</ol>
+<p>It need not validate its command-line arguments other than to ensure that it receives precisely two arguments; it may simply try to open the <code>oldIndexFilename</code> for reading and, later, try to open the <code>newIndexFilename</code> for writing.
+You may want to run this program as part of testing script that verifies that the output is identical to (or equivalent to) the input.</p>
+<p>The index tester <em>may assume</em> that</p>
+<ul>
+<li>The content of the index file follows the format specified below; thus your code (to recreate an index structure by reading a file) need not have extensive error checking.</li>
+</ul>
+<h3>Index file format</h3>
+<p>The indexer writes the inverted index to a file, and both the index tester and the querier read the inverted index from a file; the file <strong>shall</strong> be in the following format.</p>
+<ul>
+<li>one line per word, one word per line</li>
+<li>each line provides the word and one or more (docID, count) pairs, in the format
+<ul>
+<li><code>word docID count [docID count]...</code></li>
+</ul>
+</li>
+<li>where <em>word</em> is a string of lower-case letters,</li>
+<li>where <em>docID</em> is a positive non-zero integer,</li>
+<li>where <em>count</em> is a positive non-zero integer,</li>
+<li>where the word and integers are separated by spaces;</li>
+<li>note the <code>[ ]</code> brackets and elipses <code>...</code> are not part of the file format – we use them here to indicate the <code>docID count</code> occurs one or more times.</li>
+</ul>
+<p>Within the file, the lines may be in any order.</p>
+<p>Within a line, the docIDs may be in any order.</p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>CS50 TSE Crawler</h1>
+<h2>Requirements Spec</h2>
+<blockquote>
+<p>In a requirements spec, <strong>shall do</strong> means <strong>must do</strong>.</p>
+</blockquote>
+<p>The TSE crawler is a standalone program that crawls the web and retrieves webpages starting from a &quot;seed&quot; URL.
+It parses the seed webpage, extracts any embedded URLs, then retrieves each of those pages, recursively, but limiting its exploration to a given &quot;depth&quot;.</p>
+<p>The crawler <strong>shall</strong>:</p>
+<ol>
+<li>execute from a command line with usage syntax <code>./crawler seedURL pageDirectory maxDepth</code>
+<ul>
+<li>where <code>seedURL</code> is an 'internal' directory, to be used as the initial URL,</li>
+<li>where <code>pageDirectory</code> is the (existing) directory in which to write downloaded webpages, and</li>
+<li>where <code>maxDepth</code> is an integer in range [0..10] indicating the maximum crawl depth.</li>
+</ul>
+</li>
+<li>mark the <code>pageDirectory</code> as a 'directory produced by the Crawler' by creating a file named <code>.crawler</code> in that directory.</li>
+<li>crawl all &quot;internal&quot; pages reachable from <code>seedURL</code>, following links to a maximum depth of <code>maxDepth</code>; where <code>maxDepth=0</code> means that crawler only explores the page at <code>seedURL</code>, and <code>maxDepth=1</code> means that crawler only explores the page at <code>seedURL</code> and those pages to which <code>seedURL</code> links, and so forth inductively.</li>
+<li>print nothing to stdout, other than logging its progress; see an example format in the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/crawler.md">knowledge unit</a>.
+Write each explored page to the <code>pageDirectory</code> with a unique document ID, wherein
+<ul>
+<li>the document <code>id</code> starts at 1 and increments by 1 for each new page,</li>
+<li>and the filename is of form <code>pageDirectory/id</code>,</li>
+<li>and the first line of the file is the URL,</li>
+<li>and the second line of the file is the depth,</li>
+<li>and the rest of the file is the page content (the HTML, unchanged).</li>
+</ul>
+</li>
+<li>exit zero if successful; exit with an error message to stderr and non-zero exit status if it encounters an unrecoverable error, including
+<ul>
+<li>out of memory</li>
+<li>invalid number of command-line arguments</li>
+<li><code>seedURL</code> is invalid or not internal</li>
+<li><code>maxDepth</code> is invalid or out of range</li>
+<li>unable to create a file of form <code>pageDirectory/.crawler</code></li>
+<li>unable to create or write to a file of form <code>pageDirectory/id</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>Definition</strong>:
+A <em>normalized URL</em> is the result of passing a URL through <code>normalizeURL()</code>; see the documentation of that function.
+An <em>Internal URL</em> is a URL that, when normalized, begins with <code>http://cs50tse.cs.dartmouth.edu/tse/</code>.</p>
+<p>One example:
+<code>Http://CS50TSE.CS.Dartmouth.edu//index.html</code>
+becomes
+<code>http://cs50tse.cs.dartmouth.edu/index.html</code>.</p>
+<p><strong>Assumption</strong>:
+The <code>pageDirectory</code> does not contain any files whose name is an integer (i.e., <code>1</code>, <code>2</code>, ...).</p>
+<p><strong>Limitation</strong>:
+The Crawler shall pause at least one second between page fetches, and shall ignore non-internal and non-normalizable URLs.
+(The purpose is to avoid overloading our webserver and to avoid causing trouble on any webservers other than the CS50 test server.)</p>
+
+    </div>
+</body>
+</html>

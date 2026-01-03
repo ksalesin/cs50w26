@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Activity 18 - Use the Fuzz, Luke!</h1>
+<p>note: QAengineer is a Quality Assurance Engineer (tester)</p>
+<p>A QA engineer walks into a bar.</p>
+<ul>
+<li>Orders a beer.</li>
+<li>Orders 0 beers.</li>
+<li>Orders 999999999999 beers.</li>
+<li>Orders a bear.</li>
+<li>Orders -1 beers.</li>
+<li>Pide una cerveza.</li>
+<li>Orders a pbfqrzxx.</li>
+<li>Orders a beer and tries to leave without paying</li>
+</ul>
+<p><em><strong>Testing Complete!</strong></em></p>
+<p>First real customer walks in and asks where the  bathroom is.  The bar bursts into flames.</p>
+<blockquote>
+<p>-- adapted from @brenankeller</p>
+</blockquote>
+<hr>
+<p>Put your team's answers in a Markdown file and upload it to Canvas for Activity 18.</p>
+<hr>
+<h2>Fuzz Testing</h2>
+<ol>
+<li>For the given example applications, discuss ...</li>
+</ol>
+<ul>
+<li>
+<p>would fuzz testing be useful?</p>
+</li>
+<li>
+<p>what would fuzzed inputs look like?</p>
+</li>
+<li>
+<p>how would you automate the generation of those fuzzed inputs?</p>
+</li>
+<li>
+<p>how would you automatically verify correctness?</p>
+<p>a. <code>histo</code> from Lab-2</p>
+<p>b. <code>bag.c</code> from Lab-3</p>
+<p>c. a simple <code>+,-,*,=</code> calculator program , and assume you know the
+specifics of the hardware such as largest integer, largest float, etc.</p>
+</li>
+</ul>
+<ol start="2">
+<li>
+<p>Can you fuzz-test an app that you use across a network:
+a. <em>the login program</em>
+b. <em>a web server</em>
+c. <em>a web application</em></p>
+</li>
+<li>
+<p>Can you fuzz test things other than with specific, predictable inputs?
+a. <em>the operating temperature of a system; is the system affected as the ambient the temperature fluctuates?</em>
+b. <em>combinations of weather on a on a surveillance drone?</em></p>
+<p>Would such testing be repeatable? Does that matter?</p>
+</li>
+<li>
+<p>Are there programs that cannot be meaningfully fuzz-tested?
+a. <em>If there are none, why not?</em>
+b. <em>If there are some programs like that, why would fuzz-tests not be helpful?</em></p>
+</li>
+</ol>
+<h2>General Testing Challenge Question</h2>
+<p>Most satellites can't be repaired after launch. They are subjected to extreme
+levels of testing prior to their launch, but exhaustive testing just isn't possible.
+For example, here's how the Wall Street Journal described the mission:</p>
+<blockquote>
+<p>The James Webb Telescope was one of the most complex missions NASA had ever attempted ... This is a system with 344 single point failures. If any one of these single points fail, the whole mission fails.</p>
+</blockquote>
+<p>The final software testing</p>
+<blockquote>
+<p>&quot;...was staffed 24 hours a day, for 15 days consecutively, and approximately 1,070 scripts or sequences of instructions were executed, and nearly 1,370 procedural steps were performed.&quot;[^1]</p>
+</blockquote>
+<p>Wow! How would you like to be the testing director of <em>that</em> project?</p>
+<p>Think about the challenges testing this system of systems required. The varying
+temperatures, the lack of gravity, and the vacuum, combined with random hits from
+micrometeorites, solar radiation, and cosmic rays.</p>
+<p>How would you begin building a test plan?</p>
+<p>[^1]: <a href="https://www.nasa.gov/universe/nasas-james-webb-space-telescope-completes-comprehensive-systems-test/">https://www.nasa.gov/universe/nasas-james-webb-space-telescope-completes-comprehensive-systems-test/</a> NASA did.</p>
+
+    </div>
+</body>
+</html>

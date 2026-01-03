@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Activity: C programming with structs and pointers</h1>
+<h2>Goals</h2>
+<ol>
+<li>to use <code>structs</code>, arrays of <code>structs</code></li>
+<li>to better understand use of pointers for allocated memory, and function parameters</li>
+</ol>
+<h2>Prepare</h2>
+<ol>
+<li>Log into plink;</li>
+<li><code>git clone</code> the repository for activity7 located in /cs50/activity7.git into your home directory.</li>
+<li><code>cd</code> into the resulting new cloned repo.</li>
+<li>Copy the file <code>covid-blank.c</code> to <code>covid.c</code></li>
+<li>One member of the team share screen and edit that file, filling in BLANKs.
+Note: Allocate a large static array for <code>data</code>, of size 1000. Use a preprocessor macro directive to do so.</li>
+<li>Build and run the program with <code>make test</code>.</li>
+</ol>
+<p>Things to notice:</p>
+<ul>
+<li>a long-ish <code>main()</code> function (because of extensive error checking) but good section-header comments to indicate overall flow.</li>
+<li>use of the <code>file</code> module</li>
+<li>A big <code>struct</code> for holding each row of data from the csv file</li>
+<li>a <code>typedef</code> to define a new type for that struct</li>
+<li>character pointers (for strings) inside the struct; where do they point?</li>
+<li>an array of structs - how do you allocate memory for it?</li>
+<li>extensive error-checking code throughout</li>
+<li>an opportunity for you to write the  'contract' for the <code>extractData</code> function (read about <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/contracts.md">function contracts</a>)</li>
+<li>detailed 'contract' for the <code>csvBurst</code> function</li>
+<li>in the <code>csvBurst</code> function, a 'moving pointer' approach to parsing the csv string</li>
+<li>chopping the csv string by dropping in null characters</li>
+<li>creating an array of pointers into the csv string</li>
+</ul>
+<h1>Test file</h1>
+<ul>
+<li>
+<p>You can test your code with <a href="https://github.com/govex/COVID-19/blob/master/data_tables/vaccine_data/us_data/archive/hourly/vaccine_data_us.csv">this file</a>.</p>
+</li>
+<li>
+<p>To download it directly on Plink, you can use the following command:
+<code>wget https://github.com/govex/COVID-19/blob/master/data_tables/vaccine_data/us_data/archive/hourly/vaccine_data_us.csv</code></p>
+</li>
+</ul>
+<h1>Submission</h1>
+<ul>
+<li>Make sure to commit your your <code>covid.c</code> file to the repository.</li>
+<li>Upload the output of the <code>git log</code> command to Canvas</li>
+</ul>
+
+    </div>
+</body>
+</html>

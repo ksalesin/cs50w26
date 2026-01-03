@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | Github</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>CS50 GitHub setup</h1>
+<p>This page walks you through creating a GitHub account and configuring it for use in CS50.
+<a href="https://github.com">GitHub</a> is a code-hosting platform for version control and collaboration.
+You will use GitHub to manage and share your lab and project code.</p>
+<ol>
+<li>
+<p><strong>Create an account</strong> on <a href="https://github.com">GitHub</a>, if you don't already have one.</p>
+</li>
+<li>
+<p><strong>Update your profile</strong> on on <a href="https://github.com">GitHub</a>:  click on your account menu at top-right; select <em>Settings</em>.
+Under the <em>Profile</em> tab, edit <em>Name</em> to provide your real name, and add a Profile picture.</p>
+<blockquote>
+<p>We advise you to include your ‘real name’ so others can recognize you when adding you to GitHub  Organizations, Teams, and Repositories.
+We have made the mistake of adding the wrong person because, when inviting a user and typing what may be the right user, someone with a similar-looking username pops up and, thinking it is the person we want, we add the wrong user!
+If your profile includes your name and photo, your collaborators can quickly confirm they have the right user.
+It also makes your account look more professional!</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Generate an ssh key pair</strong>.
+This key pair is used by GitHub to identify you and ensure that you have permission to download code from (and to push code to) some given code repository.
+On <code>plink</code>, run the command shown below to generate an ssh key pair (be sure to use the email address associated with your GitHub account).
+When you're prompted to &quot;Enter a file in which to save the key,&quot; press <em>enter</em> (return) to accept the default.
+When you're prompted to &quot;Enter passphrase (empty for no passphrase)&quot; press <em>enter</em> (return) two more times.
+Pictured below is example output from generating an ssh key pair.</p>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;
+</code></pre>
+<p><img src="images/ssh-generation.png" alt="ssh-keygen example"></p>
+</li>
+<li>
+<p><strong>Copy your public key to the clipboard</strong>.
+Run the following command to print your public key to the terminal, and then highlight and copy the key (be sure you do not highlight extraneous characters at the beginning or end).</p>
+<pre><code class="language-bash">cat ~/.ssh/id_ed25519.pub
+</code></pre>
+<p><img src="images/ssh-copy.png" alt="terminal output for printing the key file"></p>
+</li>
+<li>
+<p><strong>Add your key to GitHub</strong>.
+Use your browser to log into <a href="https://www.github.com">GitHub</a>; click on your profile photo in the upper-right corner of the page and navigate to <strong>Settings/SSH and GPG Keys</strong>.</p>
+<p><img src="images/ssh-add-key-1.png" alt="screenshot from GitHub settings page"></p>
+<p>Click the button <strong>New SSH Key</strong>.
+In the <strong>Title</strong> field, give your key an appropriate name so that you know what machine this key resides on (e.g., <em>Thayer Plank</em>) and paste your clipboard into the <strong>Key</strong> field.
+Finally, click <strong>Add SSH Key</strong>.</p>
+<p><img src="images/ssh-add-key-2.png" alt="screenshot from GitHub ssh page"></p>
+</li>
+<li>
+<p><strong>Teach git your name</strong>.
+Back in the Terminal, on <code>plink</code>, configure the local git client so it, too, knows your real name.
+Following these <a href="https://docs.github.com/en/github/using-git/setting-your-username-in-git">instructions</a>,</p>
+<pre><code class="language-bash">git config --global user.name &quot;My Real Name&quot;
+</code></pre>
+</li>
+</ol>
+<p><strong>That's it!</strong>
+You should now be able to clone, push, and pull git repositories to and from GitHub, from your Linux account.</p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>CS50 TSE Indexer</h1>
+<h2>Design Spec</h2>
+<p>According to the <a href="REQUIREMENTS.md">Indexer Requirements Spec</a>, the TSE <em>indexer</em> is a standalone program that reads the document files produced by the TSE crawler, builds an index, and writes that index to a file.  Its companion, the <em>index tester,</em> loads an index file produced by the indexer and saves it to another file. In this document we cover only the <em>indexer</em>.</p>
+<h3>User interface</h3>
+<p>The indexer's only interface with the user is on the command-line; it must always have two arguments.</p>
+<pre><code>indexer pageDirectory indexFilename
+</code></pre>
+<p>For example, if <code>letters</code> is a pageDirectory in <code>../data</code>,</p>
+<pre><code class="language-bash">$ indexer ../data/letters ../data/letters.index
+</code></pre>
+<h3>Inputs and outputs</h3>
+<p><strong>Input</strong>: the indexer reads files from a directory by constructing file pathnames from the <code>pageDirectory</code> parameter followed by a numeric document ID (as described in the Requirements).</p>
+<p>The indexer reads document files in sequential ID order, beginning at 1, until is unable to open one of those files.</p>
+<p><strong>Output</strong>: We save the index to a file using the format described in the Requirements.</p>
+<h3>Functional decomposition into modules</h3>
+<p>We anticipate the following modules or functions:</p>
+<ol>
+<li><em>main</em>, which parses arguments and initializes other modules;</li>
+<li><em>indexBuild</em>, which builds an in-memory index from webpage files it finds in the pageDirectory;</li>
+<li><em>indexPage</em>, which scans a webpage document to add its words to the index.</li>
+</ol>
+<p>And some helper modules that provide data structures:</p>
+<ol>
+<li><em>index</em>, a module providing the data structure to represent the in-memory index, and functions to read and write index files;</li>
+<li><em>webpage</em>, a module providing the data structure to represent webpages, and to scan a webpage for words;</li>
+<li><em>pagedir</em>, a module providing functions to load webpages from files in the pageDirectory;</li>
+<li><em>word</em>, a module providing a function to normalize a word.</li>
+</ol>
+<h3>Pseudo code for logic/algorithmic flow</h3>
+<p>The indexer will run as follows:</p>
+<p>parse the command line, validate parameters, initialize other modules
+call indexBuild, with pageDirectory</p>
+<p>where <em>indexBuild:</em></p>
+<p>creates a new 'index' object
+loops over document ID numbers, counting from 1
+loads a webpage from the document file 'pageDirectory/id'
+if successful,
+passes the webpage and docID to indexPage</p>
+<p>where <em>indexPage:</em></p>
+<p>steps through each word of the webpage,
+skips trivial words (less than length 3),
+normalizes the word (converts to lower case),
+looks up the word in the index,
+adding the word to the index if needed
+increments the count of occurrences of this word in this docID</p>
+<h3>Major data structures</h3>
+<p>The key data structure is the <em>index</em>, mapping from <em>word</em> to <em>(docID, #occurrences)</em> pairs.
+The <em>index</em> is a <em>hashtable</em> keyed by <em>word</em> and storing <em>counters</em> as items.
+The <em>counters</em> is keyed by <em>docID</em> and stores a count of the number of occurrences of that word in the document with that ID.</p>
+<h3>Testing plan</h3>
+<p><em>Unit testing</em>.  A program <em>indextest</em> will serve as a unit test for the <em>index</em> module; it reads an index file into the internal <em>index</em> data structure, then writes the index out to a new index file.</p>
+<p><em>Integration testing</em>.  The <em>indexer</em>, as a complete program, will be tested by building an index from a pageDirectory, and then the resulting index will be validated by running it through the <em>indextest</em> to ensure it can be loaded.</p>
+<ol>
+<li>Test <code>indexer</code> with various invalid arguments.
+2. no arguments
+3. one argument
+4. three or more arguments
+5. invalid <code>pageDirectory</code> (non-existent path)
+5. invalid <code>pageDirectory</code> (not a crawler directory)
+6. invalid <code>indexFile</code> (non-existent path)
+7. invalid <code>indexFile</code> (read-only directory)
+7. invalid <code>indexFile</code> (existing, read-only file)</li>
+<li>Run <em>indexer</em> on a variety of pageDirectories and use <em>indextest</em> as one means of validating the resulting index.</li>
+<li>Run <em>valgrind</em> on both <em>indexer</em> and <em>indextest</em> to ensure no memory leaks or errors.</li>
+</ol>
+
+    </div>
+</body>
+</html>

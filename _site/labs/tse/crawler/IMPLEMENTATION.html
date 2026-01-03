@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>CS50 TSE Crawler</h1>
+<h2>Implementation Spec</h2>
+<p>In this document we reference the <a href="REQUIREMENTS.md">Requirements Specification</a> and <a href="DESIGN.md">Design Specification</a> and focus on the implementation-specific decisions.
+The knowledge unit noted that an <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md#implementation-spec">implementation spec</a> may include many topics; not all are relevant to the TSE or the Crawler.
+Here we focus on the core subset:</p>
+<ul>
+<li>Data structures</li>
+<li>Control flow: pseudo code for overall flow, and for each of the functions</li>
+<li>Detailed function prototypes and their parameters</li>
+<li>Error handling and recovery</li>
+<li>Testing plan</li>
+</ul>
+<h2>Data structures</h2>
+<p>We use two data structures: a 'bag' of pages that need to be crawled, and a 'hashtable' of URLs that we have seen during our crawl.
+Both start empty.
+The size of the hashtable (slots) is impossible to determine in advance, so we use 200.</p>
+<h2>Control flow</h2>
+<p>The Crawler is implemented in one file <code>crawler.c</code>, with four functions.</p>
+<h3>main</h3>
+<p>The <code>main</code> function simply calls <code>parseArgs</code> and <code>crawl</code>, then exits zero.</p>
+<h3>parseArgs</h3>
+<p>Given arguments from the command line, extract them into the function parameters; return only if successful.</p>
+<ul>
+<li>for <code>seedURL</code>, normalize the URL and validate it is an internal URL</li>
+<li>for <code>pageDirectory</code>, call <code>pagedir_init()</code></li>
+<li>for <code>maxDepth</code>, ensure it is an integer in specified range</li>
+<li>if any trouble is found, print an error to stderr and exit non-zero.</li>
+</ul>
+<h3>crawl</h3>
+<p>Do the real work of crawling from <code>seedURL</code> to <code>maxDepth</code> and saving pages in <code>pageDirectory</code>.
+Pseudocode:</p>
+<p>initialize the hashtable and add the seedURL
+initialize the bag and add a webpage representing the seedURL at depth 0
+while bag is not empty
+pull a webpage from the bag
+fetch the HTML for that webpage
+if fetch was successful,
+save the webpage to pageDirectory
+if the webpage is not at maxDepth,
+pageScan that HTML
+delete that webpage
+delete the hashtable
+delete the bag</p>
+<h3>pageScan</h3>
+<p>This function implements the <em>pagescanner</em> mentioned in the design.
+Given a <code>webpage</code>, scan the given page to extract any links (URLs), ignoring non-internal URLs; for any URL not already seen before (i.e., not in the hashtable), add the URL to both the hashtable <code>pages_seen</code> and to the bag <code>pages_to_crawl</code>.
+Pseudocode:</p>
+<p>while there is another URL in the page
+if that URL is Internal,
+insert the webpage into the hashtable
+if that succeeded,
+create a webpage_t for it
+insert the webpage into the bag
+free the URL</p>
+<h2>Other modules</h2>
+<h3>pagedir</h3>
+<p>We create a re-usable module <code>pagedir.c</code> to handles the <em>pagesaver</em>  mentioned in the design (writing a page to the pageDirectory), and marking it as a Crawler-produced pageDirectory (as required in the spec).
+We chose to write this as a separate module, in <code>../common</code>, to encapsulate all the knowledge about how to initialize and validate a pageDirectory, and how to write and read page files, in one place... anticipating future use by the Indexer and Querier.</p>
+<p>Pseudocode for <code>pagedir_init</code>:</p>
+<p>construct the pathname for the .crawler file in that directory
+open the file for writing; on error, return false.
+close the file and return true.</p>
+<p>Pseudocode for <code>pagedir_save</code>:</p>
+<p>construct the pathname for the page file in pageDirectory
+open that file for writing
+print the URL
+print the depth
+print the contents of the webpage
+close the file</p>
+<h3>libcs50</h3>
+<p>We leverage the modules of libcs50, most notably <code>bag</code>, <code>hashtable</code>, and <code>webpage</code>.
+See that directory for module interfaces.
+The new <code>webpage</code> module allows us to represent pages as <code>webpage_t</code> objects, to fetch a page from the Internet, and to scan a (fetched) page for URLs; in that regard, it serves as the <em>pagefetcher</em> described in the design.
+Indeed, <code>webpage_fetch</code> enforces the 1-second delay for each fetch, so our crawler need not implement that part of the spec.</p>
+<h2>Function prototypes</h2>
+<h3>crawler</h3>
+<p>Detailed descriptions of each function's interface is provided as a paragraph comment prior to each function's implementation in <code>crawler.c</code> and is not repeated here.</p>
+<pre><code class="language-c">int main(const int argc, char* argv[]);
+static void parseArgs(const int argc, char* argv[],
+                      char** seedURL, char** pageDirectory, int* maxDepth);
+static void crawl(char* seedURL, char* pageDirectory, const int maxDepth);
+static void pageScan(webpage_t* page, bag_t* pagesToCrawl, hashtable_t* pagesSeen);
+</code></pre>
+<h3>pagedir</h3>
+<p>Detailed descriptions of each function's interface is provided as a paragraph comment prior to each function's declaration in <code>pagedir.h</code> and is not repeated here.</p>
+<pre><code class="language-c">bool pagedir_init(const char* pageDirectory);
+void pagedir_save(const webpage_t* page, const char* pageDirectory, const int docID);
+</code></pre>
+<h2>Error handling and recovery</h2>
+<p>All the command-line parameters are rigorously checked before any data structures are allocated or work begins; problems result in a message printed to stderr and a non-zero exit status.</p>
+<p>Out-of-memory errors are handled by variants of the <code>mem_assert</code> functions, which result in a message printed to stderr and a non-zero exit status.
+We anticipate out-of-memory errors to be rare and thus allow the program to crash (cleanly) in this way.</p>
+<p>All code uses defensive-programming tactics to catch and exit (using variants of the <code>mem_assert</code> functions), e.g., if a function receives bad parameters.</p>
+<p>That said, certain errors are caught and handled internally: for example, <code>pagedir_init</code> returns false if there is any trouble creating the <code>.crawler</code> file, allowing the Crawler to decide what to do; the <code>webpage</code> module returns false when URLs are not retrievable, and the Crawler does not treat that as a fatal error.</p>
+<h2>Testing plan</h2>
+<p>Here is an implementation-specific testing plan.</p>
+<h3>Unit testing</h3>
+<p>There are only two units (crawler and pagedir).
+The crawler represents the whole system and is covered below.
+The pagedir unit is tiny; it could be tested using a small C 'driver' to invoke its functions with various arguments, but it is likely sufficient to observe its behavior during the system test.</p>
+<h3>Regression testing</h3>
+<p>The crawler can take a long time to run on some sites when <code>maxDepth</code> is more than 2.
+For routine regression tests, we crawl the <code>letters</code> site at moderate depths; save the pageDirectory from one working run to compare (with <code>diff -r</code>) against future runs.</p>
+<blockquote>
+<p>For Lab 4, you are not required to script regression tests, though you may find the technique useful for your own testing/debugging process.</p>
+</blockquote>
+<h3>Integration/system testing</h3>
+<p>We write a script <code>testing.sh</code> that invokes the crawler several times, with a variety of command-line arguments.
+First, a sequence of invocations with erroneous arguments, testing each of the possible mistakes that can be made.
+Second, a run with valgrind over a moderate-sized test case (such as <code>toscrape</code> at depth 1).
+Third, runs over all three CS50 websites (<code>letters</code> at depths 0,1,2,10, <code>toscrape</code> at depths 0,1,2,3, <code>wikipedia</code> at depths 0,1,2).
+Run that script with <code>bash -v testing.sh</code> so the output of crawler is intermixed with the commands used to invoke the crawler.
+Verify correct behavior by studying the output, and by sampling the files created in the respective pageDirectories.</p>
+<blockquote>
+<p>For Lab 4, as noted in the assignment, you may submit a smaller test run.
+Furthermore, we recommend turning off detailed logging output for these tests, as they make <code>testing.out</code> rather large!</p>
+</blockquote>
+
+    </div>
+</body>
+</html>

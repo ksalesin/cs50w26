@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Activity: Hello Linux</h1>
+<p>Meet your new CS50 team, and Learning Fellow; play with bash pipelines.</p>
+<h2>Learning groups</h2>
+<ol>
+<li>Introduce yourself to your new group mates, and to your Learning Fellow.</li>
+<li>Choose a name for your group.
+It must be suitable as a Git repository name; thus, it should not be too long, and include only the characters <code>[A-Z][a-z][0-9][-._]</code>. Keep it PG-rated, too.</li>
+<li>(One of you) create a private channel in our Slack workspace, using your group name; invite the others.
+Now you can coordinate your group over Slack!</li>
+<li>Send me a DM to tell me your new group name.</li>
+<li>Work with your group to solve the following problems.</li>
+</ol>
+<h2></h2>
+<h2>Get familiar with bash</h2>
+<p>These questions assume you completed the system setup of Lab 0.</p>
+<p>Now, <strong>working in your group (perhaps one person sharing screen)</strong>, do the following:</p>
+<ol>
+<li>
+<p>Connect to <code>babylon1.thayer.dartmouth.edu</code> using <code>ssh</code></p>
+</li>
+<li>
+<p>Look around ... how many files can you see?  Are there any &quot;hidden&quot; files?</p>
+</li>
+<li>
+<p>What command displays your current directory?</p>
+</li>
+<li>
+<p>What command would list every file in your home directory?</p>
+</li>
+<li>
+<p>Is there a directory structure?  What command would display <em>just the directory structure?</em></p>
+</li>
+<li>
+<p>What command would list every file in your home directory and any directories within it?</p>
+</li>
+<li>
+<p>What command would list every file in your home directory and any directories within it, with <em>all</em> the details about the file?</p>
+</li>
+<li>
+<p>How would you make a subdirectory named <code>tmp</code> in your <code>cs50-dev</code> directory ?</p>
+</li>
+<li>
+<p>How would you move into that new <code>tmp</code> directory? How would you move back to your move directory?</p>
+</li>
+<li>
+<p>How would the <code>~</code> character help in the previous question?</p>
+</li>
+<li>
+<p>How would you make a copy of your <code>.profile</code> in a new file named <code>junk</code> in that d<code>tmp</code> subdirectory?</p>
+</li>
+<li>
+<p>Edit that <code>junk</code> file and make changes in a few places. Save and quit the editor.</p>
+</li>
+<li>
+<p>What command would you use to find the differences between the original <code>.profile</code> file and the <code>junk</code> file you updated?</p>
+</li>
+<li>
+<p>Edit the <code>junk</code> file again to have more than 40 lines.</p>
+</li>
+<li>
+<p>Without using an editor, what command would display the <code>junk</code> file to the screen?</p>
+</li>
+<li>
+<p>Without using an editor, what command would display the <code>junk</code> file to the screen, one screenful at a time?</p>
+</li>
+<li>
+<p>How would you move that <code>junk</code> file into your home directory?</p>
+</li>
+<li>
+<p>What does the <code>touch</code>command do?  (Hint: use <code>man touch</code>) . Use it to create a file named <code>touched</code> in your home directory.</p>
+</li>
+<li>
+<p><code>ssh</code> can be really handy. Open another terminal on your laptop and use <code>ssh</code> to run a command on <code>babylon1</code>:</p>
+<pre><code class="language-bash">$ ssh netid@babylon1.thayer.dartmouth.edu ls
+</code></pre>
+<p>and it returns the results. Try it! Do you see the <code>junk</code> and <code>touched</code> files?</p>
+</li>
+<li>
+<p>Go back to <code>babylon1</code> and remove the <code>junk</code> and <code>touched</code> files. Then try the <code>ssh</code> command above to ensure they are gone. Hmmm ... could you have used <code>ssh</code> to delete those files?</p>
+</li>
+<li>
+<p>You may be temped to add <code>.</code> to your <code>PATH</code> variable. Why would you do that? Why would it be dangerous?</p>
+</li>
+<li>
+<p>logout from <code>babylon1</code>.</p>
+</li>
+</ol>
+
+    </div>
+</body>
+</html>

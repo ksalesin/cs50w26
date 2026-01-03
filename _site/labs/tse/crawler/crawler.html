@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <p>In this lab you'll begin the Tiny Search Engine (TSE) by coding the <em>Crawler</em> according to the specs in this directory:</p>
+<ul>
+<li><a href="REQUIREMENTS.md">Requirements Spec</a></li>
+<li><a href="DESIGN.md">Design Spec</a></li>
+<li><a href="IMPLEMENTATION.md">Implementation Spec</a></li>
+</ul>
+<p>Grading will focus on <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/style.md">CS50 coding style</a> - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.</p>
+<p><em><strong>Your C code must compile without producing any compiler warnings.</strong></em>  You will lose points if the compiler produces warnings when using our CS50-standard compiler flags.</p>
+<p><em><strong>If your submitted code fails to compile, or triggers a segmentation fault,</strong></em> you will fail some or all of our correctness tests.
+Write defensive code: each function should check its pointer parameters for NULL, and take some appropriate (safe) action.
+Write solid unit tests, test drivers, and use regression testing as your development proceeds.</p>
+<p>If your submitted version has <em>known bugs</em>, that is, cases where it fails your own test cases, <em>and you describe those cases in your README file</em>, we will halve the number of points you lose for those cases.
+In short, it is far better for you to demonstrate you <em>know</em> about the bug than to submit and hope we won't find it.</p>
+<p><em><strong>Valgrind should report no memory errors or memory leaks, when crawler exits normally.</strong></em>
+You will lose points for memory errors and leaks reported by valgrind on our tests.</p>
+<h2>Preparation</h2>
+<ol>
+<li><a href="https://classroom.github.com/a/phOqX7q9">Accept the assignment</a>, and clone the resulting repo.</li>
+<li>Decide whose implementation of the Lab 3 data structures you want to use (you can always change later).
+<ul>
+<li>If you want to use <em>your</em> implementation, copy your <code>counters.c</code>, <code>set.c</code>, <code>hashtable.c</code> into the <code>libcs50</code> subdirectory in your brand-new repository; try <code>make</code> in that directory to ensure everything works.</li>
+<li>If you want to use <em>our</em> implementation, do nothing.</li>
+</ul>
+</li>
+<li>Create subdirectories <code>crawler</code> and <code>common</code>.</li>
+</ol>
+<p><strong>Warning:</strong> do <strong>not</strong> modify <em>any</em> of the files we provide in the starter kit; if we need to update anything in the starter kit, your changes will be overwritten.</p>
+<blockquote>
+<p>Exception: In the top-level Makefile you may wish to comment-out some of the recursive calls to make; such changes may be overwritten if we ask you to update the Makefile, but you can easily re-add those comments.</p>
+</blockquote>
+<h2>Assignment</h2>
+<p>:point_right:
+Write the first sub-system of the Tiny Search Engine: the <em>crawler</em>.
+Your implementation must follow the Requirement and Design Specs, and should follow the Implementation Spec.</p>
+<p><strong>In the top directory,</strong></p>
+<ol>
+<li>Update the <code>README.md</code> file to add your name and GitHub username.</li>
+<li>Comment-out the commands for indexer and querier, so <code>make</code> and <code>make clean</code> work to build (or clean) the libraries and crawler.</li>
+</ol>
+<p><strong>In the <code>crawler</code> directory,</strong></p>
+<ol>
+<li>Write a program <code>crawler.c</code> according to the Specs.</li>
+<li>Write a <code>Makefile</code> that will, by default, build the <code>crawler</code> executable program.</li>
+<li>Add a <code>make clean</code> target that removes files produced by Make or your tests.</li>
+<li>Add a <code>make test</code> target that tests your crawler.
+Read <a href="#testing-crawler">about testing</a> below.</li>
+<li>Save the output of your tests with <code>make test &amp;&gt; testing.out</code>.</li>
+<li>Add a <code>README.md</code> file to describe any assumptions you made while writing the crawler, any ways in which your implementation differs from the three Specs, or any ways in which you know your implementation fails to work.</li>
+<li>Write a <code>.gitignore</code> file telling Git to ignore any unnecessary files in this directory (anything not already covered by the top-level <code>.gitignore</code>).</li>
+</ol>
+<p><strong>In the <code>common</code> directory,</strong> assemble code that will eventually be shared by the crawler, indexer, and querier.
+For now, that comprises code for initializing the &quot;pageDirectory&quot; and saving webpages there.
+(You will find reason to expand this file, and this directory, when you write the other subsystems.)</p>
+<ol>
+<li>Create files <code>pagedir.c</code> and <code>pagedir.h</code>.</li>
+<li>Write a <code>Makefile</code> that will, by default, build the <code>common.a</code> library.
+It must also have a <code>clean</code> target that removes files produced by Make.</li>
+<li>Write a <code>README.md</code> file to describe any assumptions you made while writing the crawler, any ways in which your implementation differs from the three Specs, or any ways in which you know your implementation fails to work. This file may be short.</li>
+<li>Write a <code>.gitignore</code> file telling Git to ignore any unnecessary files in this directory (anything not already covered by the top-level <code>.gitignore</code>).</li>
+</ol>
+<h2>Submission</h2>
+<p>Add/commit all the code and ancillary files required to build and test your solution; at a minimum your <strong>crawler</strong> directory should include the following files:
+<code>.gitignore README.md Makefile crawler.c testing.sh testing.out</code>
+and your <strong>common</strong> directory should contain the following files:
+<code>Makefile pagedir.h pagedir.c</code></p>
+<p><em>Do not commit any data files produced by the crawler, any binary/object files produced by the compiler, backup files, core dumps, etc.</em></p>
+<p>If you finish Lab 4 early, we encourage you to begin work on Lab 5 or Lab 6.
+Your Lab 4 submission may contain a partly-completed indexer or querier; the graders will ignore those files, but must be able to build your crawler <em>from the top-level directory</em> without compilation errors and test your crawler without run-time errors.</p>
+<p>To submit, read the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md">Lab submission instructions</a>.</p>
+<h1>Hints and tips</h1>
+<p>There are tips and a Crawler demo in the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/crawler.md">unit about crawler</a>.</p>
+<h3>libcs50</h3>
+<p>We provide several modules in the <code>libcs50</code> directory, which compiles to a library <code>libcs50.a</code> you can link with your crawler.
+<em>You shall not change any of our code,</em>  but you may drop in your <code>set.c</code>, <code>counters.c</code>, <code>hashtable.c</code> files from Lab 3.
+The top-level Makefile auto-detects the presence of your <code>set.c</code> and will build the library with your implementation... or if it is absent, will simply use a pre-compiled library we provide.
+See the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/libraries.md">unit about libraries</a>.</p>
+<p><strong>Pay close attention to the <code>webpage</code> module,</strong>
+especially the memory contract implemented by <code>webpage_new</code> and <code>webpage_delete</code>.</p>
+<h3>Memory allocation</h3>
+<p>You may find the <code>mem</code> module useful.
+Its use is optional, but it is ready to use as part of library <code>libcs50.a</code>.</p>
+<p>In our Lab3 we tried to recover gracefully from memory-allocation failures.
+In the TSE application programs, we'll be more lazy: on NULL return from malloc/calloc you can print an error to stderr and exit with non-zero exit status.
+(You may find the <code>mem_assert()</code> family of functions to be useful here.)
+In such cases, it is ok if valgrind reports your program as having leaks.</p>
+<h3>Hashtable of URL</h3>
+<p>Our design calls for use of a Hashtable to store the URLs already seen.
+Our Hashtable implementation stores a <code>void* item</code> with each key... but if you're just storing URLs (as keys), what item do you store?
+Our hashtable disallows NULL items.
+Suggestion: just pass a constant string as the item; even <code>&quot;&quot;</code> will do.</p>
+<h3>Testing Crawler</h3>
+<p>The Implementation Spec instructs you to write a bash script <code>testing.sh</code> to test your crawler, and invoke it from the <code>make test</code> rule in the Makefile.
+Sample output from our crawler can be found in <code>~/cs50-dev/shared/tse/output</code>;
+keep in mind that our crawler may process URLs in a different order, so your directory may not be identical to ours.</p>
+<p><strong>Note:</strong> the full suite of tests described in the Implementation Spec can take more than an hour to run.
+Although we encourage you to test your crawler using a variety of tests, your <code>testing.out</code> may be smaller, e.g., (<code>letters</code> at depths 0,10, <code>toscrape</code> at depths 0,1, <code>wikipedia</code> at depths 0,1).</p>
+<h3>Use valgrind and gdb</h3>
+<p>We've provided information about <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/gdb.md">gdb</a> and <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/valgrind.md">valgrind</a>; make use of them.</p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Activity - Let's get modular!</h1>
+<p>Put your team's answers into a Markdown file and upload it to Canvas for Activity9.</p>
+<h2>EASY</h2>
+<ol>
+<li>On plink, copy the classroom demo code in the <code>shared</code> examples directory into a new directory that you can write in:</li>
+</ol>
+<ul>
+<li><a href="https://github.com/CS50DartmouthFA2025/examples/blob/main/bag8.c">bag8.c</a></li>
+<li><a href="https://github.com/CS50DartmouthFA2025/examples/blob/main/bag8.h">bag8.h</a></li>
+<li><a href="https://github.com/CS50DartmouthFA2025/examples/blob/main/readlinep.c">readlinep.c</a></li>
+<li><a href="https://github.com/CS50DartmouthFA2025/examples/blob/main/readlinep.h">readlinep.h</a></li>
+</ul>
+<p>How would you extend the <em>bag</em> module so it keeps track of the number of items
+in the bag? Would it be better to code it directly into <code>bag</code> or should you
+use <code>counters</code>? What are the pros and cons of each? Pick one method and work out
+how you would implement <code>bag_count()</code> which returns the current number of items in
+the bag.<br>
+Hint: you would need to modify:</p>
+<ul>
+<li><code>struct bag</code>  (to include a counter)</li>
+<li><code>bag_new</code>     (to initialize the counter)</li>
+<li><code>bag_insert</code>  (to increment the counter)</li>
+<li><code>bag_extract</code> (to decrement the counter)</li>
+<li><code>bag_print</code>   (so you can also print the counter!)</li>
+<li><code>bag8.c</code>      to add testing code to the <code>main()</code> function to verify the new feature works!</li>
+</ul>
+<h2>Hard</h2>
+<ol start="2">
+<li>How would you <strong>design</strong> (not code) a <code>tree</code> module? Things to consider:
+<ul>
+<li>what kind of tree (e.g., binary tree, B-tree, weighted decision tree, ... ) ?
+<ul>
+<li>should you have specialized <code>tree</code> modules for each of them, or can they share some code?</li>
+</ul>
+</li>
+<li>what data structure(s) would be best (i.e., clearest, fastest, etc.) ?</li>
+<li>what functions would be useful? Build the <code>tree.h</code> file with the functions
+you would implement.</li>
+<li>unlike bag, insertion and deletion of tree nodes is tricky. How would you do it?</li>
+<li>what static functions (i.e., hidden functions, for tree use only) would be
+helpful in implementing the public functions?</li>
+<li>how would you implement a <code>print</code> iterator for <code>tree</code> ?</li>
+<li>how would you implememnt a generic <code>map</code> iterator that applies a user-supplied
+function to each item in the tree?</li>
+<li>outline a test procedure to unit-test the new <code>tree</code> module.</li>
+</ul>
+</li>
+</ol>
+<h2>HARDER !</h2>
+<ol start="3">
+<li>
+<p>How would you <strong>design</strong> (not code) a generic <code>graph</code> module? Things to consider:</p>
+<ul>
+<li>
+<p>what kind of graph (directed/undirected, acyclic, tree (subset of graph), etc.)</p>
+</li>
+<li>
+<p>what would you use as the underlying data structures? (Hint: likely more than one!)</p>
+</li>
+<li>
+<p>what &quot;getter/setter&quot; functions will you need?</p>
+</li>
+<li>
+<p>functions to traverse a graph, to perform a search for example?</p>
+<ul>
+<li>Breadth-first and Depth-First algorithms for graphs exist - what would it take to implement
+those?</li>
+<li>This traversal is needed for a <code>print</code> or <code>map</code> interator</li>
+</ul>
+</li>
+<li>
+<p>what about graph functions like <code>isAdjacentTo</code>, <code>numberOfHopsBetween</code> two graph nodes, <code>shortestPathBetween</code> two graph nodes, etc.</p>
+</li>
+</ul>
+<p><a href="https://www.geeksforgeeks.org/graph-types-and-applications/?ref=lbp">Reference on graphs.</a></p>
+</li>
+</ol>
+
+    </div>
+</body>
+</html>

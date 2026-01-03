@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Fifty clouds of gray</h1>
+<h3>Design clinic - weather map</h3>
+<p>In this activity, imagine your team being hired by a client to build a weather-data service.</p>
+<h2>Your client</h2>
+<p>A startup called <em><a href="http://FiftyClouds.com">FiftyClouds.com</a></em> has developed an exciting VR interface to allow its users to navigate information about the fifty US states, and has hired your CS-fifty team to support them in adding a weather feature.
+Fortunately, the <a href="https://forecast.weather.gov">National Weather Service</a> (NWS) provides free weather data.
+Your CTO met with them earlier this week, and agreed on the Requirements Spec below.</p>
+<p><strong>Your task for today:</strong>
+write the Design Spec and at least start the Implementation Spec for this project.</p>
+<p>Recall the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md/#design-spec">Design Spec unit</a> and <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md/#implementation-spec">Implementation Spec unit</a>,
+and the examples we provide for the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/labs/tse">Tiny Search Engine</a>.</p>
+<!-- @CHANGEME: update the term-specific link to the TSE lab, above. -->
+<h2>Requirements spec</h2>
+<p>Subsections here follow the outline of a <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md/#requirements-spec">Requirements Spec</a>.</p>
+<h3>functionality</h3>
+<ul>
+<li>Your service should run as a server on the Internet, accepting <em>requests</em> and providing <em>responses</em>.</li>
+<li>A <em>request</em> is a pair of floating-point numbers <em>latitude</em>, <em>longitude</em>, representing a point on the Earth.</li>
+<li>A <em>response</em> is either an XML-format <em>weather report</em> for the closest NWS weather station, or string &quot;out of bounds&quot; if there is no NWS weather station within 100 miles of the <em>request</em> location.</li>
+<li>A <em>weather report</em> is an XML-format string containing
+<ul>
+<li>the latitude, longitude of the request</li>
+<li>the latitude, longitude of the nearest weather station</li>
+<li>the horizontal distance to the nearest weather station, in miles</li>
+<li>the station code and descriptive name of the nearest weather station</li>
+<li>the timestamp for the <em>current observation</em></li>
+<li>the <em>current observation</em>: weather condition, temperature, wind speed, humidity</li>
+</ul>
+</li>
+</ul>
+<h3>performance</h3>
+<ul>
+<li>FiftyClouds expects their service to be used by millions of people, and has stringent latency requirements so their VR fly-through experience is seamless.</li>
+<li>Thus, your service must respond to a valid request within <strong>100ms</strong> (one-tenth second) even when faced with <strong>1,000,000</strong> requests per minute.</li>
+</ul>
+<h3>compatibility</h3>
+<p>Your service must leverage the <a href="https://forecast.weather.gov">National Weather Service</a> data site.</p>
+<p>Your response must be a subset of the NWS data, following the NWS stylesheet.</p>
+<h3>ignore</h3>
+<p>For your purposes today, ignore</p>
+<ul>
+<li>cost</li>
+<li>compliance</li>
+<li>security 😱</li>
+</ul>
+<h2>Assumptions and suggestions</h2>
+<p>You may assume your program's requests arrive on stdin, one per line, and your response to each request is printed to stdout.
+Some magic connects your stdin and stdout to the Internet, and thus to FiftyCloud's application.</p>
+<p>Clearly, performance is an important issue.</p>
+<p>You may find these links useful as a way of exploring what data is available:</p>
+<ul>
+<li><a href="https://w1.weather.gov/xml/current_obs/seek.php?state=nh&amp;Find=Find">NWS find a station</a></li>
+<li><a href="https://forecast.weather.gov/stations.php?foo=0">NWS list of weather stations</a>.  I downloaded the XML and noticed there are over 2,800 stations!
+<ul>
+<li><code>grep '&lt;station_id&gt;' stations.xml | wc -l</code></li>
+</ul>
+</li>
+<li>NWS XML link for a station, e.g., for Lebanon, NH:
+<ul>
+<li><a href="https://www.weather.gov/xml/current_obs/KLEB.xml">https://www.weather.gov/xml/current_obs/KLEB.xml</a></li>
+<li><code>curl https://forecast.weather.gov/xml/current_obs/KLEB.xml</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>Some questions to consider</h2>
+<p>Put your team's answers in a Markdown file and upload it to Canvas for Activity 17.</p>
+<p>While coming up with a design, you encounter questions that will guide your effort.  Here are a few suggestions:</p>
+<ul>
+<li>
+<p>When and how often will you fetch the data from NWS?</p>
+<ul>
+<li>Why?</li>
+</ul>
+</li>
+<li>
+<p>How will you store the data to allow fast retrieval?</p>
+<ul>
+<li>What data structures will you use?</li>
+</ul>
+</li>
+<li>
+<p>What sorts of error conditions can occur?</p>
+<ul>
+<li>How will you handle each of them?</li>
+</ul>
+</li>
+<li>
+<p>How can you maintain a record of performance?</p>
+<ul>
+<li>How would you show the system meets the 1,000,000/minute requirement?</li>
+</ul>
+</li>
+<li>
+<p>How would you handle temporary surges in requests?</p>
+</li>
+<li>
+<p>How would you test the modules you build?</p>
+</li>
+<li>
+<p>If you can show that your system could be adapted to other kinds of high-performance, on-demand information distribution your venture capital firm will double your funding.</p>
+<ul>
+<li>What are some examples of other high-performance, on-demand information distribution applications?</li>
+<li>How would you design the system to support this?</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</body>
+</html>

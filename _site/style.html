@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | Style Guide</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>CS50 Style Guide</h1>
+<p>All coding in CS50 shall follow this style guide.</p>
+<h2>The importance of style</h2>
+<p>A computer program is meant for two audiences: the computer that compiles and runs it, and the people who must read, modify, maintain and test it.
+Think about writing a program the same way you think about writing a paper: structure, organization, word choice and formatting are just as important as content.
+A program that works but has a terrible style is unreadable, and therefore useless.</p>
+<p>Real-world software development teams use common programming style guides.
+For example, if you are working on the Linux kernel, you would use <a href="https://www.kernel.org/doc/Documentation/process/coding-style.rst">Linus' Coding Style</a>.
+If you are working on a gnu project, you would closely follow the instructions in Chapter 5 &quot;Making the best use of C&quot; of their <a href="http://www.gnu.org/prep/standards/standards.html#Writing-C">GNU Coding Standards</a> document.
+Other organizations might adopt other long-respected coding standards like the <a href="http://cvsweb.netbsd.org/bsdweb.cgi/src/share/misc/style?rev=HEAD&amp;content-type=text/x-cvsweb-markup">NetBSD source code style guide</a>, or they might produce their own guidelines based on several others.
+Your company will most likely have one they prefer.</p>
+<p>Style guides include things like formatting your source code, comment requirements, how certain C constructs should (or shouldn't) be used, variable naming conventions, cross-platform compatibility requirements, and more.</p>
+<p>We realize that coding style can be a very personal choice, but in the professional world you will seldom have the privilege of choosing your own style.</p>
+<h2>CS50 style</h2>
+<p><strong>For CS50 assignments involving C programming, you must follow these guidelines</strong> (inspired by the <a href="http://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628/ref=sr_1_1?ie=UTF8&amp;qid=1321068335&amp;sr=8-1">K&amp;R C book</a> and by <a href="https://www.kernel.org/doc/Documentation/process/coding-style.rst">Linus</a>):</p>
+<ul>
+<li>
+<p>Avoid placing multiple statements on a single line.</p>
+</li>
+<li>
+<p>Break long statements (more than 80 characters) over multiple lines.</p>
+</li>
+<li>
+<p>Indent appropriately; emacs and other C-savvy text editors can indent automatically. See below.</p>
+</li>
+<li>
+<p>Use braces <code>{ }</code> for every nested block - it can save you from accidental nesting bugs.</p>
+</li>
+<li>
+<p>Place the opening brace at the end of the line, e.g., in <code>if</code> and <code>for</code> statements.</p>
+</li>
+<li>
+<p>Exception: for functions, place the opening brace at the beginning of the next line.</p>
+</li>
+<li>
+<p>Use spaces around binary operators, except struct and pointer references.
+Do not use spaces between a unary operator and its operand.
+See below.</p>
+</li>
+<li>
+<p>Use parentheses liberally when it helps to make an expression clear.
+Adding parentheses rarely hurts, and might actually prevent a mistake.</p>
+</li>
+<li>
+<p>Avoid calling <code>exit()</code> from anywhere other than <code>main()</code>.
+Unwind back to <code>main</code> using error-return values and exit cleanly.</p>
+</li>
+<li>
+<p>Exception: in CS50 we recommend use of a function called <code>parse_args()</code>, and it's often cleanest for that function to exit when there are problems with command-line arguments.</p>
+</li>
+<li>
+<p>Always initialize variables, either when they are created, or soon thereafter.
+Initialize pointers to NULL if target not yet known.</p>
+</li>
+<li>
+<p>Declare function prototypes with type and name of formal parameters.</p>
+</li>
+<li>
+<p>Avoid using global variables.
+If they are absolutely necessary, restrict their use to a single source file using the <code>static</code> keyword.</p>
+</li>
+<li>
+<p>Avoid using <code>goto</code> unless absolutely necessary - you must have a <em>really</em> good reason for using a <code>goto</code>, in very exceptional cases.</p>
+</li>
+<li>
+<p>Avoid preprocessor macros; <code>#define</code> macros tend to be a source of difficult bugs.
+Instead, use <code>const</code> for constants and use real functions (or inline functions if you must).</p>
+</li>
+<li>
+<p>Don't use &quot;magic&quot; numbers in your code.
+Use <code>const</code> to create a named constant, e.g., <code>const float pi = 3.1416;</code></p>
+</li>
+<li>
+<p>Use <code>const</code> wherever you can, to indicate a value that will not change.</p>
+</li>
+<li>
+<p>Use the <code>bool</code> type whenever a function should return a boolean value, or a variable should hold a boolean flag.
+Avoid old C conventions that use 0 for false and non-zero for true.</p>
+</li>
+<li>
+<p>Wrap calls to <code>malloc()</code> in type-specific helper functions; see below.</p>
+</li>
+<li>
+<p>Break up large programs into multiple files.
+Every file (except for that containing <code>main</code>) should have a corresponding <code>.h</code> file that declares all functions, constants, and global variables meant to be visible outside the file.
+Furthermore, that <code>.h</code> file should included by the <code>.c</code> file that implements those functions and defines those variables, to allow the compiler to cross-check the declarations in <code>.h</code> with the definitions in <code>.c</code>.</p>
+</li>
+<li>
+<p>Break up large functions, aiming for <em>strong cohesion</em> and <em>weak coupling</em>.</p>
+</li>
+<li>
+<p>When declaring a pointer variable, place the <code>*</code> next to the type name, not the variable name, e.g., <code>char* buffer</code>.</p>
+</li>
+<li>
+<p>Append <code>_t</code> to a <code>typedef</code> name (a user-defined type); example below.</p>
+</li>
+<li>
+<p>Use <code>camelCase</code> for variable names and function names; within a module however, prepend the module name using <code>snake_case</code>.  For example, in the <code>webpage</code> module includes functions like these:</p>
+<pre><code>int   webpage_getDepth(const webpage_t* page);
+char* webpage_getURL(const webpage_t* page);
+char* webpage_getHTML(const webpage_t* page);
+</code></pre>
+</li>
+</ul>
+<p><em><strong>Remember: You are writing for clarity and communication, not to show how clever you are or how short and dense you can make your code.
+Consistency is the most important rule.</strong></em></p>
+<h3>Commenting:</h3>
+<p>Comment your code as you write it: it is much easier to write comments while your intentions are fresh in your mind than to go back later and do it.
+That said, remember to update the comments whenever you update the corresponding code; inconsistencies will confuse the reader!</p>
+<p>Keep comments short, simple and to the point.
+Comment wherever the code is not self-describing.
+Use the <code>//</code> style of commenting for one-line comments, and the <code>/* ... */</code> style for multi-line block comments.</p>
+<p>Use four types of comments:</p>
+<ul>
+<li>Start-of-file comments.</li>
+<li>Start-of-function comments.</li>
+<li>Paragraph comments</li>
+<li>End-of-line comments</li>
+</ul>
+<p>Use them in the following fashion:</p>
+<p><em><strong>Start-of-file-comments.</strong></em>
+You should place a block comment at the start of each file.
+This comment should include the names of programmer(s), the date the file was written, and a high-level description of the file's contents, e.g.,</p>
+<pre><code class="language-c">/*
+ * stack.c     Bill Stubblefield     November 20, 1994
+ *
+ * This file contains the definitions of a stack class.  It includes functions:
+ *
+ *     ... list functions, with brief descriptions (if needed)
+ *
+ */
+</code></pre>
+<p><em><strong>Start-of-function comments.</strong></em>
+Write a block comment to introduce each function.
+This comment should describe the <em>contract</em> between the caller and the function: describe what the function does, the meaning of its parameters, the meaning of its return value (if any), and assumptions about the responsibilities of the caller and the function.
+For example, if a function</p>
+<pre><code class="language-c">float sqrt(float number);
+</code></pre>
+<p>requires its argument to be positive, document it.
+Similarly, specify any constraints on the output.
+List all error conditions and what the function does with them.
+List any side effects.
+Be explicit about memory allocation: if the function returns a pointer to space from <code>malloc</code>, who is responsible for calling <code>free</code>?</p>
+<p>If the function algorithm is not obvious, describe it.
+Also, if you borrow the algorithm from another source, credit the source and author.</p>
+<p><em><strong>Paragraph comments.</strong></em>
+Often procedures can be divided into a series of steps, such as initialization, reading data, writing output.
+Place a small comment before each such section describing what it does.</p>
+<p><em><strong>End-of-line comments.</strong></em>
+Place a brief comment at the end of those lines where needed to clarify the code.
+Don't overdo it, but use them to call the reader's attention to subtleties in the code.
+Align the comments so that all the comments for a function begin in the same column, although this column can vary for different functions.</p>
+<h3>Spacing:</h3>
+<p>Place a space after keywords like <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>, <code>do</code>, <code>switch</code>, etc., after commas in function parameter lists, after semicolons in a for loop, between a right parenthesis and a left bracket, and around binary operators (except <code>.</code> and <code>,</code> and <code>-&gt;</code>).
+Remember that assignment is a binary operator.
+I usually do not put spaces between a function name and its parameter list, or an array name and its subscripts.
+For example,</p>
+<pre><code class="language-c">   for (i = 0; i &lt; N; i++) {
+       x = x + f(A[i], i);
+   }
+</code></pre>
+<h3>Indenting:</h3>
+<p>CS50 preference is to use 2 spaces for each level of indentation.
+<em>Please</em> avoid using tabs, because different code viewers, editors, and formatters will use different tabstops and that often makes your code difficult for others to read.</p>
+<p>Let your text editor help you auto-indent your code.
+Often, trouble with auto-indentation is a clue to your own syntax mistake (such as forgetting brackets).</p>
+<p>When you create or open a file, emacs will recognize C by the filename extension <code>.c</code> or <code>.h</code> and switch to &quot;C mode&quot;; you'll see this mode on the emacs status line.
+In C mode, hitting the TAB key while the cursor is on a given line indents it to the correct level, <em>assuming that the preceding non blank line has been indented correctly</em>.
+Ending a line with a left bracket and hitting return will automatically indent the next line appropriately.
+Also, a line beginning with a right bracket will indent to the correct level.
+Finally, typing <code>//</code> on a new line will create a comment and indent it to the line of code.</p>
+<h2>Dynamic memory allocation</h2>
+<p>Avoid sprinking calls to <code>malloc()</code> and <code>free()</code> throughout your code.
+Instead, think about the kinds of things you need to create and destroy, and write type-specific wrapper for each such type.
+For example, if your program manipulates things of type <code>struct listnode</code>, you would write two functions:</p>
+<pre><code class="language-c">    struct listnode *listnode_new(...);
+    void listnode_delete(struct listnode *node);
+</code></pre>
+<p>The first function calls <code>malloc(sizeof(struct listnode)</code> and initializes all of its contents, perhaps using parameters passed by the caller.
+The second calls <code>free(node)</code>.
+Both involve careful error-checking code.
+See example <a href="https://github.com/CS50DartmouthFA2025/examples/blob/main/sorter4.c">sorter4.c</a>.</p>
+<p>There are many advantages to this approach:</p>
+<ul>
+<li>The mainline code is more readable, because it's clear what <code>listnode_new()</code> is doing.</li>
+<li>Code involving <code>malloc</code> can sometimes be tricky, and you isolate that trickiness in one spot and focus on getting it right once.</li>
+<li>Some new types might need multiple <code>malloc</code> calls, as in our linked-list example <a href="https://github.com/CS50DartmouthFA2025/examples/blob/main/sorter4.c">sorter4.c</a>.
+All those <code>malloc</code> calls (and corresponding <code>free</code> calls) can be in the <code>new</code>/<code>free</code> functions.</li>
+<li>The <code>new</code> function acts like a 'constructor' in object-oriented languages and can ensure the newly returned memory is initialized.</li>
+<li>You can insert debugging output or reference-counting logic, or set debugger breakpoints, in these <code>new</code>/<code>free</code> functions and immediately have that feature apply to <em>all</em> occurrences of your program's work with this type.</li>
+</ul>
+<h2>Program structure</h2>
+<p>Although C allows us to be very flexible with where we put declarations, a standard layout makes it easier to read the code.
+The following demonstrates our convention.</p>
+<pre><code class="language-c">/*
+ *  Start-of-file-comments
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+. . .
+
+// global type and constant definitions
+const float PI = 3.1416;
+. . .
+
+// function prototypes
+void push(int item);
+
+/* ***************************
+ *  Start-of-function-comments
+ */
+int main(const int argc, char *argv[])
+{
+	// local const, type and variable declarations
+	// body of code
+}
+
+/* ***************************
+ *  Start-of-function-comments
+ */
+void push(int item) {
+	// local const, type and variable declarations
+	// function body
+}
+</code></pre>
+<p>Although you can declare variables at any time before they are used, it is sometimes best to place all declarations at the beginning of the function.
+That way a reader can easily find them.
+There are times when it is convenient or prudent to do otherwise; we'll come back to this issue.</p>
+<h2>Simplicity</h2>
+<p>This single most important thing you can do to write good code is to keep it simple.</p>
+<p><strong>Make all functions small, coherent and specific.</strong>
+Every function should do exactly one thing.
+A good rule of thumb is that you should be able to describe what a function does in a single sentence.
+Generally, C functions occupy less than a page, with most functions occupying 10-30 lines.</p>
+<p><strong>Use small parameter lists.</strong>
+Avoid extremely long parameter lists.
+If you find the parameters to a function growing, ask yourself if the function is trying to do too much, or if the function is too vague in its intent.</p>
+<p><strong>Avoid deeply nested blocks.</strong>
+Structures such as <code>if</code>, <code>for</code> and <code>while</code> define blocks of code; blocks can contain other blocks.
+Try not to nest blocks too deeply.
+Any function with more than a couple levels of nesting can be confusing.
+If you find yourself with deeply nested structures, consider either simplifying the structure or defining functions to handle some of the nested parts.</p>
+<p><strong>Use the simplest algorithm that meets your needs.</strong>
+There are a great many extremely clever, complex algorithms in computer science.
+Make an effort to know them and use the algorithm that meets your needs for efficiency.
+Do not shun complex algorithms, but do not choose them when a simpler algorithm will suffice.</p>
+<p><strong>Be consistent.</strong>
+Consistency can come in many forms.
+Try to be</p>
+<ul>
+<li>consistent in number, order, and type of function parameters: if two functions have a similar purpose, try to give them similar lists of parameters;</li>
+<li>consistent in your use of loops and other program constructs;</li>
+<li>consistent in your style for naming and commenting.</li>
+</ul>
+<p><strong>Don't be clever.</strong>
+Samuel Johnson once said (I may not be quoting him exactly) &quot;When you find something particularly clever in your writing, strike it out.&quot; C offers many constructs, such as conditional expressions, unary operators, etc.
+that make it possible to write extremely compact, dense unreadable code.
+Use these features, but also ask yourself: &quot;Will another programmer understand what I mean here?&quot;</p>
+<h2>Practice defensive programming!</h2>
+<p>It is important you write C programs defensively.
+That is, you need to check the input the program receives, make sure it is as expected (in range, correct datatype, length of strings, etc.), and, if it is not acceptable, provide appropriate message(s) back to the user in terms of the program usage.
+The user should <strong>never</strong> be able to cause your program to adversely impact any aspect of the system it's running on, including system files, other users' files or processes, or network access.</p>
+<ul>
+<li>Make sure command-line arguments and function parameters have legal values.</li>
+<li>Check the results of all calls to standard libraries or the operating system.
+For example, check all memory allocations (<code>malloc</code>) to detect out-of-memory conditions.</li>
+<li>Check all data obtained from users or other programs.</li>
+<li>Check limit conditions on loops and arrays.
+For example, what happens if you try to access a value that is out of bounds?</li>
+</ul>
+<p>When you detect an error condition, first consider ways to modify the code to prevent the error from happening in the first place.
+If that is not possible, ask if there is a way the code can recover from the error.
+If there is no reasonable way of recovering, print an error message and exit the program.</p>
+<p>In short, if someone can crash your program, you lose points, whether in this class or in a future job.</p>
+<h2>Required compiler options</h2>
+<p>For <strong>all</strong> C programming assignments in this class, you must use (at a minimum) the following <code>gcc</code> compile options:</p>
+<pre><code class="language-bash">    gcc -std=c11 -Wall -pedantic ... program.c ...
+</code></pre>
+<p>These instruct the compiler to compile for the C11 language standard, display all possible warnings, and to issue warnings if any non-ISO standard C features provided by <code>gcc</code> are used, respectively.
+You will likely need to add other options to these; for example, if you use mathematics functions, you need to <code>#include &lt;math.h&gt;</code> in your C program and add <code>-lm</code> to the command line.</p>
+<p>Recall that our standard <code>.bashrc</code> defines an alias <code>mygcc</code> to make it easy to apply these options every time:</p>
+<pre><code class="language-bash">alias mygcc='gcc -Wall -pedantic -std=c11 -ggdb'
+</code></pre>
+
+    </div>
+</body>
+</html>

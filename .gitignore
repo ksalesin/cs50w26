@@ -1,0 +1,14 @@
+# Node 
+/node_modules
+
+# Eleventy site output 
+# _site
+
+# Ignore cached static API from eleventy-cache-assets
+.cache
+
+# DS_Store
+.DS_Store
+
+# VS Code cache
+.vscode

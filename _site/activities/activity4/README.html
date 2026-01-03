@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/" id="cs50">CS 50: Software Design and Implementation</a></h3>
+        <ul>
+            <li><a href="/syllabus">Syllabus</a></li>
+            <li><a href="/schedule">Schedule</a></li>
+            <li><a href="/style">Style Guide</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://plink.cs.dartmouth.edu:3000/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Activity: C ya !</h1>
+<p><strong>Working in your group (perhaps one person sharing screen)</strong>, answer the following. Add your group answers to a markdown file (<code>activity4.md</code>) and upload it to canvas for this activity.</p>
+<p>To include source code in a markdown file, put it inside a code block which begins and ends with three back-tics (the character just left of the &quot;1&quot; key):</p>
+<pre><code>```
+main(int argc, char* argv[])
+{
+    printf( &quot;Hello, world!\n&quot;);
+}
+```
+</code></pre>
+<p>Do these exercises on <code>plink</code>, and copy your answers back to your machine to upload to Canvas.</p>
+<h2>1. Add the missing code</h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main(int argc, char *argv[])
+{
+  int width=24,
+  		length=11;
+  
+  // print out the area of the box defined by width and length
+  // it should look like 
+  // 		A box of width #### and length #### has an area of ####.
+  
+  // calculate the length of a diagonal (hint: think Pythagoras)
+  // and print it with two decimal places
+  
+}
+</code></pre>
+<h2>2. Fix it</h2>
+<pre><code class="language-c">void main()
+{
+    int a;
+ 
+    if (a == 2)
+        a++;
+ 		    printf(&quot;value of a is&quot;, a);
+ 
+    else printf(&quot;value of a is not equal to 2 &quot;);
+}
+</code></pre>
+<h2>3. Even or odd</h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main(int argc, char *argv[])
+{
+  int temp=0,
+      odd=0;
+  char answer[5];
+  
+  if (argc==2) {
+    if (1==sscanf(argv[1], &quot;%d&quot;, &amp;temp)) {
+      // determine whether the # is even or odd with one operator
+      // if it's odd , set odd to 1 
+
+      // ??? //
+      
+     if (odd) {
+        strncpy(answer,&quot;Odd&quot;, sizeof(answer));
+      }
+      else {
+        strncpy(answer, &quot;Even&quot;, sizeof(answer));
+      }
+      puts(answer);
+      return(0);
+    }
+  }
+	else {
+  	fprintf(stderr,&quot;Usage: %s num , where num is an integer\n&quot;, argv[0]);
+  	return 1;
+	}
+}
+</code></pre>
+<h2>4. Produce the sum of integers</h2>
+<p>Finish the program below to sum the positive integers from 1 to the provided integer number.</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main(int argc, char *argv[])
+{
+  int sum=0, max=0;
+  if (argc==2) {
+    if (1==sscanf(argv[1], &quot;%d&quot;, &amp;max)) {
+      
+			// make sure the max is valid
+      
+      // use a loop to calculate the sum
+  
+  		// display the answer
+    }
+    else {
+      // user entered a non-number, so issue error message and exit
+      
+    }
+  }
+	else {
+  	fprintf(stderr,&quot;Usage: %s num , where num is an integer\n&quot;, argv[0]);
+  	return 1;
+	}
+}
+</code></pre>
+<h2>5. Leap year</h2>
+<p>Write a complete C program (possibly reusing some of the above code) to determine whether a given year is a leap year. The rule is a year is a leap year if</p>
+<ul>
+<li>It is a multiple of 4 but not of 100, or</li>
+<li>It is a multiple of 400.</li>
+</ul>
+<h2>6. How big is it</h2>
+<p>Write a complete C program to print the size in bytes of  these C datatypes:  char, int, short, long, float, and double.</p>
+<p><strong>Extra</strong> Copy your program back to your machine, build, and run it. Are the
+results the same? If not, why do you think they are different?</p>
+<h2>7. Print a half-pyramid</h2>
+<p>A half pyramid pattern of numbers looks like a right-triangle of numbers in which the hypotenuse is on the right-hand side. Write a program to accept an integer and print a half-pyramid.</p>
+<p><em><strong>Example</strong></em></p>
+<pre><code>$ ./c7 5
+1 
+2 2 
+3 3 3 
+4 4 4 4 
+5 5 5 5 5 
+$ 
+</code></pre>
+<p><em><strong>Don't forget: one team member should upload your answers to Activity 4 on Canvas.</strong></em></p>
+
+    </div>
+</body>
+</html>
