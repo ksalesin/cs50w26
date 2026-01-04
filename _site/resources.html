@@ -44,6 +44,7 @@ If you're really stuck, email <a href="mailto:help@dartmouth.edu">help@dartmouth
 (Keep in mind they are only active during normal business hours.)</p>
 </li>
 </ul>
+<p>Of course, if you get stuck, you are always welcome to come to office hours for help.</p>
 <!-- * For help about **CS50-specific issues**, use [Slack](syllabus.md#slack). -->
 <!-- ## Slack setup
 
@@ -69,8 +70,8 @@ If you have any problems or questions, Slack offers [video tutorials](https://sl
 <h2><a id="linux">Linux systems</a></h2>
 <p>You will do all your programming and lab submission on Linux servers at Dartmouth's Thayer School of Engineering.</p>
 <!-- @CHANGEME - insert term-specific repo link -->
-<p>To set yourself up, follow these <a href="https://github.com/CS50DartmouthFA2025/cs50-dev">instructions</a>.</p>
-<p>The primary CS50 server is called <code>plink.thayer.dartmouth.edu</code>; you may also use equivalent servers called <code>babylonX.thayer.dartmouth.edu</code>, where <code>X</code> is 1 through 8.
+<!-- To set yourself up, follow these [instructions](https://github.com/CS50DartmouthFA2025/cs50-dev). -->
+<p>The primary CS50 server is called <code>plink.cs.dartmouth.edu</code>; you may also use equivalent servers called <code>babylonX.thayer.dartmouth.edu</code>, where <code>X</code> is 1 through 8.
 (You can check their status <a href="https://cluster-usage.thayer.dartmouth.edu">here</a>.)
 Your laptop must first be on the campus network, or on <a href="https://services.dartmouth.edu/TDClient/1806/Portal/KB/?CategoryID=13404">Dartmouth VPN</a>, to access these servers.</p>
 <p><strong>In CS50 we support development only on Thayer's Linux systems.</strong>
@@ -82,19 +83,17 @@ Linux systems differ in subtle ways; MacOS is a form of Unix different from Linu
 <li>
 <p>If you are a Mac or Linux user, you can reduce typing by adding the following to your laptop's <code>.ssh/config</code> file (using your own NetID); then you can type <code>ssh cs50</code> and only have to enter your password to login.</p>
 <pre><code>Host cs50
-   Hostname plink.thayer.dartmouth.edu
+   Hostname plink.cs.dartmouth.edu
    User f12345x
 </code></pre>
-</li>
-</ol>
 <p>On MacOS, this file is <code>~/.ssh/config</code>, and you can create or append to it by opening that file in your favorite editor, or as follows (use your appropriate NetID):</p>
 <pre><code>echo &gt;&gt; ~/.ssh/config &lt;&lt;EOF
 Host cs50
-   Hostname plink.thayer.dartmouth.edu
-   User f12345x
+	Hostname plink.cs.dartmouth.edu
+	User f12345x
 EOF
 </code></pre>
-<ol start="2">
+</li>
 <li>
 <p>Every time you login, it reminds you about whether you are getting close to consuming all your disk-space quota:</p>
 <pre><code>&lt;&lt; You are currently using 47.39M of your 5.00G home directory quota. &gt;&gt;
@@ -113,7 +112,7 @@ Although the mere presence of this file is sufficient, put some text in the file
 <h2>Unix</h2>
 <p><a href="https://en.wikipedia.org/wiki/Linux">Linux</a> is a flavor of the <a href="https://en.wikipedia.org/wiki/Unix">Unix</a> operating system.
 It is likely the most common OS in use today, and the one we use on all CS and Thayer systems.</p>
-<p>Definitive documentation for the Unix tools we use can be found in 'man pages' (short for &quot;manual pages&quot;) on <code>plink.thayer.dartmouth.edu</code>.
+<p>Definitive documentation for the Unix tools we use can be found in 'man pages' (short for &quot;manual pages&quot;) on <code>plink.cs.dartmouth.edu</code>.
 For example, to learn the details of the <code>ls</code> command, type <code>man ls</code>.</p>
 <blockquote>
 <p>You're welcome to employ your favorite search engine, but beware that there are subtle variations in UNIX tools across its many flavors and distributions.
@@ -183,7 +182,7 @@ It is owned by most UNIX geeks -- not because it's such a great reference, but, 
 <h2>Git and GitHub</h2>
 <p>In CS50 we use the <code>git</code>  distributed version control system, with repositories hosted on GitHub, for managing and sharing your source code.
 Specifically, we use <a href="https://github.com">GitHub</a> to manage your development process, submit your labs for grading, and share code with your project team.</p>
-<p><strong><a href="github.md">Set yourself up</a> on GitHub</strong>.</p>
+<p><strong><a href="/~ksalesin/cs50/github.html">Set yourself up on Github</a></strong></p>
 <p>For help with <a href="https://github.com/">GitHub</a>, look for the Help item under the top-right menu on any GitHub page, which leads to the extensive <a href="https://docs.github.com/en">help site</a>.</p>
 <p>Try  <em><a href="https://onlywei.github.io/explain-git-with-d3/">Visualizing Git Concepts with D3</a></em> to experiment with git concepts.</p>
 <p>Here are some other useful references for <code>git</code>:</p>
@@ -264,7 +263,7 @@ It is a &quot;modal&quot; editor (derived from <code>vi</code>) with many single
 Once you master the basic keystrokes, you can edit very quickly -- and even recompile your program from inside emacs.
 See the <a href="http://www2.lib.uchicago.edu/keith/tcl-course/emacs-tutorial.html">emacs tutorial</a>
 and <a href="https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf">emacs quick reference guide</a>.</p>
-<p><a href="https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b333eba9-ab2e-4567-a1be-acfb00ec383e"><strong>:arrow_forward: Video tour of vim and emacs.</strong></a></p>
+<p><a href="https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b333eba9-ab2e-4567-a1be-acfb00ec383e"><strong>Video tour of vim and emacs</strong></a></p>
 <p>There are some free full-screen editors you can download on your laptop:</p>
 <p><strong>Atom</strong>: <a href="https://atom.io">Atom</a>  has great full-screen functionality, runs everywhere, and has a large collection of extensions.</p>
 <p><strong>Sublime</strong>: the <a href="https://www.sublimetext.com">Sublime Text editor</a> can be used for free (as long as you don't mind declining the periodic requests to pay).

@@ -4,7 +4,7 @@ title: CS 50 | Github
 permalink: /github.html
 ---
 
-# CS50 GitHub setup
+# GitHub setup
 
 This page walks you through creating a GitHub account and configuring it for use in CS50.
 [GitHub](https://github.com) is a code-hosting platform for version control and collaboration.
@@ -47,7 +47,7 @@ You will use GitHub to manage and share your lab and project code.
 	![screenshot from GitHub settings page](images/ssh-add-key-1.png)
 
 	Click the button **New SSH Key**.
-	In the **Title** field, give your key an appropriate name so that you know what machine this key resides on (e.g., *Thayer Plank*) and paste your clipboard into the **Key** field.
+	In the **Title** field, give your key an appropriate name so that you know what machine this key resides on (e.g., *Plink*) and paste your clipboard into the **Key** field.
 Finally, click **Add SSH Key**.
 
 	![screenshot from GitHub ssh page](images/ssh-add-key-2.png)

@@ -17,7 +17,7 @@ This form provides us with the information we need to:
 - to help support you through the term.
 
 ## Part 2: Create a GitHub account (or provide your ID)
-If you don't have a github.com account, please create one.
+If you don't have a github.com account, please create one. [Instructions](/github.html)
 
 **Please submit your GitHub ID as the text submission for this assignment on Canvas.**
 

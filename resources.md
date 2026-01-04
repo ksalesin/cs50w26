@@ -28,6 +28,8 @@ If you're really stuck, email [help@dartmouth.edu](mailto:help@dartmouth.edu) or
 * For help using the **Thayer Linux computer systems**, look [here first](https://kb.thayer.dartmouth.edu/article/361-linux-services). If that doesn't help, then send an email to [Thayer Computing Services](mailto:computing@thayer.dartmouth.edu) for support.
 (Keep in mind they are only active during normal business hours.)
 
+Of course, if you get stuck, you are always welcome to come to office hours for help.
+
 <!-- * For help about **CS50-specific issues**, use [Slack](syllabus.md#slack). -->
 
 <!-- ## Slack setup
@@ -56,9 +58,9 @@ If you have any problems or questions, Slack offers [video tutorials](https://sl
 
 You will do all your programming and lab submission on Linux servers at Dartmouth's Thayer School of Engineering.
 <!-- @CHANGEME - insert term-specific repo link -->
-To set yourself up, follow these [instructions](https://github.com/CS50DartmouthFA2025/cs50-dev).
+<!-- To set yourself up, follow these [instructions](https://github.com/CS50DartmouthFA2025/cs50-dev). -->
 
-The primary CS50 server is called `plink.thayer.dartmouth.edu`; you may also use equivalent servers called `babylonX.thayer.dartmouth.edu`, where `X` is 1 through 8.
+The primary CS50 server is called `plink.cs.dartmouth.edu`; you may also use equivalent servers called `babylonX.thayer.dartmouth.edu`, where `X` is 1 through 8.
 (You can check their status [here](https://cluster-usage.thayer.dartmouth.edu).)
 Your laptop must first be on the campus network, or on [Dartmouth VPN](https://services.dartmouth.edu/TDClient/1806/Portal/KB/?CategoryID=13404), to access these servers.
 
@@ -73,19 +75,19 @@ Linux systems differ in subtle ways; MacOS is a form of Unix different from Linu
 
 	```
 	Host cs50
-	   Hostname plink.thayer.dartmouth.edu
+	   Hostname plink.cs.dartmouth.edu
 	   User f12345x
 	```
 
-On MacOS, this file is `~/.ssh/config`, and you can create or append to it by opening that file in your favorite editor, or as follows (use your appropriate NetID):
+	On MacOS, this file is `~/.ssh/config`, and you can create or append to it by opening that file in your favorite editor, or as follows (use your appropriate NetID):
 
-```
-echo >> ~/.ssh/config <<EOF
-Host cs50
-   Hostname plink.thayer.dartmouth.edu
-   User f12345x
-EOF
-```
+	```
+	echo >> ~/.ssh/config <<EOF
+	Host cs50
+   		Hostname plink.cs.dartmouth.edu
+   		User f12345x
+	EOF
+	```
 
 2. Every time you login, it reminds you about whether you are getting close to consuming all your disk-space quota:
 
@@ -115,7 +117,7 @@ EOF
 [Linux](https://en.wikipedia.org/wiki/Linux) is a flavor of the [Unix](https://en.wikipedia.org/wiki/Unix) operating system.
 It is likely the most common OS in use today, and the one we use on all CS and Thayer systems.
 
-Definitive documentation for the Unix tools we use can be found in 'man pages' (short for "manual pages") on `plink.thayer.dartmouth.edu`.
+Definitive documentation for the Unix tools we use can be found in 'man pages' (short for "manual pages") on `plink.cs.dartmouth.edu`.
 For example, to learn the details of the `ls` command, type `man ls`.
 
 > You're welcome to employ your favorite search engine, but beware that there are subtle variations in UNIX tools across its many flavors and distributions.
@@ -185,7 +187,7 @@ Many resources are also available online:
 In CS50 we use the `git`  distributed version control system, with repositories hosted on GitHub, for managing and sharing your source code.
 Specifically, we use [GitHub](https://github.com) to manage your development process, submit your labs for grading, and share code with your project team.
 
-**[Set yourself up](github.md) on GitHub**.
+**[Set yourself up on Github](/github.html)**
 
 For help with [GitHub](https://github.com/), look for the Help item under the top-right menu on any GitHub page, which leads to the extensive [help site](https://docs.github.com/en).
 
@@ -269,7 +271,7 @@ Once you master the basic keystrokes, you can edit very quickly -- and even reco
 See the [emacs tutorial](http://www2.lib.uchicago.edu/keith/tcl-course/emacs-tutorial.html)
 and [emacs quick reference guide](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf).
 
-[**:arrow_forward: Video tour of vim and emacs.**](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b333eba9-ab2e-4567-a1be-acfb00ec383e)
+[**Video tour of vim and emacs**](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b333eba9-ab2e-4567-a1be-acfb00ec383e)
 
 There are some free full-screen editors you can download on your laptop:  
 
