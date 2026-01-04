@@ -4,9 +4,9 @@ title: CS 50 | Style Guide
 permalink: /style.html
 ---
 
-# CS50 Style Guide
+# CS 50 Style Guide
 
-All coding in CS50 shall follow this style guide.
+All coding in CS 50 shall follow this style guide.
 
 ## The importance of style
 
@@ -24,9 +24,9 @@ Style guides include things like formatting your source code, comment requiremen
 
 We realize that coding style can be a very personal choice, but in the professional world you will seldom have the privilege of choosing your own style.
 
-## CS50 style
+## CS 50 style
 
-**For CS50 assignments involving C programming, you must follow these guidelines** (inspired by the [K&R C book](http://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628/ref=sr_1_1?ie=UTF8&qid=1321068335&sr=8-1) and by [Linus](https://www.kernel.org/doc/Documentation/process/coding-style.rst)):
+**For CS 50 assignments involving C programming, you must follow these guidelines** (inspired by the [K&R C book](http://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628/ref=sr_1_1?ie=UTF8&qid=1321068335&sr=8-1) and by [Linus](https://www.kernel.org/doc/Documentation/process/coding-style.rst)):
 
 * Avoid placing multiple statements on a single line.
 * Break long statements (more than 80 characters) over multiple lines.
@@ -74,7 +74,7 @@ Every file (except for that containing `main`) should have a corresponding `.h` 
 Consistency is the most important rule.***
 
 
-### Commenting:
+### Commenting
 
 Comment your code as you write it: it is much easier to write comments while your intentions are fresh in your mind than to go back later and do it.
 That said, remember to update the comments whenever you update the corresponding code; inconsistencies will confuse the reader!
@@ -134,7 +134,7 @@ Place a brief comment at the end of those lines where needed to clarify the code
 Don't overdo it, but use them to call the reader's attention to subtleties in the code.
 Align the comments so that all the comments for a function begin in the same column, although this column can vary for different functions.
 
-### Spacing:
+### Spacing
 
 Place a space after keywords like `if`, `else`, `for`, `while`, `do`, `switch`, etc., after commas in function parameter lists, after semicolons in a for loop, between a right parenthesis and a left bracket, and around binary operators (except `.` and `,` and `->`).
 Remember that assignment is a binary operator.
@@ -147,7 +147,7 @@ For example,
    }
 ```
 
-### Indenting:
+### Indenting
 
 CS50 preference is to use 2 spaces for each level of indentation.
 *Please* avoid using tabs, because different code viewers, editors, and formatters will use different tabstops and that often makes your code difficult for others to read.
