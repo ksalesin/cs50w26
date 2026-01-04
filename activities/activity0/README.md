@@ -1,22 +1,16 @@
 # Activity: Hello Linux
 
-Meet your new CS50 team, and Learning Fellow; play with bash pipelines.
+Meet your fellow CS 50 students and Learning Fellows; play with bash pipelines.
 
 ## Learning groups
 
-1. Introduce yourself to your new group mates, and to your Learning Fellow.
-2. Choose a name for your group.
-   It must be suitable as a Git repository name; thus, it should not be too long, and include only the characters `[A-Z][a-z][0-9][-._]`. Keep it PG-rated, too.
-3. (One of you) create a private channel in our Slack workspace, using your group name; invite the others.
-   Now you can coordinate your group over Slack!
-4. Send me a DM to tell me your new group name.
-5. Work with your group to solve the following problems.
-
-## 
+1. Introduce yourself to your new group mates and to your Learning Fellow.
+2. Work with your group to solve the following problems.
+3. Create a markdown (.md) file to record your group's responses to the questions below -- one of you will submit this summary on Canvas at the end of class. Put the names of your group mates at the top of the file.
 
 ## Get familiar with bash
 
-These questions assume you completed the system setup of Lab 0.
+<!-- These questions assume you completed the system setup of Lab 0. -->
 
 Now, **working in your group (perhaps one person sharing screen)**, do the following:
 
