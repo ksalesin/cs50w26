@@ -34,12 +34,13 @@ The data is a spreadsheet formatted as <em>comma separated values</em> (csv) -- 
 <p>You need to format your <code>README.md</code> file in Markdown syntax, and you will write two bash scripts that print their output in Markdown syntax.
 (See the Markdown information and example at bottom of this page.)</p>
 <h2>Assignment</h2>
-<p>A. Create a ~/lab1 folder and create a <a href="http://lab1.sh">lab1.sh</a> file in it. Add a '#'comment for each of the following tasks. For problems B to H below, paste your proposed bash command/pipeline (but not its output) after the appropriate header.</p>
-<p>B. Explore the directory <code>~/cs50-dev/shared/COVID-19</code>.
-Find the pathname for the <code>hourly/vaccine_data_us.csv</code>.
-Write a single bash command or pipeline to create a <em>symbolic link</em> to that file, within your <code>lab1-XXXX</code> directory.
-The goal is that, when your current working directory is your <code>lab1-XXXX</code> directory, you can type</p>
-<p>less vaccine_data_us.csv</p>
+<p>A. Create a <code>~/lab1</code> folder on plink and create a <code>lab1.sh</code> file in it. Add a '#' comment for each of the following tasks. For problems B to H below, paste your proposed bash command/pipeline (but not its output) after the appropriate header.</p>
+<p>B. Explore the directory <code>~/home/cs50/COVID-19</code>.
+Find the pathname for the <code>time_series/time_series_covid19_vaccine_us.csv</code> (it will take some digging around).
+Write a single bash command or pipeline to create a <em>symbolic link</em> to that file, within your <code>lab1</code> directory.
+The goal is that, when your current working directory is your <code>lab1</code> directory, you can type</p>
+<pre><code>less vaccine_data_us.csv
+</code></pre>
 <p>and see the contents of that shared file.
 Much easier than remembering and typing the long pathname every time!</p>
 <p>C. Write a single bash command or pipeline to print only the header line of the spreadsheet.</p>
@@ -58,7 +59,8 @@ The result is almost in Markdown 'table' format.</p>
 <p>I. Write a bash script <code>top10.sh</code> that is given the name of the csv file as its first/only argument, and prints to stdout a table in Markdown format.
 (If the first argument is missing, or names an unreadable file, print nothing but an error message, and exit non-zero.)
 Thus,</p>
-<p>./top10.sh vaccine_data_us.csv &gt; <a href="http://top10.md">top10.md</a></p>
+<pre><code>./top10.sh vaccine_data_us.csv &gt; top10.md
+</code></pre>
 <p>will create a Markdown file <code>top10.md</code> from the csv data, adding a header to the output of the previous pipeline so the resulting Markdown file, when viewed in a Markdown-rendering tool, will look like this one:</p>
 <table>
 <thead>
@@ -148,12 +150,12 @@ See above for an example of triple-ticks for bash.</li>
 An early version of the specs above had contradictory instructions about exit status and unreadable files.
 If your script follows the older spec, and exits cleanly (but with non-zero status) on encountering an argument that does not represent a readable file, we will accept it as correct.</p>
 <h2>What to hand in, and how</h2>
-<p>You should have three files in your <code>lab1-XXXX</code> directory:
+<p>You should have three files in your <code>lab1</code> directory:
 <code>README.md</code>, as edited by you, and the two bash scripts <code>top10.sh</code> and <code>summarize.sh</code>.
 You should add <strong>only</strong> these three files to your repo:</p>
 <pre><code>git add README.md top10.sh summarize.sh
 </code></pre>
-<p>See the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md">lab-submission instructions</a> for details of how to submit your lab.</p>
+<p>See the <a href="/~ksalesin/cs50/submit.html">lab submission instructions</a> for details of how to submit your lab.</p>
 <h2>Hints</h2>
 <p>You will find some of the following commands useful; use <code>man cmd</code> to read about any command.
 It's best to run <code>man</code> on <code>plink</code> (not your Mac, or other Unix machine) so you are sure to get the manual for the version of the command where your script will run.</p>

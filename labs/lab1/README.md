@@ -19,17 +19,19 @@ You need to format your `README.md` file in Markdown syntax, and you will write 
 
 ## Assignment
 
-A. Create a ~/lab1 folder and create a lab1.sh file in it. Add a '#'comment for each of the following tasks. For problems B to H below, paste your proposed bash command/pipeline (but not its output) after the appropriate header.
+A. Create a `~/lab1` folder on plink and create a `lab1.sh` file in it. Add a '#' comment for each of the following tasks. For problems B to H below, paste your proposed bash command/pipeline (but not its output) after the appropriate header.
 
-B. Explore the directory `~/cs50-dev/shared/COVID-19`.
-Find the pathname for the `hourly/vaccine_data_us.csv`.
-Write a single bash command or pipeline to create a *symbolic link* to that file, within your `lab1-XXXX` directory.
-The goal is that, when your current working directory is your `lab1-XXXX` directory, you can type
+B. Explore the directory `~/home/cs50/COVID-19`.
+Find the pathname for the `time_series/time_series_covid19_vaccine_us.csv` (it will take some digging around).
+Write a single bash command or pipeline to create a *symbolic link* to that file, within your `lab1` directory.
+The goal is that, when your current working directory is your `lab1` directory, you can type
 
-		less vaccine_data_us.csv
+```
+less vaccine_data_us.csv
+```
 
-  and see the contents of that shared file.
-  Much easier than remembering and typing the long pathname every time!
+and see the contents of that shared file.
+Much easier than remembering and typing the long pathname every time!
 
 C. Write a single bash command or pipeline to print only the header line of the spreadsheet.
 
@@ -55,7 +57,9 @@ I. Write a bash script `top10.sh` that is given the name of the csv file as its 
   (If the first argument is missing, or names an unreadable file, print nothing but an error message, and exit non-zero.)
   Thus,
 
-		./top10.sh vaccine_data_us.csv > top10.md
+```
+./top10.sh vaccine_data_us.csv > top10.md
+```
 
   will create a Markdown file `top10.md` from the csv data, adding a header to the output of the previous pipeline so the resulting Markdown file, when viewed in a Markdown-rendering tool, will look like this one:
 
@@ -114,7 +118,7 @@ If your script follows the older spec, and exits cleanly (but with non-zero stat
 
 ## What to hand in, and how
 
-You should have three files in your `lab1-XXXX` directory:
+You should have three files in your `lab1` directory:
 `README.md`, as edited by you, and the two bash scripts `top10.sh` and `summarize.sh`.
 You should add **only** these three files to your repo:
 
@@ -122,7 +126,7 @@ You should add **only** these three files to your repo:
 git add README.md top10.sh summarize.sh
 ```
 
-See the [lab-submission instructions](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md) for details of how to submit your lab.
+See the [lab submission instructions](/submit.html) for details of how to submit your lab.
 
 ## Hints
 
