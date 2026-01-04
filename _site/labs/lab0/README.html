@@ -23,9 +23,9 @@
         <h1>Lab 0: Setup</h1>
 <p>This first assignment is simple but essential.
 It's not graded, but is <strong>required</strong> for you to participate in the course.</p>
-<h2>Part 1: Team Formation (5 minutes)</h2>
-<p>Visit <a href="https://canvas.dartmouth.edu/courses/71659">Canvas</a> and click <em>Team Formation</em> link on the left side.
-Answer its questions <strong>by midnight EDT tonight</strong> (<a href="https://services.dartmouth.edu/TDClient/1806/Portal/KB/ArticleDet?ID=128042">Instructions</a>).
+<h2>Part 1: Team Formation</h2>
+<p>Visit <a href="https://canvas.dartmouth.edu/courses/76733">Canvas</a> and click <em>Team Formation</em> link on the left side.
+Answer its questions <strong>by midnight tonight</strong> (<a href="https://services.dartmouth.edu/TDClient/1806/Portal/KB/ArticleDet?ID=128042">Instructions</a>).
 It should take you less than five minutes.</p>
 <p>This form provides us with the information we need to:</p>
 <ul>
@@ -34,33 +34,61 @@ It should take you less than five minutes.</p>
 <li>to learn more about your background, and</li>
 <li>to help support you through the term.</li>
 </ul>
-<p>I will be adding everyone to our class website on GitHub in the early afternoon following our first class.</p>
-<!--
-## Part 1: Meet the prof! (2 minutes)
--->
-<!-- @CHANGEME link -->
-<!--
-I want to meet you all! Please consider
-[signing up](https://calendly.com/ccpalmer/chatz) on Calendly for a quick, 10-minute chat to introduce yourself and meet me ... I also hope to talk with many of you often in office hours throughout the term. The chat is optional.
--->
-<h2>Part 2: Slack (2 minutes)</h2>
-<p>Complete this step <strong>before the next class meeting</strong>.</p>
-<p>Join our Slack Workspace via the link on the front page of our Canvas sites.</p>
-<!--
-> [!NOTE]
-> We have a single Slack workspace for the *two* sections of COSC 50 this term.
--->
-<p>You'll automatically be added to several COSC 50 slack channels within our workspace.
-All official course communications will come through Slack and Canvas.</p>
-<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>Do not send the teaching team email! All communications must be via Slack</p>
+<h2>Part 2: Create a GitHub account (or provide your ID)</h2>
+<p>If you don't have a <a href="http://github.com">github.com</a> account, please create one.</p>
+<p><strong>Please submit your GitHub ID as the text submission for this assignment on Canvas.</strong></p>
+<h2>Part 3: Test SSH access</h2>
+<p>In this class, we will use two servers:</p>
+<p><code>plink.cs.dartmouth.edu</code> as our main server<br>
+<code>babylon1.thayer.dartmouth.edu</code> as our backup server</p>
+<p>In order to be able to connect to either of these machines, you need to be on the Eduroam network. It will NOT work from Dartmouth Public. If you are outside of Dartmouth, you will need to use the <a href="https://services.dartmouth.edu/TDClient/1806/Portal/KB/ArticleDet?ID=66806">Dartmouth VPN</a> to be able to connect.</p>
+<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p><strong>Windows users</strong></p>
+<p>You can use ssh and generate ssh keys directly on Windows &gt;=11 (using the powershell)</p>
+<p>If you use an older version of Windows, OR if you want to have a full Linux environment locally on your machine, you may be interested in installing WSL (Windows Subsystem for Linux), which essentially provides you with a built-in Linux VM accessible right from your own environment: <a href="https://learn.microsoft.com/en-us/windows/wsl/install">https://learn.microsoft.com/en-us/windows/wsl/install</a>.</p>
+<p><strong>Linking the WSL environment to your Windows environment:</strong></p>
+<p>In order to easily access your Windows files from the WSL, you can create a symbolic link to the Windows home folder from within the WSL as follows:</p>
+<p><code>ln -s /mnt/c/Users/your_windows_username windows_home</code></p>
+<p>Replace &quot;your_windows_username&quot; with whatever your Windows username is.</p>
+<p>You will now have a &quot;windows_home&quot; symbolic link pointing to your Windows home and can perform file operations directly. Example, you can list your Windows files using &quot;ls windows_home&quot;.</p>
 </div>
-<h2>Part 3: Systems (20 minutes)</h2>
-<p>Complete this step <strong>before the next class meeting</strong>.</p>
-<p>Read through the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/systems.md">Systems</a> page.
-Most of you use MacOS or Windows -- not Linux -- but in this course we will program exclusively on Linux.
-For consistency, we will all use a Linux server managed by our colleagues in the Thayer School of Engineering.
-This machine is known as <code>plink.thayer.dartmouth.edu</code>.
-Follow the instructions in this <a href="https://github.com/CS50DartmouthFA2025/cs50-dev">GitHub repository</a> to get yourself ready.</p>
+<h3>babylon1</h3>
+<p>You can access babylon1 directly with your Dartmouth credentials.
+Open the terminal app (on either your Windows &gt;=11, Mac or Linux laptop, all are supported) and type the following command:</p>
+<p><code>ssh &lt;netid&gt;@babylon1.thayer.dartmouth.edu</code></p>
+<p>where &lt;netid&gt; is your Dartmouth NetID and the password is your Dartmouth password.</p>
+<p>Congratulations, you now have a shell on babylon1!</p>
+<h3>Plink</h3>
+<p>Plink is a TrustLab machine. It is not managed by Dartmouth, therefore, your Dartmouth NetID will not be recognized there.</p>
+<p>Open the terminal app and type the following command:</p>
+<p><code>ssh &lt;username&gt;@plink.cs.dartmouth.edu</code></p>
+<p>where &lt;username&gt; is of the form &quot;w26&lt;netid&gt;&quot; (&lt;netid&gt; is again your Dartmouth NetID, e.g. &quot;w26f003jkc&quot;) and the password is <code>Salesin50</code>.</p>
+<p><strong>Change the password</strong> to a secure password of your choice: while logged in to plink, enter the <code>passwd</code> command and it will prompt you to set a new password.</p>
+<!-- Plink also uses a more secure form of authentication relying on cryptography (we're a security lab after all!)
+
+You will need to setup a new SSH keyring in order to access plink. Note: the SSH keyring is to be generated locally on your own machine. Do not generate SSH keyrings on either babylon or plink!
+
+1. If you have ever used SSH, you may have a keyring already. To check if you already have one, look if you have a ~/.ssh folder with a file called id_rsa.pub in it AND a file called id_rsa (or some variant of it, it can also be id_something and id_something.pub). If you have both of these (i.e.. a file and another file with the same name + .pub), you can reuse them this term.  Here "pub" means public -- the other one is private. Just like a password, keep the private key to yourselves! This relies on asymmetric cryptography (this concept is explored in more detail in CS 55).
+
+2. If you don't have this folder or files, please run: ssh-keygen on your local machine and follow the instructions (and please do not leave the password blank when prompted!)
+
+3. Check access to plink:
+
+Type the following command:
+ ssh <username>@plink.cs.dartmouth.edu
+where <username> is of the following form: "w26netid" where netid is your Dartmouth netID, e.g. "w26f003jkc".
+
+To determine your password, you will need solve the following challenge: your password is the sha256 hash of your username. The command to obtain the sha256 hash of a given value is sha256sum. Note however that this command will issue a trailing '-' character preceded by whitespace characters. You may want to think about how to trim those out! For the sake of this exercise, we will use the echo command, the pipe and the sha256sum commands. We ignore the fact that echo adds a '\n' to the end of its output (technically, in order to get the hash of just the username, you would normally use echo -n).
+Generate your password using the aforementioned command (hint: use pipes) and ensure that you can successfully login
+Logout with the 'logout' command, or by pressing ctrl+d
+At some point (you do not need to do this right now), change your password while logged into plink using the 'passwd' command.
+4. On your local machine, run the following command to copy your public key over to plink:
+
+ssh-copy-id <username>@plink.cs.dartmouth.edu
+5. If everything worked well, you should now be able to ssh to plink without having to type your password every time (though you may be prompted to unlock you private key the first time in a session). 
+
+6. Please upload your SSH public key as response to this assignment! -->
+<h2>Part 4: Resources</h2>
+<p>Read through the <a href="/~ksalesin/cs50/resources.html">Resources</a> page for resources you can use for help on the various systems and tools we will use throughout the term.</p>
 
     </div>
 </body>

@@ -1,7 +1,12 @@
 <h1>CS 50: Software Design and Implementation (Winter 2026)</h1>
-<p>This is the website generator for CS 50: Software Design and Implementation (Winter 2026).</p>
+<p>This is the website for CS 50: Software Design and Implementation (Winter 2026).</p>
 <p>You will need Node.js installed. You can verify whether it is installed by running <code>node -v</code> and <code>npm -v</code> in your terminal.</p>
 <p>Once installed, in this directory run:</p>
 <pre><code>npm install
 </code></pre>
 <p>which should install all dependencies in the package.json file.</p>
+<p>To generate html files from the markdown, run:</p>
+<pre><code>npx @11ty/eleventy --serve
+</code></pre>
+<p>The files are written into the <code>_site</code> directory. You can open the link it provides to preview the site (often <code>localhost:8080</code>).</p>
+<p>To make changes, modify the markdown files in the root directory and then run the static site generator. Do not ever modify files in the <code>_site</code> directory.</p>

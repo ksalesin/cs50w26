@@ -9,8 +9,6 @@ permalink: /resources.html
 In this course we write all of our code in C and Bash; we develop and run all our code on Linux servers; and we share and manage our code through GitHub repositories.
 This page provides some details and links to reference material.
 
----
-
 ## Getting help
 
 If you find yourself stuck or confused about Linux or any of the tools we use, start by perusing this document.
@@ -21,21 +19,18 @@ If you can't find what you need, here are some places to look:
 which has helpful pages about 
 [Canvas](https://services.dartmouth.edu/TDClient/1806/Portal/KB/?CategoryID=15999&SIDs=6799),
 [Panopto](https://services.dartmouth.edu/TDClient/1806/Portal/KB/?CategoryID=20104),
-[Slack](https://services.dartmouth.edu/TDClient/1806/Portal/KB/?CategoryID=16984),
 [VPN](https://services.dartmouth.edu/TDClient/1806/Portal/KB/?CategoryID=13404),
 [Zoom](https://services.dartmouth.edu/TDClient/1806/Portal/KB/?CategoryID=17590),
 and more.
 If you're really stuck, email [help@dartmouth.edu](mailto:help@dartmouth.edu) or call their helpdesk for personalized help.
 (The phone number is at the bottom of every page on the [Knowledge Portal](https://services.dartmouth.edu/TDClient/1806/Portal/KB/).)
 
-* For help using the **Thayer Linux computer systems**, look [here first](https://kb.thayer.dartmouth.edu/article/361-linux-services).
-If you don't find an answer there, search the `#help-linux` channel on our [Slack](https://dartmouth.enterprise.slack.com/archives/C08GKBR7Z7Z/ workspace to see if others may have had and resolved your issue or, if not, post a question there.
-If neither of those help, then send email to [Thayer Computing Services](mailto:computing@thayer.dartmouth.edu) for support.
+* For help using the **Thayer Linux computer systems**, look [here first](https://kb.thayer.dartmouth.edu/article/361-linux-services). If that doesn't help, then send an email to [Thayer Computing Services](mailto:computing@thayer.dartmouth.edu) for support.
 (Keep in mind they are only active during normal business hours.)
 
-* For help about **CS50-specific issues**, use [Slack](syllabus.md#slack).
+<!-- * For help about **CS50-specific issues**, use [Slack](syllabus.md#slack). -->
 
-## Slack setup
+<!-- ## Slack setup
 
 If you are new to Slack, visit Dartmouth's [Slack info](https://services.dartmouth.edu/TDClient/1806/Portal/KB/ArticleDet?ID=104478) to find out how it works, how to get started, Slack etiquette, and best practices.
 By default, students and the teaching team are members of all public Slack channels in our [workspace](https://dartmouth.enterprise.slack.com/archives/C08GKBR7Z7Z/); there, you can read the description of each channel, and "Browse channels" to discover and join other public channels.
@@ -55,7 +50,7 @@ In short:
    This will help us build community and get to know one another.
    Select *View Profile* from the side menu to edit your profile.
 
-If you have any problems or questions, Slack offers [video tutorials](https://slack.com/resources/slack-101) and a [Help Center](https://slack.com/help); you can also email [help@dartmouth.edu](mailto:help@dartmouth.edu) for assistance.
+If you have any problems or questions, Slack offers [video tutorials](https://slack.com/resources/slack-101) and a [Help Center](https://slack.com/help); you can also email [help@dartmouth.edu](mailto:help@dartmouth.edu) for assistance. -->
 
 ## <a id="linux">Linux systems</a>
 
