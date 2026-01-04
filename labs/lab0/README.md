@@ -11,23 +11,25 @@ It should take you less than five minutes.
 
 This form provides us with the information we need to:
 
-- give you access to our class website (including Lab 0!)
-- to form learning groups (project teams),
-- to learn more about your background, and
-- to help support you through the term.
+- form learning groups (project teams),
+- learn more about your background, and
+- help support you through the term.
 
-## Part 2: Create a GitHub account (or provide your ID)
-If you don't have a github.com account, please create one. [Instructions](/github.html)
+## Part 2: Log in to the Knowledge Base
+We are trying out a new tool to access the readings for CS 50 this term, developed by a former CS 50 student & TA! Please test that you can access the [Knowledge Base](http://plink.cs.dartmouth.edu:3000) (you will need to be on eduroam or the Dartmouth VPN). Click the profile button at top right to sign in with your Dartmouth email and be able to track your progress.
+
+## Part 3: Create a GitHub account (or provide your ID)
+If you don't have a GitHub account, please create one ([Instructions](/github.html)).
 
 **Please submit your GitHub ID as the text submission for this assignment on Canvas.**
 
-## Part 3: Test SSH access
+## Part 4: Test SSH access
 In this class, we will use two servers:
 
 `plink.cs.dartmouth.edu` as our main server  
 `babylon1.thayer.dartmouth.edu` as our backup server  
 
-In order to be able to connect to either of these machines, you need to be on the Eduroam network. It will NOT work from Dartmouth Public. If you are outside of Dartmouth, you will need to use the [Dartmouth VPN](https://services.dartmouth.edu/TDClient/1806/Portal/KB/ArticleDet?ID=66806) to be able to connect.
+In order to be able to connect to either of these machines, you need to be on the eduroam network. It will NOT work from Dartmouth Public. If you are outside of Dartmouth, you will need to use the [Dartmouth VPN](https://services.dartmouth.edu/TDClient/1806/Portal/KB/ArticleDet?ID=66806) to be able to connect.
 
 > [!NOTE] 
 > **Windows users**
@@ -92,5 +94,5 @@ ssh-copy-id <username>@plink.cs.dartmouth.edu
 
 6. Please upload your SSH public key as response to this assignment! -->
 
-## Part 4: Resources
+## Part 5: Resources
 Read through the [Resources](/resources.html) page for resources you can use for help on the various systems and tools we will use throughout the term.
