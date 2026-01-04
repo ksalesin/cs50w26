@@ -2,6 +2,11 @@ body {
     margin: 0;
 }
 
+.markdown-body h1, .markdown-body h2, .markdown-body h3, 
+.markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    margin-top: var(--base-size-40) !important;
+}
+
 .nav {
     /* position: fixed; */
     box-sizing: border-box;

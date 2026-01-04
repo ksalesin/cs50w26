@@ -5,7 +5,8 @@ It's not graded, but is **required** for you to participate in the course.
 
 ## Part 1: Team Formation
 
-[Take our Pre-Course / Team Formation Survey](https://forms.gle/qTxsc7goaqVHHGqVA)  
+[Take our Pre-Course / Team Formation Survey](https://forms.gle/qTxsc7goaqVHHGqVA)
+
 Answer its questions **by midnight tonight**.
 It should take you less than five minutes.
 
