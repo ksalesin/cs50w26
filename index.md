@@ -16,11 +16,13 @@ Please see the [syllabus](/syllabus) for class details.
 
 <a href="http://www.cs.dartmouth.edu/~ksalesin/">Katherine (Kate) Salesin</a>
 
-Office hours: TBD | ECSC 014
+Office hours: Tues and Thurs, 1 to 3 pm | ECSC 014
+
+See Canvas for the full office hours schedule.
 
 ### Section Leaders
 
-Yitao Jiang, Shayan Yasir, Ahmad Wahab, Colin Wolfe, and Kelly Lao
+Yitao Jiang (Grad TA), Shayan Yasir, Ahmad Wahab, Colin Wolfe, and Kelly Lao
 
 ### Learning Fellows
 

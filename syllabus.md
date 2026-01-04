@@ -27,7 +27,7 @@ The first few weeks of this course are a crash course in Unix and C. After that,
 We will be "flipping" the course this term. There will be very few
 lectures. This means
 
-- you will have [knowledge units](http://plink.cs.dartmouth.edu:3000/) with reading and videos that are to be completed *before* each class.
+- you will have [knowledge units](http://spongium.org/) with reading and videos that are to be completed *before* each class.
 
 - classtime will consist of various activities based on that pre-class work that you will work on with your team. Your class attendance and participation in the activities will count for up to 20% of each of the six lab assignments (see [grading](#grading)).
 

@@ -17,7 +17,9 @@ This form provides us with the information we need to:
 - help support you through the term.
 
 ## Part 2: Log in to the Knowledge Base
-We are trying out a new tool to access the readings for CS 50 this term, developed by a former CS 50 student & TA! Please test that you can access the [Knowledge Base](http://plink.cs.dartmouth.edu:3000) (you will need to be on eduroam or the Dartmouth VPN). Click the profile button at top right to sign in with your Dartmouth email and be able to track your progress.
+We are trying out a new tool to access the readings for CS 50 this term, developed by a former CS 50 student & TA! Please test that you can access the [Knowledge Base](http://plink.cs.dartmouth.edu:3000) (you will need to be on eduroam or the Dartmouth VPN). 
+
+Click the profile button at top right to sign in with your Dartmouth email and be able to track your progress. Choose our section (3A) in the dropdown menu.
 
 ## Part 3: Create a GitHub account (or provide your ID)
 If you don't have a GitHub account, please create one ([Instructions](/github.html)).
