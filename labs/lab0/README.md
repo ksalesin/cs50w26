@@ -5,8 +5,8 @@ It's not graded, but is **required** for you to participate in the course.
 
 ## Part 1: Team Formation
 
-Visit [Canvas](https://canvas.dartmouth.edu/courses/76733) and click *Team Formation* link on the left side.
-Answer its questions **by midnight tonight** ([Instructions](https://services.dartmouth.edu/TDClient/1806/Portal/KB/ArticleDet?ID=128042)).
+[Take our Pre-Course / Team Formation Survey](https://forms.gle/qTxsc7goaqVHHGqVA)  
+Answer its questions **by midnight tonight**.
 It should take you less than five minutes.
 
 This form provides us with the information we need to:
@@ -65,7 +65,7 @@ Open the terminal app and type the following command:
 
 ```ssh <username>@plink.cs.dartmouth.edu```
 
-where \<username\> is of the form "w26\<netid\>" (\<netid\> is again your Dartmouth NetID, e.g. "w26f003jkc") and the password is `Salesin50`.
+where \<username\> is of the form "w26\<netid\>" (\<netid\> is again your Dartmouth NetID, e.g. "w26f123xyz") and the password is `Salesin50`.
 
 **Change the password** to a secure password of your choice: while logged in to plink, enter the ``passwd`` command and it will prompt you to set a new password.
 
