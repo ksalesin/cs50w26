@@ -1,5 +1,45 @@
 body {
+    --fgColor-default-light: #1f2328;
+    --bgColor-default-light: #ffffff;
+    --bgColor-sched-light: #e5ebf1;
+
+    --bgColor-default-dark: #0d1117;
+    --fgColor-default-dark: #f0f6fc;
+    --bgColor-sched-dark: #1F2733;
+}
+
+body {
     margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--bgColor-default-dark);
+        color: var(--bgColor-default-dark);
+    }
+
+    .nav a {
+        color: var(--fgColor-default-dark) !important;
+    }
+
+    .schedule .week {
+        background-color: var(--bgColor-sched-dark);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: var(--bgColor-default-light);
+        color: var(--bgColor-default-light);
+    }
+
+    .nav a {
+        color: var(--fgColor-default-light) !important;
+    }
+
+    .schedule .week {
+        background-color: var(--bgColor-sched-light);
+    }
 }
 
 .markdown-body h1, .markdown-body h2, .markdown-body h3, 
@@ -26,7 +66,6 @@ body {
 }
 
 .nav a {
-  color: black !important;
   font-size: 1.1rem;
 }
 
@@ -71,7 +110,6 @@ body {
 
 .schedule .week {
     text-align: center;
-    background-color: #E5EBF1;
 }
 
 .schedule td:nth-child(1),
