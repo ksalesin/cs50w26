@@ -72,7 +72,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <strong>Reading: "C - arrays of pointers and more" thru "Binary trees in C"; "Modular data structures in C"</strong></td>
     <td>Structs and pointers, Let's get modular</td>
     <td>Lab 2</td>
-    <td>Lab 3</td>
+    <td></td>
 </tr>
 
 <tr>
@@ -91,8 +91,8 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Makefiles; Libraries <br>
     <strong>Reading: "Modules and Makefiles" thru "Lab3 file module"; "Building and using libraries with Makefiles"</strong></td>
     <td>Can you make it?, Let's make a lib</td>
+    <td></td>
     <td>Lab 3</td>
-    <td>Lab 4</td>
 </tr>
 
 <tr>
@@ -111,8 +111,8 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>TinySearchEngine: Crawler design; Design methodology <br>
     <strong>Reading: "Searching the Web" thru "More tips about coding"</strong></td>
     <td>Fifty clouds of grey</td>
+    <td>Lab 3</td>
     <td>Lab 4</td>
-    <td>Lab 5</td>
 </tr>
 
 <tr>
@@ -131,8 +131,8 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>TinySearchEngine: Indexer design; Fuzz testing <br>
     <strong>Reading: "Indexer design" thru "Fuzz testing and other techniques"</strong></td>
     <td>Use the Fuzz, Luke!</td>
+    <td>Lab 4</td>
     <td>Lab 5</td>
-    <td>Lab 6</td>
 </tr>
 
 <tr>
@@ -151,8 +151,8 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>TinySearchEngine: Querier design; Expression parsing <br>
     <strong>Reading: "Querier parsing: expressions" thru "Teamwork"</strong></td>
     <td></td>
+    <td>Lab 5</td>
     <td>Lab 6</td>
-    <td>Lab 7</td>
 </tr>
 
 <tr>
@@ -169,7 +169,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Feb 25</td>
     <td>Introduction to the Team Project</td>
     <td></td>
-    <td>Lab 7</td>
+    <td>Lab 6</td>
     <td>Team project</td>
 </tr>
 
