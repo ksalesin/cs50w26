@@ -28,13 +28,13 @@ Now, **working in your group (perhaps one person sharing screen)**, do the follo
 
 7. What command would list every file in your home directory and any directories within it, with *all* the details about the file?
 
-8. How would you make a subdirectory named `tmp` in your `cs50-dev` directory ?
+8. How would you make a subdirectory named `tmp` in your home directory ?
 
 9. How would you move into that new `tmp` directory? How would you move back to your move directory?
 
 10. How would the `~` character help in the previous question?
 
-11. How would you make a copy of your `.profile` in a new file named `junk` in that d`tmp` subdirectory?
+11. How would you make a copy of your `.profile` in a new file named `junk` in that `tmp` subdirectory?
 
 12. Edit that `junk` file and make changes in a few places. Save and quit the editor.
 
