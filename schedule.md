@@ -31,7 +31,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Jan 7</td>
     <td>Linux file system and commands (& Teams!); Linux shell programming (bash) <br>
     <strong>Reading: "Standard input and output" thru "Origin of 'Artificial Intelligence'"</strong></td>
-    <td>Billboard 100, Shell games</td>
+    <td><a href="/activities/activity1/README.html">Billboard 100</a>, <a href="/activities/activity2/README.html">Shell games</a></td>
     <td>Lab 0</td>
     <td><a href="/labs/lab1/README.html">Lab 1</a></td>
 </tr>
