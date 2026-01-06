@@ -217,11 +217,9 @@ It may take input from stdin, or from files whose names are listed as arguments.
 <p>Any error messages are written to stderr.
 In this program, the most likely error would be failure to open a file named as a command-line argument.</p>
 <h3>Exit:</h3>
-<p>{:.no_toc}</p>
 <p>If the program terminates normally, it exits with a return code  of <code>0</code>.
 Otherwise, it terminates with a non-zero return code.</p>
 <h3>Hints:</h3>
-<p>{:.no_toc}</p>
 <ul>
 <li>Although you may be tempted to think of the input as a sequence of lines, it may be helpful to think of it as a sequence of characters.</li>
 <li>Note it is possible for the output to be empty, if there are no words in any of the input files.</li>
@@ -231,15 +229,12 @@ Otherwise, it terminates with a non-zero return code.</p>
 <li>Remember that stdin is not always attached to the keyboard - the input of <code>words</code> may be from a pipe or a file (e.g., <code>./words &lt; thesis.txt</code>).</li>
 </ul>
 <h3>Testing:</h3>
-<p>{:.no_toc}</p>
-<p>:point_right:
-Write a simple bash script <code>testing.sh</code> that will execute a sequence of commands that demonstrate (a) that your solution works and (b) that you have thoughfully designed test cases that address both normal and erroneous cases.
+<p>Write a simple bash script <code>testing.sh</code> that will execute a sequence of commands that demonstrate (a) that your solution works and (b) that you have thoughfully designed test cases that address both normal and erroneous cases.
 If you then run it like this:</p>
 <pre><code class="language-bash">$ bash -v testing.sh &gt;&amp; testing.out
 </code></pre>
 <p>Here bash (with <code>-v</code>) will print each command as it runs, and save the stdout and stderr as well... so we can see what your test does.</p>
 <h3>What to submit:</h3>
-<p>{:.no_toc}</p>
 <p>We recommend that you commit the <code>words</code> directory when you have it working, because it is logically separate from commits you may later (or earlier) have done on the other parts of this assignment.
 Use a meaningful commit message.</p>
 <p>Your directory should contain these files:</p>
@@ -252,35 +247,28 @@ Use a meaningful commit message.</p>
 <p><em>plus</em> any input files you need for your testing script, plus an <em>optional</em> <code>README.md</code>.</p>
 <p>Note the <code>.gitignore</code> file, which causes git to ignore the binary file <code>words </code> (binary files should not be committed!).</p>
 <h2>histo.c</h2>
-<p>:point_right:
-Write a program that reads a series of positive integers from stdin, and prints out a histogram.
+<p>Write a program that reads a series of positive integers from stdin, and prints out a histogram.
 There should be 16 bins in your histogram.
 The catch? You don't know in advance the <em>range</em> of input values; assume the integers range from 0 to some unknown positive maximum.
 Thus, you will need to dynamically scale the bin size for your histogram.
 An example is below.</p>
 <h3>Usage:</h3>
-<p>{:.no_toc}</p>
 <p>There are no command-line arguments.</p>
 <h3>Requirements:</h3>
-<p>{:.no_toc}</p>
 <p>You must begin with bin size 1, and double it as needed so all positive integers observed on input fit within the histogram.</p>
 <p>You must have 16 bins.
 The number '16' should appear only <em>once</em> in your code.</p>
 <h3>Input:</h3>
-<p>{:.no_toc}</p>
 <p>Input is read from stdin, whether from the keyboard, redirected from a file, or piped in from another command.
 Assume the input contains only integers, separated by white space (space, tab, newline).
 Assume the smallest integer is zero; ignore any negative integers.
 (These assumptions make it easy to use <code>scanf</code> for your input.)</p>
 <p>As always, any other assumptions you make should be documented in a <code>README.md</code> file in this directory.</p>
 <h3>Output:</h3>
-<p>{:.no_toc}</p>
 <p>See examples below.</p>
 <h3>Exit:</h3>
-<p>{:.no_toc}</p>
 <p>This program has no arguments and does not check its input for errors, so it should always exit with zero status.</p>
 <h3>Examples:</h3>
-<p>{:.no_toc}</p>
 <p>Here we compile and run the program, and type a set of numbers (spread over three lines, but it doesn't matter as long as I put space or newline between numbers), ending with <code>ctrl-D</code> on the beginning of a line.
 (That sends EOF to the program.)  It then printed a histogram, nicely labeling each line with the range of values assigned to that bin, and printing the count of values that fell into that bin.</p>
 <pre><code>$ mygcc histo.c -o histo
@@ -398,7 +386,6 @@ $
 <p>I took some pains to format the [low:high] range indicators for each row, using a fixed-width field just wide enough to hold the biggest number.
 It's a nice touch (read <code>man printf</code> for some clues) but it's ok if you make a simpler assumption (e.g., always use 6-digit field width).</p>
 <h3>Representing a histogram:</h3>
-<p>{:.no_toc}</p>
 <p>You will need an array of 16 bins to represent the number of integers observed in each bin.
 You'll need to keep track of the bin size and the range of the histogram.
 If you observe a value outside the range, you should double the bin size and range - but first you need to compress the current 16 bins into the first 8 bins.
@@ -406,9 +393,7 @@ You'll likely need one loop to compute the new values for the lower half of the 
 <p>(Again: the number '16' may only occur <em>once</em> in your code; scattering hard-coded numbers around your code is bad style.)</p>
 <p>Notice that the number of bins, bin size, and histogram range are all powers of 2.</p>
 <h3>Testing:</h3>
-<p>{:.no_toc}</p>
-<p>:point_right:
-Write a simple bash script <code>testing.sh</code> that will execute a sequence of commands that demonstrate (a) that your solution works and (b) that you have thoughfully designed test cases that address both normal and erroneous cases.
+<p>Write a simple bash script <code>testing.sh</code> that will execute a sequence of commands that demonstrate (a) that your solution works and (b) that you have thoughfully designed test cases that address both normal and erroneous cases.
 If you then run it like this:</p>
 <pre><code class="language-bash">$ bash -v testing.sh &gt;&amp; testing.out
 </code></pre>
@@ -416,7 +401,6 @@ If you then run it like this:</p>
 <p>Unlike some of my examples above, <em>it must not expect keyboard input.</em>
 The stdin should come from input files or pipes.</p>
 <h3>What to submit:</h3>
-<p>{:.no_toc}</p>
 <p>We recommend that you commit the <code>histo</code> directory when you have it working, because it is logically separate from commits you may later (or earlier) have done on the other parts of this assignment.
 Use a meaningful commit message.</p>
 <p>Your directory should contain these files:</p>

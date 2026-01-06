@@ -272,13 +272,11 @@ Any error messages are written to stderr.
 In this program, the most likely error would be failure to open a file named as a command-line argument.
 
 ### Exit:
-{:.no_toc}
 
 If the program terminates normally, it exits with a return code  of `0`.
 Otherwise, it terminates with a non-zero return code.
 
 ### Hints:
-{:.no_toc}
 
 * Although you may be tempted to think of the input as a sequence of lines, it may be helpful to think of it as a sequence of characters.
 * Note it is possible for the output to be empty, if there are no words in any of the input files.
@@ -288,9 +286,7 @@ Otherwise, it terminates with a non-zero return code.
 * Remember that stdin is not always attached to the keyboard - the input of `words` may be from a pipe or a file (e.g., `./words < thesis.txt`).
 
 ### Testing:
-{:.no_toc}
 
-:point_right:
 Write a simple bash script `testing.sh` that will execute a sequence of commands that demonstrate (a) that your solution works and (b) that you have thoughfully designed test cases that address both normal and erroneous cases.
 If you then run it like this:
 
@@ -302,7 +298,6 @@ Here bash (with `-v`) will print each command as it runs, and save the stdout an
 
 
 ### What to submit:
-{:.no_toc}
 
 We recommend that you commit the `words` directory when you have it working, because it is logically separate from commits you may later (or earlier) have done on the other parts of this assignment.
 Use a meaningful commit message.
@@ -323,7 +318,6 @@ Note the `.gitignore` file, which causes git to ignore the binary file `words ` 
 
 ## histo.c
 
-:point_right:
 Write a program that reads a series of positive integers from stdin, and prints out a histogram.
 There should be 16 bins in your histogram.
 The catch? You don't know in advance the *range* of input values; assume the integers range from 0 to some unknown positive maximum.
@@ -331,12 +325,10 @@ Thus, you will need to dynamically scale the bin size for your histogram.
 An example is below.
 
 ### Usage:
-{:.no_toc}
 
 There are no command-line arguments.
 
 ### Requirements:
-{:.no_toc}
 
 You must begin with bin size 1, and double it as needed so all positive integers observed on input fit within the histogram.
 
@@ -344,7 +336,6 @@ You must have 16 bins.
 The number '16' should appear only *once* in your code.
 
 ### Input:
-{:.no_toc}
 
 Input is read from stdin, whether from the keyboard, redirected from a file, or piped in from another command.
 Assume the input contains only integers, separated by white space (space, tab, newline).
@@ -354,17 +345,14 @@ Assume the smallest integer is zero; ignore any negative integers.
 As always, any other assumptions you make should be documented in a `README.md` file in this directory.
 
 ### Output:
-{:.no_toc}
 
 See examples below.
 
 ### Exit:
-{:.no_toc}
 
 This program has no arguments and does not check its input for errors, so it should always exit with zero status.
 
 ### Examples:
-{:.no_toc}
 
 Here we compile and run the program, and type a set of numbers (spread over three lines, but it doesn't matter as long as I put space or newline between numbers), ending with `ctrl-D` on the beginning of a line.
 (That sends EOF to the program.)  It then printed a histogram, nicely labeling each line with the range of values assigned to that bin, and printing the count of values that fell into that bin.
@@ -497,7 +485,6 @@ I took some pains to format the [low:high] range indicators for each row, using 
 It's a nice touch (read `man printf` for some clues) but it's ok if you make a simpler assumption (e.g., always use 6-digit field width).
 
 ### Representing a histogram:
-{:.no_toc}
 
 You will need an array of 16 bins to represent the number of integers observed in each bin.
 You'll need to keep track of the bin size and the range of the histogram.
@@ -509,9 +496,7 @@ You'll likely need one loop to compute the new values for the lower half of the 
 Notice that the number of bins, bin size, and histogram range are all powers of 2.
 
 ### Testing:
-{:.no_toc}
 
-:point_right:
 Write a simple bash script `testing.sh` that will execute a sequence of commands that demonstrate (a) that your solution works and (b) that you have thoughfully designed test cases that address both normal and erroneous cases.
 If you then run it like this:
 
@@ -526,7 +511,6 @@ The stdin should come from input files or pipes.
 
 
 ### What to submit:
-{:.no_toc}
 
 We recommend that you commit the `histo` directory when you have it working, because it is logically separate from commits you may later (or earlier) have done on the other parts of this assignment.
 Use a meaningful commit message.
