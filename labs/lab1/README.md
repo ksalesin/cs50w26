@@ -14,17 +14,17 @@ Specifically, we will work with the [US vaccination data](https://github.com/gov
 That page provides documentation describing the data, which appears in two subdirectories.
 The data is a spreadsheet formatted as *comma separated values* (csv) -- just a text file, one row of data per line, with the columns of each row separated by a comma.
 
-You need to format your `README.md` file in Markdown syntax, and you will write two bash scripts that print their output in Markdown syntax.
-(See the Markdown information and example at bottom of this page.)
+<!-- You need to format your `README.md` file in Markdown syntax, and you will write two bash scripts that print their output in Markdown syntax.
+(See the Markdown information and example at bottom of this page.) -->
 
 ## Assignment
 
 A. Create a `~/lab1` folder on plink and create a `lab1.sh` file in it. Add a '#' comment for each of the following tasks. For problems B to H below, paste your proposed bash command/pipeline (but not its output) after the appropriate header.
 
-B. Explore the directory `~/home/cs50/COVID-19`.
-Find the pathname for the `time_series/time_series_covid19_vaccine_us.csv` (it will take some digging around).
-Write a single bash command or pipeline to create a *symbolic link* to that file, within your `lab1` directory.
-The goal is that, when your current working directory is your `lab1` directory, you can type
+B. Explore the directory `/home/cs50/COVID-19`.
+Find the file `hourly/vaccine_data_us.csv` within this directory (it will take some digging around).
+Write a single bash command or pipeline to create a *symbolic link* to that file, within your `~/lab1` directory.
+The goal is that, when your current working directory is your `~/lab1` directory, you can type
 
 ```
 less vaccine_data_us.csv
@@ -109,24 +109,48 @@ Specifically, it should
 * Your script should behave properly if a pathname contains spaces or other special characters.
 * Your script should have a brief header comment giving the script name, your name, the date, and a short summary of how someone can/should use the script.
 
-> you might test your script like this:
-> `./summarize.sh ~/cs50-dev/shared/examples/*`
+> [!TIP]
+> This would be a good test case for your script:
+> ```
+> ./summarize.sh /home/cs50/shared/examples/*
+> ```
 
-**Clarification:**
+<!-- **Clarification:**
 An early version of the specs above had contradictory instructions about exit status and unreadable files.
-If your script follows the older spec, and exits cleanly (but with non-zero status) on encountering an argument that does not represent a readable file, we will accept it as correct.
+If your script follows the older spec, and exits cleanly (but with non-zero status) on encountering an argument that does not represent a readable file, we will accept it as correct. -->
 
-## What to hand in, and how
+## What to submit
 
-You should have three files in your `lab1` directory:
-`README.md`, as edited by you, and the two bash scripts `top10.sh` and `summarize.sh`.
-You should add **only** these three files to your repo:
+You should have two files in your `lab1` directory: the two bash scripts `top10.sh` and `summarize.sh`.
+
+`cd` into your home directory and compress your Lab 1 into a zip file using this command:
+
+```
+cd ~
+zip -r lab1.zip lab1/
+```
+
+This recursively (`-r`) zips all the files in the `lab1` directory into the `lab1.zip` file.
+
+Then, **from a shell on your local machine**, use the following command to secure copy this zip file to your local machine:
+
+```
+scp <username>@plink.cs.dartmouth.edu:~/lab1.zip lab1.zip
+```
+
+The `lab1.zip` file should now be in whatever directory you ran this command from.
+
+**Submit `lab1.zip` to Canvas by 11:59 pm on Wed, Jan 14th.**
+
+<!-- **Just leave these files in your `lab1` directory on plink.** You do not need to submit anything to Canvas for this assignment. The TAs have access to all your home directories on plink and will access your files directly there for grading. They will check the timestamps on your files to make sure they have not been edited after the deadline. -->
+
+<!-- You should add **only** these three files to your repo:
 
 ```
 git add README.md top10.sh summarize.sh
 ```
 
-See the [lab submission instructions](/submit.html) for details of how to submit your lab.
+See the [lab submission instructions](/submit.html) for details of how to submit your lab. -->
 
 ## Hints
 
@@ -151,7 +175,7 @@ It is helpful to remember that `^` anchors a pattern to the start of a line and 
 [Read about Markdown](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/systems.md#markdown), and about [Markdown tables](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables).
 If you want to preview a Markdown file with a desktop app, you'll have to either [scp](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/scp.md) the file to your laptop, or copy-paste from your ssh terminal into an empty window in one of those apps.
 Another great tool is [HackMD](https://hackmd.io).
-We will view your `README.md` on GitHub.com, so make sure it looks good there.
+<!-- We will view your `README.md` on GitHub.com, so make sure it looks good there. -->
 
 Here's a quick example of a simple Markdown file.
 
