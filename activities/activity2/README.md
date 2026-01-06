@@ -25,15 +25,15 @@ done
 echo "The sum of the numbers is: $sum"
 ```
 
-
-
 The `<<<` allows you to pass a string as input to a command, most often used as `stdin`.
 
 The `=~` comparison operator , which means "matches pattern", is used to test whether the input is a properly-formatted number. 
 
+Copy this script into a file in your home directory on plink that you can run (perhaps `activity2.sh`). Remember to `chmod +x activity2.sh` so that you can run it!
+
 ---
 
-Now, **working in your group (perhaps one person sharing screen)**, answer the following. Add your group answers to a markdown file (`activity2.md`) and upload it to canvas for this activity.
+Now, **working in your group (perhaps one person sharing screen)**, answer the following. Add your group answers to a markdown file (`activity2.md`) and upload it to Canvas for this activity.
 
 1. What does that pattern mean?
 
@@ -58,15 +58,13 @@ Now, **working in your group (perhaps one person sharing screen)**, answer the f
 
 6. How would you modify the script to display the current total in every prompt?
 
-   
-
 7. Rewrite the script to take ALL the numbers and operations as a single input and display the result. For example:
    ```bash
    ./myscript2 1 + 2 + 3 - 4 + 5 - 3
    The result is: 4
    ```
 
-   Hint: Use the `shift` command (see [bash tips and tricks](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/bash-tips.md)
+   Hint: Use the `shift` command (see [bash tips and tricks](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/bash-tips.md))
 <!--   https://github.com/CS50DartmouthWI24/home/blob/main/knowledge/units/bash-tips.md)).-->
 
 8. (HARD!)
@@ -99,7 +97,3 @@ tmp $
 ```
 
 Why are lines 1 and 3 blank? Can you fix it?
-
-***Don't forget that one of you need to upload your group answers to Activity 2 on Canvas.***
-
-# 
