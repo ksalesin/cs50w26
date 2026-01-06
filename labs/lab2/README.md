@@ -1,6 +1,5 @@
 # Lab 2: C programming
 
-:point_right:
 Design, write, document, and test the following C programs.
 In each case you will need to write a testing script.
 
@@ -12,35 +11,32 @@ In each case you will need to write a testing script.
 
 ## Reminder
 
-Grading will focus on [CS50 coding style](../../logistics/style.md) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness and testing.
+Grading will focus on [CS 50 coding style](/style.html)—including consistent formatting, selection of identifier names, and use of meaningful comments—in addition to correctness and testing.
 
-***Your C code must compile without producing any compiler warnings.***
-You will lose points if the compiler produces warnings when using our CS50-standard compiler flags (i.e., when compiled with `mygcc)`.
+**Your C code must compile without producing any compiler warnings.**
+You will lose points if the compiler produces warnings when using our CS50-standard compiler flags (i.e. when compiled with `mygcc`).
 
 ## Preparation
 
 <!-- @CHANGEME update the invitation link -->
 
-:point_right:
-
 ## 1.1 Initialize a new git repo
-- First, create a lab2 folder *on plink* and create a `README.md` file in it. Indicate your name in the first line. You will use this file to provide any overall comments you want to convey to the grader.
-- Initialize lab2 as a git repository. What command did you use for that?
-- Make sure that README.md is tracked. What command did you use for that?
-- Provide your responses to these questions in README.md
+- First, create a `lab2` folder *on plink* and create a `README.md` file in it. Indicate your name in the first line. You will use this file to provide any overall comments you want to convey to the grader.
+- Initialize `lab2` as a git repository. What command did you use for that?
+- Make sure that `README.md` is tracked. What command did you use for that?
+- Provide your responses to these questions in `README.md`
 
-> Remember that you can preview Markdown files with various Markdown-editing or -rendering tools (see: [Markdown resources](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/systems.md#markdown)) but we will read it on GitHub.com, so before you make your final submission decision be sure to check it there.
+> Remember that you can preview Markdown files with various Markdown-editing or -rendering tools (see: [Markdown resources](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/systems.md#markdown)) but we will read it on GitHub, so before you make your final submission decision be sure to check it there.
 
 ### 1.2 Obtaining a local copy
 
-How would you go about cloning the lab2 repo on your local machine? What command would you use for that?
-Add this to your README.md file
+How would you go about cloning the `lab2` repo on your local machine? What command would you use for that?
+Add the answer to your `README.md` file.
 
 - Commit your changes, with the message "Responses to question 1"
 
 ### 2. Programming questions
 
-:point_right:
 Make three directories where you'll do your work:
 
 ```
@@ -48,9 +44,8 @@ $ cd lab2
 $ mkdir chill words histo
 ```
 
-:point_right:
 In each subdirectory, write the corresponding program as described below.
-Each directory should have a `.gitignore` file, which causes git to ignore the respective binary file (e.g., `chill`, `words`, `histo`) and anything else you don't want committed.
+Each directory should have a `.gitignore` file, which causes git to ignore the respective binary file (e.g. `chill`, `words`, `histo`) and anything else you don't want committed.
 
 Some other things that are good defaults to have for a `gitignore`:
 ```
@@ -69,22 +64,19 @@ Icon?
 
 -----------------------------------------------------------
 
-## What to hand in, and how
+## What to submit
 
 When finished, your `lab2` directory should contain a `README.md` file and three subdirectories, each of which contain certain files as detailed below.
 
 You should add **only** the necessary files to your repo
 *(do not commit any compiled C programs!)*.
-Check `git status` before you commit; it will list the files that will be committed, near the top, and the files that will not be committed, or are 'untracked', near the bottom.
+Check `git status` before you commit: it will list the files that will be committed near the top and the files that will not be committed, or are 'untracked', near the bottom.
 *Study the status output carefully: if you miss adding a file we need, you'll lose points, and if you add a scratch or binary file that should not be in the repo, you'll lose points.*
-
-:point_right:
 
 ----------------------------------------------------------------
 
 ## chill.c
 
-:point_right:
 Write a C program to calculate "wind chill" based on the current temperature and wind speed.
 The standard formula for this calculation is:
 
@@ -97,13 +89,11 @@ The `^` character denotes exponentiation.
 Note that the above formula is *not* written in C programming language syntax.
 
 ### Input:
-{:.no_toc}
 
 The user may run your program with no arguments, one argument, or two arguments as explained below.
-Chill does not read from stdin or files.
+`chill` does not read from stdin or files.
 
 ### Output (no arguments):
-{:.no_toc}
 
 If the user provides no arguments to your program, it should print out a table of temperatures (from -10 to +40 by 10's) and and wind speeds (from 5 to 15 by 5's).
 Your output should look similar to the following, with nice columns and titles:
@@ -142,7 +132,6 @@ Notice that we print everything in the format "x.y", with exactly one decimal pl
 > This format is most important when the user specifies temperature or windspeed, because the user may specify a non-integral value and it may be misleading to print it as an integer.
 
 ### Output (one argument):
-{:.no_toc}
 
 If the user provides one argument, it refers to a temperature (expressed as a floating-point number).
 You may assume (without checking) the argument is a valid floating-point number.
@@ -159,7 +148,6 @@ $ ./chill 32
 ```
 
 ### Output (two arguments):
-{:.no_toc}
 
 If the user provides two arguments, they refer to be temperature and velocity, respectively (expressed as floating-point numbers).
 You may assume (without checking) the arguments are valid floating-point numbers.
@@ -188,31 +176,26 @@ $ ./chill 10 0
 ```
 
 ### Output (more than two arguments):
-{:.no_toc}
 
-print a "usage" line and exit with error status.
+Print a "usage" line and exit with error status.
 
 ### Exit:
-{:.no_toc}
 
 If the program terminates normally, it exits with a return code  of `0`.
 Otherwise, it terminates with a non-zero return code.
 
 ### Compiling:
-{:.no_toc}
 
 You will likely need the math library.
 To use it, add `#include <math.h>` to your `chill.c` file, and add `-lm` to your `mygcc` command.
-(That is "dash ell emm", which is short for "library math".)
+(`-lm` is short for "library math").
 
 ```bash
 mygcc chill.c -lm -o chill
 ```
 
 ### Testing:
-{:.no_toc}
 
-:point_right:
 Write a simple bash script `testing.sh` that will execute a sequence of commands that demonstrate (a) that your solution works and (b) that you have thoughfully designed test cases that address both normal and erroneous cases.
 If you then run it like this:
 
@@ -243,7 +226,6 @@ Your testing should go beyond this example.
 
 
 ### What to submit:
-{:.no_toc}
 
 We recommend that you commit the `chill` directory when you have it working, because it is logically separate from commits you may later (or earlier) have done on the other parts of this assignment.
 Use a meaningful commit message.
@@ -264,19 +246,16 @@ Note the `.gitignore` file, which causes git to ignore the binary file `chill` (
 
 ## words.c
 
-:point_right:
 Write a C program called `words` that breaks its input into a series of words, one per line.
 It may take input from stdin, or from files whose names are listed as arguments.
 
 ### Usage:
-{:.no_toc}
 
 ```
 words [filename]...
 ```
 
 ### Input:
-{:.no_toc}
 
 When no filenames are given on the command line, `words` reads from stdin.
 
@@ -285,9 +264,8 @@ When one or more filenames are given on the command line, `words` reads from eac
 If the special filename `-` is given as one of the filenames, the stdin is read at that point in the sequence.
 
 ### Output:
-{:.no_toc}
 
-In any case, the stdout should consist of a sequence of lines, with exactly one word on each output line (i.e., each output line contains exactly one word and no other characters).
+In any case, the stdout should consist of a sequence of lines, with exactly one word on each output line (i.e. each output line contains exactly one word and no other characters).
 **A *word* is a maximal sequence of one or more letters, bounded by the beginning of file, end of file, or any non-letter character.**
 
 Any error messages are written to stderr.
