@@ -21,11 +21,12 @@
     </div>
     <div class="markdown-body content">
         <h1>Groups and pipelines</h1>
+<p>Create a markdown (.md) file to record your group's responses to the questions below -- one of you will submit this summary on Canvas at the end of class. Put the names of your group mates at the top of the file.</p>
 <h2>Billboard Hot 100</h2>
-<p>Let's play with the <a href="https://www.billboard.com/charts/hot-100">Billboard Hot 100</a>, which I extracted into a text file <a href="billboard.tsv"><code>billboard.tsv</code></a> in 2021.
-(<code>tsv</code> stands for <em>tab-separated values</em>.)
-You can grab a copy, into whatever is your current working directory, to make this a little easier:</p>
-<pre><code>cp ~/cs50-dev/shared/examples/billboard.tsv .
+<p>Let's play with the <a href="https://www.billboard.com/charts/hot-100">Billboard Hot 100</a>, which I extracted into a text file <a href="/~ksalesin/cs50/activities/activity1/billboard.tsv"><code>billboard.tsv</code></a> in 2021.
+(<code>tsv</code> stands for <em>tab-separated values</em>).
+You can copy this file directly on plink into your current working directory to make this a little easier:</p>
+<pre><code>cp /home/cs50/shared/examples/billboard.tsv .
 </code></pre>
 <p>Use <code>less</code> to display the first 10 lines of the file. It begins with a title line followed by a separator line.
 The next 100 lines are in the form:</p>
@@ -40,45 +41,53 @@ The next 100 lines are in the form:</p>
 <li>'Artist' is a string representing a list of one or more artists who made the recording. Here, &quot;artist&quot; refers to the
 full string of names; don't worry about picking apart lists of names.</li>
 </ul>
-<p>Now, <strong>working in your group (perhaps one person sharing screen)</strong>, write pipelines to accomplish the following. Add your group answers to a markdown file (<code>activity1.md</code>) and upload it to canvas for this activity.</p>
+<p>Now, <strong>working in your group (perhaps one person sharing screen)</strong>, write pipelines to accomplish the following. Add your group answers to a markdown file (<code>activity1.md</code>) and upload it to Canvas for this activity.</p>
 <ol>
-<li>print the list to the screen without the header lines</li>
-<li>sort the list to start at 100 and countdown to 1</li>
-<li>print only the list of artists to the screen</li>
-<li>how many times does &quot;Justin&quot; appear?</li>
-<li>how many artists are in the top 100?</li>
-<li>which artist had the most hits in top 100?</li>
-<li>print only the list of titles to the screen</li>
-<li>what's the most common word in a title? (much trickier)</li>
+<li>Print the list to the screen without the header lines</li>
+<li>Sort the list to start at 100 and countdown to 1</li>
+<li>Print only the list of artists to the screen</li>
+<li>How many times does &quot;Justin&quot; appear?</li>
+<li>How many artists are in the top 100?</li>
+<li>Which artist had the most hits in top 100?</li>
+<li>Print only the list of titles to the screen</li>
+<li>What's the most common word in a title? (much trickier)</li>
 </ol>
-<h2>Now, here's a challenge:</h2>
+<p>Some useful commands: <code>cut</code>, <code>head</code>, <code>tail</code>, <code>sed</code>, <code>sort</code>, <code>grep</code>, <code>tr</code>, <code>uniq</code>, <code>wc</code></p>
+<p>Remember you can use <code>man &lt;command&gt;</code> to see what each of these commands does and its options.</p>
+<p><strong>Don't forget to upload your answers to Activity 1 on Canvas! Only one of you needs to upload.</strong></p>
+<h2>If you finish early, here's a challenge:</h2>
 <p>Given two files <code>a</code> and <code>b</code>, create a two command pipeline (i.e., only one <code>|</code> symbol) between
 two Bash commands (not <code>awk</code>) and redirect their output to an output file <code>c</code> such that ...</p>
 <ol start="9">
 <li>c is a union b</li>
 <li>c is a intersect b</li>
 </ol>
-<p>Some useful commands: <code>cut</code>, <code>head</code>, <code>sed</code>, <code>sort</code>, <code>grep</code>, <code>tr</code>, <code>uniq</code>, <code>wc</code></p>
-<p><em><strong>Don't forget to upload your answers to Activity 1 on Canvas! Only one of you need to upload.</strong></em></p>
-<hr>
-<h2>Where did I get that file?</h2>
-<p>I used this great <a href="https://github.com/guoguo12/billboard-charts">open-source package</a>;
-on my Mac, I followed its instructions to install the package, then</p>
-<pre><code class="language-bash">$ python3
+<!-- ---
+
+## Where did I get that file? 
+
+I used this great [open-source package](https://github.com/guoguo12/billboard-charts);
+on my Mac, I followed its instructions to install the package, then
+
+```bash
+$ python3
 Python 3.9.2 (default, Feb 24 2021, 13:30:36) 
 [Clang 12.0.0 (clang-1200.0.32.29)] on darwin
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-&gt;&gt;&gt; import sys
-&gt;&gt;&gt; import billboard
-&gt;&gt;&gt; sys.stdout = open('billboard.txt','w')
-&gt;&gt;&gt; chart = billboard.ChartData('hot-100')
-&gt;&gt;&gt; print(chart)
-&gt;&gt;&gt; ^D
-$ sed -e &quot;s/\. '/\t/&quot; -e &quot;s/' by /\t/&quot; billboard.txt &gt; billboard.tsv
-</code></pre>
-<p>That last line uses <code>sed</code> to convert the &quot;dot space quote&quot; into a tab, and the &quot;quote space by space&quot; into a tab.
-The result is a three-column file (with a two-line header), which should be easier to parse.</p>
-<p><em><strong>Don't forget to upload your markdown file of answers to Activity 1 on Canvas.</strong></em></p>
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sys
+>>> import billboard
+>>> sys.stdout = open('billboard.txt','w')
+>>> chart = billboard.ChartData('hot-100')
+>>> print(chart)
+>>> ^D
+$ sed -e "s/\. '/\t/" -e "s/' by /\t/" billboard.txt > billboard.tsv
+```
+
+That last line uses `sed` to convert the "dot space quote" into a tab, and the "quote space by space" into a tab.
+The result is a three-column file (with a two-line header), which should be easier to parse.
+
+
+***Don't forget to upload your markdown file of answers to Activity 1 on Canvas.*** -->
 
     </div>
 </body>

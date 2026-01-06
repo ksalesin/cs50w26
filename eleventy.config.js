@@ -21,6 +21,7 @@ module.exports = async function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("styles.css");
     eleventyConfig.addPassthroughCopy("github-markdown.css");
+    eleventyConfig.addPassthroughCopy("activities/activity1/billboard.tsv");
 
     return {
         pathPrefix: "/~ksalesin/cs50/"
