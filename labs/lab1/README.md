@@ -152,6 +152,12 @@ git add README.md top10.sh summarize.sh
 
 See the [lab submission instructions](/submit.html) for details of how to submit your lab. -->
 
+## A reminder about the AI policy
+
+This lab assignment is designed to assess individual problem-solving and programming skills. Students are expected to develop their solutions independently, utilizing their own reasoning and coding abilities. While generative AI tools like ChatGPT can provide general guidance or explain programming concepts, **direct code generation or copying AI-produced code is considered a violation of academic integrity**.
+
+Any use of AI assistance must be explicitly documented in comments, indicating the specific guidance received and how it was conceptually integrated into the solution. The primary goal is to demonstrate personal understanding and implementation skills.
+
 ## Hints
 
 You will find some of the following commands useful; use `man cmd` to read about any command.
