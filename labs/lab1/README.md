@@ -158,6 +158,8 @@ This lab assignment is designed to assess individual problem-solving and program
 
 Any use of AI assistance must be explicitly documented in comments, indicating the specific guidance received and how it was conceptually integrated into the solution. The primary goal is to demonstrate personal understanding and implementation skills.
 
+In summary: for lab programming assignments, treat AI like you would a friend in the class. General discussion for understanding is ok; copying and pasting code blocks is not ok.
+
 ## Hints
 
 You will find some of the following commands useful; use `man cmd` to read about any command.
