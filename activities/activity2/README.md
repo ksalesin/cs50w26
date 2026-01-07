@@ -33,7 +33,7 @@ Copy this script into a file in your home directory on plink that you can run (p
 
 ---
 
-Now, **working in your group (perhaps one person sharing screen)**, answer the following. Add your group answers to a markdown file (`activity2.md`) and upload it to Canvas for this activity.
+Now, **working in your group (perhaps one person sharing screen)**, answer the following. Add your group answers to a markdown file (`activity2.md`) and upload it to Canvas for this activity. For questions 5–7, just describe in your .md what you would change (e.g. "I would replace line XX with this new line: ...").
 
 1. What does that pattern mean?
 
@@ -67,7 +67,7 @@ Now, **working in your group (perhaps one person sharing screen)**, answer the f
    Hint: Use the `shift` command (see [bash tips and tricks](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/bash-tips.md))
 <!--   https://github.com/CS50DartmouthWI24/home/blob/main/knowledge/units/bash-tips.md)).-->
 
-8. (HARD!)
+### If you finish early, here's a challenge:
 Review the following script :
 ```bash
 #!/bin/bash
