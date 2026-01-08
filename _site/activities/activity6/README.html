@@ -20,38 +20,35 @@
         </ul>
     </div>
     <div class="markdown-body content">
-        <h1>Activity - Memory games</h1>
+        <h1>Activity: Memory games</h1>
 <h2>1. Show 'em</h2>
-<p>Copy the <code>activity6-1.c</code> file from the examples folder into a new
-directory called <code>memorygames</code> into your <code>~/</code> on plink
+<p>Copy the <code>activity6-1.c</code> file from the examples folder into a new directory called <code>memorygames</code> in your <code>~/</code> on plink
 and then <code>cd</code> into that directory.</p>
 <p>In place of the comments in the <code>showx</code> and <code>showy</code> functions,
 add code to print out the address of the <code>x</code> and <code>y</code> variables,
-respectively.</p>
-<p>Hint: use <code>%p</code> to print out pointer values.</p>
+respectively. <em>Hint</em>: use <code>%p</code> to print out pointer values.</p>
 <p>Note: the compiler will warn you about unused variables. We will ignore it in this exercise. In real-world projects, unused variables are to be avoided since they reduce readability and may cause confusion or even bugs.</p>
 <p>Do you notice anything unexpected about the resulting output?
 Can you explain it?</p>
 <hr>
-<p><em>note: (#2 based on exercises from a CS class at Villanova)</em></p>
 <h2>2. swapping pointers</h2>
-<p>Copy the <code>activity6-2.c</code> file from the examples directory into<br>
-the <code>memorygames</code> directory on plink.</p>
+<p>Copy the <code>activity6-2.c</code> file from the examples directory into the <code>memorygames</code> directory on plink.</p>
 <p>The <code>swap_nums</code> function seems to work, but the <code>swap_pointers</code>
 functions does not. Can you fix it?</p>
+<p><em>Note: This question was based on an exercise from a CS class at Villanova.</em></p>
 <hr>
 <h2>3. Buggy <code>stringcat</code></h2>
 <p>Copy the <code>stringcat.c</code> file from the examples directory into <code>~/memorygames</code>.</p>
 <p>The code is buggy and triggers a <em>stack smashing detected!</em> error and crashes.</p>
-<p>Study the code to be able to put answers to the following questions in a markdown for upload to Canvas Activity 6.</p>
-<ul>
+<p>Study the code and answer the following questions in your markdown.</p>
+<ol>
 <li>Explain the pointer notation used in the parameters.</li>
 <li>Explain the pointer notation used in the first while loop condition.</li>
-<li>Explain what the two loops accomplish</li>
+<li>Explain what the two loops accomplish.</li>
 <li>Why is there an assignment after the loop?</li>
 <li>Where is the bug in <code>main()</code>?</li>
 <li>What might go wrong inside <code>stringcat</code>?</li>
-</ul>
+</ol>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
@@ -117,10 +114,10 @@ Program terminated with signal SIGABRT, Aborted.
 <h2>4. Reverse the string arguments</h2>
 <p>Write a small C function <code>flip</code> that:</p>
 <ol>
-<li>takes an pointer to char as its only argument</li>
-<li>print the string pointed to, then print the same string backwards.</li>
-<li>the function may have only one other variable, a pointer
-to char, and the only function it can call is <code>printf</code>.</li>
+<li>Takes a pointer to char as its only argument</li>
+<li>Prints the string pointed to, then prints the same string backwards</li>
+<li>The function may have only one other variable, a pointer
+to char, and the only function it can call is <code>printf</code></li>
 </ol>
 <p>Here's the <code>main</code> program to test your <code>flip</code> function:</p>
 <pre><code class="language-c">include &lt;stdio.h&gt;

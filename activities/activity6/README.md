@@ -1,16 +1,13 @@
-# Activity - Memory games
+# Activity: Memory games
 
 ## 1. Show 'em
 
-Copy the `activity6-1.c` file from the examples folder into a new 
-directory called `memorygames` into your `~/` on plink 
+Copy the `activity6-1.c` file from the examples folder into a new directory called `memorygames` in your `~/` on plink 
 and then `cd` into that directory.
 
 In place of the comments in the `showx` and `showy` functions, 
 add code to print out the address of the `x` and `y` variables, 
-respectively. 
-
-Hint: use `%p` to print out pointer values.
+respectively. *Hint*: use `%p` to print out pointer values.
 
 Note: the compiler will warn you about unused variables. We will ignore it in this exercise. In real-world projects, unused variables are to be avoided since they reduce readability and may cause confusion or even bugs.
 
@@ -20,15 +17,14 @@ Can you explain it?
 
 ---
 
-_note: (#2 based on exercises from a CS class at Villanova)_
-
 ## 2. swapping pointers
 
-Copy the `activity6-2.c` file from the examples directory into  
-the `memorygames` directory on plink.
+Copy the `activity6-2.c` file from the examples directory into the `memorygames` directory on plink.
 
 The `swap_nums` function seems to work, but the `swap_pointers` 
 functions does not. Can you fix it?
+
+*Note: This question was based on an exercise from a CS class at Villanova.*
 
 ---
 
@@ -37,14 +33,14 @@ Copy the `stringcat.c` file from the examples directory into `~/memorygames`.
 
 The code is buggy and triggers a *stack smashing detected!* error and crashes.
 
-Study the code to be able to put answers to the following questions in a markdown for upload to Canvas Activity 6. 
+Study the code and answer the following questions in your markdown. 
 
-* Explain the pointer notation used in the parameters.
-* Explain the pointer notation used in the first while loop condition.
-* Explain what the two loops accomplish
-* Why is there an assignment after the loop?
-* Where is the bug in `main()`?
-* What might go wrong inside `stringcat`?
+1. Explain the pointer notation used in the parameters.
+2. Explain the pointer notation used in the first while loop condition.
+3. Explain what the two loops accomplish.
+4. Why is there an assignment after the loop?
+5. Where is the bug in `main()`?
+6. What might go wrong inside `stringcat`?
 
 ```c
 #include <stdio.h>
@@ -115,10 +111,10 @@ Program terminated with signal SIGABRT, Aborted.
 
 Write a small C function `flip` that:
 
-1. takes an pointer to char as its only argument
-2. print the string pointed to, then print the same string backwards.
-3. the function may have only one other variable, a pointer 
-to char, and the only function it can call is `printf`.
+1. Takes a pointer to char as its only argument
+2. Prints the string pointed to, then prints the same string backwards
+3. The function may have only one other variable, a pointer 
+to char, and the only function it can call is `printf`
 
 Here's the `main` program to test your `flip` function:
 
