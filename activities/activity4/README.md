@@ -1,6 +1,6 @@
 # Activity: C ya !
 
-**Working in your group (perhaps one person sharing screen)**, answer the following. Add your group answers to a markdown file (`activity4.md`) and upload it to canvas for this activity.
+**Working in your group (perhaps one person sharing screen)**, answer the following. Add your group answers to a markdown file (`activity4.md`) and upload it to Canvas for this activity.
 
 To include source code in a markdown file, put it inside a code block which begins and ends with three back-tics (the character just left of the "1" key):
 
@@ -8,12 +8,12 @@ To include source code in a markdown file, put it inside a code block which begi
 ```
 main(int argc, char* argv[])
 {
-    printf( "Hello, world!\n");
+    printf("Hello, world!\n");
 }
 ```
-```````
+````
 
-Do these exercises on `plink`, and copy your answers back to your machine to upload to Canvas.
+Do these exercises on plink, and copy your answers back to your machine to upload to Canvas.
 
 ## 1. Add the missing code
 
@@ -23,15 +23,16 @@ Do these exercises on `plink`, and copy your answers back to your machine to upl
 
 int main(int argc, char *argv[])
 {
-  int width=24,
-  		length=11;
+    int width = 24, length = 11;
   
-  // print out the area of the box defined by width and length
-  // it should look like 
-  // 		A box of width #### and length #### has an area of ####.
+    // Print out the area of the box defined by width and length
+    // It should look like:
+    //     A box of width ## and length ## has an area of ##.
   
-  // calculate the length of a diagonal (hint: think Pythagoras)
-  // and print it with two decimal places
+    // Calculate the length of the diagonal (hint: think Pythagoras)
+    // and print it with two decimal places
+    // It should look like:
+    //     A box of width ## and length ## has a diagonal of ##.##.
   
 }
 ```
@@ -45,7 +46,7 @@ void main()
  
     if (a == 2)
         a++;
- 		    printf("value of a is", a);
+        printf("value of a is", a);
  
     else printf("value of a is not equal to 2 ");
 }
@@ -59,31 +60,28 @@ void main()
 
 int main(int argc, char *argv[])
 {
-  int temp=0,
-      odd=0;
-  char answer[5];
+    int temp = 0, odd = 0;
+    char answer[5];
   
-  if (argc==2) {
-    if (1==sscanf(argv[1], "%d", &temp)) {
-      // determine whether the # is even or odd with one operator
-      // if it's odd , set odd to 1 
+    if (argc == 2) {
+        if (sscanf(argv[1], "%d", &temp) == 1) {
+            // Determine whether the # is even or odd with one operator
+            // If it's odd, set `odd` to 1 
 
-      // ??? //
-      
-     if (odd) {
-        strncpy(answer,"Odd", sizeof(answer));
-      }
-      else {
-        strncpy(answer, "Even", sizeof(answer));
-      }
-      puts(answer);
-      return(0);
+            // ??? //
+            
+            if (odd) {
+              strncpy(answer, "Odd", sizeof(answer));
+            } else {
+              strncpy(answer, "Even", sizeof(answer));
+            }
+            puts(answer);
+            return(0);
+        }
+    } else {
+        fprintf(stderr,"Usage: %s num , where num is an integer\n", argv[0]);
+        return 1;
     }
-  }
-	else {
-  	fprintf(stderr,"Usage: %s num , where num is an integer\n", argv[0]);
-  	return 1;
-	}
 }
 ```
 
@@ -99,25 +97,21 @@ Finish the program below to sum the positive integers from 1 to the provided int
 
 int main(int argc, char *argv[])
 {
-  int sum=0, max=0;
-  if (argc==2) {
-    if (1==sscanf(argv[1], "%d", &max)) {
+    int sum = 0, max = 0;
+    if (argc == 2) {
+        if (sscanf(argv[1], "%d", &max) == 1) {
+            // make sure the max is valid
+          
+            // use a loop to calculate the sum
       
-			// make sure the max is valid
-      
-      // use a loop to calculate the sum
-  
-  		// display the answer
+            // display the answer
+        } else {
+            // user entered a non-number, so issue an error message and exit
+        }
+    } else {
+        fprintf(stderr,"Usage: %s num , where num is an integer\n", argv[0]);
+        return 1;
     }
-    else {
-      // user entered a non-number, so issue error message and exit
-      
-    }
-  }
-	else {
-  	fprintf(stderr,"Usage: %s num , where num is an integer\n", argv[0]);
-  	return 1;
-	}
 }
 ```
 
@@ -125,7 +119,7 @@ int main(int argc, char *argv[])
 
 ## 5. Leap year
 
-Write a complete C program (possibly reusing some of the above code) to determine whether a given year is a leap year. The rule is a year is a leap year if
+Write a complete C program (possibly reusing some of the above code) to determine whether a given year is a leap year. A year is a leap year if:
 
 - It is a multiple of 4 but not of 100, or
 - It is a multiple of 400.
@@ -155,4 +149,4 @@ $ ./c7 5
 $ 
 ```
 
-***Don't forget: one team member should upload your answers to Activity 4 on Canvas.***
+**Don't forget: one team member should upload your answers to Activity 4 on Canvas.**
