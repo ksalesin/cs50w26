@@ -22,7 +22,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Jan 5</td>
     <td>Getting started with COSC 50; Linux shell and commands <br>
-    <strong>Reading: "Welcome to CS50!" thru "The first remote access to a computer"</strong></td>
+    <strong>Reading: 1.1–1.9</strong></td>
     <td><a href="/activities/activity0/README.html">Hello Linux!</a></td>
     <td></td>
     <td><a href="/labs/lab0/README.html">Lab 0</a></td>
@@ -30,7 +30,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Jan 7</td>
     <td>Linux file system and commands (& Teams!); Linux shell programming (bash) <br>
-    <strong>Reading: "Standard input and output" thru "Origin of 'Artificial Intelligence'"</strong></td>
+    <strong>Reading: 1.10–1.20</strong></td>
     <td><a href="/activities/activity1/README.html">Billboard 100</a>, <a href="/activities/activity2/README.html">Shell games</a></td>
     <td>Lab 0</td>
     <td><a href="/labs/lab1/README.html">Lab 1</a></td>
@@ -42,7 +42,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Jan 12</td>
     <td>Git and Github; Intro to C Programming <br>
-    <strong>Reading: "Git concepts and commands" thru "Programming languages"</strong></td>
+    <strong>Reading: 2.1–2.10</strong></td>
     <td>Gittin' around, C ya!</td>
     <td></td>
     <td></td>
@@ -50,7 +50,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Jan 14</td>
     <td>Intro to C Programming; Memory, pointers, and scope <br>
-    <strong>Reading: "C - types" thru "Why do we call it a 'core dump'?"</strong></td>
+    <strong>Reading: 2.11–2.27</strong></td>
     <td>MadLibs, Memory games</td>
     <td>Lab 1</td>
     <td>Lab 2</td>
@@ -69,7 +69,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Jan 21</td>
     <td>Pointers, strings, structs, and linked lists; Modular data structures <br>
-    <strong>Reading: "C - arrays of pointers and more" thru "Binary trees in C"; "Modular data structures in C"</strong></td>
+    <strong>Reading: 3.1–3.5; 3.13</strong></td>
     <td>Structs and pointers, Let's get modular</td>
     <td>Lab 2</td>
     <td></td>
@@ -81,7 +81,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Jan 26</td>
     <td><strong>Note: we will use x-hour on this day!</strong> <br>Iterators, cohesion, coupling, & design; Debugging with gdb and Valgrind <br>
-    <strong>Reading: "Iterators" thru "Cohesion and coupling"; "Debugging techniques and 'gdb'" thru "Valgrind, for debugging memory errors"</strong></td>
+    <strong>Reading: 3.14–3.17; 4.1</strong></td>
     <td>Cohesive or just sticky?, Squashing bugs with gdb, Valgrind it?</td>
     <td></td>
     <td></td>
@@ -89,7 +89,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Jan 28</td>
     <td>Makefiles; Libraries <br>
-    <strong>Reading: "Modules and Makefiles" thru "Lab3 file module"; "Building and using libraries with Makefiles"</strong></td>
+    <strong>Reading: 3.6–3.12; 4.2</strong></td>
     <td>Can you make it?, Let's make a lib</td>
     <td></td>
     <td>Lab 3</td>
@@ -101,7 +101,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Feb 2</td>
     <td>IO and memory allocation; Testing: unit, module, & system <br>
-    <strong>Reading: "Testing and debugging" thru "Examples of famous bugs"</strong></td>
+    <strong>Reading: 4.3–4.10</strong></td>
     <td>io_and_stack, Can you break it?</td>
     <td></td>
     <td></td>
@@ -109,7 +109,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Feb 4</td>
     <td>TinySearchEngine: Crawler design; Design methodology <br>
-    <strong>Reading: "Searching the Web" thru "More tips about coding"</strong></td>
+    <strong>Reading: 5.1–5.7</strong></td>
     <td>Fifty clouds of grey</td>
     <td>Lab 3</td>
     <td>Lab 4</td>
@@ -129,7 +129,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Feb 11</td>
     <td>TinySearchEngine: Indexer design; Fuzz testing <br>
-    <strong>Reading: "Indexer design" thru "Fuzz testing and other techniques"</strong></td>
+    <strong>Reading: 5.8; 6.1</strong></td>
     <td>Use the Fuzz, Luke!</td>
     <td>Lab 4</td>
     <td>Lab 5</td>
@@ -141,7 +141,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Feb 16</td>
     <td>Git Flow <br>
-    <strong>Reading: "Protecting the main branc" thru "nCurses"</strong></td>
+    <strong>Reading: 7.3–7.8</strong></td>
     <td>Git with the Flow</td>
     <td></td>
     <td></td>
@@ -149,7 +149,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Feb 18</td>
     <td>TinySearchEngine: Querier design; Expression parsing <br>
-    <strong>Reading: "Querier parsing: expressions" thru "Teamwork"</strong></td>
+    <strong>Reading: 6.2–6.5; 7.1–7.2</strong></td>
     <td></td>
     <td>Lab 5</td>
     <td>Lab 6</td>
