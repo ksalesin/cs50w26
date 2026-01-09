@@ -121,7 +121,7 @@ If your script follows the older spec, and exits cleanly (but with non-zero stat
 
 ## What to submit
 
-You should have two files in your `lab1` directory: the two bash scripts `top10.sh` and `summarize.sh`.
+You should have three files in your `lab1` directory: the three bash scripts `lab1.sh`, `top10.sh`, and `summarize.sh`.
 
 `cd` into your home directory and compress your Lab 1 into a zip file using this command:
 
