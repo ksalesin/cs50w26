@@ -43,7 +43,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Jan 12</td>
     <td>Git and Github; Intro to C Programming <br>
     <strong>Reading: 2.1–2.10</strong></td>
-    <td>Gittin' around, C ya!</td>
+    <td><a href="/activities/activity3/README.html">Gittin' around</a>, <a href="/activities/activity4/README.html">C ya!</a></td>
     <td></td>
     <td></td>
 </tr>
