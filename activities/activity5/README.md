@@ -1,10 +1,10 @@
-# Activity: Mad Libs
+# Activity: MadLibs
 
-Some of you may have encountered a book of [*Mad Libs*](https://www.madlibs.com); on each page is a brief story with some words left blank.
+Some of you may have encountered a book of [*MadLibs*](https://www.madlibs.com); on each page is a brief story with some words left blank.
 One player sees the story and asks the other player, who cannot see the story, to fill in the blanks; each blank is labeled simply *noun*, *verb*, or perhaps something more explicit like *fruit* or *color*.
 After all the blanks are filled, the first player reads the story aloud, which can be pretty funny!
 
-Let's look at a program that allows you to play Mad Libs!
+Let's look at a program that allows you to play MadLibs!
 All the files you need are in the examples directory, `/home/cs50/shared/examples/` on plink.
 
 Answer the following in a Markdown file and one team member should upload it to Canvas for Activity 5 when you are finished.
