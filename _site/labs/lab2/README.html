@@ -35,31 +35,35 @@ In each case you will need to write a testing script.</p>
 You will lose points if the compiler produces warnings when using our CS50-standard compiler flags (i.e. when compiled with <code>mygcc</code>).</p>
 <h2>Preparation</h2>
 <!-- @CHANGEME update the invitation link -->
-<h3>1.1 Initialize a new git repo</h3>
+<h3>1.1 Accept the GitHub Classroom assignment</h3>
 <ul>
-<li>First, create a <code>lab2</code> folder on plink and create a <code>README.md</code> file in it. Indicate your name in the first line. You will use this file to provide any overall comments you want to convey to the grader.</li>
-<li>Initialize <code>lab2</code> as a git repository. What command did you use for that?</li>
-<li>Make sure that <code>README.md</code> is tracked. What command did you use for that?</li>
-<li>Provide your responses to these questions in <code>README.md</code>.</li>
+<li>Click the invitation link in the Canvas assignment for Lab 2.</li>
+<li>Accept the assignment in GitHub.</li>
+<li>This should create a new empty, private repository for you to work on Lab 2.</li>
 </ul>
-<blockquote>
-<p>Remember that you can preview Markdown files with various Markdown-editing or -rendering tools (see: <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/systems.md#markdown">Markdown resources</a>) but we will read it on GitHub, so before you make your final submission decision be sure to check it there.</p>
-</blockquote>
-<h3>1.2 Obtaining a local copy</h3>
-<p>How would you go about cloning the <code>lab2</code> repo on your local machine? What command would you use for that?
-Add the answer to your <code>README.md</code> file.</p>
+<h3>1.2 Initialize your GitHub repo</h3>
 <ul>
-<li>Commit your changes, with the message &quot;Responses to question 1&quot;</li>
+<li>Clone this repo to a <code>lab2</code> folder on plink. What command did you run for that?</li>
+<li>Create a <code>README.md</code> file in <code>lab2</code> with the header <code># Lab 2</code>. Indicate your name in the first line after the header. You can use this file to provide any overall comments you want to convey to the grader.</li>
+<li>Create a <code>.gitignore</code> file in <code>lab2</code> – this is a list of files that git will automatically ignore. As you work on the tasks below, add the paths of any executable/binary files that are generated to your <code>.gitignore</code> (it is generally considered bad git practice to commit binary files).</li>
 </ul>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p>This is not an issue on Linux, but if you are ever working with git on a Mac, you will want to add <code>.DS_Store</code> to your <code>.gitignore</code>, which is a hidden file that Macs automatically generate for every folder.</p>
+</div>
+<ul>
+<li>Make sure that <code>README.md</code> and <code>.gitignore</code> are tracked for changes. What command did you use for that?</li>
+<li>Write the answers to the git questions above in your <code>README</code>, under a subheading <code>## Answers to question 1</code>.</li>
+</ul>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p>Remember that you can preview Markdown files with various Markdown-editing or -rendering tools (see: <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/systems.md#markdown">Markdown resources</a>) but we will read it on GitHub, so before you make your final submission decision be sure to check it there.</p>
+</div>
 <h3>1.3 Programming questions</h3>
-<p>Make three directories where you'll do your work:</p>
-<pre><code>$ cd lab2
-$ mkdir chill words histo
+<p>Within <code>lab2</code>, make three directories where you'll do your work:</p>
+<pre><code>mkdir chill words histo
 </code></pre>
 <p>In each subdirectory, write the corresponding program as described below.
-Each directory should have a <code>.gitignore</code> file, which causes git to ignore the respective binary file (e.g. <code>chill</code>, <code>words</code>, <code>histo</code>) and anything else you don't want committed.</p>
-<p>Some other things that are good defaults to have for a <code>gitignore</code>:</p>
-<pre><code># Emacs backup and scratch files
+Remember to add any binary files (e.g. <code>chill/chill</code>, <code>words/words</code>, <code>histo/histo</code>) and anything else you don't want committed to your <code>.gitignore</code>.</p>
+<!-- Some other things that are good defaults to have for a `gitignore`:
+```
+# Emacs backup and scratch files
 *~
 \#*\#
 .\#*
@@ -70,14 +74,16 @@ Each directory should have a <code>.gitignore</code> file, which causes git to i
 .LSOverride
 Icon?
 ._*
-</code></pre>
+``` -->
 <hr>
-<h2>What to submit</h2>
-<p>When finished, your <code>lab2</code> directory should contain a <code>README.md</code> file and three subdirectories, each of which contain certain files as detailed below.</p>
+<h1>What to submit</h1>
+<p>When finished, your <code>lab2</code> directory should contain a <code>README.md</code> file and three subdirectories, each of which contains certain files as detailed below.</p>
 <p>You should add <strong>only</strong> the necessary files to your repo
 <em>(do not commit any compiled C programs!)</em>.
 Check <code>git status</code> before you commit: it will list the files that will be committed near the top and the files that will not be committed, or are 'untracked', near the bottom.
 <em>Study the status output carefully: if you miss adding a file we need, you'll lose points, and if you add a scratch or binary file that should not be in the repo, you'll lose points.</em></p>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p><strong>Your final push to your private <code>lab2</code> repo before the assignment deadline (Wed Jan 21st at 11:59 pm) will serve as your submission for Lab 2.</strong> Do not push any changes after the deadline (unless you are using one of your extensions). You do not need to submit anything to Canvas. The TAs have access to your repos through GitHub Classroom and  will clone each of your repos to plink for grading and testing.</p>
+</div>
 <hr>
 <h2>chill.c</h2>
 <p>Write a C program to calculate &quot;wind chill&quot; based on the current temperature and wind speed.
@@ -192,14 +198,13 @@ I include comments to help the reader know the purpose of each test.</p>
 <h3>What to submit:</h3>
 <p>We recommend that you commit the <code>chill</code> directory when you have it working, because it is logically separate from commits you may later (or earlier) have done on the other parts of this assignment.
 Use a meaningful commit message.</p>
-<p>Your directory should contain exactly these files, plus an <em>optional</em> <code>README.md</code>:</p>
+<p>Your directory should contain exactly these files:</p>
 <pre><code>chill
-├── .gitignore
 ├── chill.c
 ├── testing.out
 └── testing.sh
 </code></pre>
-<p>Note the <code>.gitignore</code> file, which causes git to ignore the binary file <code>chill</code> (binary files should not be committed!).</p>
+<!-- Note the `.gitignore` file, which causes git to ignore the binary file `chill` (binary files should not be committed!). -->
 <hr>
 <h2>words.c</h2>
 <p>Write a C program called <code>words</code> that breaks its input into a series of words, one per line.
@@ -239,13 +244,12 @@ If you then run it like this:</p>
 Use a meaningful commit message.</p>
 <p>Your directory should contain these files:</p>
 <pre><code>words
-├── .gitignore
 ├── testing.out
 ├── testing.sh
 └── words.c
 </code></pre>
-<p><em>plus</em> any input files you need for your testing script, plus an <em>optional</em> <code>README.md</code>.</p>
-<p>Note the <code>.gitignore</code> file, which causes git to ignore the binary file <code>words </code> (binary files should not be committed!).</p>
+<p>plus any input files you need for your testing script.</p>
+<!-- Note the `.gitignore` file, which causes git to ignore the binary file `words ` (binary files should not be committed!). -->
 <h2>histo.c</h2>
 <p>Write a program that reads a series of positive integers from stdin, and prints out a histogram.
 There should be 16 bins in your histogram.
@@ -405,13 +409,11 @@ The stdin should come from input files or pipes.</p>
 Use a meaningful commit message.</p>
 <p>Your directory should contain these files:</p>
 <pre><code>histo
-├── .gitignore
 ├── histo.c
 ├── testing.out
 └── testing.sh
 </code></pre>
-<p><em>plus</em> any input files you need for your testing script, plus an <em>optional</em> <code>README.md</code>.</p>
-<p>Note the <code>.gitignore</code> file, which causes git to ignore the binary file <code>histo</code> (binary files should not be committed!).</p>
+<p>plus any input files you need for your testing script.</p>
 <hr>
 <h2>ctype</h2>
 <p>The <code>ctype.h</code> header file defines several useful functions, listed below.
