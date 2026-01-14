@@ -20,23 +20,27 @@
         </ul>
     </div>
     <div class="markdown-body content">
-        <h1>Activity: Mad Libs</h1>
-<p>Some of you may have encountered a book of <a href="https://www.madlibs.com"><em>Mad Libs</em></a>; on each page is a brief story with some words left blank.
+        <h1>Activity: MadLibs</h1>
+<p>Some of you may have encountered a book of <a href="https://www.madlibs.com"><em>MadLibs</em></a>; on each page is a brief story with some words left blank.
 One player sees the story and asks the other player, who cannot see the story, to fill in the blanks; each blank is labeled simply <em>noun</em>, <em>verb</em>, or perhaps something more explicit like <em>fruit</em> or <em>color</em>.
 After all the blanks are filled, the first player reads the story aloud, which can be pretty funny!</p>
-<p>Let's look at a program that allows you to play Mad Libs!
+<p>Let's look at a program that allows you to play MadLibs!
 All the files you need are in the examples directory, <code>/home/cs50/shared/examples/</code> on plink.</p>
 <p>Answer the following in a Markdown file and one team member should upload it to Canvas for Activity 5 when you are finished.</p>
 <h2>Prep: getting the files</h2>
 <ol>
-<li>Create an <code>activity5</code> folder as a subdirectory of your home folder on plink.</li>
-<li>Copy the files <code>madlib.c</code>, <code>readline.c</code>, <code>readline.h</code>, <code>madlib1.txt</code>, and <code>madlib2.txt</code> from <code>examples</code> into your <code>activity5</code> directory. (<em>Challenge</em>: can you copy all those files with a single <code>cp</code> command?)</li>
+<li>Create a <code>madlibs</code> folder as a subdirectory of your home folder on plink.</li>
+<li>Copy the files <code>madlib.c</code>, <code>readline.c</code>, <code>readline.h</code>, <code>madlib1.txt</code>, and <code>madlib2.txt</code> from <code>examples</code> into your <code>madlibs</code> directory. (<em>Challenge</em>: can you copy all those files with a single <code>cp</code> command?)</li>
 </ol>
 <h2>Playing the game</h2>
 <ol>
 <li>Compile the example <code>madlib.c</code> and <code>readline.c</code> files together with a single <code>mygcc</code> command, producing the <code>madlib</code> executable file.</li>
-<li>Play it once on your own, using the example input <code>madlib1.txt</code>; afterward, look at the input and output files.</li>
-<li>Play again as a team; one person run it on <code>madlib2.txt</code>—don't peek at the file!—and all teammates can call out the words to input.  Read the output file aloud!</li>
+</ol>
+<pre><code>mygcc madlib.c readline.c -o madlib
+</code></pre>
+<ol start="2">
+<li>Play it once on your own, using the example template <code>madlib1.txt</code>; afterward, look at the template and output files.</li>
+<li>Play again as a team; one person run it on <code>madlib2.txt</code>—don't peek at the file!—and all teammates can call out the words to input. Read the output file aloud!</li>
 </ol>
 <h2>The code</h2>
 <ol>

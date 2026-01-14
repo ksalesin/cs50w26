@@ -11,13 +11,16 @@ Answer the following in a Markdown file and one team member should upload it to 
 
 
 ## Prep: getting the files
-1. Create an `activity5` folder as a subdirectory of your home folder on plink.
-2. Copy the files `madlib.c`, `readline.c`, `readline.h`, `madlib1.txt`, and `madlib2.txt` from `examples` into your `activity5` directory. (_Challenge_: can you copy all those files with a single `cp` command?)
+1. Create a `madlibs` folder as a subdirectory of your home folder on plink.
+2. Copy the files `madlib.c`, `readline.c`, `readline.h`, `madlib1.txt`, and `madlib2.txt` from `examples` into your `madlibs` directory. (_Challenge_: can you copy all those files with a single `cp` command?)
 
 ## Playing the game
 1. Compile the example `madlib.c` and `readline.c` files together with a single `mygcc` command, producing the `madlib` executable file.
-2. Play it once on your own, using the example input `madlib1.txt`; afterward, look at the input and output files.
-3. Play again as a team; one person run it on `madlib2.txt`—don't peek at the file!—and all teammates can call out the words to input.  Read the output file aloud!
+```
+mygcc madlib.c readline.c -o madlib
+```
+2. Play it once on your own, using the example template `madlib1.txt`; afterward, look at the template and output files.
+3. Play again as a team; one person run it on `madlib2.txt`—don't peek at the file!—and all teammates can call out the words to input. Read the output file aloud!
 
 ## The code
 1. Study the code for `madlib.c`.

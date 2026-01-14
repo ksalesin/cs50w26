@@ -51,9 +51,9 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Jan 14</td>
     <td>Intro to C Programming; Memory, pointers, and scope <br>
     <strong>Reading: 2.11–2.27</strong></td>
-    <td>MadLibs, Memory games</td>
+    <td><a href="/activities/activity5/README.html">MadLibs</a>, <a href="/activities/activity6/README.html">Memory games</a></td>
     <td>Lab 1</td>
-    <td>Lab 2</td>
+    <td><a href="/labs/lab2/README.html">Lab 2</a></td>
 </tr>
 
 <tr>
