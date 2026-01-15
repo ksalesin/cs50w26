@@ -7,39 +7,34 @@
 
 ## Prepare
 
-1. Log into plink;
-2. `git clone` the repository for activity7 located in /cs50/activity7.git into your home directory.
-3. `cd` into the resulting new cloned repo.
-4. Copy the file `covid-blank.c` to `covid.c`
-5. One member of the team share screen and edit that file, filling in BLANKs.
-Note: Allocate a large static array for `data`, of size 1000. Use a preprocessor macro directive to do so.
-6. Build and run the program with `make test`.
-
-Things to notice:
-
+1. Log into plink
+2. Copy the directory `activity7/` located in `/home/cs50/shared/examples/activity7/` into your home directory.
+```
+cd ~
+cp -r /home/cs50/shared/examples/activity7 .
+```
+3. `cd` into `activity7`
+4. Copy the file `covid-blank.c` to `covid.c`. Open up `covid.c`. Things to notice:
 * a long-ish `main()` function (because of extensive error checking) but good section-header comments to indicate overall flow.
 * use of the `file` module 
-* A big `struct` for holding each row of data from the csv file
+* a big `struct` for holding each row of data from the csv file
 * a `typedef` to define a new type for that struct
 * character pointers (for strings) inside the struct; where do they point?
 * an array of structs - how do you allocate memory for it?
 * extensive error-checking code throughout
-* an opportunity for you to write the  'contract' for the `extractData` function (read about [function contracts](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/contracts.md))
-* detailed 'contract' for the `csvBurst` function
+* detailed 'contract' for the `csvBurst` and `extractData` function (read about [function contracts](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/contracts.md))
 * in the `csvBurst` function, a 'moving pointer' approach to parsing the csv string
 * chopping the csv string by dropping in null characters
 * creating an array of pointers into the csv string
-
+5. One member of the team share screen and edit that file, filling in all the BLANKs.
+* Hint: open up the `file.h` header file to see what useful functions are available.
+6. Compile the program by running the `make` command within the `activity7` directory. (We will talk more about `make` next week, but for now just know that the `make` command reads the instructions in the Makefile to compile a complex project. You can open and read the Makefile if you like.)
 
 # Test file
 
-- You can test your code with [this file](https://github.com/govex/COVID-19/blob/master/data_tables/vaccine_data/us_data/archive/hourly/vaccine_data_us.csv).
-
-- To download it directly on Plink, you can use the following command:
-`wget https://github.com/govex/COVID-19/blob/master/data_tables/vaccine_data/us_data/archive/hourly/vaccine_data_us.csv`
+- You can test your code by running `./covid` on the `vaccine_data_us.csv` file that you used for Lab 1 (which you made a symbolic link to).
 
 # Submission
 
-- Make sure to commit your your `covid.c` file to the repository.
-- Upload the output of the `git log` command to Canvas
+- Submit your group's `covid.c` file for this activity to Canvas.
 

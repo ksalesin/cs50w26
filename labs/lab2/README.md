@@ -77,7 +77,7 @@ Check `git status` before you commit: it will list the files that will be commit
 *Study the status output carefully: if you miss adding a file we need, you'll lose points, and if you add a scratch or binary file that should not be in the repo, you'll lose points.*
 
 > [!IMPORTANT]
-> **Your final push to your private `lab2` repo before the assignment deadline (Wed Jan 21st at 11:59 pm) will serve as your submission for Lab 2.** Do not push any changes after the deadline (unless you are using one of your extensions). You do not need to submit anything to Canvas. The TAs have access to your repos through GitHub Classroom and  will clone each of your repos to plink for grading and testing.
+> **Your final push to your private `lab2` repo before the assignment deadline (Wed Jan 21st at 11:59 pm) will serve as your submission for Lab 2.** Do not push any changes after the deadline (unless you are using one of your extensions). You do not need to submit anything to Canvas. The TAs have access to your repos through GitHub Classroom and will clone each of your repos to plink for grading and testing.
 
 ----------------------------------------------------------------
 
