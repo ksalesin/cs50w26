@@ -1,15 +1,15 @@
-# Activity - Let's get modular!
+# Activity: Let's get modular!
 
-Put your team's answers into a Markdown file and upload it to Canvas for Activity9.
+Put your team's answers into a Markdown file and upload it to Canvas for this activity.
 
-## EASY
+## Part 1
 
-1. On plink, copy the classroom demo code in the `shared` examples directory into a new directory that you can write in:
+1. On plink, copy the following files from the examples directory into a new directory that you can play in:
 
-- [bag8.c](https://github.com/CS50DartmouthFA2025/examples/blob/main/bag8.c) 
-- [bag8.h](https://github.com/CS50DartmouthFA2025/examples/blob/main/bag8.h) 
-- [readlinep.c](https://github.com/CS50DartmouthFA2025/examples/blob/main/readlinep.c) 
-- [readlinep.h](https://github.com/CS50DartmouthFA2025/examples/blob/main/readlinep.h) 
+- bag8.c
+- bag8.h
+- readlinep.c
+- readlinep.h
 
 How would you extend the *bag* module so it keeps track of the number of items 
 in the bag? Would it be better to code it directly into `bag` or should you 
@@ -25,9 +25,7 @@ Hint: you would need to modify:
 * `bag_print`   (so you can also print the counter!)
 * `bag8.c`      to add testing code to the `main()` function to verify the new feature works!
 
-
-
-## Hard
+## Part 2
 
 2. How would you **design** (not code) a `tree` module? Things to consider:
     - what kind of tree (e.g., binary tree, B-tree, weighted decision tree, ... ) ?
@@ -43,7 +41,7 @@ Hint: you would need to modify:
       function to each item in the tree?
     - outline a test procedure to unit-test the new `tree` module.
 
-## HARDER !
+## Part 3
 
 3. How would you **design** (not code) a generic `graph` module? Things to consider:
     - what kind of graph (directed/undirected, acyclic, tree (subset of graph), etc.)
@@ -53,7 +51,6 @@ Hint: you would need to modify:
         - Breadth-first and Depth-First algorithms for graphs exist - what would it take to implement 
           those?
         - This traversal is needed for a `print` or `map` interator
-      
    - what about graph functions like `isAdjacentTo`, `numberOfHopsBetween` two graph nodes, `shortestPathBetween` two graph nodes, etc.     
    
    [Reference on graphs.](https://www.geeksforgeeks.org/graph-types-and-applications/?ref=lbp)
