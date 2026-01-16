@@ -23,7 +23,10 @@ You will lose points if the compiler produces warnings when using our CS50-stand
 ### 1.1 Accept the GitHub Classroom assignment
 - Click the invitation link in the Canvas assignment for Lab 2.
 - Accept the assignment in GitHub.
-- This should create a new empty, private repository for you to work on Lab 2.
+  - You may see an "error" message along the lines of "Repository Access Issue - You no longer have access to your assignment repository. Contact your teacher for support." Ignore this.
+- Check your email – there should be an email from GitHub asking you to accept the invitation to the new repository (check your Junk if you don't see it). Accept the invite.
+- This should take you to a new private repository with the name `lab2-<username>`. This is the repo you will use for Lab 2. 
+  - The url for this repository will be `https://github.com/DartmouthCS50W26/lab2-<username>` (you may want to bookmark it). It likely will not show up in your personal repositories (if you click on your profile pic and then Repositories) since the DartmouthCS50W26 organization is the owner.
 
 ### 1.2 Initialize your GitHub repo
 - Clone this repo to a `lab2` folder on plink. What command did you run for that?
