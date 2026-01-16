@@ -71,7 +71,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Pointers, strings, structs, and linked lists; Modular data structures <br>
     <strong>Reading: 3.1–3.5; 3.13</strong></td>
     <td>Structs and pointers, Let's get modular</td>
-    <td>Lab 2</td>
+    <td>Lab 2 (Fri, Jan 23rd)</td>
     <td></td>
 </tr>
 
@@ -84,7 +84,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <strong>Reading: 3.14–3.17; 4.1</strong></td>
     <td>Cohesive or just sticky?, Squashing bugs with gdb, Valgrind it?</td>
     <td></td>
-    <td></td>
+    <td>Lab 3</td>
 </tr>
 <tr>
     <td>Jan 28</td>
@@ -92,7 +92,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <strong>Reading: 3.6–3.12; 4.2</strong></td>
     <td>Can you make it?, Let's make a lib</td>
     <td></td>
-    <td>Lab 3</td>
+    <td></td>
 </tr>
 
 <tr>
