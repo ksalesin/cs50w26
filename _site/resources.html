@@ -269,7 +269,7 @@ and <a href="https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf">emacs 
 <p><strong>Sublime</strong>: the <a href="https://www.sublimetext.com">Sublime Text editor</a> can be used for free (as long as you don't mind declining the periodic requests to pay).
 It is also highly extensible using Python &amp; JSON.
 See this great <a href="http://code.tutsplus.com/articles/perfect-workflow-in-sublime-text-free-course--net-27293">tutorial</a>.</p>
-<p><strong>VScode</strong>: Microsoft's <a href="https://code.visualstudio.com">Visual Studio Code</a> is another great full-screen editor, runs everywhere, and also has a large collection of extensions.
+<p><strong>VS Code</strong>: Microsoft's <a href="https://code.visualstudio.com">Visual Studio Code</a> is another great full-screen editor, runs everywhere, and also has a large collection of extensions.
 See <a href="https://code.visualstudio.com/docs/introvideos/basics">Getting started with Visual Studio Code</a>.
 But, <strong>important warning:</strong>
 change the default location of the vscode database to reside on the local disk instead of your home directory.
@@ -281,6 +281,7 @@ You can also do this manually by sshing to any Thayer system and creating/editin
 <p>TL;DR: from the nice Thayer Computing folks:
 &quot;The problem appears to be with the <a href="https://code.visualstudio.com/docs/editor/intellisense">IntelliSense</a> database that the C/C++ Extension uses. When this is first run, it trolls all system libraries and caches all the symbols it finds. This, although it is resource-intensive, is a one-time-per-launch activity and happens reasonably quickly. However, the extension then seems to read and write the database it creates constantly. Since this is, by default, located in a user's nfs home directory, it creates thousands of small reads and writes per second, resulting in a backup of system calls and increase in load average. If enough users use this, it will overwhelm the system and cause a denial of service.&quot;</p>
 </blockquote>
+<p><a href="/~ksalesin/cs50/vscode.html">How to use VS Code over a remote connection</a></p>
 <h3><a id="set-editor">Setting your favorite EDITOR</a></h3>
 <p>Once you have settled on a preferred editor, you should make that information available to apps that might open an editor for you.
 (One common example: <code>git commit</code> opens an editor for you to review a list of files to commit, and to type a commit message.)

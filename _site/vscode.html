@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | VS Code</title>
+    <link rel="stylesheet" href="/~ksalesin/cs50/styles.css">
+    <link rel="stylesheet" href="/~ksalesin/cs50/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/~ksalesin/cs50/" id="cs50">CS 50: Software Design and Implementation (Winter 2026)</a></h3>
+        <ul>
+            <li><a href="/~ksalesin/cs50/syllabus.html">Syllabus</a></li>
+            <li><a href="/~ksalesin/cs50/schedule.html">Schedule</a></li>
+            <li><a href="/~ksalesin/cs50/style.html">Style Guide</a></li>
+            <li><a href="/~ksalesin/cs50/resources.html">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://spongium.org/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>VS Code SSH setup</h1>
+<p>This page walks you through how to use VS Code over a remote connection.</p>
+<ol>
+<li>
+<p>Click on the &quot;Extensions&quot; icon in the left sidebar (the four squares where one is slightly rotated). Search for the &quot;Remote - SSH&quot; extension and click Install.</p>
+</li>
+<li>
+<p>Once installed, click on the yellow angle brackets icon in the very bottom-left corner of the VS Code window (if you hover over it, it says &quot;Open a Remote Connection&quot;).</p>
+</li>
+<li>
+<p>Select &quot;Connect Current Window to Host...&quot;</p>
+</li>
+<li>
+<p>In the text field, enter your plink username and the plink address like so: <code>&lt;username&gt;@plink.cs.dartmouth.edu</code>. Hit Enter (do <em>not</em> add the <code>ssh</code> command before your username).</p>
+</li>
+<li>
+<p>Enter your plink password when prompted.</p>
+</li>
+<li>
+<p>It will probably take a couple seconds, but the connection will be set up (remember you must be on eduroam or the Dartmouth VPN in order to connect to plink). Once connected you can click Open... or File-&gt;Open... and you should see all the files and directories within your plink home directory. Click whichever file or directory you want to open and hit OK.</p>
+</li>
+<li>
+<p>When you open a .h or .c file it will probably prompt you to install the C/C++ Extension. <em>Do not install this</em>. While in the future it may be helpful, for this class we want you to practice compiling and running code using the command line and the commands we have taught you.</p>
+</li>
+</ol>
+<h2>Tip</h2>
+<p>If you are a Mac or Linux user, you can reduce typing by adding the following to your laptop's <code>~/.ssh/config</code> file; then you can click <code>cs50</code> in the prompt that opens in Step 4 above and only have to enter your password to login.</p>
+<p>Create the file <code>~/.ssh/config</code> on your laptop (<em>not</em> plink) if it does not already exist and add the following lines:</p>
+<pre><code>Host cs50
+   Hostname plink.cs.dartmouth.edu
+   User &lt;username&gt;
+</code></pre>
+
+    </div>
+</body>
+</html>

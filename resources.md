@@ -281,7 +281,7 @@ There are some free full-screen editors you can download on your laptop:
 It is also highly extensible using Python & JSON.
 See this great [tutorial](http://code.tutsplus.com/articles/perfect-workflow-in-sublime-text-free-course--net-27293).
 
-**VScode**: Microsoft's [Visual Studio Code](https://code.visualstudio.com) is another great full-screen editor, runs everywhere, and also has a large collection of extensions.
+**VS Code**: Microsoft's [Visual Studio Code](https://code.visualstudio.com) is another great full-screen editor, runs everywhere, and also has a large collection of extensions.
 See [Getting started with Visual Studio Code](https://code.visualstudio.com/docs/introvideos/basics).
 But, **important warning:**
 change the default location of the vscode database to reside on the local disk instead of your home directory.
@@ -293,6 +293,8 @@ You can also do this manually by sshing to any Thayer system and creating/editin
 
 > TL;DR: from the nice Thayer Computing folks:
 "The problem appears to be with the [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) database that the C/C++ Extension uses. When this is first run, it trolls all system libraries and caches all the symbols it finds. This, although it is resource-intensive, is a one-time-per-launch activity and happens reasonably quickly. However, the extension then seems to read and write the database it creates constantly. Since this is, by default, located in a user's nfs home directory, it creates thousands of small reads and writes per second, resulting in a backup of system calls and increase in load average. If enough users use this, it will overwhelm the system and cause a denial of service."
+
+<a href="/vscode.html">How to use VS Code over a remote connection</a>
 
 ### <a id="set-editor">Setting your favorite EDITOR</a>
 
