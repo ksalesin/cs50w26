@@ -70,7 +70,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Jan 21</td>
     <td>Pointers, strings, structs, and linked lists; Modular data structures <br>
     <strong>Reading: 3.1–3.5; 3.13</strong></td>
-    <td>Structs and pointers, Let's get modular</td>
+    <td><a href="/activities/activity7/README.html">Structs and pointers</a>, <a href="/activities/activity9/README.html">Let's get modular</a></td>
     <td>Lab 2 (Fri, Jan 23rd)</td>
     <td></td>
 </tr>

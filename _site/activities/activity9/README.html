@@ -21,22 +21,17 @@
     </div>
     <div class="markdown-body content">
         <h1>Activity: Let's get modular!</h1>
-<p>Put your team's answers into a Markdown file and upload it to Canvas for this activity.</p>
+<p>Put your team's answers into a Markdown file and upload it to Canvas for this activity. Also upload your team's extended <code>bag.h</code> and <code>bag.c</code> for Part 1.</p>
 <h2>Part 1</h2>
 <ol>
 <li>On plink, copy the following files from the examples directory into a new directory that you can play in:</li>
 </ol>
 <ul>
-<li>bag8.c</li>
-<li>bag8.h</li>
-<li>readlinep.c</li>
-<li>readlinep.h</li>
+<li><code>bag8.c</code></li>
+<li><code>bag8.h</code></li>
 </ul>
-<p>How would you extend the <em>bag</em> module so it keeps track of the number of items
-in the bag? Would it be better to code it directly into <code>bag</code> or should you
-use <code>counters</code>? What are the pros and cons of each? Pick one method and work out
-how you would implement <code>bag_count()</code> which returns the current number of items in
-the bag.<br>
+<p>Extend the <em>bag</em> module so it keeps track of the number of items
+in the bag. Also implement a <code>bag_count()</code> method that returns the current number of items in the bag.
 Hint: you would need to modify:</p>
 <ul>
 <li><code>struct bag</code>  (to include a counter)</li>
@@ -44,8 +39,10 @@ Hint: you would need to modify:</p>
 <li><code>bag_insert</code>  (to increment the counter)</li>
 <li><code>bag_extract</code> (to decrement the counter)</li>
 <li><code>bag_print</code>   (so you can also print the counter!)</li>
-<li><code>bag8.c</code>      to add testing code to the <code>main()</code> function to verify the new feature works!</li>
+<li><code>bag.h</code>       (to include the method signature for <code>bag_count()</code>)</li>
+<li><code>bag.c</code>       (to include the implementation of <code>bag_count()</code>)</li>
 </ul>
+<!-- * `bag8.c`      to add testing code to the `main()` function to verify the new feature works! -->
 <h2>Part 2</h2>
 <ol start="2">
 <li>How would you <strong>design</strong> (not code) a <code>tree</code> module? Things to consider:
@@ -56,14 +53,11 @@ Hint: you would need to modify:</p>
 </ul>
 </li>
 <li>what data structure(s) would be best (i.e., clearest, fastest, etc.) ?</li>
-<li>what functions would be useful? Build the <code>tree.h</code> file with the functions
-you would implement.</li>
+<li>what functions would be useful?</li>
 <li>unlike bag, insertion and deletion of tree nodes is tricky. How would you do it?</li>
-<li>what static functions (i.e., hidden functions, for tree use only) would be
-helpful in implementing the public functions?</li>
+<li>what static functions (i.e., hidden functions, for tree use only) would be helpful in implementing the public functions?</li>
 <li>how would you implement a <code>print</code> iterator for <code>tree</code> ?</li>
-<li>how would you implememnt a generic <code>map</code> iterator that applies a user-supplied
-function to each item in the tree?</li>
+<li>how would you implement a generic <code>map</code> iterator that applies a user-supplied function to each item in the tree?</li>
 <li>outline a test procedure to unit-test the new <code>tree</code> module.</li>
 </ul>
 </li>

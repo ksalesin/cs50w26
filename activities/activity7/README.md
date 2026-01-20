@@ -8,7 +8,7 @@
 ## Prepare
 
 1. Log into plink
-2. Copy the directory `activity7/` located in `/home/cs50/shared/examples/activity7/` into your home directory.
+2. Copy the directory `activity7` located in `/home/cs50/shared/examples/activity7` into your home directory.
 ```
 cd ~
 cp -r /home/cs50/shared/examples/activity7 .
