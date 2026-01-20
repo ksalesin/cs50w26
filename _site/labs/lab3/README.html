@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | Lab</title>
+    <link rel="stylesheet" href="/~ksalesin/cs50/styles.css">
+    <link rel="stylesheet" href="/~ksalesin/cs50/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/~ksalesin/cs50/" id="cs50">CS 50: Software Design and Implementation (Winter 2026)</a></h3>
+        <ul>
+            <li><a href="/~ksalesin/cs50/syllabus.html">Syllabus</a></li>
+            <li><a href="/~ksalesin/cs50/schedule.html">Schedule</a></li>
+            <li><a href="/~ksalesin/cs50/style.html">Style Guide</a></li>
+            <li><a href="/~ksalesin/cs50/resources.html">Resources</a></li>
+            <!-- <li><a href="/submit.html">Submit</a></li> -->
+            <li id="knowledge-base"><a href="http://spongium.org/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Lab 3: C programming</h1>
+<p>In this lab you will develop some general-purpose data structures that, with modular design, can be re-used for other labs - most notably, the Tiny Search Engine.</p>
+<p><em>Point breakdown:</em></p>
+<ul>
+<li>(25 points) set</li>
+<li>(25 points) counters</li>
+<li>(40 points) hashtable</li>
+<li>(10 points) overall, including git behavior</li>
+</ul>
+<h2>Reminders</h2>
+<p>Grading will focus on <a href="/~ksalesin/cs50/style.html">CS 50 coding style</a>—including consistent formatting, selection of identifier names, and use of meaningful comments—in addition to correctness and testing.</p>
+<p><strong>Your C code must compile without producing any compiler warnings.</strong>
+You will lose points if the compiler produces warnings when using our CS50-standard compiler flags (i.e. when compiled with <code>mygcc</code>).</p>
+<p><strong>If your submitted code fails to compile, or triggers a segmentation fault</strong>, you will fail all/some of our correctness tests, and lose points for correctness on those test cases. Write defensive code: each function should check its pointer parameters for NULL, and take some appropriate (safe) action. Write solid unit tests, test drivers, and use regression testing as your development proceeds.</p>
+<h2>Preparation</h2>
+<h3>Accept the GitHub Classroom assignment</h3>
+<ul>
+<li>Click the invitation link in the Canvas assignment for Lab 3.</li>
+<li>Accept the assignment in GitHub (see <a href="/~ksalesin/cs50/labs/lab2/README.html">Lab 2</a> for additional instructions if necessary).</li>
+<li>Clone this repo to a <code>lab3</code> folder on plink.</li>
+</ul>
+<h2>Assignment</h2>
+<p>The starter repository implements the <strong>bag</strong>, <strong>file</strong>, and <strong>mem</strong> modules.</p>
+<p>You will implement the <strong>set</strong>, <strong>counters</strong>, and <strong>hashtable</strong> modules, each of which defines a different data structure.</p>
+<h3>About the data structures</h3>
+<p>The specific data structures are defined in the sections below.</p>
+<p>In the table below, we compare the behavior of these data structures. Most of these data structures allow you to store a collection of &quot;items&quot;. Both the <strong>set</strong> and <strong>hashtable</strong> are examples of an abstract data structure called a <em>dictionary</em>, which provide methods like <code>insert(key, item)</code> and <code>item = retrieve(key)</code>, where the key allows the structure to distinguish among the items it stores.</p>
+<table>
+<thead>
+<tr>
+<th>Behavior</th>
+<th>list</th>
+<th>bag</th>
+<th>set</th>
+<th>counters</th>
+<th>hashtable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stores an item</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>uses a key</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>keeps items in order</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>retrieval</td>
+<td>first item</td>
+<td>any item</td>
+<td>by key</td>
+<td>by key</td>
+<td>by key</td>
+</tr>
+<tr>
+<td>insertion of duplicates</td>
+<td>allowed</td>
+<td>allowed</td>
+<td>error</td>
+<td>increment count</td>
+<td>error</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that:</p>
+<ul>
+<li>a <strong>list</strong> keeps items in order, but a <strong>bag</strong> or a <strong>set</strong> does not.</li>
+<li>a <strong>set</strong> and <strong>hashtable</strong> allow you to retrieve a specific item (indicated by its key) whereas a <strong>bag</strong> might return any item.</li>
+<li>because the <strong>bag</strong> and <strong>list</strong> don't distinguish among items they store, they can hold duplicates; the others cannot.</li>
+<li>the <strong>counters</strong> data structure maintains a set of counters, each identified by a key, but it stores no items. Instead, it keeps a counter for each key. Attempting to insert a duplicate key results in an increment of the counter</li>
+</ul>
+<h3>bag</h3>
+<p>A <strong>bag</strong> is an unordered collection of items. The bag starts empty, grows as the caller adds one item at a time, and shrinks as the caller extracts one item at a time. It could be empty, or could contain hundreds of items. Items are indistinguishable, so the extract function is free to return any item from the bag.</p>
+<p>The starter kit includes our <strong>bag</strong> module, in which <code>bag.c</code> implements a bag of <code>void*</code>, and exports the following functions through <code>bag.h</code> (see that file for more detailed documentation comments):</p>
+<pre><code>bag_t* bag_new(void);
+void bag_insert(bag_t* bag, void* item);
+void* bag_extract(bag_t* bag);
+void bag_print(bag_t* bag, FILE* fp, void (*itemprint)(FILE* fp, void* item));
+void bag_iterate(bag_t* bag, void* arg, void (*itemfunc)(void* arg, void* item) );
+void bag_delete(bag_t* bag, void (*itemdelete)(void* item) );
+</code></pre>
+<h3>set</h3>
+<p>A <strong>set</strong> maintains an unordered collection of <em>(key, item)</em> pairs; any given key can only occur in the set once. It starts out empty and grows as the caller inserts new (key,item) pairs. The caller can retrieve items by asking for their key, but cannot remove or update pairs. Items are distinguished by their key.</p>
+<p>Your <code>set.c</code> should implement a set of <code>void*</code> items with <code>char*</code> keys, and export exactly the following functions through <code>set.h</code> (see that file for more detailed documentation comments):</p>
+<pre><code>set_t* set_new(void);
+bool set_insert(set_t* set, const char* key, void* item);
+void* set_find(set_t* set, const char* key);
+void set_print(set_t* set, FILE* fp, void (*itemprint)(FILE* fp, const char* key, void* item) );
+void set_iterate(set_t* set, void* arg, void (*itemfunc)(void* arg, const char* key, void* item) );
+void set_delete(set_t* set, void (*itemdelete)(void* item) );
+</code></pre>
+<h3>counters</h3>
+<p>A <strong>counters</strong> is a set of counters, each distinguished by an integer key. It's a set - each key can only occur once in the set - and it tracks a counter for each key. It starts empty. Each time <code>counters_add</code> is called on a given key, the corresponding counter is incremented. The current counter value can be retrieved by asking for the relevant key.</p>
+<p>Your <code>counters.c</code> should implement a set of integer counters with <code>int</code> keys (where keys must be non-negative) and export exactly the following functions through <code>counters.h</code> (see that file for more detailed documentation comments):</p>
+<pre><code>counters_t* counters_new(void);
+int counters_add(counters_t* ctrs, const int key);
+int counters_get(counters_t* ctrs, const int key);
+bool counters_set(counters_t* ctrs, const int key, const int count);
+void counters_print(counters_t* ctrs, FILE* fp);
+void counters_iterate(counters_t* ctrs, void* arg, void (*itemfunc)(void* arg, const int key, const int count));
+void counters_delete(counters_t* ctrs);
+</code></pre>
+<h3>hashtable</h3>
+<p>A <strong>hashtable</strong> is a set of <em>(key, item)</em> pairs. It acts just like a set, but is far more efficient for large collections.</p>
+<p>Your <code>hashtable.c</code> should implement a set of <code>void*</code> with <code>char*</code> keys, and export exactly the following functions through <code>hashtable.h</code> (see that file for more detailed documentation comments):</p>
+<pre><code>hashtable_t* hashtable_new(const int num_slots);
+bool hashtable_insert(hashtable_t* ht, const char* key, void* item);
+void* hashtable_find(hashtable_t* ht, const char* key);
+void hashtable_print(hashtable_t* ht, FILE* fp, void (*itemprint)(FILE* fp, const char* key, void* item));
+void hashtable_iterate(hashtable_t* ht, void* arg, void (*itemfunc)(void* arg, const char* key, void* item) );
+void hashtable_delete(hashtable_t* ht, void (*itemdelete)(void* item) );
+</code></pre>
+<p>The starter kit provides code for the hash function.</p>
+<h2>Testing</h2>
+<p>Each of your modules must have a unit-test mechanism, either included within the module code (see, for example, the bottom of <code>file.c</code> in the <strong>file</strong> module) or as a test driver (see, for example, <code>bagtest.c</code> in the <strong>bag module</strong>).</p>
+<p>Your modules must each have a <code>Makefile</code> to compile and test the module code.</p>
+<ul>
+<li>Your <code>Makefile</code> must have a <code>make test</code> target that runs your unit test.</li>
+<li>Your <code>Makefile</code> should have a <code>make clean</code> target that cleans up the directory of any files created by <code>make</code> or <code>make test</code>.</li>
+</ul>
+<h2>General notes</h2>
+<ul>
+<li>Your modules must implement <em>exactly</em> the above interface. Do not modify those function prototypes. Indeed, you should have no need to edit the header (<code>.h</code>) files we provide.</li>
+<li>If you need support data types (likely <code>struct</code> types), those should be defined within your module's source file (<code>set.c</code>, etc.) so they are not visible to users of the module.</li>
+<li>If your module needs helper functions, those should be defined within that module's source file and marked <code>static</code> so they are not visible to users of the module.</li>
+<li>Your modules must print nothing (except, of course, in the <code>xxx_print()</code> function). If you want to add debugging prints, they must be protected by something like <code>#ifdef DEBUG</code> or <code>#ifdef TEST</code>. (You can see some examples in <code>bag.c</code> where we've protected some debugging code with <code>#ifdef MEMTEST</code>, and a spot in the <code>bag/Makefile</code> that controls that flag from the compiler command line.)</li>
+<li>Your modules must have no global variables.</li>
+<li>Your modules must have no <code>main()</code> function; as modules, they are meant to be used by other programs (exception: unit-test code hidden by <code>#ifdef</code>).
+Your modules <strong>set</strong> and <strong>hashtable</strong>, like <strong>bag</strong>, store <code>void*</code> items; this type is C's way of describing a &quot;pointer to anything&quot;.
+<ul>
+<li>The caller (user of your module) must pass a pointer (address of some item) to your code; your data structure holds that pointer, and later returns it to the caller in response to an 'extract' or 'find' operation.</li>
+<li>Your module doesn't know, or doesn't care, what kind of things the items are. Your module doesn't allocate memory for items, free memory for items, or copy items – it just tracks the pointer to the item.</li>
+<li>The caller is responsible for the item pointer, which must be allocated (somehow) by the caller. The modules' <code>_delete</code> function (like a destructor) allows the caller to provide a custom <code>itemdelete</code> function that knows how to free any memory consumed by an item.</li>
+<li>For this reason, the caller must avoid inserting the same item (same address) multiple times; later, the <code>itemdelete</code> method would be called multiple times on that item... which could lead to trouble.</li>
+</ul>
+</li>
+<li>Both <strong>set</strong> and <strong>hashtable</strong> work with string-type keys. When adding a new item with <code>set_insert()</code> or <code>hashtable_insert()</code>, both modules make their own copy of the string – presumably in memory allocated by <code>malloc()</code>.
+<ul>
+<li>The module is then responsible for this memory – and later freeing it – just like any other memory it allocates. This 'copy' semantic is convenient for the caller, who need not worry about how to allocate and manage the key string after inserting it into the set or hashtable.</li>
+<li>You may assume that a non-NULL key is a proper C string; that is, it is null-terminated.</li>
+</ul>
+</li>
+<li>Your code must have no memory leaks. We will check!
+<ul>
+<li>You may find the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/lab3-mem.md">mem module</a> (provided) useful - or use the native malloc and free.</li>
+<li>You may find <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/valgrind.md">valgrind</a> useful.</li>
+</ul>
+</li>
+</ul>
+<h2>Hints</h2>
+<p>You are encouraged to follow the style and layout of the <strong>bag</strong> module when developing new modules.</p>
+<p>You can also learn a lot from our binary tree examples in the <code>trees</code> directory within the examples directory on plink. You are welcome to copy snippets of code from this (or any other) CS 50 example code as long as you add a comment indicating you've done so.</p>
+<p>We suggest implementing the <strong>set</strong> and <strong>counters</strong> as simplified linked lists, much like we did for <strong>bag</strong>. Each should be an independent implementation because they differ in detail and semantics.</p>
+<p>Your <strong>hashtable</strong> module, on the other hand, should make use of the <strong>set</strong> data structure. Indeed, your hashtable should likely be an array of pointers to sets. Allocating an array of pointers can be tricky; recall the unit about <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/c-arrays.md">C arrays</a>.</p>
+<p><strong>Linked lists</strong> are demonstrated in the <code>sorter4.c</code> through <code>sorter7.c</code> files in the examples directory, although you will need to generalize. They were also covered in CS 10; see <a href="https://www.cs.dartmouth.edu/~tjp/cs10/notes6.html">notes</a>.</p>
+<p>Hashtables were also covered in CS10; see <a href="https://www.cs.dartmouth.edu/~tjp/cs10/notes11.html">notes</a>.</p>
+<h2>What to submit</h2>
+<p>When finished, your <code>lab3</code> directory should contain the following, plus any programs, scripts, or data files you need for running your tests:</p>
+<pre><code>.
+|-- .gitignore			# provided by starter kit
+|-- Makefile			# provided by starter kit
+|-- README.md			# be sure to include your name and username
+|-- bag
+|   |-- .gitignore		# provided by starter kit
+|   |-- Makefile		# provided by starter kit
+|   |-- README.md		# provided by starter kit
+|   |-- bag.c			# provided by starter kit
+|   |-- bag.h			# provided by starter kit
+|   |-- bagtest.c		# provided by starter kit
+|   |-- test.names		# provided by starter kit
+|   `-- testing.out		# provided by starter kit
+|-- counters
+|   |-- .gitignore
+|   |-- Makefile
+|   |-- README.md
+|   |-- counters.c
+|   `-- counters.h		# provided by starter kit
+|-- hashtable
+|   |-- .gitignore
+|   |-- Makefile
+|   |-- README.md
+|   |-- hash.c			# provided by starter kit
+|   |-- hash.h			# provided by starter kit
+|   |-- hashtable.c
+|   `-- hashtable.h		# provided by starter kit
+|-- lib
+|   |-- Makefile		# provided by starter kit
+|   |-- README.md		# provided by starter kit
+|   |-- file.c			# provided by starter kit
+|   |-- file.h			# provided by starter kit
+|   |-- mem.c			# provided by starter kit
+|   `-- mem.h			# provided by starter kit
+`-- set
+    |-- .gitignore
+    |-- Makefile
+    |-- README.md
+    |-- set.c
+    `-- set.h			# provided by starter kit
+</code></pre>
+<p>Do not commit any compiled C programs.</p>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p>Your final push to your private <code>lab3</code> repo before the assignment deadline (Fri Jan 23rd at 11:59 pm) will serve as your submission for Lab 3. Do not push any changes after the deadline (unless you are using one of your extensions). You do not need to submit anything to Canvas. The TAs have access to your repos through GitHub Classroom and will clone each of your repos to plink for grading and testing.</p>
+</div>
+
+    </div>
+</body>
+</html>
