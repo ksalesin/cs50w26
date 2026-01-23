@@ -5,6 +5,12 @@ Run `make` to build them all.
 
 Put your team's answers in a Markdown file and upload it to Canvas for Activity 11.
 
+First, copy the files for this activity into a directory on plink that you can play around in:
+```
+cd ~
+cp -r /home/cs50/shared/examples/activity11 .
+```
+
 1. `alpha.c`
     crashes with segfault. why?
 2. `beta.c`
@@ -23,5 +29,4 @@ Put your team's answers in a Markdown file and upload it to Canvas for Activity 
     password checker sometimes accepts the wrong password
 9. `iota.c`
     golden ratio approximator doesn't even get close!
-10. `omega` thought challenge 
-    How would you detect a cycle in a linked list?
+10. Thought Challenge: How would you detect a cycle in a linked list?
