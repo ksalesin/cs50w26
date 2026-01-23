@@ -82,7 +82,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Jan 26</td>
     <td><strong>Note: we will use x-hour on this day!</strong> <br>Makefiles; Debugging with gdb and Valgrind <br>
     <strong>Reading: 3.6–3.12; 3.17; 4.1</strong></td>
-    <td>Can you make it?, Squashing bugs with gdb, Valgrind it?</td>
+    <td><a href="/activities/activity8/README.html">Can you make it?</a>, <a href="/activities/activity11/README.html">Squashing bugs with gdb</a>, <a href="/activities/activity12/README.html">Valgrind it?</a></td>
     <td></td>
     <td>Lab 3</td>
 </tr>
