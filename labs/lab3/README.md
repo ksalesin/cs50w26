@@ -11,7 +11,7 @@ In this lab you will develop some general-purpose data structures that, with mod
 
 ## Reminders
 
-Grading will focus on [CS 50 coding style](/style.html)—including consistent formatting, selection of identifier names, and use of meaningful comments—in addition to correctness and testing.
+Grading will focus on [CS 50 coding style](/style.html) – including consistent formatting, selection of identifier names, and use of meaningful comments – in addition to correctness and testing.
 
 **Your C code must compile without producing any compiler warnings.**
 You will lose points if the compiler produces warnings when using our CS50-standard compiler flags (i.e. when compiled with `mygcc`).
@@ -22,12 +22,16 @@ You will lose points if the compiler produces warnings when using our CS50-stand
 
 ### Accept the GitHub Classroom assignment
 - Click the invitation link in the Canvas assignment for Lab 3.
-- Accept the assignment in GitHub (see <a href="/labs/lab2/README.html">Lab 2</a> for additional instructions if necessary).
+- Accept the assignment in GitHub (see <a href="/labs/lab2/README.html">Lab 2</a> for additional instructions).
+
+### Preliminaries
 - Clone this repo to a `lab3` folder on plink.
+- Create a `README.md` and a `.gitignore` file. As always, add all executable files and all object files (`*.o`) to your `.gitignore`.
+- Add the header `# Lab 3` and your name to the README. You can add any notes about your implementation or notes to the grader in the README (but it can be empty otherwise if you have none).
 
 ## Assignment
 
-The starter repository implements the **bag**, **file**, and **mem** modules.
+The starter repository implements the **bag**, **file**, and **mem** modules (**file** and **mem** are within the `lib` directory).
 
 You will implement the **set**, **counters**, and **hashtable** modules, each of which defines a different data structure.
 
@@ -49,7 +53,7 @@ Notice that:
   * a **list** keeps items in order, but a **bag** or a **set** does not.
   * a **set** and **hashtable** allow you to retrieve a specific item (indicated by its key) whereas a **bag** might return any item.
   * because the **bag** and **list** don't distinguish among items they store, they can hold duplicates; the others cannot.
-  * the **counters** data structure maintains a set of counters, each identified by a key, but it stores no items. Instead, it keeps a counter for each key. Attempting to insert a duplicate key results in an increment of the counter
+  * the **counters** data structure maintains a set of counters, each identified by a key, but it stores no items. Instead, it keeps a counter for each key. Attempting to insert a duplicate key results in an increment of the counter.
 
 ### bag
 
@@ -83,7 +87,7 @@ void set_delete(set_t* set, void (*itemdelete)(void* item) );
 
 ### counters
 
-A **counters** is a set of counters, each distinguished by an integer key. It's a set - each key can only occur once in the set - and it tracks a counter for each key. It starts empty. Each time `counters_add` is called on a given key, the corresponding counter is incremented. The current counter value can be retrieved by asking for the relevant key.
+A **counters** is a set of counters, each distinguished by an integer key. It's a set – each key can only occur once in the set – and it tracks a counter for each key. It starts empty. Each time `counters_add` is called on a given key, the corresponding counter is incremented. The current counter value can be retrieved by asking for the relevant key.
 
 Your `counters.c` should implement a set of integer counters with `int` keys (where keys must be non-negative) and export exactly the following functions through `counters.h` (see that file for more detailed documentation comments):
 
@@ -116,22 +120,22 @@ The starter kit provides code for the hash function.
 
 ## Testing
 
-Each of your modules must have a unit-test mechanism, either included within the module code (see, for example, the bottom of `file.c` in the **file** module) or as a test driver (see, for example, `bagtest.c` in the **bag module**).
+Each of your modules must have a unit-test mechanism, either included within the module code (see, for example, the bottom of `file.c` in the **file** module) or as a test driver (see, for example, `bagtest.c` in the **bag** module).
 
-Your modules must each have a `Makefile` to compile and test the module code.
+Your modules must each have a `Makefile` to compile and test the module code. See the **bag** module for an example.
 
 * Your `Makefile` must have a `make test` target that runs your unit test.
 * Your `Makefile` should have a `make clean` target that cleans up the directory of any files created by `make` or `make test`.
 
 ## General notes
 
-* Your modules must implement *exactly* the above interface. Do not modify those function prototypes. Indeed, you should have no need to edit the header (`.h`) files we provide.
-* If you need support data types (likely `struct` types), those should be defined within your module's source file (`set.c`, etc.) so they are not visible to users of the module.
+* You should have no need to edit the header (`.h`) files we provide. Do not modify the function prototypes.
+* If you need helper data types (likely `struct` types), those should be defined within your module's source file (`set.c`, etc.) so they are not visible to users of the module.
 * If your module needs helper functions, those should be defined within that module's source file and marked `static` so they are not visible to users of the module.
 * Your modules must print nothing (except, of course, in the `xxx_print()` function). If you want to add debugging prints, they must be protected by something like `#ifdef DEBUG` or `#ifdef TEST`. (You can see some examples in `bag.c` where we've protected some debugging code with `#ifdef MEMTEST`, and a spot in the `bag/Makefile` that controls that flag from the compiler command line.)
 * Your modules must have no global variables.
-* Your modules must have no `main()` function; as modules, they are meant to be used by other programs (exception: unit-test code hidden by `#ifdef`).
-Your modules **set** and **hashtable**, like **bag**, store `void*` items; this type is C's way of describing a "pointer to anything".
+* Your modules must have no `main()` function (*except* if you are creating unit-test code hidden by `#ifdef`); as modules, they are meant to be used by other programs.
+* Your modules **set** and **hashtable**, like **bag**, store `void*` items; this type is C's way of describing a "pointer to anything".
     * The caller (user of your module) must pass a pointer (address of some item) to your code; your data structure holds that pointer, and later returns it to the caller in response to an 'extract' or 'find' operation.
     * Your module doesn't know, or doesn't care, what kind of things the items are. Your module doesn't allocate memory for items, free memory for items, or copy items – it just tracks the pointer to the item.
     * The caller is responsible for the item pointer, which must be allocated (somehow) by the caller. The modules' `_delete` function (like a destructor) allows the caller to provide a custom `itemdelete` function that knows how to free any memory consumed by an item.
@@ -140,7 +144,7 @@ Your modules **set** and **hashtable**, like **bag**, store `void*` items; this 
     * The module is then responsible for this memory – and later freeing it – just like any other memory it allocates. This 'copy' semantic is convenient for the caller, who need not worry about how to allocate and manage the key string after inserting it into the set or hashtable.
     * You may assume that a non-NULL key is a proper C string; that is, it is null-terminated.
 * Your code must have no memory leaks. We will check!
-    * You may find the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/lab3-mem.md">mem module</a> (provided) useful - or use the native malloc and free.
+    * You may find the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/lab3-mem.md">mem module</a> (provided) useful – or use the native malloc and free.
     * You may find <a href=
     "https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/valgrind.md">valgrind</a> useful.
 
@@ -148,15 +152,15 @@ Your modules **set** and **hashtable**, like **bag**, store `void*` items; this 
 
 You are encouraged to follow the style and layout of the **bag** module when developing new modules.
 
-You can also learn a lot from our binary tree examples in the `trees` directory within the examples directory on plink. You are welcome to copy snippets of code from this (or any other) CS 50 example code as long as you add a comment indicating you've done so.
+You can also learn a lot from our binary tree examples in the `trees` directory within the examples on plink. You are welcome to copy snippets of code from this (or any other) CS 50 example code as long as you add a comment indicating you've done so.
 
 We suggest implementing the **set** and **counters** as simplified linked lists, much like we did for **bag**. Each should be an independent implementation because they differ in detail and semantics.
 
 Your **hashtable** module, on the other hand, should make use of the **set** data structure. Indeed, your hashtable should likely be an array of pointers to sets. Allocating an array of pointers can be tricky; recall the unit about <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/c-arrays.md">C arrays</a>.
 
-**Linked lists** are demonstrated in the `sorter4.c` through `sorter7.c` files in the examples directory, although you will need to generalize. They were also covered in CS 10; see <a href="https://www.cs.dartmouth.edu/~tjp/cs10/notes6.html">notes</a>.
+**Linked lists** are demonstrated in the `sorter4.c` through `sorter7.c` files in the examples on plink, although you will need to generalize. They were also covered in CS 10; see <a href="https://www.cs.dartmouth.edu/~tjp/cs10/notes6.html">notes</a>.
 
-Hashtables were also covered in CS10; see <a href="https://www.cs.dartmouth.edu/~tjp/cs10/notes11.html">notes</a>.
+Hashtables were also covered in CS10; see <a href="https://www.cs.dartmouth.edu/~tjp/cs10/notes12.html">notes</a>.
 
 ## What to submit
 
@@ -166,7 +170,7 @@ When finished, your `lab3` directory should contain the following, plus any prog
 .
 |-- .gitignore			# provided by starter kit
 |-- Makefile			# provided by starter kit
-|-- README.md			# be sure to include your name and username
+|-- README.md			# be sure to include your name
 |-- bag
 |   |-- .gitignore		# provided by starter kit
 |   |-- Makefile		# provided by starter kit
@@ -177,15 +181,11 @@ When finished, your `lab3` directory should contain the following, plus any prog
 |   |-- test.names		# provided by starter kit
 |   `-- testing.out		# provided by starter kit
 |-- counters
-|   |-- .gitignore
 |   |-- Makefile
-|   |-- README.md
 |   |-- counters.c
 |   `-- counters.h		# provided by starter kit
 |-- hashtable
-|   |-- .gitignore
 |   |-- Makefile
-|   |-- README.md
 |   |-- hash.c			# provided by starter kit
 |   |-- hash.h			# provided by starter kit
 |   |-- hashtable.c
@@ -198,14 +198,12 @@ When finished, your `lab3` directory should contain the following, plus any prog
 |   |-- mem.c			# provided by starter kit
 |   `-- mem.h			# provided by starter kit
 `-- set
-    |-- .gitignore
     |-- Makefile
-    |-- README.md
     |-- set.c
     `-- set.h			# provided by starter kit
 ```
 
-Do not commit any compiled C programs.
+Do not commit any compiled C programs or object files (`*.o`).
 
 > [!IMPORTANT]
-> Your final push to your private `lab3` repo before the assignment deadline (Fri Jan 23rd at 11:59 pm) will serve as your submission for Lab 3. Do not push any changes after the deadline (unless you are using one of your extensions). You do not need to submit anything to Canvas. The TAs have access to your repos through GitHub Classroom and will clone each of your repos to plink for grading and testing.
+> Your final push to your private `lab3` repo before the assignment deadline (Wed, Feb 4th at 11:59 pm) will serve as your submission for Lab 3. Do not push any changes after the deadline (unless you are using one of your extensions). You do not need to submit anything to Canvas. The TAs have access to your repos through GitHub Classroom and will clone each of your repos to plink for grading and testing.
