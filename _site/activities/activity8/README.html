@@ -44,7 +44,7 @@ cp -r /home/cs50/shared/examples/activity8 .
 </li>
 <li>add target <code>clean:</code> that erases the app, <code>.o</code>, and other files that could result from a run of <code>make</code>. Test this by running <code>make clean</code>.</li>
 <li>add a target <code>test:</code> that runs the supplied <code>testing.sh</code> (you should also add the executable <code>diningHallApp</code> as a dependency so it will be recompiled first if out of date).</li>
-<li>add target <code>backup</code>: target that makes <code>clean</code> and then creates a backup tarfile of your .c and .h files (e.g., <code>tar -cvf backup.tar *.c *.h</code>).</li>
+<li>add target <code>backup:</code> target that makes <code>clean</code> and then creates a backup tarfile of your .c and .h files (e.g., <code>tar -cvf backup.tar *.c *.h</code>).</li>
 <li>add a target <code>submit:</code> that depends on the <code>clean</code> target and then rebuilds the app <em>without</em> the <code>-ggdb</code> option as its &quot;recipe&quot;.</li>
 <li>You can see that for each target, <code>make</code> prints each command as it runs; sometimes this is desirable, sometimes not. Modify the <code>clean:</code> target so that it runs the same commands but does not print them.</li>
 </ol>
