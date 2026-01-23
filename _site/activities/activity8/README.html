@@ -21,29 +21,35 @@
     </div>
     <div class="markdown-body content">
         <h1>Activity: Can you make it?</h1>
-<p>Reminder: use ‘make -n’ to see what make will do without actually doing it,  and use  ‘touch’ to make specific files out of date.</p>
+<p>Reminder: you can use <code>make -n</code> to see what make will do without actually doing it,  and use <code>touch</code> to make specific files out of date.</p>
+<p>Upload your final Makefile to Canvas for this activity.</p>
 <hr>
 <ol>
-<li>Build an initial makefile based on the dependency diagram below. Be sure to use variables (like <code>$(OBJS)</code>) when you can. <img src="MakeDependencyTree.png" alt="dependency tree">.</li>
-<li>add macros for <code>gcc</code>,  <code>-Wall -pedantic -std=c11 -ggdb</code>, and library flags (e.g., <code>-lm</code>).</li>
-<li>add target <code>clean:</code> that erases the app, <code>.o</code>, and other files that could result from a run of <code>make</code>.</li>
-<li>test your makefile to ensure the dependency tree is correctly represented.  For example:</li>
+<li>On plink, copy the following files from the examples directory into your home directory:</li>
 </ol>
+<pre><code>cd ~
+cp -r /home/cs50/shared/examples/activity8 .
+</code></pre>
+<ol>
+<li>Build an initial makefile based on the dependency diagram below. Be sure to use variables (like <code>$(OBJS)</code>) when you can.</li>
+</ol>
+<p><img src="/~ksalesin/cs50/images/MakeDependencyTree.png" alt="dependency tree"></p>
+<ol>
+<li>add macros for <code>gcc</code>,  <code>-Wall -pedantic -std=c11 -ggdb</code>, and library flags (e.g., <code>-lm</code>).</li>
+<li>At this point, test your <code>Makefile</code> by running the <code>make</code> command.
 <ul>
-<li>run <code>make clean</code> then <code>make</code> to build everything. Then <code>touch meal.h</code> and then <code>make</code> and you should only see <code>menu.c</code> and <code>meal.c</code> recompiled.</li>
+<li>It should run without errors and create the <code>diningHallApp</code> executable.</li>
+<li><code>touch meal.h</code> to modify its timestamp and then <code>make</code> and you should only see <code>menu.c</code> and <code>meal.c</code> recompiled.</li>
 </ul>
-<ol start="5">
-<li>add a target <code>test:</code> that depends on the supplied <code>testing.sh</code> and the app (i.e., <code>diningHall</code>).</li>
-<li>add target <code>backup</code>: target that makes <code>clean</code> and then creates a backup tarfile of your .c and .h files (e.g., <code>tar -cvf ../backup.tar *.c *.h</code>).  Be sure to add an exception to the <code>clean:</code> for your <code>backup*.tar</code> files!</li>
-<li>add a <code>backup:</code> target to check whether <code>../backup.tar</code> already exists and, if it does, renames it to <code>../backup-previous.tar</code>. If the <code>../backup-previous.tar</code> file already exists just overwrite it.</li>
+</li>
+<li>add target <code>clean:</code> that erases the app, <code>.o</code>, and other files that could result from a run of <code>make</code>. Test this by running <code>make clean</code>.</li>
+<li>add a target <code>test:</code> that runs the supplied <code>testing.sh</code> (you should also add the executable <code>diningHallApp</code> as a dependency so it will be recompiled first if out of date).</li>
+<li>add target <code>backup</code>: target that makes <code>clean</code> and then creates a backup tarfile of your .c and .h files (e.g., <code>tar -cvf backup.tar *.c *.h</code>).</li>
 <li>add a target <code>submit:</code> that depends on the <code>clean</code> target and then rebuilds the app <em>without</em> the <code>-ggdb</code> option as its &quot;recipe&quot;.</li>
+<li>You can see that for each target, <code>make</code> prints each command as it runs; sometimes this is desirable, sometimes not. Modify the <code>clean:</code> target so that it runs the same commands but does not print them.</li>
 </ol>
 <h2>Challenge</h2>
-<p>How would you modify the <code>Makefile</code> if each individual <code>.c</code> file was in its own directory?  Hint: read about the <code>-C</code> option of  <code>make</code> in its man page (i.e., <code>man make</code>).</p>
-<hr>
-<p>Put your answers and resulting Makefile in a Markdown file and upload it to Canvas
-for Activity8. You can copy the Makefile contents into the Markdown file inside a
-code block (<code>``` ... ```</code>).</p>
+<p>How would you modify the <code>Makefile</code> if each individual <code>.c</code> file was in its own directory?  Hint: read about the <code>-C</code> option of <code>make</code> in its man page (i.e., <code>man make</code>).</p>
 
     </div>
 </body>
