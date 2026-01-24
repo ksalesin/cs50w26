@@ -150,6 +150,8 @@ Your modules must each have a `Makefile` to compile and test the module code. Se
 
 ## Hints
 
+You may want to begin by reading units 3.9–3.11 and 4.6 in the Knowledge Base (if you haven't already).
+
 You are encouraged to follow the style and layout of the **bag** module when developing new modules.
 
 You can also learn a lot from our binary tree examples in the `trees` directory within the examples on plink. You are welcome to copy snippets of code from this (or any other) CS 50 example code as long as you add a comment indicating you've done so.
