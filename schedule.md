@@ -84,7 +84,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <strong>Reading: 3.6–3.12; 3.17; 4.1</strong></td>
     <td><a href="/activities/activity8/README.html">Can you make it?</a>, <a href="/activities/activity11/README.html">Squashing bugs with gdb</a>, <a href="/activities/activity12/README.html">Valgrind it?</a></td>
     <td></td>
-    <td>Lab 3</td>
+    <td><a href="/labs/lab3/README.html">Lab 3</a></td>
 </tr>
 <tr>
     <td>Jan 28</td>
