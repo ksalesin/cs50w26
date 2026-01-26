@@ -1,4 +1,4 @@
-# Lab 3: C programming
+# Lab 3: C modules
 
 In this lab you will develop some general-purpose data structures that, with modular design, can be re-used for other labs - most notably, the Tiny Search Engine.
 
@@ -150,7 +150,8 @@ Your modules must each have a `Makefile` to compile and test the module code. Se
 
 ## Hints
 
-You may want to begin by reading units 3.9–3.11 and 4.6 in the Knowledge Base (if you haven't already).
+> [!TIP]
+> You may want to begin by reading units 3.9–3.11 and 4.6 in the Knowledge Base (if you haven't already).
 
 You are encouraged to follow the style and layout of the **bag** module when developing new modules.
 
