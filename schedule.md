@@ -80,17 +80,17 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 </tr>
 <tr>
     <td>Jan 26</td>
-    <td><strong>Note: we will use x-hour on this day!</strong> <br>Makefiles; Debugging with gdb and Valgrind <br>
-    <strong>Reading: 3.6–3.12; 3.17; 4.1</strong></td>
-    <td><a href="/activities/activity8/README.html">Can you make it?</a>, <a href="/activities/activity11/README.html">Squashing bugs with gdb</a>, <a href="/activities/activity12/README.html">Valgrind it?</a></td>
+    <td>Makefiles; Debugging with gdb<br>
+    <strong>Reading: 3.6–3.12; 3.17</strong></td>
+    <td><a href="/activities/activity8/README.html">Can you make it?</a>, <a href="/activities/activity11/README.html">Squashing bugs with gdb</a></td>
     <td></td>
     <td><a href="/labs/lab3/README.html">Lab 3</a></td>
 </tr>
 <tr>
     <td>Jan 28</td>
-    <td>Iterators, cohesion, coupling, & design; Libraries <br>
-    <strong>Reading: 3.15-3.16; 4.2</strong></td>
-    <td>Cohesive or just sticky?, Let's make a lib</td>
+    <td>Iterators, cohesion, coupling, & design; Debugging with Valgrind <br>
+    <strong>Reading: 3.15-3.16; 4.1</strong></td>
+    <td>Cohesive or just sticky?, Valgrind it?</td>
     <td></td>
     <td></td>
 </tr>
@@ -100,9 +100,9 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 </tr>
 <tr>
     <td>Feb 2</td>
-    <td>IO and memory allocation; Testing: unit, module, & system <br>
-    <strong>Reading: 4.3–4.10</strong></td>
-    <td>io_and_stack, Can you break it?</td>
+    <td>Libraries; Testing: unit, module, & system <br>
+    <strong>Reading: 4.3–4.10, 4.2</strong></td>
+    <td>Let's make a lib, Can you break it?</td>
     <td></td>
     <td></td>
 </tr>
