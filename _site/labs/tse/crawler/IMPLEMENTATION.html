@@ -51,18 +51,19 @@ The size of the hashtable (slots) is impossible to determine in advance, so we u
 <h3>crawl</h3>
 <p>Do the real work of crawling from <code>seedURL</code> to <code>maxDepth</code> and saving pages in <code>pageDirectory</code>.
 Pseudocode:</p>
-<p>initialize the hashtable and add the seedURL
-initialize the bag and add a webpage representing the seedURL at depth 0
-while bag is not empty
-pull a webpage from the bag
-fetch the HTML for that webpage
-if fetch was successful,
-save the webpage to pageDirectory
-if the webpage is not at maxDepth,
-pageScan that HTML
-delete that webpage
-delete the hashtable
-delete the bag</p>
+<pre><code>	initialize the hashtable and add the seedURL
+	initialize the bag and add a webpage representing the seedURL at depth 0
+	while bag is not empty
+		pull a webpage from the bag
+		fetch the HTML for that webpage
+		if fetch was successful,
+			save the webpage to pageDirectory
+			if the webpage is not at maxDepth,
+				pageScan that HTML
+		delete that webpage
+	delete the hashtable
+	delete the bag
+</code></pre>
 <h3>pageScan</h3>
 <p>This function implements the <em>pagescanner</em> mentioned in the design.
 Given a <code>webpage</code>, scan the given page to extract any links (URLs), ignoring non-internal URLs; for any URL not already seen before (i.e., not in the hashtable), add the URL to both the hashtable <code>pages_seen</code> and to the bag <code>pages_to_crawl</code>.

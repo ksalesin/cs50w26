@@ -58,6 +58,7 @@ And some helper modules that provide data structures:
 
 The crawler will run as follows:
 
+```
     parse the command line, validate parameters, initialize other modules
     add seedURL to the bag of webpages to crawl, marked with depth=0
     add seedURL to the hashtable of URLs seen so far
@@ -76,6 +77,7 @@ The crawler will run as follows:
                 if it was added to the table:
                    create a new webpage for that URL, marked with depth+1
                    add that new webpage to the bag of webpages to be crawled
+```
 
 Notice that our pseudocode says nothing about the order in which it crawls webpages.
 Recall that our *bag* abstract data structure explicitly denies any promise about the order of items removed from a bag.

@@ -39,6 +39,7 @@ Given arguments from the command line, extract them into the function parameters
 Do the real work of crawling from `seedURL` to `maxDepth` and saving pages in `pageDirectory`.
 Pseudocode:
 
+```
 	initialize the hashtable and add the seedURL
 	initialize the bag and add a webpage representing the seedURL at depth 0
 	while bag is not empty
@@ -51,6 +52,7 @@ Pseudocode:
 		delete that webpage
 	delete the hashtable
 	delete the bag
+```
 
 ### pageScan
 

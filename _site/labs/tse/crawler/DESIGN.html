@@ -67,24 +67,25 @@ Within each of these files, crawler writes:</p>
 </ol>
 <h2>Pseudo code for logic/algorithmic flow</h2>
 <p>The crawler will run as follows:</p>
-<p>parse the command line, validate parameters, initialize other modules
-add seedURL to the bag of webpages to crawl, marked with depth=0
-add seedURL to the hashtable of URLs seen so far
-while there are more webpages in the bag:
-extract a webpage (URL,depth) item from the bag
-pause for one second
-use pagefetcher to retrieve a webpage for that URL
-use pagesaver to write the webpage to the pageDirectory with a unique document ID
-if the webpage depth is &lt; maxDepth, explore the webpage to find the links it contains:
-use pagescanner to parse the webpage to extract all its embedded URLs
-for each extracted URL:
-normalize the URL (per requirements spec)
-if that URL is internal (per requirements spec):
-try to insert that URL into the <em>hashtable</em> of URLs seen;
-if it was already in the table, do nothing;
-if it was added to the table:
-create a new webpage for that URL, marked with depth+1
-add that new webpage to the bag of webpages to be crawled</p>
+<pre><code>    parse the command line, validate parameters, initialize other modules
+    add seedURL to the bag of webpages to crawl, marked with depth=0
+    add seedURL to the hashtable of URLs seen so far
+    while there are more webpages in the bag:
+        extract a webpage (URL,depth) item from the bag
+        pause for one second
+        use pagefetcher to retrieve a webpage for that URL
+        use pagesaver to write the webpage to the pageDirectory with a unique document ID
+        if the webpage depth is &lt; maxDepth, explore the webpage to find the links it contains:
+          use pagescanner to parse the webpage to extract all its embedded URLs
+          for each extracted URL:
+            normalize the URL (per requirements spec)
+            if that URL is internal (per requirements spec):
+              try to insert that URL into the *hashtable* of URLs seen;
+                if it was already in the table, do nothing;
+                if it was added to the table:
+                   create a new webpage for that URL, marked with depth+1
+                   add that new webpage to the bag of webpages to be crawled
+</code></pre>
 <p>Notice that our pseudocode says nothing about the order in which it crawls webpages.
 Recall that our <em>bag</em> abstract data structure explicitly denies any promise about the order of items removed from a bag.
 That's ok.
