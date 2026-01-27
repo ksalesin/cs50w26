@@ -21,39 +21,36 @@
     </div>
     <div class="markdown-body content">
         <h1>Activity 12: Fix memory bugs with valgrind (and maybe gdb)</h1>
-<p>Because we want to use several options, we created an alias in Lab0:</p>
+<p>Add the following alias to your <code>.bashrc</code> file:</p>
 <pre><code class="language-bash">alias myvalgrind='valgrind --leak-check=full --show-leak-kinds=all'
 </code></pre>
-<p>so that we can run valgrind on a program <code>labx</code> by</p>
+<p>so that we can run valgrind on a program <code>labx</code> like so:</p>
 <pre><code class="language-bash">myvalgrind labx arg1 arg2 ...
 </code></pre>
 <p>Note that unlike <code>gdb</code>, you <em>do</em> provide the arguments to the program under test when starting <code>valgrind</code>.</p>
 <p>Here's a handy <a href="https://bytes.usc.edu/cs103/wiki/valgrind.html">quick reference for valgrind</a> from USC.</p>
-<h2>Activity [^1]</h2>
-<p>You can find the examples for this activity in the <code>activity12</code> directory in our examples directory:
-<code>~/cs50-dev/shared/examples/activity12</code>.
-Copy these to your own directory on plink, e.g., <code>~cs50-dev/activity12/</code>. You can also just copy the
-<code>act12.tar</code> file and untar it on your machine.</p>
+<p>Remember that the <code>~/.bashrc</code> file is run when you log in to plink, so you can either log out and log back in for the changes to take effect, or you can run <code>source ~/.bashrc</code> to re-run it manually.</p>
+<h2>Activity</h2>
+<p>You can find the examples for this activity in the <code>activity12</code> directory within our examples.
+Copy these to your own directory on plink.</p>
+<p><em>Some of the examples for this activity come from the RedHat education group.</em></p>
 <h3>Part A</h3>
-<p>Each of the example programs v1,v2,v3,v4,v5 compile with no errors or warnings.
+<p>Each of the example programs v1, v2, v3, v4, v5 compile with no errors or warnings.
 However, some have memory leaks and don't quite work as we
 expect. Use the <code>valgrind</code> tool to investigate why and add your findings to your markdown file.</p>
-<ul>
-<li>v1</li>
-<li>v2</li>
-<li>v3</li>
-<li>v4</li>
-<li>v5 hint: try an eight character username and a three character nickname.</li>
-</ul>
+<p><em>Hint for v5:</em> try an eight character username and a three character nickname.</p>
+<!-- - v1
+- v2
+- v3
+- v4
+- v5 hint: try an eight character username and a three character nickname. -->
 <h3>Part B</h3>
 <p>Now <code>cd bagbugs</code> and run <code>make</code>. The <code>bagbugstest</code> is a testing program for the <code>bagbugs</code> functions.
 You can see what it's testing, and some of the tests work. However, after the user inputs some text the
 test program has a problem.</p>
 <p>Figure out the problem(s), describe them in your markdown file, fix them,
 and repeat until all the tests pass.</p>
-<h3></h3>
-<p>When finished, upload it to Canvas for Activity 12.</p>
-<p>[^1]: Some of the examples for this activity come from the RedHat education group.</p>
+<p>Remember to upload your markdown to Canvas for Activity 12.</p>
 
     </div>
 </body>
