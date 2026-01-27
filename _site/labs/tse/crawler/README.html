@@ -27,18 +27,18 @@
 <li><a href="DESIGN.html">Design Spec</a></li>
 <li><a href="IMPLEMENTATION.html">Implementation Spec</a></li>
 </ul>
-<p>Grading will focus on <a href="/~ksalesin/cs50/style.html">CS50 coding style</a> - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.</p>
+<p>Grading will focus on <a href="/~ksalesin/cs50/style.html">CS 50 coding style</a> - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.</p>
 <p><em><strong>Your C code must compile without producing any compiler warnings.</strong></em>  You will lose points if the compiler produces warnings when using our CS50-standard compiler flags.</p>
 <p><em><strong>If your submitted code fails to compile, or triggers a segmentation fault,</strong></em> you will fail some or all of our correctness tests.
 Write defensive code: each function should check its pointer parameters for NULL, and take some appropriate (safe) action.
 Write solid unit tests, test drivers, and use regression testing as your development proceeds.</p>
-<p>If your submitted version has <em>known bugs</em>, that is, cases where it fails your own test cases, <em>and you describe those cases in your README file</em>, we will halve the number of points you lose for those cases.
-In short, it is far better for you to demonstrate you <em>know</em> about the bug than to submit and hope we won't find it.</p>
+<!-- If your submitted version has *known bugs*, that is, cases where it fails your own test cases, *and you describe those cases in your README file*, we will halve the number of points you lose for those cases.
+In short, it is far better for you to demonstrate you *know* about the bug than to submit and hope we won't find it. -->
 <p><em><strong>Valgrind should report no memory errors or memory leaks, when crawler exits normally.</strong></em>
 You will lose points for memory errors and leaks reported by valgrind on our tests.</p>
 <h2>Preparation</h2>
 <ol>
-<li><a href="https://classroom.github.com/a/phOqX7q9">Accept the assignment</a>, and clone the resulting repo.</li>
+<li>Accept the assignment on Canvas, and clone the resulting repo.</li>
 <li>Decide whose implementation of the Lab 3 data structures you want to use (you can always change later).
 <ul>
 <li>If you want to use <em>your</em> implementation, copy your <code>counters.c</code>, <code>set.c</code>, <code>hashtable.c</code> into the <code>libcs50</code> subdirectory in your brand-new repository; try <code>make</code> in that directory to ensure everything works.</li>
@@ -52,13 +52,12 @@ You will lose points for memory errors and leaks reported by valgrind on our tes
 <p>Exception: In the top-level Makefile you may wish to comment-out some of the recursive calls to make; such changes may be overwritten if we ask you to update the Makefile, but you can easily re-add those comments.</p>
 </blockquote>
 <h2>Assignment</h2>
-<p>:point_right:
-Write the first sub-system of the Tiny Search Engine: the <em>crawler</em>.
+<p>Write the first sub-system of the Tiny Search Engine: the <em>crawler</em>.
 Your implementation must follow the Requirement and Design Specs, and should follow the Implementation Spec.</p>
 <p><strong>In the top directory,</strong></p>
 <ol>
 <li>Update the <code>README.md</code> file to add your name and GitHub username.</li>
-<li>Comment-out the commands for indexer and querier, so <code>make</code> and <code>make clean</code> work to build (or clean) the libraries and crawler.</li>
+<li>Comment out the commands for indexer and querier, so <code>make</code> and <code>make clean</code> work to build (or clean) the libraries and crawler.</li>
 </ol>
 <p><strong>In the <code>crawler</code> directory,</strong></p>
 <ol>
@@ -66,7 +65,7 @@ Your implementation must follow the Requirement and Design Specs, and should fol
 <li>Write a <code>Makefile</code> that will, by default, build the <code>crawler</code> executable program.</li>
 <li>Add a <code>make clean</code> target that removes files produced by Make or your tests.</li>
 <li>Add a <code>make test</code> target that tests your crawler.
-Read <a href="#testing-crawler">about testing</a> below.</li>
+Read about testing below.</li>
 <li>Save the output of your tests with <code>make test &amp;&gt; testing.out</code>.</li>
 <li>Add a <code>README.md</code> file to describe any assumptions you made while writing the crawler, any ways in which your implementation differs from the three Specs, or any ways in which you know your implementation fails to work.</li>
 <li>Write a <code>.gitignore</code> file telling Git to ignore any unnecessary files in this directory (anything not already covered by the top-level <code>.gitignore</code>).</li>
@@ -91,18 +90,18 @@ and your <strong>common</strong> directory should contain the following files:
 Your Lab 4 submission may contain a partly-completed indexer or querier; the graders will ignore those files, but must be able to build your crawler <em>from the top-level directory</em> without compilation errors and test your crawler without run-time errors.</p>
 <p>To submit, read the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md">Lab submission instructions</a>.</p>
 <h1>Hints and tips</h1>
-<p>There are tips and a Crawler demo in the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/crawler.md">unit about crawler</a>.</p>
+<p>There are tips and a Crawler demo in the <a href="https://www.spongium.org/unit/crawler">unit about crawler</a>.</p>
 <h3>libcs50</h3>
 <p>We provide several modules in the <code>libcs50</code> directory, which compiles to a library <code>libcs50.a</code> you can link with your crawler.
 <em>You shall not change any of our code,</em>  but you may drop in your <code>set.c</code>, <code>counters.c</code>, <code>hashtable.c</code> files from Lab 3.
 The top-level Makefile auto-detects the presence of your <code>set.c</code> and will build the library with your implementation... or if it is absent, will simply use a pre-compiled library we provide.
-See the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/libraries.md">unit about libraries</a>.</p>
+See the <a href="https://www.spongium.org/unit/libraries">unit about libraries</a>.</p>
 <p><strong>Pay close attention to the <code>webpage</code> module,</strong>
 especially the memory contract implemented by <code>webpage_new</code> and <code>webpage_delete</code>.</p>
 <h3>Memory allocation</h3>
 <p>You may find the <code>mem</code> module useful.
 Its use is optional, but it is ready to use as part of library <code>libcs50.a</code>.</p>
-<p>In our Lab3 we tried to recover gracefully from memory-allocation failures.
+<p>In our Lab 3 we tried to recover gracefully from memory-allocation failures.
 In the TSE application programs, we'll be more lazy: on NULL return from malloc/calloc you can print an error to stderr and exit with non-zero exit status.
 (You may find the <code>mem_assert()</code> family of functions to be useful here.)
 In such cases, it is ok if valgrind reports your program as having leaks.</p>
@@ -113,12 +112,12 @@ Our hashtable disallows NULL items.
 Suggestion: just pass a constant string as the item; even <code>&quot;&quot;</code> will do.</p>
 <h3>Testing Crawler</h3>
 <p>The Implementation Spec instructs you to write a bash script <code>testing.sh</code> to test your crawler, and invoke it from the <code>make test</code> rule in the Makefile.
-Sample output from our crawler can be found in <code>~/cs50-dev/shared/tse/output</code>;
+Sample output from our crawler can be found in <code>/home/cs50/shared/tse/output</code>;
 keep in mind that our crawler may process URLs in a different order, so your directory may not be identical to ours.</p>
 <p><strong>Note:</strong> the full suite of tests described in the Implementation Spec can take more than an hour to run.
 Although we encourage you to test your crawler using a variety of tests, your <code>testing.out</code> may be smaller, e.g., (<code>letters</code> at depths 0,10, <code>toscrape</code> at depths 0,1, <code>wikipedia</code> at depths 0,1).</p>
 <h3>Use valgrind and gdb</h3>
-<p>We've provided information about <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/gdb.md">gdb</a> and <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/valgrind.md">valgrind</a>; make use of them.</p>
+<p>We've provided information about <a href="https://www.spongium.org/unit/gdb">gdb</a> and <a href="https://www.spongium.org/unit/valgrind">valgrind</a>; make use of them.</p>
 
     </div>
 </body>

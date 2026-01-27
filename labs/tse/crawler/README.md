@@ -6,7 +6,7 @@ In this lab you'll begin the Tiny Search Engine (TSE) by coding the *Crawler* ac
 * [Design Spec](DESIGN.html)
 * [Implementation Spec](IMPLEMENTATION.html)
 
-Grading will focus on [CS50 coding style](/style.html) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.
+Grading will focus on [CS 50 coding style](/style.html) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.
 
 ***Your C code must compile without producing any compiler warnings.***  You will lose points if the compiler produces warnings when using our CS50-standard compiler flags.
 
@@ -14,15 +14,15 @@ Grading will focus on [CS50 coding style](/style.html) - including consistent fo
 Write defensive code: each function should check its pointer parameters for NULL, and take some appropriate (safe) action.
 Write solid unit tests, test drivers, and use regression testing as your development proceeds.
 
-If your submitted version has *known bugs*, that is, cases where it fails your own test cases, *and you describe those cases in your README file*, we will halve the number of points you lose for those cases.
-In short, it is far better for you to demonstrate you *know* about the bug than to submit and hope we won't find it.
+<!-- If your submitted version has *known bugs*, that is, cases where it fails your own test cases, *and you describe those cases in your README file*, we will halve the number of points you lose for those cases.
+In short, it is far better for you to demonstrate you *know* about the bug than to submit and hope we won't find it. -->
 
 ***Valgrind should report no memory errors or memory leaks, when crawler exits normally.***
 You will lose points for memory errors and leaks reported by valgrind on our tests.
 
 ## Preparation
 
-1. [Accept the assignment](https://classroom.github.com/a/phOqX7q9), and clone the resulting repo.
+1. Accept the assignment on Canvas, and clone the resulting repo.
 1. Decide whose implementation of the Lab 3 data structures you want to use (you can always change later).
    * If you want to use *your* implementation, copy your `counters.c`, `set.c`, `hashtable.c` into the `libcs50` subdirectory in your brand-new repository; try `make` in that directory to ensure everything works.
    * If you want to use *our* implementation, do nothing.
@@ -34,14 +34,13 @@ You will lose points for memory errors and leaks reported by valgrind on our tes
 
 ## Assignment
 
-:point_right: 
 Write the first sub-system of the Tiny Search Engine: the *crawler*.
 Your implementation must follow the Requirement and Design Specs, and should follow the Implementation Spec.
 
 **In the top directory,**
 
  1. Update the `README.md` file to add your name and GitHub username.
- 2. Comment-out the commands for indexer and querier, so `make` and `make clean` work to build (or clean) the libraries and crawler.
+ 2. Comment out the commands for indexer and querier, so `make` and `make clean` work to build (or clean) the libraries and crawler.
 
 **In the `crawler` directory,**
 
@@ -49,7 +48,7 @@ Your implementation must follow the Requirement and Design Specs, and should fol
  1. Write a `Makefile` that will, by default, build the `crawler` executable program.
  1. Add a `make clean` target that removes files produced by Make or your tests.
  1. Add a `make test` target that tests your crawler.
-    Read [about testing](#testing-crawler) below.
+    Read about testing below.
  1. Save the output of your tests with `make test &> testing.out`.
  1. Add a `README.md` file to describe any assumptions you made while writing the crawler, any ways in which your implementation differs from the three Specs, or any ways in which you know your implementation fails to work.
  1. Write a `.gitignore` file telling Git to ignore any unnecessary files in this directory (anything not already covered by the top-level `.gitignore`).
@@ -80,14 +79,14 @@ To submit, read the [Lab submission instructions](https://github.com/CS50Dartmou
 
 # Hints and tips
 
-There are tips and a Crawler demo in the [unit about crawler](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/crawler.md).
+There are tips and a Crawler demo in the [unit about crawler](https://www.spongium.org/unit/crawler).
 
 ### libcs50
 
 We provide several modules in the `libcs50` directory, which compiles to a library `libcs50.a` you can link with your crawler.
 *You shall not change any of our code,*  but you may drop in your `set.c`, `counters.c`, `hashtable.c` files from Lab 3.
 The top-level Makefile auto-detects the presence of your `set.c` and will build the library with your implementation... or if it is absent, will simply use a pre-compiled library we provide.
-See the [unit about libraries](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/libraries.md).
+See the [unit about libraries](https://www.spongium.org/unit/libraries).
 
 **Pay close attention to the `webpage` module,**
 especially the memory contract implemented by `webpage_new` and `webpage_delete`.
@@ -97,7 +96,7 @@ especially the memory contract implemented by `webpage_new` and `webpage_delete`
 You may find the `mem` module useful.
 Its use is optional, but it is ready to use as part of library `libcs50.a`.
 
-In our Lab3 we tried to recover gracefully from memory-allocation failures.
+In our Lab 3 we tried to recover gracefully from memory-allocation failures.
 In the TSE application programs, we'll be more lazy: on NULL return from malloc/calloc you can print an error to stderr and exit with non-zero exit status.
 (You may find the `mem_assert()` family of functions to be useful here.)
 In such cases, it is ok if valgrind reports your program as having leaks.
@@ -112,7 +111,7 @@ Suggestion: just pass a constant string as the item; even `""` will do.
 ### Testing Crawler
 
 The Implementation Spec instructs you to write a bash script `testing.sh` to test your crawler, and invoke it from the `make test` rule in the Makefile.
-Sample output from our crawler can be found in `~/cs50-dev/shared/tse/output`;
+Sample output from our crawler can be found in `/home/cs50/shared/tse/output`;
 keep in mind that our crawler may process URLs in a different order, so your directory may not be identical to ours.
 
 **Note:** the full suite of tests described in the Implementation Spec can take more than an hour to run.
@@ -120,4 +119,4 @@ Although we encourage you to test your crawler using a variety of tests, your `t
 
 ### Use valgrind and gdb
 
-We've provided information about [gdb](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/gdb.md) and [valgrind](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/valgrind.md); make use of them.
+We've provided information about [gdb](https://www.spongium.org/unit/gdb) and [valgrind](https://www.spongium.org/unit/valgrind); make use of them.
