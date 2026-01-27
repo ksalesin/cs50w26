@@ -31,26 +31,25 @@
 <p>Here's a handy <a href="https://bytes.usc.edu/cs103/wiki/valgrind.html">quick reference for valgrind</a> from USC.</p>
 <p>Remember that the <code>~/.bashrc</code> file is run when you log in to plink, so you can either log out and log back in for the changes to take effect, or you can run <code>source ~/.bashrc</code> to re-run it manually.</p>
 <h2>Activity</h2>
-<p>You can find the examples for this activity in the <code>activity12</code> directory within our examples.
+<p>You can find the examples for this activity in the <code>valgrindit</code> directory within our examples.
 Copy these to your own directory on plink.</p>
+<p>Remember to upload your markdown to Canvas for this activity.</p>
 <p><em>Some of the examples for this activity come from the RedHat education group.</em></p>
 <h3>Part A</h3>
-<p>Each of the example programs v1, v2, v3, v4, v5 compile with no errors or warnings.
+<p>Each of the example programs v1, v2, v3 compile with no errors or warnings.
 However, some have memory leaks and don't quite work as we
 expect. Use the <code>valgrind</code> tool to investigate why and add your findings to your markdown file.</p>
-<p><em>Hint for v5:</em> try an eight character username and a three character nickname.</p>
 <!-- - v1
 - v2
 - v3
 - v4
 - v5 hint: try an eight character username and a three character nickname. -->
 <h3>Part B</h3>
-<p>Now <code>cd bagbugs</code> and run <code>make</code>. The <code>bagbugstest</code> is a testing program for the <code>bagbugs</code> functions.
-You can see what it's testing, and some of the tests work. However, after the user inputs some text the
-test program has a problem.</p>
-<p>Figure out the problem(s), describe them in your markdown file, fix them,
-and repeat until all the tests pass.</p>
-<p>Remember to upload your markdown to Canvas for Activity 12.</p>
+<p>You may find both gdb and valgrind useful for this part.</p>
+<p>Now <code>cd bagbugs</code> and run <code>make</code>. The <code>bugs</code> executable is generated from <code>bagbugstest.c</code>, which is a test program for <code>bagbugs</code>.
+Look in <code>bagbugstest.c</code> to see what it's testing.</p>
+<p>If you run <code>bugs</code>, you will see that the first few tests run smoothly. However, on <code>bag_insert</code> the test program has a problem. Figure out the problem, describe it in your markdown file, and fix it.</p>
+<p>Repeat for all problems until all the tests pass.</p>
 
     </div>
 </body>

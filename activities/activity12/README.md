@@ -17,18 +17,18 @@ Remember that the `~/.bashrc` file is run when you log in to plink, so you can e
 
 ## Activity
 
-You can find the examples for this activity in the `activity12` directory within our examples.
+You can find the examples for this activity in the `valgrindit` directory within our examples.
 Copy these to your own directory on plink.
+
+Remember to upload your markdown to Canvas for this activity.
 
 *Some of the examples for this activity come from the RedHat education group.*
 
 ### Part A
 
-Each of the example programs v1, v2, v3, v4, v5 compile with no errors or warnings.
+Each of the example programs v1, v2, v3 compile with no errors or warnings.
 However, some have memory leaks and don't quite work as we
 expect. Use the `valgrind` tool to investigate why and add your findings to your markdown file.
-
-*Hint for v5:* try an eight character username and a three character nickname.
 
 <!-- - v1
 - v2
@@ -38,11 +38,11 @@ expect. Use the `valgrind` tool to investigate why and add your findings to your
 
 ### Part B 
 
-Now `cd bagbugs` and run `make`. The `bagbugstest` is a testing program for the `bagbugs` functions. 
-You can see what it's testing, and some of the tests work. However, after the user inputs some text the 
-test program has a problem.
+You may find both gdb and valgrind useful for this part.
 
-Figure out the problem(s), describe them in your markdown file, fix them,
-and repeat until all the tests pass.
+Now `cd bagbugs` and run `make`. The `bugs` executable is generated from `bagbugstest.c`, which is a test program for `bagbugs`.
+Look in `bagbugstest.c` to see what it's testing.
 
-Remember to upload your markdown to Canvas for Activity 12.
+If you run `bugs`, you will see that the first few tests run smoothly. However, on `bag_insert` the test program has a problem. Figure out the problem, describe it in your markdown file, and fix it.
+
+Repeat for all problems until all the tests pass.
