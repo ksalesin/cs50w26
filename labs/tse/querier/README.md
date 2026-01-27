@@ -4,7 +4,7 @@ In this lab you'll continue the Tiny Search Engine (TSE) by coding the Querier a
 
 You will also write the Design Spec and Implementation Spec.
 
-Grading will focus on [CS50 coding style](/style.html) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.
+Grading will focus on [CS 50 coding style](/style.html) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.
 
 ***Your C code must compile without producing any compiler warnings.***  You will lose points if the compiler produces warnings when using our CS50-standard compiler flags.
 
@@ -12,8 +12,8 @@ Grading will focus on [CS50 coding style](/style.html) - including consistent fo
 Write defensive code: each function should check its pointer parameters for NULL, and take some appropriate (safe) action.
 Write solid unit tests, test drivers, and use regression testing as your development proceeds.
 
-If your submitted version has *known bugs*, that is, cases where it fails your own test cases, *and you describe those cases in your README file*, we will halve the number of points you lose for those cases.
-In short, it is far better for you to demonstrate you *know* about the bug than to submit and hope we won't find it.
+<!-- If your submitted version has *known bugs*, that is, cases where it fails your own test cases, *and you describe those cases in your README file*, we will halve the number of points you lose for those cases.
+In short, it is far better for you to demonstrate you *know* about the bug than to submit and hope we won't find it. -->
 
 ***Valgrind should report no memory errors or memory leaks, when crawler exits normally.***
 You will lose points for memory errors and leaks reported by valgrind on our tests.
@@ -31,7 +31,6 @@ You will lose points for memory errors and leaks reported by valgrind on our tes
 
 ## Assignment
 
-:point_right:
 Write the third sub-system of the Tiny Search Engine, the *querier*.
 Your design and implementation must follow the **Querier Requirements Spec** (aka "the Specs"), and make good use of our abstract data structures.
 
@@ -46,7 +45,7 @@ Your design and implementation must follow the **Querier Requirements Spec** (ak
 1. Add a file `IMPLEMENTATION.md` to provide the implementation spec and testing plan for querier.
   Your `IMPLEMENTATION.md` file need not repeat the information provided in the assignment or other specs; instead, it should describe implementation details specific to *your* implementation.
 1. Add a file `README.md` to describe any assumptions you made while writing the querier, any ways in which your implementation differs from the Specs, or any ways in which you know your implementation fails to work.
-1. Extend the `README.md` file to clearly **indicate how much of the functionality you implemented**, as [described below](#grading).
+1. Extend the `README.md` file to clearly **indicate how much of the functionality you implemented**, as described below.
 1. Write a program `querier.c` according to the Specs.
    Your program should make good use of code from `common.a` and `libcs50.a`, created in earlier labs.
 1. Write a `Makefile` that will, by default, build the `querier` executable program.
@@ -161,7 +160,7 @@ To use them, you need to `#include <ctype.h>`.
 
 If your indexer never quite worked, never fear.
 You do not need a working indexer to write or test your querier.
-Try your querier on the output of our crawler and indexer in the shared directory `~/cs50-dev/shared/tse/output/`.
+Try your querier on the output of our crawler and indexer in the shared directory `/home/cs50/shared/tse/output/`.
 
 Your querier reads queries from stdin, one per line.
 You can test it interactively, but to do thorough and repeated testing you can write a collection of little files, each of which contains one or more queries to your querier, and run commands like `./querier ... < testquery`.
@@ -169,7 +168,7 @@ You might write a short bash script to run the querier through several such test
 That script might even compare the output to known-good output, for regression testing.
 
 Read the [unit about fuzz testing](https://www.spongium.org/unit/querier-testing);
-you are welcome to copy into your repo our `~/cs50-dev/shared/tse/fuzzquery.c`.
+you are welcome to copy into your repo our `/home/cs50/shared/tse/fuzzquery.c`.
 If it is used in your testing script, you should commit/push it to your repo.
 
 ### Turning off the prompt

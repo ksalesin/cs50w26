@@ -1,7 +1,7 @@
-# CS50 TSE Querier
+# Lab 6: TSE Querier
 ## Requirements Spec
 
-> In a requirements spec, **shall do** means **must do**.
+<!-- > In a requirements spec, **shall do** means **must do**. -->
 
 The TSE Querier is a standalone program that reads the index file produced by the TSE Indexer, and page files produced by the TSE Querier, and answers search queries submitted via stdin.
 
