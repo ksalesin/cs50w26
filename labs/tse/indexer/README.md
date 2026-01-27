@@ -1,11 +1,13 @@
+# Lab 5: TSE Indexer
+
 In this lab you'll continue the Tiny Search Engine (TSE) by coding the *Indexer* and a test program that saves and loads index files, according to the specs in this directory:
 
-* [Requirements Spec](REQUIREMENTS.md)
-* [Design Spec](DESIGN.md)
+* [Requirements Spec](REQUIREMENTS.html)
+* [Design Spec](DESIGN.html)
 
 You will also write the Implementation Spec.
 
-Grading will focus on [CS50 coding style](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/style.md) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.
+Grading will focus on [CS50 coding style](/style.html) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.
 
 ***Your C code must compile without producing any compiler warnings.***  You will lose points if the compiler produces warnings when using our CS50-standard compiler flags.
 
@@ -34,7 +36,7 @@ You will lose points for memory errors and leaks reported by valgrind on our tes
 
 :point_right: 
 Design and code the second subsystem of the Tiny Search Engine, the *Indexer*.
-Your implementation must follow the [Requirements Spec](REQUIREMENTS.md) and [Design Spec](DESIGN.md), and make good use of our abstract data structures.
+Your implementation must follow the [Requirements Spec](REQUIREMENTS.html) and [Design Spec](DESIGN.html), and make good use of our abstract data structures.
 
 **In the top directory,**
 
@@ -78,7 +80,7 @@ To submit, read the [Lab submission instructions](https://github.com/CS50Dartmou
 
 ## Hints and tips
 
-Many of the [Lab4 hints](../crawler/README.md) are still relevant, and there are more tips in the [knowledge unit](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/indexer.md).
+Many of the [Lab4 hints](../crawler/README.html) are still relevant, and there are more tips in the [knowledge unit](https://www.spongium.org/unit/indexer).
 
 ### Testing
 

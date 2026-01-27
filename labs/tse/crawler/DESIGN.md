@@ -1,8 +1,8 @@
-# CS50 TSE Crawler
+# Lab 4: TSE Crawler
 ## Design Spec
 
-In this document we reference the [Requirements Specification](REQUIREMENTS.md) and focus on the implementation-independent design decisions.
-The knowledge unit noted that an [design spec](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md#design-spec) may include many topics; not all are relevant to the TSE or the Crawler.
+In this document we reference the [Requirements Specification](REQUIREMENTS.html) and focus on the implementation-independent design decisions.
+The knowledge unit noted that an [design spec](https://www.spongium.org/unit/design) may include many topics; not all are relevant to the TSE or the Crawler.
 Here we focus on the core subset:
 
 - User interface
@@ -14,7 +14,7 @@ Here we focus on the core subset:
 
 ## User interface
 
-As described in the [Requirements Spec](REQUIREMENTS.md), the crawler's only interface with the user is on the command-line; it must always have three arguments.
+As described in the [Requirements Spec](REQUIREMENTS.html), the crawler's only interface with the user is on the command-line; it must always have three arguments.
 
 ```bash
 $ crawler seedURL pageDirectory maxDepth

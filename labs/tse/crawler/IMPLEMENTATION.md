@@ -1,8 +1,8 @@
-# CS50 TSE Crawler
+# Lab 4: TSE Crawler
 ## Implementation Spec
 
-In this document we reference the [Requirements Specification](REQUIREMENTS.md) and [Design Specification](DESIGN.md) and focus on the implementation-specific decisions.
-The knowledge unit noted that an [implementation spec](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md#implementation-spec) may include many topics; not all are relevant to the TSE or the Crawler.
+In this document we reference the [Requirements Specification](REQUIREMENTS.html) and [Design Specification](DESIGN.html) and focus on the implementation-specific decisions.
+The knowledge unit noted that an [implementation spec](https://www.spongium.org/unit/design) may include many topics; not all are relevant to the TSE or the Crawler.
 Here we focus on the core subset:
 
 -  Data structures

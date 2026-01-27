@@ -20,7 +20,7 @@
         </ul>
     </div>
     <div class="markdown-body content">
-        <h1>CS50 TSE Crawler</h1>
+        <h1>Lab 4: TSE Crawler</h1>
 <h2>Requirements Spec</h2>
 <blockquote>
 <p>In a requirements spec, <strong>shall do</strong> means <strong>must do</strong>.</p>
@@ -38,7 +38,7 @@ It parses the seed webpage, extracts any embedded URLs, then retrieves each of t
 </li>
 <li>mark the <code>pageDirectory</code> as a 'directory produced by the Crawler' by creating a file named <code>.crawler</code> in that directory.</li>
 <li>crawl all &quot;internal&quot; pages reachable from <code>seedURL</code>, following links to a maximum depth of <code>maxDepth</code>; where <code>maxDepth=0</code> means that crawler only explores the page at <code>seedURL</code>, and <code>maxDepth=1</code> means that crawler only explores the page at <code>seedURL</code> and those pages to which <code>seedURL</code> links, and so forth inductively.</li>
-<li>print nothing to stdout, other than logging its progress; see an example format in the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/crawler.md">knowledge unit</a>.
+<li>print nothing to stdout, other than logging its progress; see an example format in the <a href="https://www.spongium.org/unit/crawler">knowledge unit</a>.
 Write each explored page to the <code>pageDirectory</code> with a unique document ID, wherein
 <ul>
 <li>the document <code>id</code> starts at 1 and increments by 1 for each new page,</li>

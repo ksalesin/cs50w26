@@ -1,8 +1,10 @@
-In this lab you'll continue the Tiny Search Engine (TSE) by coding the Querier according to the [Requirements Spec](REQUIREMENTS.md).
+# Lab 6: TSE Querier
+
+In this lab you'll continue the Tiny Search Engine (TSE) by coding the Querier according to the [Requirements Spec](REQUIREMENTS.html).
 
 You will also write the Design Spec and Implementation Spec.
 
-Grading will focus on [CS50 coding style](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/style.md) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.
+Grading will focus on [CS50 coding style](/style.html) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.
 
 ***Your C code must compile without producing any compiler warnings.***  You will lose points if the compiler produces warnings when using our CS50-standard compiler flags.
 
@@ -40,7 +42,7 @@ Your design and implementation must follow the **Querier Requirements Spec** (ak
 **In the `querier` subdirectory,**
 
 1. Add a file `DESIGN.md` to provide the Design Spec for querier.
-  Your `DESIGN.md` file should not repeat the information provided in the assignment or in the [Requirements Spec](REQUIREMENTS.md); instead, it should describe the abstract data structures and pseudo code for *your* querier.
+  Your `DESIGN.md` file should not repeat the information provided in the assignment or in the [Requirements Spec](REQUIREMENTS.html); instead, it should describe the abstract data structures and pseudo code for *your* querier.
 1. Add a file `IMPLEMENTATION.md` to provide the implementation spec and testing plan for querier.
   Your `IMPLEMENTATION.md` file need not repeat the information provided in the assignment or other specs; instead, it should describe implementation details specific to *your* implementation.
 1. Add a file `README.md` to describe any assumptions you made while writing the querier, any ways in which your implementation differs from the Specs, or any ways in which you know your implementation fails to work.
@@ -87,10 +89,10 @@ Partial credit is available, of course, per the judgement of the grader, but abo
 
 ## Hints and tips
 
-There are some examples and design tips in the [unit about querier](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/querier.md), and following units.
+There are some examples and design tips in the [unit about querier](https://www.spongium.org/unit/querier), and following units.
 
-Many of the [Lab4 hints](../crawler/README.md) and
-[Lab5 hints](../indexer/README.md) are still relevant.
+Many of the [Lab 4 hints](../crawler/README.html) and
+[Lab 5 hints](../indexer/README.html) are still relevant.
 
 Processing a query and ranking the results are tricky.
 We encourage you to start with a simplified case, test it thoroughly, then enhance.
@@ -108,7 +110,7 @@ Just think about how the hash-table size (in slots) might relate to the number o
 We strongly recommend that your code read the entire query (a line of input) into a single string; then verify the string contains only letters and spaces; if so, then *tokenize* the query string.
 
 To tokenize, write a function that takes a string and builds an array of words (tokens), using space (`isspace`) as the delimiter; each word can be normalized (lower-cased) before being added to the array.
-See a [unit](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/querier-chop.md) for inspiration (though significant adaptation is needed).
+See a [unit](https://www.spongium.org/unit/querier-chop) for inspiration (though significant adaptation is needed).
 
 > Note: from painful experience, we specifically recommend you avoid `strtok` and related functions.
 
@@ -121,14 +123,14 @@ Two tips:
 If valid, proceed to next step; otherwise print a suitable error message.
  * Structure your code to follow the structure of the grammar, which has two non-terminals (`query` and `andsequence`): an inner loop over words in the `andsequence`, accumulating an answer (like a running product) as you go, and stopping when you reach `or` or the end of the array; an outer loop over a sequence of `andsequence` separated by `or`; accumulate an answer (like a running total) as you go.
 
-Read the [unit about parsing expressions](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/querier-expressions.md) for more hints about how this might work.
+Read the [unit about parsing expressions](https://www.spongium.org/unit/querier-expressions) for more hints about how this might work.
 
 
 ### Combining results
 
 Suppose you have one `counters` object representing the set of documents in which a given word appears, and another `counters` object representing the set of documents in which another word appears; each counter set is really a set of (docID, count) pairs.
 How do you combine them?
-Recall [unit about iterators](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/iterators.md).
+Recall [unit about iterators](https://www.spongium.org/unit/iterators).
 
 If you are processing `wordA AND wordB`, the set of documents that match *both* words is the *intersection* of the two sets, and the score for each document (per the specs) is the *minimum* of the count for each document.
 So you need a way to intersect two `counters`; we recommend iterating over one set and, for each item, checking whether that document exists in the other set; update the first set according to what you find.
@@ -148,7 +150,7 @@ When processing a query, that is, a disjunction of `andsequence` results, you ca
 After parsing and interpreting a query, you will likely have a `counters` object representing the score for each satisfying document.
 The `counters` module does not have a 'sort' method or a way to iterate over the items in sorted order.
 We suggest you use  `counters_iterate()` to identify the max-scoring item, print it out, and then `counters_set()` to set its counter value to zero; this approach is effectively a 'selection sort'.
-Recall [unit about iterators](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/iterators.md).
+Recall [unit about iterators](https://www.spongium.org/unit/iterators).
 
 ### ctype
 
@@ -166,7 +168,7 @@ You can test it interactively, but to do thorough and repeated testing you can w
 You might write a short bash script to run the querier through several such test files.
 That script might even compare the output to known-good output, for regression testing.
 
-Read the [unit about fuzz testing](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/querier-testing.md);
+Read the [unit about fuzz testing](https://www.spongium.org/unit/querier-testing);
 you are welcome to copy into your repo our `~/cs50-dev/shared/tse/fuzzquery.c`.
 If it is used in your testing script, you should commit/push it to your repo.
 

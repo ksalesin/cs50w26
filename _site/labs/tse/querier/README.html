@@ -20,9 +20,10 @@
         </ul>
     </div>
     <div class="markdown-body content">
-        <p>In this lab you'll continue the Tiny Search Engine (TSE) by coding the Querier according to the <a href="REQUIREMENTS.md">Requirements Spec</a>.</p>
+        <h1>Lab 6: TSE Querier</h1>
+<p>In this lab you'll continue the Tiny Search Engine (TSE) by coding the Querier according to the <a href="REQUIREMENTS.html">Requirements Spec</a>.</p>
 <p>You will also write the Design Spec and Implementation Spec.</p>
-<p>Grading will focus on <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/style.md">CS50 coding style</a> - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.</p>
+<p>Grading will focus on <a href="/~ksalesin/cs50/style.html">CS50 coding style</a> - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.</p>
 <p><em><strong>Your C code must compile without producing any compiler warnings.</strong></em>  You will lose points if the compiler produces warnings when using our CS50-standard compiler flags.</p>
 <p><em><strong>If your submitted code fails to compile, or triggers a segmentation fault,</strong></em> you will fail some or all of our correctness tests.
 Write defensive code: each function should check its pointer parameters for NULL, and take some appropriate (safe) action.
@@ -52,7 +53,7 @@ Your design and implementation must follow the <strong>Querier Requirements Spec
 <p><strong>In the <code>querier</code> subdirectory,</strong></p>
 <ol>
 <li>Add a file <code>DESIGN.md</code> to provide the Design Spec for querier.
-Your <code>DESIGN.md</code> file should not repeat the information provided in the assignment or in the <a href="REQUIREMENTS.md">Requirements Spec</a>; instead, it should describe the abstract data structures and pseudo code for <em>your</em> querier.</li>
+Your <code>DESIGN.md</code> file should not repeat the information provided in the assignment or in the <a href="REQUIREMENTS.html">Requirements Spec</a>; instead, it should describe the abstract data structures and pseudo code for <em>your</em> querier.</li>
 <li>Add a file <code>IMPLEMENTATION.md</code> to provide the implementation spec and testing plan for querier.
 Your <code>IMPLEMENTATION.md</code> file need not repeat the information provided in the assignment or other specs; instead, it should describe implementation details specific to <em>your</em> implementation.</li>
 <li>Add a file <code>README.md</code> to describe any assumptions you made while writing the querier, any ways in which your implementation differs from the Specs, or any ways in which you know your implementation fails to work.</li>
@@ -89,9 +90,9 @@ In recognition that you might find it best to start simple and slowly enhance yo
 <p>Partial credit is available, of course, per the judgement of the grader, but above is the coarse-grain rubric.</p>
 <p><strong>Please indicate in your <code>querier/README.md</code> which of the above subsets of functionality you implemented.</strong></p>
 <h2>Hints and tips</h2>
-<p>There are some examples and design tips in the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/querier.md">unit about querier</a>, and following units.</p>
-<p>Many of the <a href="../crawler/README.md">Lab4 hints</a> and
-<a href="../indexer/README.md">Lab5 hints</a> are still relevant.</p>
+<p>There are some examples and design tips in the <a href="https://www.spongium.org/unit/querier">unit about querier</a>, and following units.</p>
+<p>Many of the <a href="../crawler/README.html">Lab 4 hints</a> and
+<a href="../indexer/README.html">Lab 5 hints</a> are still relevant.</p>
 <p>Processing a query and ranking the results are tricky.
 We encourage you to start with a simplified case, test it thoroughly, then enhance.
 Easier to code, to test, and to debug, and when facing a deadline it's nice to have a less-functional program that works than a full-functional program that doesn't work.
@@ -103,7 +104,7 @@ Just think about how the hash-table size (in slots) might relate to the number o
 <h3>Parsing queries</h3>
 <p>We strongly recommend that your code read the entire query (a line of input) into a single string; then verify the string contains only letters and spaces; if so, then <em>tokenize</em> the query string.</p>
 <p>To tokenize, write a function that takes a string and builds an array of words (tokens), using space (<code>isspace</code>) as the delimiter; each word can be normalized (lower-cased) before being added to the array.
-See a <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/querier-chop.md">unit</a> for inspiration (though significant adaptation is needed).</p>
+See a <a href="https://www.spongium.org/unit/querier-chop">unit</a> for inspiration (though significant adaptation is needed).</p>
 <blockquote>
 <p>Note: from painful experience, we specifically recommend you avoid <code>strtok</code> and related functions.</p>
 </blockquote>
@@ -115,11 +116,11 @@ Two tips:</p>
 If valid, proceed to next step; otherwise print a suitable error message.</li>
 <li>Structure your code to follow the structure of the grammar, which has two non-terminals (<code>query</code> and <code>andsequence</code>): an inner loop over words in the <code>andsequence</code>, accumulating an answer (like a running product) as you go, and stopping when you reach <code>or</code> or the end of the array; an outer loop over a sequence of <code>andsequence</code> separated by <code>or</code>; accumulate an answer (like a running total) as you go.</li>
 </ul>
-<p>Read the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/querier-expressions.md">unit about parsing expressions</a> for more hints about how this might work.</p>
+<p>Read the <a href="https://www.spongium.org/unit/querier-expressions">unit about parsing expressions</a> for more hints about how this might work.</p>
 <h3>Combining results</h3>
 <p>Suppose you have one <code>counters</code> object representing the set of documents in which a given word appears, and another <code>counters</code> object representing the set of documents in which another word appears; each counter set is really a set of (docID, count) pairs.
 How do you combine them?
-Recall <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/iterators.md">unit about iterators</a>.</p>
+Recall <a href="https://www.spongium.org/unit/iterators">unit about iterators</a>.</p>
 <p>If you are processing <code>wordA AND wordB</code>, the set of documents that match <em>both</em> words is the <em>intersection</em> of the two sets, and the score for each document (per the specs) is the <em>minimum</em> of the count for each document.
 So you need a way to intersect two <code>counters</code>; we recommend iterating over one set and, for each item, checking whether that document exists in the other set; update the first set according to what you find.
 You can use <code>counters_iterate</code>, <code>counters_get</code>, and <code>counters_set</code> to do this, without modifying your <code>counters</code> module.</p>
@@ -132,7 +133,7 @@ Again, you can use <code>counters_iterate</code>, <code>counters_get</code>, and
 <p>After parsing and interpreting a query, you will likely have a <code>counters</code> object representing the score for each satisfying document.
 The <code>counters</code> module does not have a 'sort' method or a way to iterate over the items in sorted order.
 We suggest you use  <code>counters_iterate()</code> to identify the max-scoring item, print it out, and then <code>counters_set()</code> to set its counter value to zero; this approach is effectively a 'selection sort'.
-Recall <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/iterators.md">unit about iterators</a>.</p>
+Recall <a href="https://www.spongium.org/unit/iterators">unit about iterators</a>.</p>
 <h3>ctype</h3>
 <p>You may find the functions <code>isalpha()</code> and <code>isspace()</code> useful; read their man pages.
 To use them, you need to <code>#include &lt;ctype.h&gt;</code>.</p>
@@ -144,7 +145,7 @@ Try your querier on the output of our crawler and indexer in the shared director
 You can test it interactively, but to do thorough and repeated testing you can write a collection of little files, each of which contains one or more queries to your querier, and run commands like <code>./querier ... &lt; testquery</code>.
 You might write a short bash script to run the querier through several such test files.
 That script might even compare the output to known-good output, for regression testing.</p>
-<p>Read the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/querier-testing.md">unit about fuzz testing</a>;
+<p>Read the <a href="https://www.spongium.org/unit/querier-testing">unit about fuzz testing</a>;
 you are welcome to copy into your repo our <code>~/cs50-dev/shared/tse/fuzzquery.c</code>.
 If it is used in your testing script, you should commit/push it to your repo.</p>
 <h3>Turning off the prompt</h3>
