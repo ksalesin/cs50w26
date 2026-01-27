@@ -1,7 +1,7 @@
-# CS50 TSE Indexer
+# Lab 5: TSE Indexer
 ## Requirements Spec
 
-> In a requirements spec, **shall do** means **must do**.
+<!-- > In a requirements spec, **shall do** means **must do**. -->
 
 The TSE *indexer* is a standalone program that reads the document files produced by the TSE crawler, builds an index, and writes that index to a file.
 Its companion, the *index tester,* loads an index file produced by the indexer and saves it to another file.

@@ -20,7 +20,7 @@
         </ul>
     </div>
     <div class="markdown-body content">
-        <h1>CS50 TSE Indexer</h1>
+        <h1>Lab 5: TSE Indexer</h1>
 <h2>Design Spec</h2>
 <p>According to the <a href="REQUIREMENTS.html">Indexer Requirements Spec</a>, the TSE <em>indexer</em> is a standalone program that reads the document files produced by the TSE crawler, builds an index, and writes that index to a file.  Its companion, the <em>index tester,</em> loads an index file produced by the indexer and saves it to another file. In this document we cover only the <em>indexer</em>.</p>
 <h3>User interface</h3>
@@ -50,21 +50,26 @@
 </ol>
 <h3>Pseudo code for logic/algorithmic flow</h3>
 <p>The indexer will run as follows:</p>
-<p>parse the command line, validate parameters, initialize other modules
-call indexBuild, with pageDirectory</p>
+<pre><code>    parse the command line
+    validate parameters
+    initialize other modules
+    call indexBuild with pageDirectory
+</code></pre>
 <p>where <em>indexBuild:</em></p>
-<p>creates a new 'index' object
-loops over document ID numbers, counting from 1
-loads a webpage from the document file 'pageDirectory/id'
-if successful,
-passes the webpage and docID to indexPage</p>
+<pre><code>      creates a new 'index' object
+      loops over document ID numbers, counting from 1
+        loads a webpage from the document file 'pageDirectory/id'
+        if successful, 
+          passes the webpage and docID to indexPage
+</code></pre>
 <p>where <em>indexPage:</em></p>
-<p>steps through each word of the webpage,
-skips trivial words (less than length 3),
-normalizes the word (converts to lower case),
-looks up the word in the index,
-adding the word to the index if needed
-increments the count of occurrences of this word in this docID</p>
+<pre><code>     steps through each word of the webpage,
+       skips trivial words (less than length 3),
+       normalizes the word (converts to lower case),
+       looks up the word in the index,
+         adding the word to the index if needed
+       increments the count of occurrences of this word in this docID
+</code></pre>
 <h3>Major data structures</h3>
 <p>The key data structure is the <em>index</em>, mapping from <em>word</em> to <em>(docID, #occurrences)</em> pairs.
 The <em>index</em> is a <em>hashtable</em> keyed by <em>word</em> and storing <em>counters</em> as items.
@@ -74,14 +79,17 @@ The <em>counters</em> is keyed by <em>docID</em> and stores a count of the numbe
 <p><em>Integration testing</em>.  The <em>indexer</em>, as a complete program, will be tested by building an index from a pageDirectory, and then the resulting index will be validated by running it through the <em>indextest</em> to ensure it can be loaded.</p>
 <ol>
 <li>Test <code>indexer</code> with various invalid arguments.
-2. no arguments
-3. one argument
-4. three or more arguments
-5. invalid <code>pageDirectory</code> (non-existent path)
-5. invalid <code>pageDirectory</code> (not a crawler directory)
-6. invalid <code>indexFile</code> (non-existent path)
-7. invalid <code>indexFile</code> (read-only directory)
-7. invalid <code>indexFile</code> (existing, read-only file)</li>
+<ul>
+<li>no arguments</li>
+<li>one argument</li>
+<li>three or more arguments</li>
+<li>invalid <code>pageDirectory</code> (non-existent path)</li>
+<li>invalid <code>pageDirectory</code> (not a crawler directory)</li>
+<li>invalid <code>indexFile</code> (non-existent path)</li>
+<li>invalid <code>indexFile</code> (read-only directory)</li>
+<li>invalid <code>indexFile</code> (existing, read-only file)</li>
+</ul>
+</li>
 <li>Run <em>indexer</em> on a variety of pageDirectories and use <em>indextest</em> as one means of validating the resulting index.</li>
 <li>Run <em>valgrind</em> on both <em>indexer</em> and <em>indextest</em> to ensure no memory leaks or errors.</li>
 </ol>

@@ -27,13 +27,13 @@
 <li><a href="DESIGN.html">Design Spec</a></li>
 </ul>
 <p>You will also write the Implementation Spec.</p>
-<p>Grading will focus on <a href="/~ksalesin/cs50/style.html">CS50 coding style</a> - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.</p>
+<p>Grading will focus on <a href="/~ksalesin/cs50/style.html">CS 50 coding style</a> - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.</p>
 <p><em><strong>Your C code must compile without producing any compiler warnings.</strong></em>  You will lose points if the compiler produces warnings when using our CS50-standard compiler flags.</p>
 <p><em><strong>If your submitted code fails to compile, or triggers a segmentation fault,</strong></em> you will fail some or all of our correctness tests.
 Write defensive code: each function should check its pointer parameters for NULL, and take some appropriate (safe) action.
 Write solid unit tests, test drivers, and use regression testing as your development proceeds.</p>
-<p>If your submitted version has <em>known bugs</em>, that is, cases where it fails your own test cases, <em>and you describe those cases in your README file</em>, we will halve the number of points you lose for those cases.
-In short, it is far better for you to demonstrate you <em>know</em> about the bug than to submit and hope we won't find it.</p>
+<!-- If your submitted version has *known bugs*, that is, cases where it fails your own test cases, *and you describe those cases in your README file*, we will halve the number of points you lose for those cases.
+In short, it is far better for you to demonstrate you *know* about the bug than to submit and hope we won't find it. -->
 <p><em><strong>Valgrind should report no memory errors or memory leaks, when crawler exits normally.</strong></em>
 You will lose points for memory errors and leaks reported by valgrind on our tests.</p>
 <h2>Preparation</h2>
@@ -45,11 +45,10 @@ You will lose points for memory errors and leaks reported by valgrind on our tes
 Seek help if you need to sort out your repo or GitHub.</li>
 <li>Ensure you are again working on the <code>main</code> branch <strong>and</strong> that the <code>main</code> branch is up to date if you made any changes on <code>submit4</code> after branching off <code>main</code>.</li>
 <li>Create a new subdirectory <code>indexer</code>.</li>
-<li>Review Section 4 in <em><a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/media/searchingtheweb.pdf">Searching the Web</a></em>, the paper about search engines.</li>
+<li>Review Section 4 in <em><a href="https://www.spongium.org/unit/search">Searching the Web</a></em>, the paper about search engines.</li>
 </ol>
 <h2>Assignment</h2>
-<p>:point_right:
-Design and code the second subsystem of the Tiny Search Engine, the <em>Indexer</em>.
+<p>Design and code the second subsystem of the Tiny Search Engine, the <em>Indexer</em>.
 Your implementation must follow the <a href="REQUIREMENTS.html">Requirements Spec</a> and <a href="DESIGN.html">Design Spec</a>, and make good use of our abstract data structures.</p>
 <p><strong>In the top directory,</strong></p>
 <ol>
@@ -87,7 +86,7 @@ and your <strong>common</strong> directory should contain the following files:
 Your Lab 5 submission may contain a partly-completed querier; the graders will ignore those files, but must be able to build your libraries and programs <em>from the top-level directory</em> without compilation errors and test your indexer without run-time errors.</p>
 <p>To submit, read the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md">Lab submission instructions</a>.</p>
 <h2>Hints and tips</h2>
-<p>Many of the <a href="../crawler/README.html">Lab4 hints</a> are still relevant, and there are more tips in the <a href="https://www.spongium.org/unit/indexer">knowledge unit</a>.</p>
+<p>Many of the <a href="../crawler/README.html">Lab 4 hints</a> are still relevant, and there are more tips in the <a href="https://www.spongium.org/unit/indexer">knowledge unit</a>.</p>
 <h3>Testing</h3>
 <p>If your crawler never quite worked, never fear!
 You do not need a working crawler to write or test your indexer.
@@ -95,8 +94,8 @@ Try your indexer on our crawler's output, which we provide in <code>~/cs50-dev/s
 Our indexer's output is in that same directory.</p>
 <p>It can be tricky to compare two index files for equivalence - because the lines of an index file can be in any order, and the docIDs within a line can be in any order - so a simple run of <code>diff</code> won't always be sufficient.
 Try using our <code>indexcmp</code> program; you can run it directly from the shared copy we installed:</p>
-<pre><code class="language-bash">$ ~/cs50-dev/shared/tse/indexcmp
-usage: ~/cs50-dev/shared/tse/indexcmp indexFilenameA indexFilenameB
+<pre><code class="language-bash">$ /home/cs50/shared/tse/indexcmp
+usage: /home/cs50/shared/tse/indexcmp indexFilenameA indexFilenameB
 </code></pre>
 <p>It takes two arguments, each a pathname to an index file; it will print out any apparent differences.</p>
 <h3>Hashtable</h3>
@@ -104,7 +103,7 @@ usage: ~/cs50-dev/shared/tse/indexcmp indexFilenameA indexFilenameB
 <p>In the indexer/querier, we use a hashtable to store an inverted index (words –&gt; documents), and thus the hashtable is keyed by words.
 The answer to the above question, then, depends on how many words will be in the index.</p>
 <p>When building the inverted index, it's impossible to know in advance how many words you will find in all those pages encountered by the crawler.
-Pick a reasonable size, perhaps something in the range of 200..900 slots.</p>
+Pick a reasonable size, perhaps something in the range of 200 to 900 slots.</p>
 <p>When loading an inverted index from a file, though, you <em>can</em> know how many words... because there is one word per line in the index file, and it's easy to count the number of lines (see <code>file.h</code>).
 Once your code can obtain the number of words, think about how it can compute a good size for your hashtable.</p>
 <h3>pageDirectory</h3>

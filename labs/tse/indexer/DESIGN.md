@@ -1,4 +1,4 @@
-# CS50 TSE Indexer
+# Lab 5: TSE Indexer
 ## Design Spec
 
 According to the [Indexer Requirements Spec](REQUIREMENTS.html), the TSE *indexer* is a standalone program that reads the document files produced by the TSE crawler, builds an index, and writes that index to a file.  Its companion, the *index tester,* loads an index file produced by the indexer and saves it to another file. In this document we cover only the *indexer*.
@@ -44,25 +44,33 @@ And some helper modules that provide data structures:
 
 The indexer will run as follows:
 
-    parse the command line, validate parameters, initialize other modules
-    call indexBuild, with pageDirectory
+```
+    parse the command line
+    validate parameters
+    initialize other modules
+    call indexBuild with pageDirectory
+```
 
 where *indexBuild:*
 
+```
       creates a new 'index' object
       loops over document ID numbers, counting from 1
         loads a webpage from the document file 'pageDirectory/id'
         if successful, 
           passes the webpage and docID to indexPage
+```
 
 where *indexPage:*
 
+```
      steps through each word of the webpage,
        skips trivial words (less than length 3),
        normalizes the word (converts to lower case),
        looks up the word in the index,
          adding the word to the index if needed
        increments the count of occurrences of this word in this docID
+```
 
 ### Major data structures
 
@@ -77,13 +85,13 @@ The *counters* is keyed by *docID* and stores a count of the number of occurrenc
 *Integration testing*.  The *indexer*, as a complete program, will be tested by building an index from a pageDirectory, and then the resulting index will be validated by running it through the *indextest* to ensure it can be loaded.
 
 1. Test `indexer` with various invalid arguments.
-	2. no arguments
-	3. one argument
-	4. three or more arguments
-	5. invalid `pageDirectory` (non-existent path)
-	5. invalid `pageDirectory` (not a crawler directory)
-	6. invalid `indexFile` (non-existent path)
-	7. invalid `indexFile` (read-only directory)
-	7. invalid `indexFile` (existing, read-only file)
+	* no arguments
+	* one argument
+	* three or more arguments
+	* invalid `pageDirectory` (non-existent path)
+	* invalid `pageDirectory` (not a crawler directory)
+	* invalid `indexFile` (non-existent path)
+	* invalid `indexFile` (read-only directory)
+	* invalid `indexFile` (existing, read-only file)
 0. Run *indexer* on a variety of pageDirectories and use *indextest* as one means of validating the resulting index.
 0. Run *valgrind* on both *indexer* and *indextest* to ensure no memory leaks or errors.

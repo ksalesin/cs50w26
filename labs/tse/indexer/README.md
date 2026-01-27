@@ -7,7 +7,7 @@ In this lab you'll continue the Tiny Search Engine (TSE) by coding the *Indexer*
 
 You will also write the Implementation Spec.
 
-Grading will focus on [CS50 coding style](/style.html) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.
+Grading will focus on [CS 50 coding style](/style.html) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.
 
 ***Your C code must compile without producing any compiler warnings.***  You will lose points if the compiler produces warnings when using our CS50-standard compiler flags.
 
@@ -15,8 +15,8 @@ Grading will focus on [CS50 coding style](/style.html) - including consistent fo
 Write defensive code: each function should check its pointer parameters for NULL, and take some appropriate (safe) action.
 Write solid unit tests, test drivers, and use regression testing as your development proceeds.
 
-If your submitted version has *known bugs*, that is, cases where it fails your own test cases, *and you describe those cases in your README file*, we will halve the number of points you lose for those cases.
-In short, it is far better for you to demonstrate you *know* about the bug than to submit and hope we won't find it.
+<!-- If your submitted version has *known bugs*, that is, cases where it fails your own test cases, *and you describe those cases in your README file*, we will halve the number of points you lose for those cases.
+In short, it is far better for you to demonstrate you *know* about the bug than to submit and hope we won't find it. -->
 
 ***Valgrind should report no memory errors or memory leaks, when crawler exits normally.***
 You will lose points for memory errors and leaks reported by valgrind on our tests.
@@ -30,11 +30,10 @@ You will lose points for memory errors and leaks reported by valgrind on our tes
     Seek help if you need to sort out your repo or GitHub.
 1. Ensure you are again working on the `main` branch **and** that the `main` branch is up to date if you made any changes on `submit4` after branching off `main`.
 1. Create a new subdirectory `indexer`.
-1. Review Section 4 in *[Searching the Web](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/media/searchingtheweb.pdf)*, the paper about search engines.
+1. Review Section 4 in *[Searching the Web](https://www.spongium.org/unit/search)*, the paper about search engines.
 
 ## Assignment
 
-:point_right: 
 Design and code the second subsystem of the Tiny Search Engine, the *Indexer*.
 Your implementation must follow the [Requirements Spec](REQUIREMENTS.html) and [Design Spec](DESIGN.html), and make good use of our abstract data structures.
 
@@ -80,7 +79,7 @@ To submit, read the [Lab submission instructions](https://github.com/CS50Dartmou
 
 ## Hints and tips
 
-Many of the [Lab4 hints](../crawler/README.html) are still relevant, and there are more tips in the [knowledge unit](https://www.spongium.org/unit/indexer).
+Many of the [Lab 4 hints](../crawler/README.html) are still relevant, and there are more tips in the [knowledge unit](https://www.spongium.org/unit/indexer).
 
 ### Testing
 
@@ -93,8 +92,8 @@ It can be tricky to compare two index files for equivalence - because the lines 
 Try using our `indexcmp` program; you can run it directly from the shared copy we installed:
 
 ```bash
-$ ~/cs50-dev/shared/tse/indexcmp
-usage: ~/cs50-dev/shared/tse/indexcmp indexFilenameA indexFilenameB
+$ /home/cs50/shared/tse/indexcmp
+usage: /home/cs50/shared/tse/indexcmp indexFilenameA indexFilenameB
 ```
 
 It takes two arguments, each a pathname to an index file; it will print out any apparent differences.
@@ -107,7 +106,7 @@ In the indexer/querier, we use a hashtable to store an inverted index (words –
 The answer to the above question, then, depends on how many words will be in the index.
 
 When building the inverted index, it's impossible to know in advance how many words you will find in all those pages encountered by the crawler.
-Pick a reasonable size, perhaps something in the range of 200..900 slots.
+Pick a reasonable size, perhaps something in the range of 200 to 900 slots.
 
 When loading an inverted index from a file, though, you *can* know how many words... because there is one word per line in the index file, and it's easy to count the number of lines (see `file.h`).
 Once your code can obtain the number of words, think about how it can compute a good size for your hashtable.
