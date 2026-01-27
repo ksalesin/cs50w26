@@ -90,7 +90,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Jan 28</td>
     <td>Iterators, cohesion, coupling, & design; Debugging with Valgrind <br>
     <strong>Reading: 3.15-3.16; 4.1</strong></td>
-    <td>Cohesive or just sticky?, Valgrind it?</td>
+    <td><a href="/activities/activity10/README.html">Cohesive or just sticky?</a>, <a href="/activities/activity12/README.html">Valgrind it?</a></td>
     <td></td>
     <td></td>
 </tr>
