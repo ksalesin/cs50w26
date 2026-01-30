@@ -11,7 +11,9 @@ In the following scenarios, you and your team should discuss appropriate testing
 plans. The tests should be automatable, such as via a `Makefile` or test program
 or shell script.
 
-## What to test ?
+**First, answer this question in your Markdown:** What is the difference between testing and debugging? 
+
+## What to test?
 
 Consider these aspects of the software being tested:
 
@@ -29,6 +31,4 @@ in particular, are there any outputs with unintended side-effects
 2. A drone-based coffee delivery service.
 3. An app to control access to personal health information stored on a phone.
 4. Software to operate a robotic lawn mower.
-5. Autograding software for COSC 50 lab assignments.
-
-.
+5. Autograding software for CS 50 lab assignments.
