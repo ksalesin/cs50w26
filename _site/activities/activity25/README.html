@@ -23,7 +23,7 @@
         <h1>Memory &amp; pointers review</h1>
 <p>Put your team's answers in a Markdown file and upload it and your <code>matrix.c</code> to Canvas for this activity.</p>
 <p>The point of this activity is to practice pointer arithmetic. Therefore...</p>
-<h3>I do not want to see <em>any</em> square brackets in your matrix.c!</h3>
+<h2 style="border:none; margin-top: 25px!important;">I do not want to see *any* square brackets in your matrix.c!</h2>
 <p>I don't mean this as a general rule, as in &quot;square brackets are bad.&quot; You could write the following code with either array syntax (square brackets) or pointer arithmetic and both would be equally valid, but today we are practicing pointer arithmetic. When you use square brackets, the compiler is just doing pointer arithmetic underneath the hood for you.</p>
 <h2>Activity</h2>
 <p>First, copy the file <code>matrix.c</code> from our examples directory into your home directory on plink.</p>
@@ -33,7 +33,7 @@
 <ul>
 <li>It may be useful to write <code>printMatrix</code> first, as that will help you test your other functions.</li>
 <li>Slight exception to the above rule, you can print out square brackets in <code>printMatrix</code> since that is how I ask you to format the printing.</li>
-<li>Remember to practice <em>defensive programming</em> – check that all row and column parameters are valid and not out of bounds.</li>
+<li>Remember to practice <em>defensive programming</em> – check that all row and column parameters are valid and not out of bounds (if they are, print an error message and <code>exit(1)</code>).</li>
 <li>Test each function as you go by writing a few tests in <code>main</code>.</li>
 </ul>
 <ol start="2">

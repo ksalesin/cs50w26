@@ -4,7 +4,7 @@ Put your team's answers in a Markdown file and upload it and your `matrix.c` to 
 
 The point of this activity is to practice pointer arithmetic. Therefore...
 
-### I do not want to see *any* square brackets in your matrix.c!
+<h2 style="border:none; margin-top: 25px!important;">I do not want to see *any* square brackets in your matrix.c!</h2>
 
 I don't mean this as a general rule, as in "square brackets are bad." You could write the following code with either array syntax (square brackets) or pointer arithmetic and both would be equally valid, but today we are practicing pointer arithmetic. When you use square brackets, the compiler is just doing pointer arithmetic underneath the hood for you.
 
@@ -15,7 +15,7 @@ First, copy the file `matrix.c` from our examples directory into your home direc
 1. Read through `matrix.c`. Fill in all of the function stubs.
   * It may be useful to write `printMatrix` first, as that will help you test your other functions.
   * Slight exception to the above rule, you can print out square brackets in `printMatrix` since that is how I ask you to format the printing.
-  * Remember to practice *defensive programming* – check that all row and column parameters are valid and not out of bounds.
+  * Remember to practice *defensive programming* – check that all row and column parameters are valid and not out of bounds (if they are, print an error message and `exit(1)`).
   * Test each function as you go by writing a few tests in `main`.
 
 2. Print `sizeof(matrix)` – why is it the size that it is?
