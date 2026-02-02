@@ -41,7 +41,7 @@
 
 Using the [Visualizing Git](https://git-school.github.io/visualizing-git) tool we discussed, your challenge is to come up with the sequence of `git commit`s , `git branch ...`, and `git checkout ...` commands to recreate the state shown in the picture:
 
-![](/activities/activity3/Activity-viz-git.png)
+![](/images/Activity-viz-git.png)
 
 When you have a solution, make a screen shot, add it to a Markdown file `activity3.md`, and upload the screenshot and the markdown file to Activity 3 on Canvas. Only one of you needs to do it.
 

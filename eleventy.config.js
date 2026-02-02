@@ -21,8 +21,11 @@ module.exports = async function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("styles.css");
     eleventyConfig.addPassthroughCopy("github-markdown.css");
-    eleventyConfig.addPassthroughCopy("activities/activity1/billboard.tsv");
-    eleventyConfig.addPassthroughCopy("activities/activity3/Activity-viz-git.png");
+    eleventyConfig.addPassthroughCopy("_includes/spoilers.js");
+
+    eleventyConfig.addShortcode("spoiler", function(content) {
+        return `<div class="spoiler spoiler-hidden">${content}</div>`;
+    });
 
     return {
         pathPrefix: "/~ksalesin/cs50/"

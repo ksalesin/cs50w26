@@ -25,6 +25,10 @@ body {
     .schedule .week {
         background-color: var(--bgColor-sched-dark);
     }
+
+    .spoiler-hidden::after {
+        background-color: var(--bgColor-sched-dark);
+    }
 }
 
 @media (prefers-color-scheme: light) {
@@ -38,6 +42,10 @@ body {
     }
 
     .schedule .week {
+        background-color: var(--bgColor-sched-light);
+    }
+
+    .spoiler-hidden::after {
         background-color: var(--bgColor-sched-light);
     }
 }
@@ -142,4 +150,21 @@ body {
   width: 200px;
   height: 200px;
   object-fit: cover;
+}
+
+.spoiler, .spoiler-hidden {
+    position: relative;
+    box-sizing: border-box;
+    padding: 6px;
+    transition: 0.5s;
+}
+
+.spoiler-hidden::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 6px;
 }

@@ -34,3 +34,9 @@ First, copy the file `matrix.c` from our examples directory into your home direc
 6. Why did I write `++matrices` in the second line and not `matrices++`?
 
 7. Fix the memory leak of `matrices`.
+
+<br>
+
+<!-- **Note about \#2 that is a spoiler for the answer (reveal after your group has answered \#2):**
+
+{% spoiler "This is an important message." %} -->
