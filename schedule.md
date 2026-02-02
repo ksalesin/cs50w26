@@ -102,7 +102,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Feb 2</td>
     <td>Libraries; Testing: unit, module, & system <br>
     <strong>Reading: 4.3–4.10, 4.2</strong></td>
-    <td>Let's make a lib, Can you break it?</td>
+    <td><a href="/activities/activity25/README.html">Memory and pointers review</a>, <a href="/activities/activity14/README.html">Can you break it?</a></td>
     <td></td>
     <td></td>
 </tr>
