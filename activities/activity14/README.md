@@ -1,7 +1,7 @@
 # Can you break it?
 
 
-Put your team's answers in a Markdown file and upload it to Canvas for Activity 14.
+Put your team's answers in a Markdown file and upload it to Canvas for this activity.
 
 ## or, _If it's worth doing, it's worth testing._
 
@@ -15,6 +15,8 @@ or shell script.
 
 ## What to test?
 
+**\*The ultimate goal of testing is to exercise all paths through the code.\***
+
 Consider these aspects of the software being tested:
 
 - what the software is expected to do
@@ -26,6 +28,8 @@ in particular, are there any outputs with unintended side-effects
 - are there any "fail safe" situations that need testing? (may not be automatable)
 
 ## Scenarios
+
+For each of the following scenarios, come up with at least 5 tests that should be run. Specify what the input, expected behavior, and expected output/error would be for each test (you can even format this as a Markdown table if you like).
 
 1. Software to operate a bluetooth-enabled home door-lock operated by a phone.
 2. A drone-based coffee delivery service.
