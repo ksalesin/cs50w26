@@ -1,28 +1,27 @@
 # Fifty clouds of gray
 
-### Design clinic - weather map
+### Design clinic: Weather map
 
 In this activity, imagine your team being hired by a client to build a weather-data service.
 
 ## Your client
 
-A startup called *FiftyClouds.com* has developed an exciting VR interface to allow its users to navigate information about the fifty US states, and has hired your CS-fifty team to support them in adding a weather feature.
+A startup called *FiftyClouds\.com* has developed an exciting VR interface to allow its users to navigate information about the fifty US states, and has hired your CS 50 team to support them in adding a weather feature.
 Fortunately, the [National Weather Service](https://forecast.weather.gov) (NWS) provides free weather data.
 Your CTO met with them earlier this week, and agreed on the Requirements Spec below.
 
 **Your task for today:**
 write the Design Spec and at least start the Implementation Spec for this project.
 
-Recall the [Design Spec unit](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md/#design-spec) and [Implementation Spec unit](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md/#implementation-spec),
-and the examples we provide for the [Tiny Search Engine](https://github.com/CS50DartmouthFA2025/home/blob/main/labs/tse).
+Recall the [Design unit](https://www.spongium.org/unit/design) that outlines a Design Spec and an Implementation Spec, and the examples we provide for the [Tiny Search Engine](/labs/tse/crawler/README.html).
 
 <!-- @CHANGEME: update the term-specific link to the TSE lab, above. -->
 
 ## Requirements spec
 
-Subsections here follow the outline of a [Requirements Spec](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md/#requirements-spec).
+Subsections here follow the outline of a [Requirements Spec](https://www.spongium.org/unit/design).
 
-### functionality
+### Functionality
 
 * Your service should run as a server on the Internet, accepting *requests* and providing *responses*.
 * A *request* is a pair of floating-point numbers *latitude*, *longitude*, representing a point on the Earth.
@@ -35,24 +34,24 @@ Subsections here follow the outline of a [Requirements Spec](https://github.com/
 	* the timestamp for the *current observation*
 	* the *current observation*: weather condition, temperature, wind speed, humidity
 
-### performance
+### Performance
 
 * FiftyClouds expects their service to be used by millions of people, and has stringent latency requirements so their VR fly-through experience is seamless.
 * Thus, your service must respond to a valid request within **100ms** (one-tenth second) even when faced with **1,000,000** requests per minute.
 
-### compatibility
+### Compatibility
 
 Your service must leverage the [National Weather Service](https://forecast.weather.gov) data site.
 
 Your response must be a subset of the NWS data, following the NWS stylesheet.
 
-### ignore
+### Ignore
 
 For your purposes today, ignore
 
- * cost
- * compliance
- * security &#128561;
+ * Cost
+ * Compliance
+ * Security &#128561;
 
 ## Assumptions and suggestions
 
@@ -74,7 +73,7 @@ You may find these links useful as a way of exploring what data is available:
 
 ## Some questions to consider
 
-Put your team's answers in a Markdown file and upload it to Canvas for Activity 17.
+Put your team's answers in a Markdown file and upload it to Canvas for this activity.
 
 While coming up with a design, you encounter questions that will guide your effort.  Here are a few suggestions:
 
