@@ -68,10 +68,10 @@ For now, that comprises code for initializing the "pageDirectory" and saving web
 
 Add/commit all the code and ancillary files required to build and test your solution; at a minimum your **crawler** directory should include the following files:
 * .gitignore 
-* README.md 
+* README\.md 
 * Makefile 
 * crawler.c 
-* testing.sh 
+* testing\.sh 
 * testing.out
 
 and your **common** directory should contain the following files:
