@@ -19,15 +19,40 @@
         </ul>
     </div>
     <div class="markdown-body content">
-        <h1>Testing</h1>
+        <h1>Activity: Build a Simple Log File Analyzer</h1>
+<p>Copy the <code>file_io</code> directory from our examples on plink into your home directory.</p>
+<p>It provides a partially complete module that reads and analyzes a log file; complete the missing functions in <code>file_utils.c</code> to make it work.</p>
+<h2>Scenario</h2>
+<p>A server generates log files with entries like:</p>
+<pre><code>2024-01-15 08:30:45 INFO User login: alice
+2024-01-15 08:31:02 ERROR Connection timeout: 10.0.0.5
+2024-01-15 08:31:15 INFO User login: bob
+2024-01-15 08:32:00 WARNING Disk usage: 85%
+</code></pre>
+<p>Complete the <code>file_utils.c</code> program so that it:</p>
 <ol>
-<li>
-<p>In <code>matrix.c</code>, add input validation to all the functions you wrote – check that the row and column parameters are within an acceptable range for each function, and if not, print an error message and return.</p>
-</li>
-<li>
-<p>In a new <code>matrix-test.c</code> file, write a full test suite for <code>matrix.c</code>. For each function you wrote (except for <code>printMatrix</code>), write a function <code>testX</code>, where <code>X</code> is the function name. Call each of these test functions from the <code>main</code> function.</p>
-</li>
+<li>Reads the log file</li>
+<li>Counts entries by severity (INFO, WARNING, ERROR)</li>
+<li>Writes a summary report</li>
+<li>Extracts and saves all ERROR entries to a separate file</li>
 </ol>
+<p>There are five routines to complete. A sixth one is not used by default in the program, but is there if you have some extra time.
+To test the sixth routine, define EXTRA.</p>
+<h2>Testing</h2>
+<p>The application can be tested by running <code>make test</code>. You can use <code>diff</code> to compare your output to the ones in the directory <code>expected_output</code>.</p>
+<h2>Completion</h2>
+<p>Your group should turn in <code>file_utils.c</code> to Canvas.</p>
+<h2>Starter Code Structure</h2>
+<pre><code>activity/
+├── Makefile
+├── log_analyzer.c      # Main program
+├── file_utils.h        # Header file
+├── file_utils.c        # File operations (complete this)
+├── sample.log          # Test log file
+└── expected_output/    # Reference outputs
+    ├── summary.txt
+    └── errors.log
+</code></pre>
 
     </div>
 </body>
