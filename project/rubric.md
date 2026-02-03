@@ -118,7 +118,7 @@ We will grade the contents of that branch as it appears on GitHub at the moment 
 We grade this section out of 20 points.
 
 * (6) git commit history - logical groupings of changes in each commit, and meaningful commit messages.
-* (8) git-flow - good use of branches and [git-flow](https://www.cs.dartmouth.edu/~cs50/Lectures/units/git-flow.html).
+* (8) git-flow - good use of branches and Git Flow.
 * (6) no executable files, object files, core dump files, editor backup files, or extraneous files existing in any directory.
 
 ---

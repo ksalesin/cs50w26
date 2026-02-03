@@ -1,4 +1,4 @@
-# Scrum in CS50
+# Scrum in CS 50
 
 Your team will be working within a simplified version of the [Scrum framework](https://www.scrum.org/resources/scrum-guide?gclid=EAIaIQobChMIlonb_MP14QIVE-DICh3m3QxzEAAYASAAEgI8ifD_BwE)
 to effectively and efficiently develop and deliver incremental working versions of your final project.
@@ -60,7 +60,7 @@ Maybe it needs to be broken up into several smaller items during the next Sprint
 The output of this meeting is an updated Sprint Backlog that will be input for the Sprint Planning meeting.
 
 ### Daily Scrum
-Your team will spend the first 15 minutes of each class on Wednesdays and Fridays discussing progress and any obstacles that are preventing you from completing Sprint Backlog tasks.
+Your team will spend the first 15 minutes of each class discussing progress and any obstacles that are preventing you from completing Sprint Backlog tasks.
 
 The 15-minute time limit will be enforced by Scrum Masters.
 After the Daily Scrum, you should proceed to work on your Sprint Backlog items, or break off into smaller groups to finish discussing items from the Daily Scrum with relevant members.
@@ -129,13 +129,13 @@ We suggest the following timeline.
 
 ## Wiki
 
-During your Sprint Retrospective your team will fill out the Retrospective template that we have provided.
+During your Sprint Retrospective your team will fill out the [Retrospective template](/project/retrospective.html) that we have provided.
 These retrospective documents will live in your repo's **GitHub Wiki page**.
 To create a Wiki page for your Sprint Retrospective, follow the steps listed below.
 
 1. From your repository GitHub page, click the "Wiki" tab near the top.
 2. If this is your first retrospective, click "Create the first page". Otherwise, click "New Page" in the top right.
-3. Copy and paste the [Markdown template](retrospective.md).
+3. Copy and paste the [Retrospective template](/project/retrospective.html).
 4. Fill out the template.
 5. Title it "Sprint Retrospective N", where N is the current Sprint iteration.
 6. Click "Save Page".
@@ -144,7 +144,7 @@ To create a Wiki page for your Sprint Retrospective, follow the steps listed bel
 
 # GitHub Project Board
 
-[:arrow_forward: Video demo by Taylor Hardin](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=96060b11-898b-4296-a856-ad2401472f32)
+[Video demo](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=96060b11-898b-4296-a856-ad2401472f32)
 
 You will be using GitHub Project Board to manage your Sprint Backlog. Your Sprint Backlog is a list of items that your team needs to complete in order to meet the Sprint Goal. Each Sprint Backlog item will be represented by a GitHub Issue, and the set of issues that makes up your Sprint Backlog will be organized inside of your Project Board. Your Project Board will have four columns for organization that represent different stages of completeness:
 
@@ -155,7 +155,7 @@ You will be using GitHub Project Board to manage your Sprint Backlog. Your Sprin
 
 Your Project Board setup should generally look like this:
 
-![ProjectBoardExample](images/project-board.png)
+![ProjectBoardExample](/images/project/project-board.png)
 
 
 ## Setup Your Project Board
@@ -163,35 +163,35 @@ Follow the steps below to setup a project board for managing your Sprint Backglo
 
 1. Navigate to your team's nuggets repo on GitHub, and in the repository menu bar click "Projects" then "Create a project". Fill out the forms the same way that I have in the picture below then click "Create project".
 
-![CreateAProject](images/create-a-project.png)
+![CreateAProject](/images/project/create-a-project.png)
 
 2. Next, we need to add columns to organize our Sprint Backlog items. Let's start with the "To Do" column; Click "Add a column". Name the column and then set "Preset: To Do". Finally, under "Move issues here when..." select both checkmark boxes.
 
-![CreateToDoColumn](images/create-todo-column.png)
+![CreateToDoColumn](/images/project/create-todo-column.png)
 
 3. Click "Add column" again, and name this column "In Progress". Leave it with the default automation setting "Preset: None" and click "Create Column".
 
-![CreateInProgressColumn](images/create-in-progress-column.png)
+![CreateInProgressColumn](/images/project/create-in-progress-column.png)
 
 4. Click "Add column" again, and name this column "Needs Review". Set "Preset: In progress" and under "Move pull requests here when..." select checkboxes: "Newly added", "Reopened", and "Pending approval by reviewer".
 
-![CreateInReviewColumn](images/create-in-review-column.png)
+![CreateInReviewColumn](/images/project/create-in-review-column.png)
 
 5. Finally, click "Add column" one more time and name this column "Done". Set "Preset: Done" and mark every checkbox.
 
-![CreateDoneColumn](images/create-done-column.png)
+![CreateDoneColumn](/images/project/create-done-column.png)
 
 6. Now that your project board is created, there is still one more thing you need to do before you can begin adding Sprint Backlog items to it. That is, you need to create a GitHub "Milestone" that represents the goal(s) of each of your 3 Sprints. Click the "Issues" tab in the top menu bar of your repository. Click the "Milestones" button (which is located next to the green "New Issue" button).
 
-![EmptyMilestones](images/milestones-empty.png)
+![EmptyMilestones](/images/project/milestones-empty.png)
 
 7. Click "New milestone" and then give it an appropriate name, due date, and description. Below is an example of a milestone for your Sprint 1 Goal.
 
-![CreateMilestones](images/milestones-create.png)
+![CreateMilestones](/images/project/milestones-create.png)
 
 8. Repeat the process in step 7 so that you end up with three milestones like the ones in the picture below.
 
-![AllMilestones](images/milestones-all.png)
+![AllMilestones](/images/project/milestones-all.png)
 
 
 ## To Do
@@ -205,7 +205,7 @@ During your Sprint Planning meeting, you will be coming up with items for your S
 5. Click on "Milestone" in the menu to the right and assign the issue to the current Sprint Goal.
 6. Your new issue should look similar to what is shown below. Click "Submit new issue". Afterwards, you should see your newly created issue in the *To Do* column of your Project Board.
 
-![screenshot showing creation of a new issue](images/issue-create.png)
+![screenshot showing creation of a new issue](/images/project/issue-create.png)
 
 ## In Progress
 
@@ -216,7 +216,7 @@ You should manually drag issues from the *To Do* column to the *In Progress* col
 3. Click anywhere else on the screen to get the dropdown bar to close
 4. Close the menu bar using the "x" in the top right
 
-![screenshot of the project board showing in-progress items](images/issue-assign.png)
+![screenshot of the project board showing in-progress items](/images/project/issue-assign.png)
 
 **REMEMBER GIT FLOW** Moving an issue to *In Progress* indicates to your teammates that you are actively working on it. In terms of your git usage, this means that you should creat a new branch specifically for that issue where you will do all of your work. Later, after testing, you will create a pull request so that you team can review your work and merge it into master if satisfactory.
 
@@ -238,7 +238,7 @@ After completing and **testing** your work for a specific issue, it is time to c
 
 7. You should now see a pull request item in the *Needs Review* column of your Project Board. Note that your issue item may still be in the *In Progress* column. This is ok.
 
-![screenshot of "open pull request"](images/pull-request-create.png)
+![screenshot of "open pull request"](/images/project/pull-request-create.png)
 
 
 ## Done
@@ -251,5 +251,5 @@ This column holds pull request items that have been merged to master and their a
 4. In the merge request description box, use the syntax "Closes: #number" to indicate the issue (or issues) that this pull request solves. It is very important that you use this syntax as it is what causes GitHub to automatically close issues for you. If you do this incorrectly, you will have to manually close your issue afterwards and move it to the *Done* section of your project board.
 5. You should now see the pull request and issue items in the *Done* column of your Project Board.
 
-![screenshot of "completed item 2"](images/done.png)
+![screenshot of "completed item 2"](/images/project/done.png)
 
