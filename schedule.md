@@ -109,7 +109,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Feb 4</td>
     <td>IO Review; Git Flow; TinySearchEngine: Crawler design<br>
-    <strong>Reading: 5.1–5.7</strong></td>
+    <strong>Reading: 5.1–5.7, 7.3–7.8</strong></td>
     <td><a href="/activities/activity26/README.html">Log file analyzer</a>, <a href="/activities/activity23/README.html">Git with the Flow</a></td>
     <td>Lab 3</td>
     <td><a href="/labs/tse/crawler/README.html">Lab 4</a></td>
@@ -140,9 +140,9 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 </tr>
 <tr>
     <td>Feb 16</td>
-    <td>Git Flow <br>
-    <strong>Reading: 7.3–7.8</strong></td>
-    <td>Git with the Flow</td>
+    <td>TBD<br>
+    <strong>Reading: TBD</strong></td>
+    <td>TBD</td>
     <td></td>
     <td></td>
 </tr>
