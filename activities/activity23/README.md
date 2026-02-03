@@ -50,7 +50,7 @@ When finished, the `main` branch of your repository will contain the complete Su
 
 ## Steps
 
-1. One team member is chosen as the "Project Lead" who then accepts the [activity assignment](https://classroom.github.com/a/ij-rLfGK) from GitHub Classroom as usual.  
+1. One team member is chosen as the "Project Lead" who then accepts the [activity assignment](https://classroom.github.com/a/7ycx4mNu) from GitHub Classroom as usual.  
 
     a. go to the new repository **on GitHub**  
     b. make sure the new repo is private.  
