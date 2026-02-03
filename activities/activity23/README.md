@@ -66,13 +66,13 @@ When finished, the `main` branch of your repository will contain the complete Su
 3. Each team member does the following:
 	- Clone the repo and `cd` into the cloned repo.
 	- Create a local feature branch for your work, with a name indicating the department you are handling, e.g. 
-        `git branch math`
+        `git branch english`
 	- Switch to that new feature branch. 
-        `git checkout math` or `git switch math`
+        `git checkout english` or `git switch english`
 	- Add at least 4 classes to your department's `.md` file (see above).
 	- Edit the `catalog.md` file to add your name in the department chair slot of the department you selected.
 	- Commit your changes and push your branch to GitHub.
-		`git push -u origin math`
+		`git push -u origin english`
 	- Preview your branch on GitHub. Is content correct? Does the formatting meet the requirements? Are any words spelled incorrectly?
 	- If everything is correct, open a Pull Request for your branch.  
 
@@ -95,7 +95,7 @@ When finished, the `main` branch of your repository will contain the complete Su
         git merge origin/main    # merge the remote main into your local main
         ```
         2. If there are any merge conflicts, fix them and commit.
-        2. Merge your feature branch into `main` locally on your machine (e.g. from your `main` branch, run `git merge math`). If there are any merge conflicts, fix them and commit.
+        2. Merge your feature branch into `main` locally on your machine (e.g. from your `main` branch, run `git merge english`). If there are any merge conflicts, fix them and commit.
         3. Push your (merged) main to GitHub. This time it should succeed. If you made any changes to your feature branch, push those, too.
 
 > [!TIP]
