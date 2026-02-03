@@ -110,7 +110,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Feb 4</td>
     <td>TinySearchEngine: Crawler design; Design methodology <br>
     <strong>Reading: 5.1–5.7</strong></td>
-    <td><a href="/activities/activity26/README.html">Build a simple log file analyzer</a>,<a href="/activities/activity17/README.html">Fifty clouds of grey</a></td>
+    <td><a href="/activities/activity26/README.html">Log file analyzer</a>, <a href="/activities/activity17/README.html">Fifty clouds of grey</a></td>
     <td>Lab 3</td>
     <td><a href="/labs/tse/crawler/README.html">Lab 4</a></td>
 </tr>

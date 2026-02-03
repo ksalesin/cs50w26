@@ -23,8 +23,9 @@ You will lose points for memory errors and leaks reported by valgrind on our tes
 ## Preparation
 
 1. Accept the assignment on Canvas, and clone the resulting repo.
-1. Decide whose implementation of the Lab 3 data structures you want to use (you can always change later).
-   * If you want to use *your* implementation, copy your `counters.c`, `set.c`, `hashtable.c` into the `libcs50` subdirectory in your brand-new repository; try `make` in that directory to ensure everything works.
+1. **Make a new `lab4` branch**. Since you will work on the same code base for Labs 4, 5, and 6, each will have its own branch (so we can grade each one separately). You will commit all of your work for Lab 4 to the `lab4` branch.
+1. Decide if you want to use your implementation of the Lab 3 data structures or ours.
+   * If you want to use *your* implementation, copy your `counters.c`, `set.c`, `hashtable.c` into the `libcs50` subdirectory in your repository; try `make` in that directory to ensure everything works.
    * If you want to use *our* implementation, do nothing.
 1. Create subdirectories `crawler` and `common`.
 
@@ -39,8 +40,8 @@ Your implementation must follow the Requirement and Design Specs, and should fol
 
 **In the top directory,**
 
- 1. Update the `README.md` file to add your name and GitHub username.
- 2. Comment out the commands for indexer and querier, so `make` and `make clean` work to build (or clean) the libraries and crawler.
+ 1. Update the `README.md` file to add your name.
+ 1. Comment out the commands for indexer and querier, so `make` and `make clean` work to build (or clean) the libraries and crawler.
 
 **In the `crawler` directory,**
 
@@ -66,16 +67,30 @@ For now, that comprises code for initializing the "pageDirectory" and saving web
 ## Submission
 
 Add/commit all the code and ancillary files required to build and test your solution; at a minimum your **crawler** directory should include the following files:
-`.gitignore README.md Makefile crawler.c testing.sh testing.out`
+* .gitignore 
+* README.md 
+* Makefile 
+* crawler.c 
+* testing.sh 
+* testing.out
+
 and your **common** directory should contain the following files:
-`Makefile pagedir.h pagedir.c`
+* Makefile 
+* pagedir.h 
+* pagedir.c
 
 *Do not commit any data files produced by the crawler, any binary/object files produced by the compiler, backup files, core dumps, etc.*
 
-If you finish Lab 4 early, we encourage you to begin work on Lab 5 or Lab 6.
-Your Lab 4 submission may contain a partly-completed indexer or querier; the graders will ignore those files, but must be able to build your crawler *from the top-level directory* without compilation errors and test your crawler without run-time errors.
+> [!IMPORTANT]
+> Your final push to your `lab4` branch before the assignment deadline (Wed, Feb 11th at 11:59 pm) will serve as your submission for Lab 4. Do not push any changes to this branch after the deadline (unless you are using one of your extensions).
 
-To submit, read the [Lab submission instructions](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md).
+After you are done with Lab 4, **pull all the commits from your `lab4` branch to your `main` branch** like so:
+```
+git checkout main
+git merge lab4
+```
+
+You will now be ready to work on Lab 5. **If you finish Lab 4 early, we encourage you to begin work on Lab 5.**
 
 # Hints and tips
 
