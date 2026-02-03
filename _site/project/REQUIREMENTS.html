@@ -327,8 +327,8 @@ Consider the mathematical line segment from <em>(pr,pc)</em> through <em>(r,c)</
 Considering each row between <em>pr</em> and <em>r</em> (exclusive), and each column between <em>pc</em> and <em>c</em> (exclusive); if the line segment intersects a gridpoint exactly, and that gridpoint is not a 'room spot', then it blocks the player's vision; if the line segment passes <em>between</em> pairs of map gridpoints and if <em>both</em> those gridpoints are not 'room spots', then they block the player's vision.
 Only if there are no such blocking pairs do we conclude that point <em>(r,c)</em> is visible.
 Note these specs imply you cannot see down a passage, because passage spots are not room spots; think of the rooms as well-lit and the passages as dark.</p>
-<p><img src="images/visibility-drawing.png" alt="hand-drawn diagram corresponding to video"></p>
-<p><a href="https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3cc64f9b-8aee-4250-ab58-ad3001076aeb">:arrow_forward: Video explanation</a></p>
+<p><img src="/~ksalesin/cs50/images/project/visibility-drawing.png" alt="hand-drawn diagram corresponding to video"></p>
+<p><a href="https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3cc64f9b-8aee-4250-ab58-ad3001076aeb">Video explanation</a></p>
 <blockquote>
 <p>Two small mistakes in the video: at the beginning I refer to the grid as having 9 columns and 6 rows, but it has 10 columns and 7 rows; at the end I got <code>row--</code> and <code>row++</code> backward; note that row numbers count downward from the top of the screen.</p>
 </blockquote>
@@ -344,7 +344,7 @@ At game start we are in the big room with two gold piles in sight:</p>
                                        |
 </code></pre>
 <p>Consider some of the line segments that may be drawn toward the right and left walls:</p>
-<p><img src="images/visibility.png" alt="diagram with lines drawn on the above map"></p>
+<p><img src="/~ksalesin/cs50/images/project/visibility.png" alt="diagram with lines drawn on the above map"></p>
 <p>Now move one step to the right, and we can see a bit more of the floor:</p>
 <pre><code>     +---------------------------------+
      |..................@..*...........|

@@ -266,9 +266,9 @@ Considering each row between *pr* and *r* (exclusive), and each column between *
 Only if there are no such blocking pairs do we conclude that point *(r,c)* is visible.
 Note these specs imply you cannot see down a passage, because passage spots are not room spots; think of the rooms as well-lit and the passages as dark.
 
-![hand-drawn diagram corresponding to video](images/visibility-drawing.png)
+![hand-drawn diagram corresponding to video](/images/project/visibility-drawing.png)
 
-[:arrow_forward: Video explanation](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3cc64f9b-8aee-4250-ab58-ad3001076aeb)
+[Video explanation](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3cc64f9b-8aee-4250-ab58-ad3001076aeb)
 
 > Two small mistakes in the video: at the beginning I refer to the grid as having 9 columns and 6 rows, but it has 10 columns and 7 rows; at the end I got `row--` and `row++` backward; note that row numbers count downward from the top of the screen.
 
@@ -288,7 +288,7 @@ At game start we are in the big room with two gold piles in sight:
 
 Consider some of the line segments that may be drawn toward the right and left walls:
 
-![diagram with lines drawn on the above map](images/visibility.png)
+![diagram with lines drawn on the above map](/images/project/visibility.png)
 
 Now move one step to the right, and we can see a bit more of the floor:
 
