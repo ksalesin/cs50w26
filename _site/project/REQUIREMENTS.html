@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | Final Project</title>
+    <link rel="stylesheet" href="/~ksalesin/cs50/styles.css">
+    <link rel="stylesheet" href="/~ksalesin/cs50/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/~ksalesin/cs50/" id="cs50">CS 50: Software Design and Implementation (Winter 2026)</a></h3>
+        <ul>
+            <li><a href="/~ksalesin/cs50/syllabus.html">Syllabus</a></li>
+            <li><a href="/~ksalesin/cs50/schedule.html">Schedule</a></li>
+            <li><a href="/~ksalesin/cs50/style.html">Style Guide</a></li>
+            <li><a href="/~ksalesin/cs50/resources.html">Resources</a></li>
+            <li id="knowledge-base"><a href="http://spongium.org/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Nuggets - Requirements Spec</h1>
+<h3>David Kotz - May 2019, 2021</h3>
+<h3>Charles Palmer - 2022, 2023, 2024</h3>
+<p>A multi-player exploration game, <em>Nuggets</em>, in which a game server maintains all game state, and one or more game clients display the game to a user.
+The object of the game is to collect more gold nuggets than any other player.
+The game ends when all gold nuggets have been collected by some player.</p>
+<ul>
+<li>The <em>server</em> is a program that implements all game logic.</li>
+<li>The <em>client</em> is a program that allows a human to join the game as either <em>player</em> or <em>spectator</em>.</li>
+<li>A game includes zero to <em>MaxPlayers</em> players, and zero or one spectators.</li>
+<li>Thus a game involves one server and [0..MaxPlayers+1] clients.</li>
+<li>Game play occurs in a set of interconnected <em>rooms</em> and <em>passages</em>, laid out on a rectangular grid of <em>gridpoints</em>, as defined by a <a href="#maps">map</a>.</li>
+<li>Gridpoints within a room or passage are called <em>spots</em>.  A <em>room spot</em> can be occupied by a player or a gold pile, or be empty.  A <em>passage spot</em> can be occupied by a player or be empty.</li>
+<li>At game start time, <code>GoldTotal</code> nuggets are randomly dropped in a random number of random-sized piles, each pile at some spot in a room.  Gold nuggets are indistinguishable; a pile contains at least one nugget.</li>
+<li>A new <em>player</em> is dropped into a randomly selected empty room spot.</li>
+<li>A new player initially has 0 nuggets in its <em>purse</em>.</li>
+<li>A player can <em>see</em> the spots and boundaries that are <a href="#visibility"><em>visible</em></a> from its current location.</li>
+<li>A player can <em>see</em> the occupants of only those spots that are <a href="#visibility"><em>visible</em></a> from its current location.</li>
+<li>A player can <em>know</em> the spots and boundaries of all rooms and passages it has seen since the player began playing.</li>
+<li>The spectator immediately <em>knows</em> and always <em>sees</em> all gridpoints.</li>
+<li>The <em>display</em> is an ASCII screen large enough to represent the entire grid.</li>
+<li>At any given time, a player's display illustrates all known gridpoints and visible occupants; the spectator's display illustrates all gridpoints and all occupants.</li>
+<li>A player moving into a spot containing a pile of gold <em>collects</em> that gold, adding all the pile's nuggets to the player's purse. The pile is then gone and that pile's spot is then empty.</li>
+<li>A player moving into a spot occupied by another player causes the two players to switch places.</li>
+<li>The game <em>ends</em> when all gold nuggets have been collected.</li>
+<li>At end, the game announces to all clients the size of each players' purse; the client(s) and server then quit.</li>
+</ul>
+<h2>Constants</h2>
+<p>The game has several parameters; although other values are reasonable, we specify the following.</p>
+<pre><code class="language-c">MaxNameLength = 50;   // max number of chars in playerName
+MaxPlayers = 26;      // maximum number of players
+GoldTotal = 250;      // amount of gold in the game
+GoldMinNumPiles = 10; // minimum number of gold piles
+GoldMaxNumPiles = 30; // maximum number of gold piles
+</code></pre>
+<blockquote>
+<p>Implementation note: consider defining these as file-local global variables with <code>static const int</code>.</p>
+</blockquote>
+<p>The <em>message</em> module also imposes a maximum size for each message; see <code>support/message.h</code>.</p>
+<h2>Server</h2>
+<pre><code class="language-bash">./server map.txt [seed]
+</code></pre>
+<p>The server <em><strong>shall</strong></em></p>
+<ol>
+<li>Start from the commandline of the form above; thus the first argument is the pathname for a <a href="#map-files">map file</a> and the second argument is an optional seed for the random-number generator; if provided, the seed must be a positive integer.</li>
+<li>Verify its arguments; if error, provide a useful error message and exit non-zero.</li>
+<li>If the optional seed is provided, the server shall pass it to <code>srand(seed)</code>.  If no seed is provided, the server shall use <code>srand(getpid())</code> to produce random behavior.</li>
+<li>Load the designated map file; the server may assume it is <a href="#valid-maps">valid</a>, but shall verify the file can be opened for reading.</li>
+<li>Initialize the game by dropping at least <code>GoldMinNumPiles</code> and at most <code>GoldMaxNumPiles</code> gold piles on random room spots; each pile shall have a random number of nuggets.</li>
+<li>Initialize the network and announce the port number.</li>
+<li>Wait for messages from <em>clients</em> (players or spectators).</li>
+<li>Accept up to <em>MaxPlayers</em> players; if a player exits or quits the game, it can neither rejoin nor be replaced. Thus: once a player has quit, its letter is never re-used.</li>
+<li>Accept up to 1 spectator; if a new spectator joins while one is active, the server shall tell the current spectator to quit, and the server shall then forget that current spectator.</li>
+<li>React to each type of inbound message as described in the <a href="#network-protocol">protocol</a> below.</li>
+<li>Handle errors, including malloc failures, gracefully.</li>
+<li>If a player quits the game, that player's symbol is removed from the map.</li>
+<li>Update all clients whenever any player moves or gold is collected.</li>
+<li>Monitor the number of gold nuggets remaining; when it reaches zero, the server shall prepare a tabular summary (below), send a <code>QUIT</code> message (to all clients) with that summary, print the summary, and exit.</li>
+</ol>
+<p>The game-over summary shall be the phrase &quot;GAME OVER:&quot; followed by a simple textual table with one row for every player (including any who quit early) and with three columns: player letter, player purse, and player name.
+The list <em>may</em> be sorted by player letter, or by score, or unsorted.</p>
+<p>The server <em><strong>shall not</strong></em> print anything to stdout other than what is required for game play.</p>
+<p>The server <em><strong>should</strong></em> log useful information that can be saved in a logfile;
+a typical approach would be to log to stderr and thus usage could be:</p>
+<pre><code class="language-bash">./server 2&gt;server.log map.txt
+</code></pre>
+<h2>Client</h2>
+<pre><code class="language-bash">./client hostname port [playername]
+</code></pre>
+<p>The client allows a human to join the game as an interactive <em>player</em> or as a <em>spectator</em>.
+The client <em><strong>shall</strong></em> :</p>
+<ol>
+<li>start from the commandline of the form above; thus the first argument is the hostname or IP address where the server is running, and the second argument is the port number on which the server expects messages; the third (optional) argument determines whether to join as a <em>player</em> or <em>spectator</em>.</li>
+<li>Verify its arguments; if error, provide a useful error message and exit non-zero.</li>
+<li>If the <code>playername</code> argument is provided, the client joins as a <em>player</em> and can interactively play the game.</li>
+<li>If the <code>playername</code> argument is not provided, the client joins as a view-only <em>spectator</em>.</li>
+<li>Initialize the display.</li>
+<li>Initialize the network and join the game with a <code>PLAY</code> or <code>SPECTATE</code> message accordingly.</li>
+<li>Upon receipt of a <code>GRID</code> message, ensure the display is large enough for the grid (it should be <em>NR+1</em> x <em>NC+1</em> for best results).</li>
+<li>Show a status line on the first line of the display, as noted in the <a href="#network-protocol">protocol</a> below.</li>
+<li>Show the game grid on the subsequent lines of the display, as noted in the <a href="#network-protocol">protocol</a> below.</li>
+<li>Send all client keystrokes to the server.</li>
+<li>Update the display any time new information arrives from the server.</li>
+<li>Handle errors, including malloc failures, gracefully.</li>
+<li>Quit the game (by sending <code>KEY Q</code>) if reaching EOF on stdin.</li>
+<li>Quit when told to do so by the server, as noted in the <a href="#network-protocol">protocol</a> below.</li>
+<li>Display a brief note on the status line if an unknown or malformed message arrives from the server.</li>
+<li>Print a Game-over summary and exit, as noted in the <a href="#network-protocol">protocol</a> below.</li>
+</ol>
+<p>The client <em><strong>shall not</strong></em> print anything to stdout other than what is required for game play.</p>
+<p>The client <em><strong>should</strong></em> log useful information that can be saved in a logfile;
+a typical approach would be to log to stderr and thus usage could be:</p>
+<pre><code class="language-bash">./client 2&gt;player.log hostname port playername
+./client 2&gt;spectator.log hostname port
+</code></pre>
+<h3>Client interface</h3>
+<p>The display shall consist of <em>NR+1</em> rows and <em>NC</em> columns.
+The client program shall ensure the window is large enough: if not, it shall inform the user about the necessary window size, and wait for the user to enlarge the window.
+(If the user later shrinks the window during game play, your client need not discover this change nor deal with it.)</p>
+<p>The top line of the display shall provide game status; for a player, it should look like this:</p>
+<pre><code class="language-bash">Player A has 39 nuggets (211 nuggets unclaimed).
+</code></pre>
+<p>If other information needs to be displayed briefly, it is placed on the right:</p>
+<pre><code class="language-bash">Player A has 39 nuggets (211 nuggets unclaimed).  GOLD received: 39
+Player A has 39 nuggets (211 nuggets unclaimed).  unknown keystroke
+</code></pre>
+<p>The spectator's status line should look like this:</p>
+<pre><code class="language-bash">Spectator: 211 nuggets unclaimed.
+</code></pre>
+<p><strong>Grid display:</strong>
+The remaining <em>NR</em> lines present the grid using <em>map characters:</em></p>
+<ul>
+<li><code> </code> solid rock - interstitial space outside rooms</li>
+<li><code>-</code> a horizontal boundary</li>
+<li><code>|</code> a vertical boundary</li>
+<li><code>+</code> a corner boundary</li>
+<li><code>.</code> an empty room spot</li>
+<li><code>#</code> an empty passage spot</li>
+</ul>
+<p>or <em>occupant characters:</em></p>
+<ul>
+<li><code>@</code> the player</li>
+<li><code>A</code>-<code>Z</code> another player</li>
+<li><code>*</code> a pile of gold</li>
+</ul>
+<p><strong>Spectator keystrokes:</strong>
+All keystrokes are sent immediately to the server.
+The only valid keystroke for the spectator is</p>
+<ul>
+<li><code>Q</code> quit the game.</li>
+</ul>
+<p><strong>Player keystrokes:</strong>
+All keystrokes are sent immediately to the server.
+The valid keystrokes for the player are</p>
+<table>
+<thead>
+<tr>
+<th>keystroke</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Q</code></td>
+<td>quit the game</td>
+</tr>
+<tr>
+<td><code>h</code></td>
+<td>move left, if possible</td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>move right, if possible</td>
+</tr>
+<tr>
+<td><code>j</code></td>
+<td>move down, if possible</td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td>move up, if possible</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>move diagonally up and left, if possible</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>move diagonally up and right, if possible</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>move diagonally down and left, if possible</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>move diagonally down and right, if possible</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>where <strong>if possible</strong> means the adjacent gridpoint in the given direction is an empty spot, a pile of gold, or another player.</li>
+<li>for each move key, the corresponding <strong>Capitalized</strong> character will move automatically and repeatedly in that direction, until it is no longer possible.</li>
+</ul>
+<p>The eight movement keys are shown relative to the player (@) below.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">y</td>
+<td style="text-align:center">k</td>
+<td style="text-align:center">u</td>
+</tr>
+<tr>
+<td style="text-align:center">h</td>
+<td style="text-align:center"><strong>@</strong></td>
+<td style="text-align:center">l</td>
+</tr>
+<tr>
+<td style="text-align:center">b</td>
+<td style="text-align:center">j</td>
+<td style="text-align:center">n</td>
+</tr>
+</tbody>
+</table>
+<h2>Maps</h2>
+<p>A <em>map</em> defines the set of rooms and passages in which the game is played.</p>
+<h3>Valid maps</h3>
+<ul>
+<li>
+<p>The <em>map</em> is laid out on a <em>grid</em>.</p>
+</li>
+<li>
+<p>The grid is <em>NR</em> rows by <em>NC</em> columns; thus there are <em>NR x NC</em> <em>gridpoints</em>.</p>
+</li>
+<li>
+<p>The grid will fit in a <code>DISPLAY</code> message; thus, <em>NR x NC + 10 &lt; message_MaxBytes</em>.</p>
+</li>
+<li>
+<p>The grid has enough spots to accommodate <em>MaxPlayers</em> players and <code>GoldMaxNumPiles</code> gold piles.</p>
+</li>
+<li>
+<p>A <em>room</em> is an <a href="https://en.wikipedia.org/wiki/Rectilinear_polygon">axis-aligned rectilinear polygon</a>; it may have hole(s).</p>
+</li>
+<li>
+<p>A <em>spot</em> is a gridpoint in the interior of a room or along a passage.</p>
+</li>
+<li>
+<p>A room is defined by its <em>boundaries</em>.</p>
+</li>
+<li>
+<p>A horizontal boundary always meets a vertical boundary at a corner boundary.</p>
+</li>
+<li>
+<p>Thus, the <em>boundaries</em> of rooms are not spots, nor are gridpoints outside rooms and passages.</p>
+</li>
+<li>
+<p>A <em>passage</em> is one-spot wide and connects rooms to other rooms and passages. Passages are rectilinear but may not be straight, that is, they may have 90-degree turns.</p>
+</li>
+<li>
+<p>A passage interrupts a room's vertical or horizontal boundary; a passage never meets a room at a corner.</p>
+</li>
+<li>
+<p>The map is one connected component; thus, one can reach any spot from any other spot by some sequence of the eight valid moves.</p>
+</li>
+<li>
+<p>Every gridpoint is one of these characters:</p>
+<ul>
+<li><code> </code> solid rock - interstitial space outside rooms</li>
+<li><code>-</code> a horizontal boundary</li>
+<li><code>|</code> a vertical boundary</li>
+<li><code>+</code> a corner boundary</li>
+<li><code>.</code> an empty room spot</li>
+<li><code>#</code> an empty passage spot</li>
+</ul>
+</li>
+</ul>
+<h3>Map files</h3>
+<p>A <em>map file</em> is a text file with exactly <em>NR</em> lines and in which every line has exactly <em>NC</em> characters.</p>
+<blockquote>
+<p>Your solution may assume all map files are <a href="#valid-maps">valid</a>, but must infer <em>NR</em> and <em>NC</em> by reading the file.</p>
+</blockquote>
+<h3>Example map</h3>
+<p>The following is a valid 21x79 map.</p>
+<ul>
+<li>The dots represent empty spots; gold pieces and players may occupy these.</li>
+<li>The hashes represent passageways; players may occupy these.</li>
+<li>One room is non-convex.</li>
+<li>Some passageways bend, and some fork.</li>
+<li>Some rooms have multiple entrances.</li>
+<li>The room at upper-left shows a passage to nowhere.</li>
+</ul>
+<pre><code>  +----------+
+  |..........|                 +---------+
+  |..........####              |.........|                +-------+
+  |..........|                 +-----#---+                |.......|
+  +---------#+                       #              #######.......|
+            #                        #              #     +---#---+
+            #  +-----------+         #     +--------#+        #
+            ####...........##############  |.........|        #
+               |...........|            #  |.........|        #
+               +-----------+            ####.........|        #
+                                           +----#----+        #
+                                                #    +--------#--+
+     +---------------------------------+        #    |...........|
+     |.................................|        ######...........|
+     |.................................|        #    |...........|
+     |......+---------------+..........|        #    |...........|
+     |......|               |..........##########    +-----------+
+     |......|               |..........|
+     |......|               |..........|
+     |......|               |..........|
+     +------+               +----------+
+</code></pre>
+<h2>Visibility</h2>
+<p>Assume a player is at gridpoint <em>(pr,pc)</em>.
+Another gridpoint <em>(r,c)</em> is &quot;visible&quot; from point <em>(pr,pc)</em> by reviewing the <em>base map</em>.
+(Occupants do not affect visibility.)
+Consider the mathematical line segment from <em>(pr,pc)</em> through <em>(r,c)</em>.
+Considering each row between <em>pr</em> and <em>r</em> (exclusive), and each column between <em>pc</em> and <em>c</em> (exclusive); if the line segment intersects a gridpoint exactly, and that gridpoint is not a 'room spot', then it blocks the player's vision; if the line segment passes <em>between</em> pairs of map gridpoints and if <em>both</em> those gridpoints are not 'room spots', then they block the player's vision.
+Only if there are no such blocking pairs do we conclude that point <em>(r,c)</em> is visible.
+Note these specs imply you cannot see down a passage, because passage spots are not room spots; think of the rooms as well-lit and the passages as dark.</p>
+<p><img src="images/visibility-drawing.png" alt="hand-drawn diagram corresponding to video"></p>
+<p><a href="https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3cc64f9b-8aee-4250-ab58-ad3001076aeb">:arrow_forward: Video explanation</a></p>
+<blockquote>
+<p>Two small mistakes in the video: at the beginning I refer to the grid as having 9 columns and 6 rows, but it has 10 columns and 7 rows; at the end I got <code>row--</code> and <code>row++</code> backward; note that row numbers count downward from the top of the screen.</p>
+</blockquote>
+<p>Another example, from the Example map shown in the prior section.
+At game start we are in the big room with two gold piles in sight:</p>
+<pre><code>     +---------------------------------+
+     |.................@...*...........|
+     |..........................*......|
+     |......+---------------+..........|
+     |.                        ........#
+                                  .....|
+                                    ...|
+                                       |
+</code></pre>
+<p>Consider some of the line segments that may be drawn toward the right and left walls:</p>
+<p><img src="images/visibility.png" alt="diagram with lines drawn on the above map"></p>
+<p>Now move one step to the right, and we can see a bit more of the floor:</p>
+<pre><code>     +---------------------------------+
+     |..................@..*...........|
+     |..........................*......|
+     |......+---------------+..........|
+     |.                        ........#
+                                 ......|
+                                   ....|
+                                     ..|
+                                       +
+</code></pre>
+<p>Now three more steps to the right; we pick up gold, and see a new pile of gold around the corner:</p>
+<pre><code>     +---------------------------------+
+     |.....................@...........|
+     |..........................*......|
+     |......+---------------+..........|
+     |.                      .*........#
+                              .........|
+                              .........|
+                               ........|
+                               --------+
+</code></pre>
+<p>Now one more step to the right; we still can't see the vertical wall below us:</p>
+<pre><code>     +---------------------------------+
+     |......................@..........|
+     |..........................*......|
+     |......+---------------+..........|
+     |.                      .*........#
+                             ..........|
+                             ..........|
+                             ..........|
+                             ----------+
+</code></pre>
+<p>Move over and down to align with the passage:</p>
+<pre><code>     +---------------------------------+
+     |.................................|
+     |..........................*......|
+     |......+---------------+..........|
+     |.                     |.*.......@#
+                            |..........|
+                            |..........|
+                            |..........|
+                            +----------+
+</code></pre>
+<p>Step into the passage, but we can only see one step in front of us:</p>
+<pre><code>     +---------------------------------+
+     |.................................|
+     |..........................*......|
+     |......+---------------+..........|
+     |.                     |.*........#@#
+                            |..........|
+                            |..........|
+                            |..........|
+                            +----------+
+
+</code></pre>
+<p>Key <code>L</code> and <code>K</code> sprint to the right and up, along the passages and across the next room.</p>
+<pre><code>                                           +--------#+
+                                           |....@....|
+                                           |.........|
+                                           #.........|
+                                           +----#----+
+                                                #
+     +---------------------------------+        #
+     |.................................|        ##
+     |.................................|        #
+     |......+---------------+..........|        #
+     |.                     |..........##########
+                            |..........|
+                            |..........|
+                            |..........|
+                            +----------+
+
+</code></pre>
+<p>The display still shows the first room - though only the spots and boundaries we had seen at some time, but none of the gold we left behind.
+It shows one spot of the passage we passed along the way, because it was visible from the passage as we passed by.</p>
+<p>We follow the passage to the right and up; just before we enter the room, we can see the last passage spot and the adjacent wall and corner, but not into the room.
+(Although this may seem counter-intuitive, per the specs the passage spot blocks our vision into the room.)</p>
+<pre><code>                                                          |
+                                                    #####@#
+                                                    #     +
+                                           +--------#+
+                                           |.........|
+                                           |.........|
+                                           #.........|
+                                           +----#----+
+                                                #
+     +---------------------------------+        #
+     |.................................|        ##
+     |.................................|        #
+     |......+---------------+..........|        #
+     |.                     |..........##########
+                            |..........|
+                            |..........|
+                            |..........|
+                            +----------+
+</code></pre>
+<p>One more step right and we can see most of the new room:</p>
+<pre><code>                                                           -------+
+                                                          |.......|
+                                                    ######@..*....|
+                                                    #     +---#---+
+                                           +--------#+
+                                           |.........|
+                                           |.........|
+                                           #.........|
+                                           +----#----+
+                                                #
+     +---------------------------------+        #
+     |.................................|        ##
+     |.................................|        #
+     |......+---------------+..........|        #
+     |.                     |..........##########
+                            |..........|
+                            |..........|
+                            |..........|
+                            +----------+
+
+</code></pre>
+<h2>Network protocol</h2>
+<p>The network protocol connects zero or more game <em>clients</em> (players and spectator) with one game <em>server</em>.
+The server maintains all game state; the clients display the game state to a user, and sends their keystrokes to the server; the server sends back updated displays.</p>
+<blockquote>
+<p>The protocol runs over UDP/IP, that is, the <em>user datagram protocol</em> over the <em>Internet Protocol</em>.
+<a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">UDP/IP</a> and <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP/IP</a> form the core of the Internet.
+In either protocol, communication occurs between two endpoints; the address of an endpoint is a pair <em>host IP address</em>, <em>port number</em>.
+UDP carries <em>datagrams</em> from one port on one host to another port on another host (well, they could be the same host).
+A datagram can hold <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">zero to 65,507 bytes</a>.</p>
+</blockquote>
+<p>Our game sends one <em>message</em> in each datagram.
+Each message is an ASCII string (text).
+Most messages are on one line and have no terminating newline.
+Some messages are multiple lines long.
+Newlines are shown explicitly as <code>\n</code> in the specs below.
+The first word of the message indicates the type of message.
+(The first word begins at the start of the datagram and is terminated by a space, a newline, or the end of the message.)
+Message types are in ALL CAPS.</p>
+<p>When the server starts, it shall open a new endpoint and announce its port.
+When the client starts, it shall send a message to the hostname (or address) and port number where the server awaits.
+The client can join in one of two roles: <em>players</em> and <em>spectators</em>; let's look at the messages each can send, then at the messages a server can send.</p>
+<p>The server shall be prepared to receive these message types: <code>PLAY</code>, <code>SPECTATE</code>, and <code>KEY</code>.</p>
+<p>Clients shall be prepared to receive these message types: <code>OK</code>, <code>GRID</code>, <code>GOLD</code>, <code>DISPLAY</code>, <code>QUIT</code>, and <code>ERROR</code>.</p>
+<h3>Player to server</h3>
+<p>When a <em>player</em> client starts, it shall send a message to the server:</p>
+<p>PLAY real name</p>
+<p>Everything after the <code>PLAY</code> and one space is captured as the player's &quot;real name&quot; (free text, optionally including spaces).</p>
+<p>If there are already <em>MaxPlayers</em> players,  the server shall respond with</p>
+<p>QUIT Game is full: no more players can join.</p>
+<p>If the player's <code>real name</code> is empty (no non-space characters), the server shall respond with</p>
+<p>QUIT Sorry - you must provide player's name.</p>
+<p>See below for how a player should handle receipt of <code>QUIT</code> messages.</p>
+<p>Otherwise, the server shall add the player to the game.
+The server shall store the <code>real name</code> for later use in a game-over summary, after (1) truncating an over-length <code>real name</code> to <code>MaxNameLength</code> characters, and (2) replacing with an underscore <code>_</code> any character for which both <code>isgraph()</code> and <code>isblank()</code> are false.
+The server shall then respond with</p>
+<p>OK L</p>
+<p>where <code>L</code> is this player's letter in the set {<code>A</code>, <code>B</code>, ... <code>Z</code>}.</p>
+<p>The server shall then immediately send <code>GRID</code>, <code>GOLD</code>, and <code>DISPLAY</code> messages as described below.</p>
+<p>The client sends, at any time,</p>
+<p>KEY k</p>
+<p>where k is the single-character keystroke typed by the user.</p>
+<p>When the player's keystroke causes them to collect gold, the server shall inform all clients using a <code>GOLD</code> message as described below.</p>
+<p>When the player's keystroke causes them to move to a new spot, the server shall inform all clients of a change in the game grid using a <code>DISPLAY</code> message as described below.</p>
+<p>When the player's keystroke is not a valid character, according to the <a href="#client-interface">Client interface</a> above, the server <em>shall</em> ignore that keystroke and <em>may</em> send back an <code>ERROR</code> message as described below.</p>
+<h3>Spectator to server</h3>
+<p>When a <em>spectator</em> client starts, it shall send a message to the server:</p>
+<p>SPECTATE</p>
+<p>to join as a spectator.
+If there is already a spectator, this spectator takes its place
+(the server sends a <code>QUIT</code> message to the prior spectator, then forgets it).
+Thus, the server tracks only one spectator at a time.</p>
+<p>The server shall then immediately send <code>GRID</code>, <code>GOLD</code>, and <code>DISPLAY</code> messages as described below.</p>
+<p>The spectators's <code>DISPLAY</code> includes a complete view, as if it <em>knows</em> all and <em>sees</em> all.</p>
+<p>The spectator is not assigned a letter and is not represented on the map.</p>
+<p>The only keystroke allowed for spectators is <code>'Q'</code> for quit.</p>
+<h3>Server to clients</h3>
+<p>The server shall send immediately to new clients,</p>
+<p>GRID nrows ncols</p>
+<p>where <code>nrows</code> and <code>ncols</code> are positive integers describing the size of the grid.
+This size will never change.</p>
+<p>The server shall send immediately to new clients, and at any time to all clients,</p>
+<p>GOLD n p r</p>
+<p>where <code>n</code>, <code>p</code>, and <code>r</code> are positive integers,
+to inform the player it has just collected <code>n</code> gold nuggets, its purse now has <code>p</code> gold nuggets, and there remain <code>r</code> nuggets left to be found.
+The value of <code>n</code> may be zero.
+The value of <code>p</code> shall be initially zero, but will increase when gold is found.
+The spectator shall always receive <code>n=0</code>, <code>p=0</code>.</p>
+<p>The server shall send immediately to new clients, and at any time to all clients,</p>
+<p>DISPLAY\nstring</p>
+<p>where the <code>DISPLAY</code> is separated from the <code>string</code> by a newline, and the <code>string</code> is literally a multi-line textual representation of the grid as known/seen by this client.
+(Indeed, if you were to just print the message string, it would be recognizable as the game map.  That's why DISPLAY ends with newline, and why the string contains an embedded newline after each row.)
+More precisely, <code>string</code> has <code>nrows</code> lines, each of which has <code>ncols</code> characters plus a newline.
+Each client receives a different version, because (a) the spectator knows all and sees all, but is not itself represented on the map, (b) players' displays show only the boundaries and spots they know and the occupants visible from their current position, and (c) the player's own position is represented by <code>@</code>.
+Note it is entirely the server's responsibility to produce these display strings.</p>
+<p>The server sends, at any time,</p>
+<p>QUIT explanation</p>
+<p>where <em>explanation</em> is an arbitrary string, possibly multiple lines.
+Upon receiving a <code>QUIT</code> message the client shall exit curses, print the explanation followed by a newline, and exit.</p>
+<p>Four examples follow.</p>
+<p>When a player quits,</p>
+<p>QUIT Thanks for playing!</p>
+<p>When a spectator quits,</p>
+<p>QUIT Thanks for watching!</p>
+<p>When a spectator is replaced,</p>
+<p>QUIT You have been replaced by a new spectator.</p>
+<p>When all gold is collected,</p>
+<pre><code>QUIT GAME OVER:
+A          4 Alice
+B         16 Bob
+C        230 Carol
+</code></pre>
+<h3>Malformed messages</h3>
+<p>Any message not following the above protocol, <em>exactly</em>, is malformatted.
+Both client and server shall be robust in the face of malformatted messages - they should not crash, exit, or proceed incorrectly.
+At a minimum they shall log an error and ignore the message.</p>
+<p>The server <em>may</em> send, in response to the client,</p>
+<p>ERROR explanation</p>
+<p>to indicate it was unable to understand or handle the client's prior message.
+The remainder of the line provides a short explanatory text.
+The client shall present this text to its user on the display's status line.</p>
+<h3>Misordered messages</h3>
+<p>The server and client <em>may</em> strive to be robust in the face of missing, misordered, or repeated messages.</p>
+<p>(A stronger spec would <em>require</em> robustness, but for this project we'll give you some slack.)</p>
+<h2>Inspiration</h2>
+<p>This project was inspired by a classic game, <a href="https://docs.freebsd.org/44doc/usd/30.rogue/paper.pdf">Rogue</a>.</p>
+<p>Why do we use the H-J-K-L keys?
+Because <a href="https://catonmat.net/why-vim-uses-hjkl-as-arrow-keys">the original ADM3a terminal had arrows on them</a>.</p>
+
+    </div>
+</body>
+<script src="/~ksalesin/cs50/_includes/spoilers.js"></script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | Final Project</title>
+    <link rel="stylesheet" href="/~ksalesin/cs50/styles.css">
+    <link rel="stylesheet" href="/~ksalesin/cs50/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/~ksalesin/cs50/" id="cs50">CS 50: Software Design and Implementation (Winter 2026)</a></h3>
+        <ul>
+            <li><a href="/~ksalesin/cs50/syllabus.html">Syllabus</a></li>
+            <li><a href="/~ksalesin/cs50/schedule.html">Schedule</a></li>
+            <li><a href="/~ksalesin/cs50/style.html">Style Guide</a></li>
+            <li><a href="/~ksalesin/cs50/resources.html">Resources</a></li>
+            <li id="knowledge-base"><a href="http://spongium.org/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>CS50 Final project</h1>
+<h2>Common feedback</h2>
+<p>Below are some of the most common comments I inserted into student code.</p>
+<ul>
+<li>
+<p><em>Before a <code>#include &quot;../somedir/somefile.h&quot;</code>:</em>
+Do not put a pathname in #include lines; leave it to Makefile to provide -I</p>
+</li>
+<li>
+<p><em>In the .c file for a module that has a corresponding .h file:</em>
+You must <code>#include &quot;module.h&quot;</code> so compiler can cross-check the declarations in the header file with the definitions in this file.</p>
+</li>
+<li>
+<p><em>In a module with no main() function and with a corresponding header file:</em>
+The following prototypes should be marked 'static', if they are meant to be for internal-use only, or should be removed entirely if they are defined in the corresponding header file.</p>
+</li>
+<li>
+<p><em>In a program with a main() function:</em>
+The following prototypes should be marked 'static', since they are internal-use only.  Also, use 'const' where possible in function prototypes.</p>
+</li>
+<li>
+<p>Use 'const' where possible in function prototypes.</p>
+</li>
+<li>
+<p><em>In a file with global variables, particularly if they are not wrapped in a struct:</em>
+Global variables are always risky, and I <em>strongly</em> suggest wrapping them into a single struct so their use throughout the code becomes immediately clear that they are globals, not some local variable.
+Recall the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/project#global-variables">hint</a> about global variables.</p>
+</li>
+<li>
+<p><em>Before a local (static) function that has no header comment:</em>
+Local functions need good header comments because they are not described in a header file.</p>
+</li>
+<li>
+<p><em>In a function-header comment:</em>
+What's the memory contract?</p>
+</li>
+<li>
+<p><em>At the top of a function receiving parameters:</em>
+Be defensive here, check parameters before using them.</p>
+</li>
+<li>
+<p><em>Before a statement that calls a function that might return NULL:</em>
+What if this fails and returns NULL?</p>
+</li>
+<li>
+<p><em>Before a call to malloc or calloc:</em>
+What if malloc fails (returns NULL)?</p>
+</li>
+<li>
+<p><em>Before the definition of a <code>struct</code>:</em>
+Each member of the struct should have a brief inline comment to describe it.</p>
+</li>
+<li>
+<p>Define named constants for all the grid characters (like walls, spots, and gold) rather than sprinkling code with character constants.  A named constant will make the code more readable, and more adaptable if there is a later need to change characters.</p>
+</li>
+<li>
+<p><em>In cases where code uses <code>malloc</code> to allocate space for a fixed-size string:</em>
+When you need a string variable of a fixed size, there is no need for malloc.  Just declare a local string variable.</p>
+</li>
+<li>
+<p><em>In cases where code uses <code>malloc</code> to allocate space for a string to pass to <code>message_send()</code>:</em>
+You use malloc when it is not necessary; e.g., to create a message string, it would be sufficient to define one local variable <code>char message[message_MaxBytes]</code> and sprintf into that string.  Such a string is (by definition) big enough for any message in the game.  No malloc/free needed.</p>
+</li>
+<li>
+<p><em>In cases where code parses the <code>seed</code> parameter with <code>atoi()</code> or similar:</em>
+<code>atoi</code>is inadequate for parsing an integer from user input.  Recall the trick we learned: <a href="https://github.com/CS50DartmouthFA2025/examples/blob/main/atoi.c">atoi.c</a></p>
+</li>
+<li>
+<p><em>In handleMessage code to parse messages:</em>
+Recall the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/project#parsing-messages">hint</a> about parsing messages.</p>
+</li>
+<li>
+<p><em>In code with complex approaches to convert numbers to letters:</em>
+Recall the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/project#converting-from-letters-to-numbers-and-back">hint</a> about translating numbers to letters, and letters to numbers.</p>
+</li>
+<li>
+<p>Your code often uses &quot;magic numbers&quot;, i.e., literal integer constants that just happen to be the right number for something, but often without explanation.  Such practice is risky because the code is less readable and more fragile to future changes.  Define a named constant for such numbers, or find another approach.</p>
+</li>
+<li>
+<p>Try to keep code lines less than 80 characters wide, so the code reads well in a standard 80-column window.  Set the indentation step size at 2 characters (or at most 4 characters) to keep the code horizontally compact.  Use spaces rather than tabs so the code views the same way in all viewers/editors.  Wrap lines at readable points rather than letting the viewer/editor wrap arbitrarily. Restructure code if needed.  Move in-line comments to the prior line if needed.</p>
+</li>
+<li>
+<p><em>In files with DOS line endings:</em>
+This file has DOS line endings; recall we are coding for UNIX not DOS.</p>
+</li>
+</ul>
+
+    </div>
+</body>
+<script src="/~ksalesin/cs50/_includes/spoilers.js"></script>
+</html>

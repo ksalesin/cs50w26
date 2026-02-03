@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | Final Project</title>
+    <link rel="stylesheet" href="/~ksalesin/cs50/styles.css">
+    <link rel="stylesheet" href="/~ksalesin/cs50/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/~ksalesin/cs50/" id="cs50">CS 50: Software Design and Implementation (Winter 2026)</a></h3>
+        <ul>
+            <li><a href="/~ksalesin/cs50/syllabus.html">Syllabus</a></li>
+            <li><a href="/~ksalesin/cs50/schedule.html">Schedule</a></li>
+            <li><a href="/~ksalesin/cs50/style.html">Style Guide</a></li>
+            <li><a href="/~ksalesin/cs50/resources.html">Resources</a></li>
+            <li id="knowledge-base"><a href="http://spongium.org/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>CS50 final project - Nuggets</h1>
+<p><img src="images/nuggets500.png" alt="pile of gold nuggets"></p>
+<p><a href="https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8a39c7da-7208-46b4-9c8d-ad2101450924">:arrow_forward: Discovery of gold in the tunnels under Dartmouth.</a></p>
+<h2>The game</h2>
+<p>Your team will develop the code for the <em>Nuggets</em> game, according to the <a href="REQUIREMENTS.md">Requirements Spec</a>.</p>
+<ul>
+<li>All teams shall implement the game server.</li>
+<li>Teams of 4 students shall also implement the game client.</li>
+<li>We provide a starter kit via GitHub Classroom.</li>
+<li>Your team shall follow the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/git-flow.md">Git Flow</a> style of git management.</li>
+<li>Your team shall use the <a href="scrum.md">Scrum</a> style of project management.</li>
+<li>Good design, good style, good documentation, and good testing are expected.</li>
+<li>Consider the characteristics of a successful team that we've discussed all term.</li>
+</ul>
+<p>:arrow_forward:
+You may find this <a href="https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=dbece9b4-30f1-49ab-8669-ad220160f0f0">demo video</a> to be helpful.</p>
+<h2>Starter kit</h2>
+<p>When you accept the assignment using the GitHub Classroom (using <a href="https://classroom.github.com/a/UmmU2TwN">the link</a>), you will be asked to join an existing team or to create a new team.
+Please coordinate with your teammates to ensure that your team is registered just once.
+One member should <strong>immediately</strong> configure your repo to <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/protect-main.md">protect the main branch</a>.
+All members of the team should then clone the team's new repository, which includes the starter kit.</p>
+<h2>Submissions</h2>
+<p><em>Deadlines are provided on the <a href="https://canvas.dartmouth.edu/courses/71415">course website</a>.</em></p>
+<h3>Design spec</h3>
+<p>Your design document (written in Markdown) shall describe the major design decisions, plan for testing, and the roles of each member of your group.
+<em>For each of the two programs,</em> the document should describe the</p>
+<ul>
+<li>User interface (including command-line parameters and stdin/stdout/graphical interface);</li>
+<li>Inputs and outputs;</li>
+<li>Functional decomposition into functions/modules;</li>
+<li>Major data structures;</li>
+<li>High-level pseudo code (plain English-like language) for logic/algorithmic flow;</li>
+<li>Testing plan, including unit tests, integration tests, system tests.</li>
+</ul>
+<p>Recall the lecture unit about Design; it has a section about <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md">design specs</a>.
+As examples, see the design specs provided as part of the TSE.
+<strong>Do <em>not</em> repeat elements of the <a href="REQUIREMENTS.md">Requirements Spec</a></strong>; just refer to it as needed.</p>
+<p><strong>How to submit:</strong>
+Commit a file <code>DESIGN.md</code> and any associated files.
+Your spec may include diagrams; be sure to commit them.
+Before the deadline, <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md">push a branch called 'submit-design'</a>.
+<em>Make sure your Markdown renders properly on GitHub!</em></p>
+<h3>Design review</h3>
+<p>At a time and place to be announced, your group will present your design to the us (professor and TA).
+You have 10 minutes to present, and then we have 10 minutes for Q&amp;A.
+If you are late for your presentation, you have less time to present to us.
+(Don't be late.)</p>
+<p>In 10 minutes you must present an <em>overview</em> of your design decisions and how your group will divide the work; the design document provides more detail.
+Be prepared to answer questions and receive feedback.</p>
+<!-- ***Bring two printed copies of your design with you to the meeting.*** -->
+<h3>Implementation spec</h3>
+<p>You must submit an Implementation spec (written in Markdown): a summary of your approach to implementing the server (and client, for teams of 4) and any modules, providing the prototype and brief description of each function, and specifics of the data structure(s) you plan to use.
+You do not need to describe the <code>support</code> library or, if you use it, <code>libcs50</code>.</p>
+<p>Recall the lecture unit about Design; it has a section about <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md#implementation-phase">Implementation specs</a>.
+Of those details, your implementation spec should describe all of your implementation's units (other than those we provide), provide pseudo code for each unit's functions (including prototypes and their parameters), describe every major data structure, and briefly describe a testing plan.
+When describing data structures, we recommend pasting in a C-language <code>struct</code> declaration, with comments describing each member.
+When describing the testing plan, consider unit testing of each module, integration testing = client alone or server alone), system testing = client + server together.</p>
+<p><strong>How to submit:</strong>
+Commit a file <code>IMPLEMENTATION.md</code> and any associated files.
+Your spec may include diagrams; be sure to commit them.
+Before the deadline, <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md">push a branch called 'submit-implementation'</a>.
+<em>Make sure your Markdown renders properly on GitHub!</em></p>
+<h3>Final submission</h3>
+<p>Everything -- all code and documentation -- must be pushed to GitHub by the deadline.
+<em><strong>Do not wait to the final minutes before the deadline;</strong></em>
+you are far more likely to make a mistake, and have no time to correct it.
+Plan to submit everything several hours before the deadline.</p>
+<p><strong>How to submit:</strong>
+Commit all necessary files.
+Before the deadline, <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md">push a branch called 'submit-final'</a>.</p>
+<p>We will grade the version of the code in the branch <code>submit-final</code> at the time of the deadline; if no such branch appears until later you will <em><strong>lose 10 points per hour after the deadline</strong></em>.
+Specifically, we take 10 points per hour, prorated by the minute, which means that you lose (10/60 x minutesPastDeadline) points off your total project grade.
+No extensions will be permitted.</p>
+<p><strong>What:</strong> Your GitHub project shall include all necessary source and documentation files.</p>
+<ol>
+<li>
+<p>Your code should be well-organized with sensible filenames and subdirectories.</p>
+</li>
+<li>
+<p>There shall be a Makefile for each library (if any), and a top-level Makefile to build the client and server and (recursively) any necessary libraries.
+We must be able to <code>make clean</code> and <code>make all</code> from the top-level directory and result in a complete compilation.</p>
+</li>
+<li>
+<p>All code must compile (with no warnings) on the CS50 Linux servers with the usual CFLAGS.
+The programs must run without segfaults.
+They must not have memory leaks as determined with <code>valgrind</code> (exception: leaks directly attributable to ncurses).
+They must not output anything to stdout, other than what is required to play the game, though they may use the <code>log</code> module and send that output to either <code>stderr</code> or to a file.
+There can be at most <em>one</em> global variable in each program as described <a href="#global-variables">below</a>.</p>
+</li>
+<li>
+<p>There shall be a <code>README.md</code> file in each subdirectory (explaining the purpose of that subdirectory and its contents), and a <code>README.md</code> file in the top directory (naming all group members and summarizing the purpose of each subdirectory).</p>
+</li>
+<li>
+<p>There shall be documentation, with (at least)</p>
+<ul>
+<li><code>README.md</code> files, as noted above.</li>
+<li><code>DESIGN.md</code>, optionally updated from the version you submitted earlier.</li>
+<li><code>IMPLEMENTATION.md</code>, optionally updated from the version you submitted earlier.</li>
+<li>any images or files needed to render the above documents; we recommend keeping such files in an <code>images/</code> subdirectory.</li>
+<li>any other documentation you find it useful to include.</li>
+</ul>
+</li>
+<li>
+<p>There shall be at least one new, non-trivial, map in the <code>maps/</code> directory.
+We'd like to play on a map of your design!</p>
+</li>
+<li>
+<p>The GitHub repository shall be 'clean'.
+That is, it should not contain any 'derived files' (those built by <code>make</code> and removed by <code>make clean</code>), any 'scratch files' (including editor backup and autosave files), any core dumps, etc.</p>
+</li>
+</ol>
+<h3>Grading</h3>
+<p>Your final project will be graded out of 100 according to the <a href="rubric.md">grading rubric</a>.</p>
+<p>Furthermore, immediately after the project you will each complete a confidential online survey in which you comment on your contribution to the project, and the contributions from members of your group; the Professor uses the information in that survey to set part of your overall course grade.</p>
+<hr>
+<h2>Design hints</h2>
+<p>Consider these thoughts while you develop your design spec.</p>
+<h3>Client/server</h3>
+<p><strong>All game logic is handled in the server,</strong> as noted in the spec.
+The client only provides a user interface; it has no role in tracking gold, determining visibility, handling moves, or even checking the validity of user's keystrokes.
+Indeed, the network protocol makes it impossible for the client to be anything other than pass keystrokes to the server and display the maps that come back.</p>
+<h3>Grid</h3>
+<p>The game is played on an <em>NR x NC</em> grid of gridpoints.
+How will you represent the grid?
+How will the client and/or server use the grid?
+What functions must a &quot;grid&quot; support?
+This is a critical design decision, and one I spent a lot of time considering before I started writing code.
+I started one approach to the representation and implementation of a grid, and later switched to another approach... but because I'd wrapped the entire approach in an abstract <code>grid</code> module, <em>none of the code that used the grid needed to change.</em></p>
+<p>The right representation of a grid can make your code vastly simpler than it would be if you choose other representations.
+Consider:</p>
+<ul>
+<li>What information must the <em>spectator</em> keep about the state of the game?</li>
+<li>What information must the <em>player</em> keep about the state of the game?</li>
+<li>What information must the <em>server</em> keep about the state of the game?</li>
+<li>What information does the string below record about the state of the game?</li>
+<li>What information does the string below <strong>not</strong> record about the state of the game?</li>
+<li>How much gold is in each pile... and does any player know until they step on a pile?</li>
+<li>Do these questions give you ideas about how to store game state?</li>
+</ul>
+<pre><code class="language-c">char* grid = ...;   // a string variable
+puts(grid);         // produces the output below
+</code></pre>
+<pre><code>  +----------+
+  |..........|                 +---------+
+  |..........###################.........|
+  |..........|                 +-----#---+
+  +---------#+                       #
+            #                        #
+            #  +-----------+         #
+            ####...........##############
+               |...........|
+               +-----------+
+</code></pre>
+<h3>Keep it simple</h3>
+<p>As I mulled over design choices, and implementation choices, a question frequently appeared in my head: <em>but won't that approach be inefficient, in either time or memory? what about this other approach, that would be more efficient?</em>
+I always opted for the simpler approach.  Always.
+This philosophy meant I was able to write the code faster, debug it more easily,  test it more reliably, and reach a correct outcome sooner.
+And, my code is shorter and easier to read than it would be in a complex approach.</p>
+<p>Later, if I discovered the inefficient approach was too slow, or too bloated, for the game's purposes, I could make a branch and explore an optimization of some component or algorithm.
+But I've not had the need, or the time, to do so.</p>
+<h3>Keyboard input</h3>
+<p>The client needs to read and react to keystrokes immediately... but all of the code we've seen in CS50 cannot read any input from stdin (when it is a keyboard) until the user hits Return.
+In other words, the keyboard is normally in &quot;line-oriented mode&quot;.
+Your client program needs it in &quot;character-oriented mode&quot;, technically called &quot;cbreak&quot; mode.</p>
+<p>No problem.
+The <em>ncurses</em> library provides that feature (<a href="#ncurses">see below about ncurses</a>).
+As a design hint, just be confident that you can read one character from the keyboard when told that stdin has input ready, and know that your program will not block (get stuck) waiting for the user to hit a key.</p>
+<p>The message module (part of the starter kit) provides you a way of looping forever, waiting for input to be ready on stdin or on the network, and calling you when either occurs.
+Thus, you need not worry about how to know when to read stdin, or how to know when a message arrives.</p>
+<h2>Implementation hints</h2>
+<p>Consider these thoughts while you develop your implementation spec.</p>
+<h3>Iterative development</h3>
+<p>I cannot emphasize this point enough: write, test, and commit a minimal program, then incrementally add capabilities, bit by bit.
+(Indeed, when following the git-flow approach, your <em>main</em> branch should always contain a clean, submittable, runnable program.)
+My first server did little more than parse its arguments and exit zero on success, non-zero with error messages on an invalid command-line. <em>Commit.</em>
+Then I added code to initialize a grid, print it out, and exit. <em>Commit.</em>
+Then I added a loop to read a line from stdin, and handle it as if it were a message from a client; at first, it could handle only &quot;QUIT&quot;. <em>Commit.</em>
+Later I added networking.
+And so forth.</p>
+<p><em>I made 97 commits on my solution before the project was released to students.</em></p>
+<p>Each one provided a bit more functionality, or improved unit tests, or improved commenting, or refactored some function that had grown too large.
+In a few cases, I started down some path and then decided it was a bad direction... so I used <code>git checkout</code> to revert to the prior commit, and start over.</p>
+<p>As you plan your implementation, think about this <em>iterative development</em> approach.
+What features will you add first?
+What can be added later?
+How will you be sure to always have a clean, tested, runnable, submittable, project?
+(use git-flow.)</p>
+<h3>Comment (and log) as you go</h3>
+<p>I could have written my solution faster.</p>
+<p>But I chose to keep my code fully commented, as I wrote;
+to keep those comments up to date, as I made changes;
+to add logging outputs at all critical points in the code;
+to add defensive checks for every function argument, as I wrote the function;
+and
+to add defensive checks for every function that could return an error.</p>
+<p>This choice made a huge difference, even though I was the sole developer and even though I never stepped away from coding for more than 24 hours.
+The act of writing comments (for an imaginary reader to see) helped me to think more clearly about what the code was supposed to do, and helped me later remember what each piece of code was doing.
+The comments actually helped me remember the &quot;contract&quot; between caller and function.
+The defensive checks actually helped catch bugs that would otherwise have led to obscure incorrect behavior or to segmentation faults.</p>
+<p>It's worth writing the comments and defensive code <em>as you write the functional code.</em></p>
+<h3>Break down big functions</h3>
+<p>Review the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/cohesion.md">unit</a> about <em>cohesion</em> and <em>coupling</em>, and think about the content and role of each function you write.
+If a function starts to get large, break it down into smaller functions.
+I found this to be particularly important for my <code>handleMessage</code> functions, because there are multiple message types and every message needs to be handled in a different way.
+Thus, my <code>handleMessage()</code> became a really short <code>if... then... else if... else if... else</code> structure, wherein each &quot;then&quot; and &quot;else&quot; block was a single statement: calling a <code>handleXYZ()</code> function that was specifically focused on handling only that <code>XYZ</code> type of message.
+Those functions were sometimes really short - just one or two lines - but the code was much easier to read.
+(They also make great breakpoints in gdb!)</p>
+<h3>Encapsulate message detail</h3>
+<p>Where possible, use functions to encapsulate the details involved in sending a message.
+I found it helpful to write a small function <code>sendXYZ()</code> for each type of message <code>XYZ</code>, to allow that function to check parameters, construct the message, log about it, and send the message.
+These functions were often short, and (in some cases) called from multiple points in my program, avoiding the risky practice of repeating the code.
+They also provide an explicit counterpart to the <code>handleXYZ()</code> calls in the other program.
+(They also make great breakpoints in gdb!)</p>
+<h3>Use good Makefiles</h3>
+<p>Your code must build (and clean) from the top-level Makefile.
+The top-level Makefile provided as part of the TSE starter kit is a good example of the use of <code>make -C</code> to build a multi-directory project.</p>
+<h3>Use the logging module</h3>
+<p>Although use of the logging module is optional, you will find it helpful.
+Insert calls to <code>log_x()</code> at critical points in your code, and you'll be able to study a logfile after (or during!) a particularly confusing or buggy run, to see what happened.</p>
+<p><a href="https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c5c70b23-d618-44bb-93f6-ad2e0159e0ed">:arrow_forward: Video demo</a></p>
+<h3>Unit testing</h3>
+<p>As I noted above, the <a href="#grid">grid</a> is an incredibly important design and implementation choice.
+I wrote my grid module first, before writing a single line of code for the server or client.
+And, I wrote a glass-box unit test for the grid module in parallel with writing the module itself.
+This decision took time - but saved me a ton of time later.
+Once I had a solid, working grid module I was able to write the server and client without having to think about how the grid worked (or whether it worked!).
+Sure, I occasionally had to go back and extend my grid module with a new parameter here or a new function there, to better fit the needs of the server, but I was able to incrementally test those additions with my unit test.</p>
+<p>Consider the same approach for any unit you develop.</p>
+<h3>Style</h3>
+<p>As noted in under the <a href="#grading">grading</a> heading, a substantial portion of your project grade rests on style.
+Some things to consider:</p>
+<ul>
+<li>Follow <a href="https://www.cs.dartmouth.edu/~cs50/Labs/CodingStyle.html">CS50 style guidelines</a>, including naming conventions.</li>
+<li>Use a consistent naming scheme: choose function and variable names that follow a consistent pattern, recalling the naming tips from a <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/cohesion.md">recent unit</a>.</li>
+<li>Use consistent terminology across all specs and code comments: the Requirements Spec gives precise definitions for certain terms (like <em>gridpoint</em>, <em>player</em>, <em>purse</em>, <em>visible</em>, and more); use those terms rather than making up new terms, and use those terms consistent with their definitions.</li>
+<li>Use a consistent coordinate system: the Requirement Spec refers to <em>rows</em> and <em>columns</em> of the grid and of the display; your two specs, and your implementation, should follow that lead. If you choose to refer to (x,y) instead of (col,row), do it consistently... do not mix the two notations, which leads to confusion.</li>
+<li>Avoid sprinkling char literals throughout code: define some global named constants, e.g., <code>static const char roomSpot = '.';</code>  your code will be much more readable and maintainable!</li>
+<li>Peruse this <a href="style.md">list of the most common style-related comments applied to final projects in recent years</a>.</li>
+</ul>
+<h3>Global variables</h3>
+<p>In the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/cohesion.md">unit</a> about <em>cohesion</em> and <em>coupling</em>, we noted that global <em>variables</em> are a bad form of coupling.
+Global <em>constants</em> are a good thing, and fairly common.
+Declare them as <code>static const ...</code> to ensure they cannot be changed, and ensure they are local to this particular file.</p>
+<p>There are, however, some occasions when a judicious use of global <em>variables</em> can make the code cleaner and easier to read.</p>
+<p>I found it useful to declare a <em>single</em> global variable, a <code>struct</code> called <code>game</code>, in my client and in my server.
+(Again, I declared it <code>static</code> so it would be global to this file, but not visible to other source files.)
+I could thus refer to the members of that struct in various points throughout the server or client code, e.g., <code>game.goldRemaining</code>.
+The presence of <code>game.</code> makes it clear to the reader that this variable is global, not some variable local to the function.</p>
+<p>The alternative - and actually, my initial approach - was to allocate a <code>struct</code> called <code>game</code> in my <code>main()</code> function, and then pass it around through every function call in the program.
+Yes, that avoided the use of the global variable, but it meant every function had to have a parameter <code>game_t *game</code> and to check <code>if (game==NULL)</code> before proceeding.
+That code was much less readable, so I ripped it all out and made that <code>game</code> a global.</p>
+<p><strong>Your code can have at most <em>one</em> global variable in each program.</strong>
+The above <code>struct {...} game</code> approach counts as one variable.
+(You can have multiple global constants, but only one global variable.)</p>
+<h3>Message module</h3>
+<p>The core of our provided support library is the <code>message</code> module, provided in the <code>support</code> directory of the starter kit.
+It enables applications to send and receive network messages and also handle keyboard input, without dealing with gory details of sockets and without need for threads.</p>
+<p><a href="https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f8811bb1-0fec-4c05-8a46-ad2201693f7f">:arrow_forward: Video walk-through</a>.</p>
+<blockquote>
+<p>Note: the Requirements Spec makes no mention of timeouts, either in the client or in the server, so neither your client nor server should be implementing a <code>handleTimeout</code> function.</p>
+<p>Note: the <em>message</em> module provides an opaque type <code>addr_t</code> to represent the network address of a correspondent.
+This address is not an &quot;IP address&quot; or a &quot;hostname&quot;; it is not a string or an int.
+You should just refer to it as an &quot;address&quot;.
+(TL;DR: it is actually an encoded form of the combination of IP address and port number, both of which are required to send and receive messages.)</p>
+</blockquote>
+<h3>nCurses</h3>
+<p>The client shall use the <em>ncurses</em> library to arrange its interactive display; see the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/ncurses.md">unit about ncurses</a>.
+Note:</p>
+<ul>
+<li>ncurses has <a href="https://invisible-island.net/ncurses/ncurses.faq.html#config_leaks">&quot;still reachable&quot; memory leaks</a>; ignore them.</li>
+<li>if the user starts with a window too small for the grid size, your client shall prompt the user to increase the window to a size big enough for the grid - repeatedly if necessary.</li>
+<li>if the user later shrinks the window too small for the grid, your client need not discover this change nor deal with it.</li>
+<li>while it is unlikely for <code>getch()</code> to return the <code>EOF</code> character, it can; as noted in the spec, you should handle it as if the user hit <code>Q</code>, and then exit the message loop.</li>
+</ul>
+<h3>Parsing messages</h3>
+<p>Your server and client will need to parse messages it receives from the <em>message</em> module.
+All messages start with a word; in most cases, that word is followed by a space or newline.
+I found it convenient to use <code>strncmp</code> and <code>strlen</code>, like this:</p>
+<pre><code class="language-c">  if (strncmp(message, &quot;PLAY &quot;, strlen(&quot;PLAY &quot;)) == 0) {
+    const char* content = message + strlen(&quot;PLAY &quot;);
+    ... work with content...
+  } else...
+</code></pre>
+<p>See <code>man strncmp</code>; notice that the above compares only the first five characters of the <code>message</code> with the constant string <code>&quot;PLAY &quot;</code>.
+Notice also that I include the space in that string, to ensure I'm catching the entire word, and not considering, for example, <code>&quot;PLAYER&quot;</code> to match <code>&quot;PLAY&quot;</code>.
+Notice also that it's easy to create a string pointer that points into the middle of the message, i.e., to the start of the content after <code>&quot;PLAY &quot;</code>.</p>
+<p>Some message types (<code>OK</code>,<code>GRID</code>, <code>GOLD</code>, <code>KEY</code>) include one or more arguments.
+I found it convenient to use <code>sscanf</code> to parse those, recalling that the format string provided to <code>sscanf</code> can include literal characters.
+For example, the format string <code>GRID %d %d</code> matches successfully only when the string begins with &quot;GRID &quot; and is followed by two integers.
+<em>There is no need to 'tokenize' these message strings before interpreting them.</em></p>
+<h3>Random numbers</h3>
+<p>See the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/random.md">unit</a> about random numbers.</p>
+<h3>libcs50</h3>
+<p>Although my solution does not use anything from libcs50, you are welcome to use it in your solution.
+Copy whatever you need from the TSE starter kit into your nuggets repo.</p>
+<h3>Converting from letters to numbers, and back</h3>
+<p>It's worth remembering that computers represent characters, as with everything else, as numbers.
+All modern computers use the <a href="http://www.asciitable.com">ASCII standard code</a> for encoding common characters.
+Notice that the capital letters are a contiguous range of codes from 65 to 90.
+In C, we can do arithmetic on characters; thus</p>
+<pre><code class="language-c">int playerNumber = 2;  // i.e., the third player
+char playerLetter = 'A' + playerNumber; // i.e., 'C'
+</code></pre>
+<p>or, if you start with a letter,</p>
+<pre><code class="language-c">char playerLetter = 'D';
+int playerNumber = playerLetter - 'A';  // i.e., 4
+</code></pre>
+<p>I found it useful to write little inline functions to convert from a player number to a player letter, and vice versa.</p>
+<h3>The switch statement</h3>
+<p>See the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/c-flow.md#switch">unit</a> about the <code>switch</code> statement, which is particularly useful when you have a long list of cases that can be described by a simple comparison.
+For example,</p>
+<pre><code class="language-c">char letter = ...;
+switch (letter) {
+case 'A': ... code for letter=='A'; break;
+case 'B': ... code for letter=='B'; break;
+case 'C': ... code for letter=='C'; break;
+default:  ... code for letter not matching any case above.
+}
+</code></pre>
+<p>The above is equivalent to (but more readable than)</p>
+<pre><code class="language-c">char letter = ...;
+if (letter == 'A') {
+	code for letter=='A';
+} else if (letter == 'B') {
+	code for letter=='B';
+} else if (letter == 'C') {
+	code for letter=='C';
+} else if
+	code for letter not matching any case above.
+}
+</code></pre>
+<p>Switch can be used with any ordinal type (at least: <code>int</code> and <code>char</code>).</p>
+<p>If you take this approach, I strongly recommend keeping the code for each case really short, perhaps even just one statement like a function call.</p>
+<h3>Lines of code</h3>
+<p>My solution is not really all that big; you code will likely be shorter because my solution supports features (like 'bot' mode) that yours will not.</p>
+<p><strong>All code specific to Nuggets:</strong>
+<code>cloc *.[ch] support/{log,message}.[ch]</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Language</th>
+<th style="text-align:right">files</th>
+<th style="text-align:right">blank</th>
+<th style="text-align:right">comment</th>
+<th style="text-align:right">code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">361</td>
+<td style="text-align:right">855</td>
+<td style="text-align:right">1944</td>
+</tr>
+<tr>
+<td style="text-align:left">C Header</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">62</td>
+<td style="text-align:right">310</td>
+<td style="text-align:right">90</td>
+</tr>
+<tr>
+<td style="text-align:left">SUM:</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">423</td>
+<td style="text-align:right">1165</td>
+<td style="text-align:right">2034</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nuggets, excluding the support code:</strong>
+<code>cloc *.[ch]</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Language</th>
+<th style="text-align:right">files</th>
+<th style="text-align:right">blank</th>
+<th style="text-align:right">comment</th>
+<th style="text-align:right">code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">294</td>
+<td style="text-align:right">606</td>
+<td style="text-align:right">1544</td>
+</tr>
+<tr>
+<td style="text-align:left">C Header</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">35</td>
+<td style="text-align:right">120</td>
+<td style="text-align:right">48</td>
+</tr>
+<tr>
+<td style="text-align:left">SUM:</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">329</td>
+<td style="text-align:right">726</td>
+<td style="text-align:right">1592</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For reference, my Tiny Search Engine (without libcs50):</strong>
+<code>cloc common/*.[ch] crawler/crawler.c indexer/index*.c querier/querier.c</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Language</th>
+<th style="text-align:right">files</th>
+<th style="text-align:right">blank</th>
+<th style="text-align:right">comment</th>
+<th style="text-align:right">code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">251</td>
+<td style="text-align:right">440</td>
+<td style="text-align:right">980</td>
+</tr>
+<tr>
+<td style="text-align:left">C Header</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">77</td>
+<td style="text-align:right">30</td>
+</tr>
+<tr>
+<td style="text-align:left">SUM:</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">274</td>
+<td style="text-align:right">517</td>
+<td style="text-align:right">1010</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, my code is heavily commented: about half the lines of code are comments!</p>
+<p>These reports come from the excellent <a href="https://github.com/AlDanial/cloc">cloc</a> tool, installed on plink.</p>
+<h3>Testing and tools</h3>
+<p>You may run your <code>client</code> or <code>server</code> on any Linux server in the Thayer collection simply by giving the server's hostname on the client's commandline.
+Run a server on <code>babylon5</code> and a client on <code>plink</code>, and you're playing over the real network!</p>
+<p>We installed four programs in the shared directory <code>~/cs50-dev/shared/nuggets/</code>:</p>
+<ul>
+<li><code>client</code> - our client.</li>
+<li><code>server</code> - our server (which goes beyond spec to validate mapfile).</li>
+<li><code>padmap</code> - a tool to pad all lines of a mapfile so they have the same length.</li>
+<li><code>checkmap</code> - a tool to validate whether a mapfile is 'valid'.</li>
+</ul>
+<p>Thus, you can test your server with our client, or your client with our server.
+You can run them directly by giving their pathname; for example,</p>
+<pre><code class="language-bash">~/cs50-dev/shared/nuggets/linux/server ...
+~/cs50-dev/shared/nuggets/linux/client ...
+~/cs50-dev/shared/nuggets/linux/checkmap maps/main.txt
+~/cs50-dev/shared/nuggets/linux/padmap maps/draft.txt &gt; maps/new.txt
+</code></pre>
+<p>but it is convenient to create a symlink:</p>
+<pre><code class="language-bash"># create a convenience symlink:
+ln -s ~/cs50-dev/shared/nuggets/linux prof
+# then you can run our binaries with less typing, e.g.,
+prof/padmap maps/draft.txt &gt; maps/new.txt
+</code></pre>
+<p>The starter kit includes a small <code>miniclient</code> program that can be useful for feeding messages to your server -- either from the keyboard or from an input file.
+This approach allows you to test your server's response to malformatted messages.</p>
+<h4>Notes</h4>
+<p>Our server sends two GOLD messages to a player that steps on a gold pile; although not required, it is harmless and is a result of the way our server's code is structured.</p>
+<p>Our client (<code>client</code>) has a special capability: it can run as a <em>bot</em>, that is, as an automated player.
+This capability goes 'beyond the spec' but I found it useful for testing the server, and also a lot of fun to watch.
+If you give the name <code>bot</code> as the <code>playerName</code>, it will periodically send random movement keystrokes to the server; you can just sit and watch the bot play the game!
+If you give the name <code>botbg</code> as the <code>playerName</code>, it will play as a bot but <em>not display anything</em>, which makes it suitable to run in the background.
+I demonstrate both types of bot in the video below.</p>
+<p><a href="https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a04097c4-1b8e-4147-b525-ad26017d839f">:arrow_forward: Video demo of 26 bots and a spectator</a></p>
+
+    </div>
+</body>
+<script src="/~ksalesin/cs50/_includes/spoilers.js"></script>
+</html>

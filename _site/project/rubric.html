@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | Final Project</title>
+    <link rel="stylesheet" href="/~ksalesin/cs50/styles.css">
+    <link rel="stylesheet" href="/~ksalesin/cs50/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/~ksalesin/cs50/" id="cs50">CS 50: Software Design and Implementation (Winter 2026)</a></h3>
+        <ul>
+            <li><a href="/~ksalesin/cs50/syllabus.html">Syllabus</a></li>
+            <li><a href="/~ksalesin/cs50/schedule.html">Schedule</a></li>
+            <li><a href="/~ksalesin/cs50/style.html">Style Guide</a></li>
+            <li><a href="/~ksalesin/cs50/resources.html">Resources</a></li>
+            <li id="knowledge-base"><a href="http://spongium.org/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>CS50 Final Project Rubric</h1>
+<p>This is an <em>initial rubric</em> and we reserve the right to update it based on things that come up after posting the rubric.
+This page provides detail on the published grade breakdown.</p>
+<hr>
+<h2>Design spec (20%)</h2>
+<h3>Teams of 3 students:</h3>
+<p>We grade this section out of 26 points.</p>
+<h4>Presentation (10 points)</h4>
+<p>&quot;In 10 minutes you must present an <em>overview</em> of your design decisions and how your group will divide the work; the design document provides more detail. Be prepared to answer questions and receive feedback.&quot;</p>
+<ul>
+<li>(4) Good overview of the design.</li>
+<li>(4) Decomposition and data structures.</li>
+<li>(2) Plan for division of the work.</li>
+</ul>
+<h4>Document (16 points)</h4>
+<p>&quot;Your design document (written in Markdown) shall describe the major design decisions, plan for testing, and the roles of each member of your group.&quot;</p>
+<p><strong>Server (16):</strong></p>
+<ul>
+<li>(4) Inputs and outputs</li>
+<li>(4) Functional decomposition into functions/modules</li>
+<li>(4) Major data structures</li>
+<li>(4) High-level pseudo code</li>
+</ul>
+<h3>Teams of 4 students:</h3>
+<p>We grade this section out of 38 points.</p>
+<h4>Presentation (10 points)</h4>
+<p>&quot;In 10 minutes you must present an <em>overview</em> of your design decisions and how your group will divide the work; the design document provides more detail. Be prepared to answer questions and receive feedback.&quot;</p>
+<ul>
+<li>(4) Good overview of the design.</li>
+<li>(4) Decomposition and data structures.</li>
+<li>(2) Plan for division of the work.</li>
+</ul>
+<h4>Document (28 points)</h4>
+<p>&quot;Your design document (written in Markdown) shall describe the major design decisions, plan for testing, and the roles of each member of your group.&quot;</p>
+<p><strong>Client (12):</strong></p>
+<ul>
+<li>(2) User interface</li>
+<li>(2) Inputs and outputs</li>
+<li>(4) Functional decomposition into functions/modules</li>
+<li>(4) High-level pseudo code</li>
+</ul>
+<p><strong>Server (16):</strong></p>
+<ul>
+<li>(4) Inputs and outputs</li>
+<li>(4) Functional decomposition into functions/modules</li>
+<li>(4) Major data structures</li>
+<li>(4) High-level pseudo code</li>
+</ul>
+<hr>
+<h2>Implementation spec (15%)</h2>
+<p>We asked for &quot;a summary of your approach to implementing the server (and client, for teams of 4) and any modules, providing the prototype and brief description of each function, and specifics of the data structure(s) you plan to use.&quot;
+The &quot;implementation spec should describe all of your implementation's units (other than those we provide), provide pseudo code for each unit's functions (including prototypes and their parameters), describe every major data structure, and briefly describe a testing plan.&quot;</p>
+<p>We're looking for a clear, modular structure with well-chosen data structures, function names, and function interfaces.</p>
+<p>We grade this section out of 38 points.</p>
+<p><strong>Teams of 3 students:</strong></p>
+<ul>
+<li>(7) module structure, cohesion, coupling</li>
+<li>(8) function prototypes (server)</li>
+<li>(8) function descriptions &amp; pseudocode(server)</li>
+<li>(8) data structures (server)</li>
+<li>(3) testing plan (server)</li>
+</ul>
+<p><strong>Teams of 4 students:</strong></p>
+<ul>
+<li>(6) module structure, cohesion, coupling</li>
+<li>(5) function prototypes (server)</li>
+<li>(5) function descriptions &amp; pseudocode (server)</li>
+<li>(5) data structures (server)</li>
+<li>(3) function prototypes &amp; pseudocode (client)</li>
+<li>(3) function descriptions (client)</li>
+<li>(3) data structures (client)</li>
+<li>(2) testing plan (server)</li>
+<li>(2) testing plan (client)</li>
+</ul>
+<hr>
+<h2>Code style and quality (15%)</h2>
+<p>See <em>CS50 coding standards</em> in <code>logistics/style.md</code> within this term's home-private repo.</p>
+<p>We grade this section out of 15 points.</p>
+<ul>
+<li>(2) organized and efficient</li>
+<li>(2) all members have meaningful speaking role</li>
+<li>(2) identify known limitations of implementation</li>
+<li>(1) show a new, nontrivial map</li>
+<li>(8) game runs smoothly, demonstrating that the core requirements work:
+<ul>
+<li>spectator mode</li>
+<li>multiple players</li>
+<li>visibility - &quot;known&quot; and &quot;sees&quot;</li>
+<li>gold collection</li>
+<li>game over</li>
+</ul>
+</li>
+</ul>
+<h2>Git and Git-Flow practices (10%)</h2>
+<p>Your repo <em>must</em> have a git branch <code>submit-final</code>.
+We will grade the contents of that branch as it appears on GitHub at the moment of the deadline; if you want us to grade a later commit, despite the lateness penalty, let us know.</p>
+<p>We grade this section out of 20 points.</p>
+<ul>
+<li>(6) git commit history - logical groupings of changes in each commit, and meaningful commit messages.</li>
+<li>(8) git-flow - good use of branches and <a href="https://www.cs.dartmouth.edu/~cs50/Lectures/units/git-flow.html">git-flow</a>.</li>
+<li>(6) no executable files, object files, core dump files, editor backup files, or extraneous files existing in any directory.</li>
+</ul>
+<hr>
+<h2>Functionally correct and complete (30%)</h2>
+<p>To be &quot;correct and complete&quot; means your code conforms to the Requirements Spec.</p>
+<p>We grade this section out of 60 points.</p>
+<h3>Teams of 3 students:</h3>
+<ul>
+<li>(2) server commandline, per spec</li>
+<li>(10) server supports one player, per spec</li>
+<li>(10) server supports multiple players, per spec</li>
+<li>(8) server supports spectator, per spec</li>
+<li>(10) server supports 'visibility' spec</li>
+<li>(8) server tracks gold, per spec</li>
+<li>(4) server produces Game Over summary, per spec</li>
+<li>(2) new, valid, non-trivial mapfile</li>
+</ul>
+<h3>Teams of 4 students:</h3>
+<ul>
+<li>
+<p>(2) server commandline, per spec</p>
+</li>
+<li>
+<p>(8) server supports one player, per spec</p>
+</li>
+<li>
+<p>(8) server supports multiple players, per spec</p>
+</li>
+<li>
+<p>(2) server supports spectator, per spec</p>
+</li>
+<li>
+<p>(8) server supports 'visibility' spec</p>
+</li>
+<li>
+<p>(2) server tracks gold, per spec</p>
+</li>
+<li>
+<p>(2) server produces Game Over summary, per spec</p>
+</li>
+<li>
+<p>(2) new, valid, non-trivial mapfile</p>
+</li>
+<li>
+<p>(2) client commandline, per spec</p>
+</li>
+<li>
+<p>(6) client plays as player, per spec</p>
+</li>
+<li>
+<p>(6) client plays as spectator, per spec</p>
+</li>
+<li>
+<p>(4) client asks for window to grow, per spec</p>
+</li>
+<li>
+<p>(2) client prints Game Over summary, per spec</p>
+</li>
+</ul>
+<hr>
+<h2>Extra Credit</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Extra credit points</strong></th>
+<th><strong>Extra work</strong> <br>(likely requiring cllient and server changes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>up to 5</td>
+<td>Gold stealing</td>
+</tr>
+<tr>
+<td>up to 5</td>
+<td>Set a range limit on vision, e.g., a diameter of five spots.</td>
+</tr>
+<tr>
+<td>up to 5</td>
+<td>alert players when they &quot;hear someone coming&quot;</td>
+</tr>
+<tr>
+<td></td>
+<td>Other extras if pre-approved by instructor</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Penalties</h2>
+<ul>
+<li>(-1..3) fails to compile cleanly (no errors or warnings) from top-level Makefile</li>
+<li>(-1..5) memory leaks/errors caused by <em>student</em> code</li>
+<li>(-1..5) output to stdout other than what is required to play the game</li>
+<li>(-1..5) doesn't handle errors gracefully</li>
+<li>-10 Segmentation Faults (each unique one)</li>
+</ul>
+<hr>
+<h2>Lateness (-10%)</h2>
+<p>If the <code>submit-final</code> branch appears late, we take
+<strong>10 points per hour</strong>, prorated by the minute, <em>off the top.</em>
+This means that you lose (10/60 x minutesPastDeadline) points off your total project grade.</p>
+
+    </div>
+</body>
+<script src="/~ksalesin/cs50/_includes/spoilers.js"></script>
+</html>

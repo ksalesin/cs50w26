@@ -1,0 +1,5 @@
+{
+    "layout": "layout.html",
+    "permalink": "{{ page.filePathStem }}.html",
+    "title": "CS 50 | Final Project"
+}
