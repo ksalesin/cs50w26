@@ -19,20 +19,20 @@
         </ul>
     </div>
     <div class="markdown-body content">
-        <h1>Activity: Git with the Flow [^1]</h1>
-<p>Practice setting up and running a team project using Git-Flow on GitHub.</p>
+        <h1>Activity: Git with the Flow</h1>
+<p>Practice setting up and running a team project using Git Flow on GitHub.</p>
+<p><em>Based on the excellent example assignment at <code>https://github.com/ISP21/ku-cafe</code>.</em></p>
 <h2>Overview</h2>
-<p><img src="media/gg.jpeg" alt="greengoblinmascot"></p>
-<p>Each member of the team is chair of a different department at Green State University (<em>&quot;Go Goblins!&quot;</em>). Your goal is to produce a course listing for the upcoming Summer session.  The usual courses aren't offered then, so your job is to come up with some new courses your department will offer.</p>
+<!-- ![greengoblinmascot](media/gg.jpeg) -->
+<p>Each member of the team is chair of a different department at Green State University (<em>&quot;Go Goblins!&quot;</em>). Your goal is to produce a course listing for the upcoming Summer session. The usual courses aren't offered then, so your job is to come up with some new courses your department will offer.</p>
 <p>Each course listing must have:</p>
 <ul>
-<li>4 character department code &amp; course number (000-999)</li>
+<li>3-character department code &amp; course number (000-999)</li>
 <li>title (up to 30 chars)</li>
 <li>description (up to 80 chars)</li>
 </ul>
-<p>The courses should be listed in course # order under the department heading in the <a href="catalog.md"><code>catalog.md</code></a> file. Each word of the course title should be capitalized, except for words with fewer than 4 characters. The description should be formatted as normal English sentences.</p>
-<p>The courses are listed in the associated department files (e.g., <code>math.md</code>) which are hyperlink'ed from the <code>catalog.md</code> file.</p>
-<p>For example, in the English department you might offer:</p>
+<p>The courses should be listed in the associated department files (e.g. <code>math.md</code>, <code>english.md</code>) which are linked in the <code>catalog.md</code> file.</p>
+<p>For example, the English department file <code>english.md</code> might contain the following classes:</p>
 <hr>
 <p><strong>ENGL007</strong> <em>Poetry of Ian Fleming</em></p>
 <blockquote>
@@ -43,7 +43,7 @@
 <p>Societal commentaries of Douglas Adams.</p>
 </blockquote>
 <hr>
-<p>Note: you can produce this layout using the following:</p>
+<p>You can produce this layout using the following:</p>
 <pre><code class="language-markdown">---
 **ENGL007** _Poetry of Ian Fleming_
 &gt; Study of verse from the spy master.  
@@ -52,20 +52,18 @@
 ---
 </code></pre>
 <p>Humor is encouraged, but keep it clean.</p>
-<p>When finished, the <code>main</code> branch of your repository will contain a complete markdown version of the Summer session catalog.</p>
-<p>You are provided a primary markdown file, <a href="catalog.md"><code>catalog.md</code></a>, to which you will add links to each of the departments' markdown files.</p>
-<blockquote>
-<p>This is the only activity where we <strong>don't</strong> want you to talk <strong>directly</strong> to other members of your team.  Instead, use Slack for all communications between members of the team, like a remote programming team!  Each team has a private Slack channel for this activity and the upcoming project.</p>
-</blockquote>
+<p>When finished, the <code>main</code> branch of your repository will contain the complete Summer session catalog.</p>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p>This is the only activity where we <strong>don't</strong> want you to talk <strong>directly</strong> to other members of your team. After the initial set up, pretend you are working remotely!</p>
+</div>
 <h2>Steps</h2>
 <ol>
 <li>
 <p>One team member is chosen as the &quot;Project Lead&quot; who then accepts the <a href="https://classroom.github.com/a/ij-rLfGK">activity assignment</a> from GitHub Classroom as usual.</p>
 <p>a. go to the new repository <strong>on GitHub</strong><br>
 b. make sure the new repo is private.<br>
-c. set GitHub to <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/protect-main.md">protect the main branch</a>.<br>
-d. invite other team members to join the repo with the  <code>maintain</code> role:</p>
-<pre><code>Settings -&gt; Collaborators and teams-&gt;...  
+c. set GitHub to <a href="https://www.spongium.org/unit/protect-main">protect the main branch</a>.<br>
+d. invite other team members to join the repo with the Maintain role:</p>
+<pre><code>Settings -&gt; Collaborators and teams -&gt; ...  
 </code></pre>
 </li>
 <li>
@@ -74,49 +72,58 @@ d. invite other team members to join the repo with the  <code>maintain</code> ro
 <li>
 <p>Each team member does the following:</p>
 <ul>
-<li>Clone the repo from your Project Leader on GitHub and <code>cd</code> into the cloned repo.</li>
-<li>Create a local feature branch for your work, with a name indicating the department you are handling, e.g., <code>math-department</code>.</li>
-<li>Switch to that new feature branch.</li>
-<li>Add at least 4 classes to the corresponding <code>.md</code> file (e.g., <code>math.md</code>).</li>
-<li>Edit the <code>catalog.md</code> file to add your username in the department chair slot of the department you selected.</li>
-<li>Push your branch to GitHub.
-<code>git push -u origin branch-name</code></li>
+<li>Clone the repo and <code>cd</code> into the cloned repo.</li>
+<li>Create a local feature branch for your work, with a name indicating the department you are handling, e.g.
+<code>git branch math</code></li>
+<li>Switch to that new feature branch.
+<code>git checkout math</code> or <code>git switch math</code></li>
+<li>Add at least 4 classes to your department's <code>.md</code> file (see above).</li>
+<li>Edit the <code>catalog.md</code> file to add your name in the department chair slot of the department you selected.</li>
+<li>Commit your changes and push your branch to GitHub.
+<code>git push -u origin math</code></li>
 <li>Preview your branch on GitHub. Is content correct? Does the formatting meet the requirements? Are any words spelled incorrectly?</li>
 <li>If everything is correct, open a Pull Request for your branch.</li>
 </ul>
 </li>
 <li>
-<p>Respond to Pull Requests (everyone).</p>
+<p>Respond to Pull Requests (everyone)</p>
 <ul>
 <li>When you see a Pull Request from a team member, review their
 branch on GitHub.</li>
 <li>Comment on their Pull Request.
 <ul>
-<li>Formatting or spelling problems? Are prices consistent?</li>
-<li>Items in alphabetical order?</li>
+<li>Formatting or spelling problems? Are the course numbers in order?</li>
 <li>Do you approve the merge into main?  If so, then do it.</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<p>Merge &amp; Close Pull Request (feature author).</p>
+<p>Merge &amp; Close Pull Request (feature author)</p>
 <ul>
 <li>Respond to comments to your Pull Request. If problems, fix them
 &amp; push again.</li>
-<li>After your team <em>approves your work</em>, merge your branch into <code>main</code>.</li>
+<li>After your team approves your work, merge your branch into <code>main</code>.</li>
 <li>If GitHub cannot do an automatic merge, it probably means that <code>main</code> has changed since you cloned it. In that case do the following:
 <ol>
-<li><code>git fetch</code> main from GitHub to your local repo and merge into your local <code>main</code>.</li>
-<li>Merge your feature branch into main on your machine. Fix any conflicts, and if you repair any conflicts you need to commit again afterwards.</li>
+<li>Within your local repo, run:</li>
+</ol>
+<pre><code>git checkout main        # switch to your local main branch
+git fetch origin main    # fetch the remote version of main
+git merge origin/main    # merge the remote main into your local main
+</code></pre>
+<ol start="2">
+<li>If there are any merge conflicts, fix them and commit.</li>
+<li>Merge your feature branch into <code>main</code> locally on your machine (e.g. from your <code>main</code> branch, run <code>git merge math</code>). If there are any merge conflicts, fix them and commit.</li>
 <li>Push your (merged) main to GitHub. This time it should succeed. If you made any changes to your feature branch, push those, too.</li>
 </ol>
 </li>
 </ul>
 </li>
 </ol>
-<h2><em><strong>Create a markdown file containing the URL of your github repository used for this activity. Then upload that file to Canvas for Activity 23.</strong></em></h2>
-<p>[^1]: <em>Based on the excellent example assignment at <code>https://github.com/ISP21/ku-cafe</code>.</em></p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p>Using Pull Requests is useful for reviewing each other's work for a team project, but if you are working on a repo on your own, you can create and merge your own feature branches without bothering with Pull Requests.</p>
+</div>
+<h3><strong>Upload the URL of your github repository as your submission to Canvas for this activity.</strong></h3>
 
     </div>
 </body>

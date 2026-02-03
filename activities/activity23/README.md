@@ -1,24 +1,24 @@
-# Activity: Git with the Flow [^1]
+# Activity: Git with the Flow
 
-Practice setting up and running a team project using Git-Flow on GitHub.
+Practice setting up and running a team project using Git Flow on GitHub.
+
+*Based on the excellent example assignment at `https://github.com/ISP21/ku-cafe`.*
 
 ## Overview
 
-![greengoblinmascot](media/gg.jpeg)
+<!-- ![greengoblinmascot](media/gg.jpeg) -->
 
-Each member of the team is chair of a different department at Green State University (_"Go Goblins!"_). Your goal is to produce a course listing for the upcoming Summer session.  The usual courses aren't offered then, so your job is to come up with some new courses your department will offer.
+Each member of the team is chair of a different department at Green State University (*"Go Goblins!"*). Your goal is to produce a course listing for the upcoming Summer session. The usual courses aren't offered then, so your job is to come up with some new courses your department will offer.
 
 Each course listing must have:
 
-- 4 character department code & course number (000-999)
+- 3-character department code & course number (000-999)
 - title (up to 30 chars)
 - description (up to 80 chars)
 
-The courses should be listed in course # order under the department heading in the [`catalog.md`](./catalog.md) file. Each word of the course title should be capitalized, except for words with fewer than 4 characters. The description should be formatted as normal English sentences.
+The courses should be listed in the associated department files (e.g. `math.md`, `english.md`) which are linked in the `catalog.md` file.
 
-The courses are listed in the associated department files (e.g., `math.md`) which are hyperlink'ed from the `catalog.md` file.
-
-For example, in the English department you might offer:
+For example, the English department file `english.md` might contain the following classes:
 
 ---
 
@@ -30,7 +30,7 @@ For example, in the English department you might offer:
 
 ---
 
-Note: you can produce this layout using the following:
+You can produce this layout using the following:
 
 ```markdown
 ---
@@ -43,11 +43,10 @@ Note: you can produce this layout using the following:
 
 Humor is encouraged, but keep it clean.
 
-When finished, the `main` branch of your repository will contain a complete markdown version of the Summer session catalog.
+When finished, the `main` branch of your repository will contain the complete Summer session catalog.
 
-You are provided a primary markdown file, [`catalog.md`](./catalog.md), to which you will add links to each of the departments' markdown files.
-
-> This is the only activity where we **don't** want you to talk **directly** to other members of your team.  Instead, use Slack for all communications between members of the team, like a remote programming team!  Each team has a private Slack channel for this activity and the upcoming project.
+> [!IMPORTANT]
+> This is the only activity where we **don't** want you to talk **directly** to other members of your team. After the initial set up, pretend you are working remotely!
 
 ## Steps
 
@@ -55,43 +54,51 @@ You are provided a primary markdown file, [`catalog.md`](./catalog.md), to which
 
     a. go to the new repository **on GitHub**  
     b. make sure the new repo is private.  
-    c. set GitHub to [protect the main branch](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/protect-main.md).  
-    d. invite other team members to join the repo with the  `maintain` role:  
+    c. set GitHub to [protect the main branch](https://www.spongium.org/unit/protect-main).  
+    d. invite other team members to join the repo with the Maintain role:  
 
     ```  
-    Settings -> Collaborators and teams->...  
+    Settings -> Collaborators and teams -> ...  
     ```  
 
 2. Team decides which member will handle which department.
 
 3. Each team member does the following:
-	- Clone the repo from your Project Leader on GitHub and `cd` into the cloned repo.
-	- Create a local feature branch for your work, with a name indicating the department you are handling, e.g., `math-department`.  
-	- Switch to that new feature branch.
-	- Add at least 4 classes to the corresponding `.md` file (e.g., `math.md`).
-	- Edit the `catalog.md` file to add your username in the department chair slot of the department you selected.
-	- Push your branch to GitHub.
-		`git push -u origin branch-name`
+	- Clone the repo and `cd` into the cloned repo.
+	- Create a local feature branch for your work, with a name indicating the department you are handling, e.g. 
+        `git branch math`
+	- Switch to that new feature branch. 
+        `git checkout math` or `git switch math`
+	- Add at least 4 classes to your department's `.md` file (see above).
+	- Edit the `catalog.md` file to add your name in the department chair slot of the department you selected.
+	- Commit your changes and push your branch to GitHub.
+		`git push -u origin math`
 	- Preview your branch on GitHub. Is content correct? Does the formatting meet the requirements? Are any words spelled incorrectly?
 	- If everything is correct, open a Pull Request for your branch.  
 
-4. Respond to Pull Requests (everyone).
+4. Respond to Pull Requests (everyone)
     - When you see a Pull Request from a team member, review their
         branch on GitHub.
     - Comment on their Pull Request.
-        - Formatting or spelling problems? Are prices consistent?
-        - Items in alphabetical order?
+        - Formatting or spelling problems? Are the course numbers in order?
         - Do you approve the merge into main?  If so, then do it.
 
-5. Merge & Close Pull Request (feature author).
+5. Merge & Close Pull Request (feature author)
     - Respond to comments to your Pull Request. If problems, fix them
         & push again.
-    - After your team _approves your work_, merge your branch into `main`.
+    - After your team approves your work, merge your branch into `main`.
     - If GitHub cannot do an automatic merge, it probably means that `main` has changed since you cloned it. In that case do the following:
-        1. `git fetch` main from GitHub to your local repo and merge into your local `main`.
-        2. Merge your feature branch into main on your machine. Fix any conflicts, and if you repair any conflicts you need to commit again afterwards.
+        1. Within your local repo, run: 
+        ```
+        git checkout main        # switch to your local main branch
+        git fetch origin main    # fetch the remote version of main
+        git merge origin/main    # merge the remote main into your local main
+        ```
+        2. If there are any merge conflicts, fix them and commit.
+        2. Merge your feature branch into `main` locally on your machine (e.g. from your `main` branch, run `git merge math`). If there are any merge conflicts, fix them and commit.
         3. Push your (merged) main to GitHub. This time it should succeed. If you made any changes to your feature branch, push those, too.
 
-***Create a markdown file containing the URL of your github repository used for this activity. Then upload that file to Canvas for Activity 23.***
----
-[^1]: _Based on the excellent example assignment at `https://github.com/ISP21/ku-cafe`._
+> [!TIP]
+> Using Pull Requests is useful for reviewing each other's work for a team project, but if you are working on a repo on your own, you can create and merge your own feature branches without bothering with Pull Requests.
+
+### **Upload the URL of your github repository as your submission to Canvas for this activity.**
