@@ -1,34 +1,35 @@
-# CS50 final project - Nuggets
+# CS50 Final Project: Nuggets
 
-![pile of gold nuggets](images/nuggets500.png)
+![pile of gold nuggets](/images/project/nuggets500.png)
 
-[:arrow_forward: Discovery of gold in the tunnels under Dartmouth.](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8a39c7da-7208-46b4-9c8d-ad2101450924)
+[Discovery of gold in the tunnels under Dartmouth.](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8a39c7da-7208-46b4-9c8d-ad2101450924)
 
 ## The game
 
-Your team will develop the code for the *Nuggets* game, according to the [Requirements Spec](REQUIREMENTS.md).
+Your team will develop the code for the *Nuggets* game, according to the [Requirements Spec](/project/REQUIREMENTS.html).
 
-* All teams shall implement the game server.
-* Teams of 4 students shall also implement the game client.
+* All teams shall implement the game server and the game client.
 * We provide a starter kit via GitHub Classroom.
-* Your team shall follow the [Git Flow](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/git-flow.md) style of git management.
-* Your team shall use the [Scrum](scrum.md) style of project management.
+* Your team shall follow the [Git Flow](https://www.spongium.org/unit/git-flow) style of git management.
+* Your team shall use the [Scrum](/project/scrum.html) style of project management.
 * Good design, good style, good documentation, and good testing are expected.
 * Consider the characteristics of a successful team that we've discussed all term.
 
-:arrow_forward:
 You may find this [demo video](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=dbece9b4-30f1-49ab-8669-ad220160f0f0) to be helpful.
 
 ## Starter kit
 
-When you accept the assignment using the GitHub Classroom (using [the link](https://classroom.github.com/a/UmmU2TwN)), you will be asked to join an existing team or to create a new team.
+When you accept the assignment using the GitHub Classroom, you will be asked to join an existing team or to create a new team.
 Please coordinate with your teammates to ensure that your team is registered just once.
-One member should **immediately** configure your repo to [protect the main branch](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/protect-main.md).
+One member should **immediately** configure your repo to [protect the main branch](https://www.spongium.org/unit/protect-main).
 All members of the team should then clone the team's new repository, which includes the starter kit.
 
 ## Submissions
 
-*Deadlines are provided on the [course website](https://canvas.dartmouth.edu/courses/71415).*
+* **Design spec**: due ...
+* **Implementation spec**: due ...
+* **Final submission**: due ...
+* **Group survey**: due ...
 
 ### Design spec
 
@@ -42,9 +43,9 @@ Your design document (written in Markdown) shall describe the major design decis
 * High-level pseudo code (plain English-like language) for logic/algorithmic flow;
 * Testing plan, including unit tests, integration tests, system tests.
 
-Recall the lecture unit about Design; it has a section about [design specs](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md).
+Recall the unit about Design; it has a section about [design specs](https://www.spongium.org/unit/design).
 As examples, see the design specs provided as part of the TSE.
-**Do *not* repeat elements of the [Requirements Spec](REQUIREMENTS.md)**; just refer to it as needed.
+**Do *not* repeat elements of the [Requirements Spec](/project/REQUIREMENTS.html)**; just refer to it as needed.
 
 **How to submit:**
 Commit a file `DESIGN.md` and any associated files.
@@ -69,10 +70,10 @@ Be prepared to answer questions and receive feedback.
 You must submit an Implementation spec (written in Markdown): a summary of your approach to implementing the server (and client, for teams of 4) and any modules, providing the prototype and brief description of each function, and specifics of the data structure(s) you plan to use.
 You do not need to describe the `support` library or, if you use it, `libcs50`.
 
-Recall the lecture unit about Design; it has a section about [Implementation specs](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/design.md#implementation-phase).
+Recall the lecture unit about Design; it has a section about [Implementation specs](https://www.spongium.org/unit/design).
 Of those details, your implementation spec should describe all of your implementation's units (other than those we provide), provide pseudo code for each unit's functions (including prototypes and their parameters), describe every major data structure, and briefly describe a testing plan.
 When describing data structures, we recommend pasting in a C-language `struct` declaration, with comments describing each member.
-When describing the testing plan, consider unit testing of each module, integration testing = client alone or server alone), system testing = client + server together.
+When describing the testing plan, consider unit testing of each module, integration testing = client alone or server alone, system testing = client + server together.
 
 **How to submit:**
 Commit a file `IMPLEMENTATION.md` and any associated files.
@@ -125,7 +126,7 @@ That is, it should not contain any 'derived files' (those built by `make` and re
 
 ### Grading
 
-Your final project will be graded out of 100 according to the [grading rubric](rubric.md).
+Your final project will be graded out of 100 according to the [grading rubric](/project/rubric.html).
 
 Furthermore, immediately after the project you will each complete a confidential online survey in which you comment on your contribution to the project, and the contributions from members of your group; the Professor uses the information in that survey to set part of your overall course grade.
 
@@ -246,7 +247,7 @@ It's worth writing the comments and defensive code *as you write the functional 
 
 ### Break down big functions
 
-Review the [unit](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/cohesion.md) about *cohesion* and *coupling*, and think about the content and role of each function you write.
+Review the [unit](https://www.spongium.org/unit/cohesion) about *cohesion* and *coupling*, and think about the content and role of each function you write.
 If a function starts to get large, break it down into smaller functions.
 I found this to be particularly important for my `handleMessage` functions, because there are multiple message types and every message needs to be handled in a different way.
 Thus, my `handleMessage()` became a really short `if... then... else if... else if... else` structure, wherein each "then" and "else" block was a single statement: calling a `handleXYZ()` function that was specifically focused on handling only that `XYZ` type of message.
@@ -271,7 +272,7 @@ The top-level Makefile provided as part of the TSE starter kit is a good example
 Although use of the logging module is optional, you will find it helpful.
 Insert calls to `log_x()` at critical points in your code, and you'll be able to study a logfile after (or during!) a particularly confusing or buggy run, to see what happened.
 
-[:arrow_forward: Video demo](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c5c70b23-d618-44bb-93f6-ad2e0159e0ed)
+[Video demo](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c5c70b23-d618-44bb-93f6-ad2e0159e0ed)
 
 ### Unit testing
 
@@ -289,8 +290,8 @@ Consider the same approach for any unit you develop.
 As noted in under the [grading](#grading) heading, a substantial portion of your project grade rests on style.
 Some things to consider:
 
-* Follow [CS50 style guidelines](https://www.cs.dartmouth.edu/~cs50/Labs/CodingStyle.html), including naming conventions.
-* Use a consistent naming scheme: choose function and variable names that follow a consistent pattern, recalling the naming tips from a [recent unit](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/cohesion.md).
+* Follow [CS 50 style guidelines](style.html), including naming conventions.
+* Use a consistent naming scheme: choose function and variable names that follow a consistent pattern, recalling the naming tips from a [recent unit](https://www.spongium.org/unit/cohesion).
 * Use consistent terminology across all specs and code comments: the Requirements Spec gives precise definitions for certain terms (like *gridpoint*, *player*, *purse*, *visible*, and more); use those terms rather than making up new terms, and use those terms consistent with their definitions.
 * Use a consistent coordinate system: the Requirement Spec refers to *rows* and *columns* of the grid and of the display; your two specs, and your implementation, should follow that lead. If you choose to refer to (x,y) instead of (col,row), do it consistently... do not mix the two notations, which leads to confusion.
 * Avoid sprinkling char literals throughout code: define some global named constants, e.g., `static const char roomSpot = '.';`  your code will be much more readable and maintainable!
@@ -298,7 +299,7 @@ Some things to consider:
 
 ### Global variables
 
-In the [unit](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/cohesion.md) about *cohesion* and *coupling*, we noted that global *variables* are a bad form of coupling.
+In the [unit](https://www.spongium.org/unit/cohesion) about *cohesion* and *coupling*, we noted that global *variables* are a bad form of coupling.
 Global *constants* are a good thing, and fairly common.
 Declare them as `static const ...` to ensure they cannot be changed, and ensure they are local to this particular file.
 
@@ -322,7 +323,7 @@ The above `struct {...} game` approach counts as one variable.
 The core of our provided support library is the `message` module, provided in the `support` directory of the starter kit.
 It enables applications to send and receive network messages and also handle keyboard input, without dealing with gory details of sockets and without need for threads.
 
-[:arrow_forward: Video walk-through](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f8811bb1-0fec-4c05-8a46-ad2201693f7f).
+[Video walk-through](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f8811bb1-0fec-4c05-8a46-ad2201693f7f).
 
 > Note: the Requirements Spec makes no mention of timeouts, either in the client or in the server, so neither your client nor server should be implementing a `handleTimeout` function.
 >
@@ -333,7 +334,7 @@ It enables applications to send and receive network messages and also handle key
 
 ### nCurses
 
-The client shall use the *ncurses* library to arrange its interactive display; see the [unit about ncurses](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/ncurses.md).
+The client shall use the *ncurses* library to arrange its interactive display; see the [unit about ncurses](https://www.spongium.org/unit/ncurses).
 Note:
 
 * ncurses has ["still reachable" memory leaks](https://invisible-island.net/ncurses/ncurses.faq.html#config_leaks); ignore them.
@@ -365,7 +366,7 @@ For example, the format string `GRID %d %d` matches successfully only when the s
 
 ### Random numbers
 
-See the [unit](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/random.md) about random numbers.
+See the [unit](https://www.spongium.org/unit/random) about random numbers.
 
 ### libcs50
 
@@ -395,7 +396,7 @@ I found it useful to write little inline functions to convert from a player numb
 
 ### The switch statement
 
-See the [unit](https://github.com/CS50DartmouthFA2025/home/blob/main/knowledge/units/c-flow.md#switch) about the `switch` statement, which is particularly useful when you have a long list of cases that can be described by a simple comparison.
+See the [unit](https://www.spongium.org/unit/c-flow) about the `switch` statement, which is particularly useful when you have a long list of cases that can be described by a simple comparison.
 For example,
 
 ```c
@@ -508,4 +509,4 @@ If you give the name `bot` as the `playerName`, it will periodically send random
 If you give the name `botbg` as the `playerName`, it will play as a bot but *not display anything*, which makes it suitable to run in the background.
 I demonstrate both types of bot in the video below. 
 
-[:arrow_forward: Video demo of 26 bots and a spectator](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a04097c4-1b8e-4147-b525-ad26017d839f)
+[Video demo of 26 bots and a spectator](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a04097c4-1b8e-4147-b525-ad26017d839f)

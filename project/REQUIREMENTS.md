@@ -1,6 +1,6 @@
 # Nuggets - Requirements Spec
-### David Kotz - May 2019, 2021
-### Charles Palmer - 2022, 2023, 2024
+<!-- ### David Kotz - May 2019, 2021
+### Charles Palmer - 2022, 2023, 2024 -->
 
 A multi-player exploration game, *Nuggets*, in which a game server maintains all game state, and one or more game clients display the game to a user.
 The object of the game is to collect more gold nuggets than any other player.
