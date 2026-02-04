@@ -41,7 +41,7 @@ Your implementation must follow the Requirement and Design Specs, and should fol
 **In the top directory,**
 
  1. Update the `README.md` file to add your name.
- 1. Comment out the commands for indexer and querier, so `make` and `make clean` work to build (or clean) the libraries and crawler.
+ 1. Note that we have already provided you with a default `.gitignore` and `Makefile`. Note that the `Makefile` contains commented-out commands for indexer and querier that you will need to uncomment in future labs.
 
 **In the `crawler` directory,**
 
@@ -59,7 +59,7 @@ For now, that comprises code for initializing the "pageDirectory" and saving web
 (You will find reason to expand this file, and this directory, when you write the other subsystems.)
 
  1. Create files `pagedir.c` and `pagedir.h`.
- 1. Write a `Makefile` that will, by default, build the `common.a` library.
+ 1. Write a `Makefile` that will, by default, build the `common.a` library (see the <a href="https://www.spongium.org/unit/libraries">unit about libraries</a>).
     It must also have a `clean` target that removes files produced by Make.
  1. Write a `README.md` file to describe any assumptions you made while writing the crawler, any ways in which your implementation differs from the three Specs, or any ways in which you know your implementation fails to work. This file may be short.
  1. Write a `.gitignore` file telling Git to ignore any unnecessary files in this directory (anything not already covered by the top-level `.gitignore`).
