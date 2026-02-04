@@ -108,9 +108,9 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 </tr>
 <tr>
     <td>Feb 4</td>
-    <td>IO Review; Git Flow; TinySearchEngine: Crawler design<br>
+    <td>Git Flow; TinySearchEngine: Crawler design; IO Review<br>
     <strong>Reading: 5.1–5.7, 7.3–7.8</strong></td>
-    <td><a href="/activities/activity26/README.html">Log file analyzer</a>, <a href="/activities/activity23/README.html">Git with the Flow</a></td>
+    <td><a href="/activities/activity23/README.html">Git with the Flow</a>, <a href="/activities/activity26/README.html">Log file analyzer</a></td>
     <td>Lab 3</td>
     <td><a href="/labs/tse/crawler/README.html">Lab 4</a></td>
 </tr>
@@ -120,9 +120,9 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 </tr>
 <tr>
     <td>Feb 9</td>
-    <td>IO and memory allocation (continued); Stack, heap, memory corruption <br>
+    <td>TBD <br>
     <strong>Reading: TBD</strong></td>
-    <td>io_and_stack (2)</td>
+    <td></td>
     <td></td>
     <td></td>
 </tr>
