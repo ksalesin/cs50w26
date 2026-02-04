@@ -23,6 +23,10 @@ Complete the `file_utils.c` program so that it:
 There are five routines to complete. A sixth one is not used by default in the program, but is there if you have some extra time.
 To test the sixth routine, define EXTRA.
 
+**Hints**:
+* You may find our [unit about files](https://www.spongium.org/unit/c-stdio) a helpful reference.
+* You may want to read through the `log_analyzer.c` file for some code inspiration.
+
 ## Testing
 
 The application can be tested by running `make test`. You can use `diff` to compare your output to the ones in the directory `expected_output`.
