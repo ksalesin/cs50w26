@@ -6,7 +6,7 @@ The knowledge unit noted that an [implementation spec](https://www.spongium.org/
 Here we focus on the core subset:
 
 -  Data structures
--  Control flow: pseudo code for overall flow, and for each of the functions
+-  Control flow: pseudocode for overall flow, and for each of the functions
 -  Detailed function prototypes and their parameters
 -  Error handling and recovery
 -  Testing plan
@@ -40,18 +40,18 @@ Do the real work of crawling from `seedURL` to `maxDepth` and saving pages in `p
 Pseudocode:
 
 ```
-	initialize the hashtable and add the seedURL
-	initialize the bag and add a webpage representing the seedURL at depth 0
-	while bag is not empty
-		pull a webpage from the bag
-		fetch the HTML for that webpage
-		if fetch was successful,
-			save the webpage to pageDirectory
-			if the webpage is not at maxDepth,
-				pageScan that HTML
-		delete that webpage
-	delete the hashtable
-	delete the bag
+initialize the hashtable and add the seedURL
+initialize the bag and add a webpage representing the seedURL at depth 0
+while bag is not empty
+	pull a webpage from the bag
+	fetch the HTML for that webpage
+	if fetch was successful,
+		save the webpage to pageDirectory
+		if the webpage is not at maxDepth,
+			pageScan that HTML
+	delete that webpage
+delete the hashtable
+delete the bag
 ```
 
 ### pageScan
@@ -59,14 +59,15 @@ Pseudocode:
 This function implements the *pagescanner* mentioned in the design.
 Given a `webpage`, scan the given page to extract any links (URLs), ignoring non-internal URLs; for any URL not already seen before (i.e., not in the hashtable), add the URL to both the hashtable `pages_seen` and to the bag `pages_to_crawl`.
 Pseudocode:
-
-	while there is another URL in the page
-		if that URL is Internal,
-			insert the webpage into the hashtable
-			if that succeeded,
-				create a webpage_t for it
-				insert the webpage into the bag
-		free the URL
+```
+while there is another URL in the page
+	if that URL is Internal,
+		insert the webpage into the hashtable
+		if that succeeded,
+			create a webpage_t for it
+			insert the webpage into the bag
+	free the URL
+```
 
 ## Other modules
 
@@ -76,20 +77,21 @@ We create a re-usable module `pagedir.c` to handles the *pagesaver*  mentioned i
 We chose to write this as a separate module, in `../common`, to encapsulate all the knowledge about how to initialize and validate a pageDirectory, and how to write and read page files, in one place... anticipating future use by the Indexer and Querier.
 
 Pseudocode for `pagedir_init`:
-
-	construct the pathname for the .crawler file in that directory
-	open the file for writing; on error, return false.
-	close the file and return true.
-
+```
+construct the pathname for the .crawler file in that directory
+open the file for writing; on error, return false.
+close the file and return true.
+```
 
 Pseudocode for `pagedir_save`:
-
-	construct the pathname for the page file in pageDirectory
-	open that file for writing
-	print the URL
-	print the depth
-	print the contents of the webpage
-	close the file
+```
+construct the pathname for the page file in pageDirectory
+open that file for writing
+print the URL
+print the depth
+print the contents of the webpage
+close the file
+```
 
 ### libcs50
 

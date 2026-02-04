@@ -8,7 +8,7 @@ Here we focus on the core subset:
 - User interface
 - Inputs and outputs
 - Functional decomposition into modules
-- Pseudo code (plain English-like language) for logic/algorithmic flow
+- Pseudocode (plain English-like language) for logic/algorithmic flow
 - Major data structures
 - Testing plan
 
@@ -59,24 +59,24 @@ And some helper modules that provide data structures:
 The crawler will run as follows:
 
 ```
-    parse the command line, validate parameters, initialize other modules
-    add seedURL to the bag of webpages to crawl, marked with depth=0
-    add seedURL to the hashtable of URLs seen so far
-    while there are more webpages in the bag:
-        extract a webpage (URL,depth) item from the bag
-        pause for one second
-        use pagefetcher to retrieve a webpage for that URL
-        use pagesaver to write the webpage to the pageDirectory with a unique document ID
-        if the webpage depth is < maxDepth, explore the webpage to find the links it contains:
-          use pagescanner to parse the webpage to extract all its embedded URLs
-          for each extracted URL:
-            normalize the URL (per requirements spec)
-            if that URL is internal (per requirements spec):
-              try to insert that URL into the *hashtable* of URLs seen;
-                if it was already in the table, do nothing;
-                if it was added to the table:
-                   create a new webpage for that URL, marked with depth+1
-                   add that new webpage to the bag of webpages to be crawled
+parse the command line, validate parameters, initialize other modules
+add seedURL to the bag of webpages to crawl, marked with depth=0
+add seedURL to the hashtable of URLs seen so far
+while there are more webpages in the bag:
+    extract a webpage (URL,depth) item from the bag
+    pause for one second
+    use pagefetcher to retrieve a webpage for that URL
+    use pagesaver to write the webpage to the pageDirectory with a unique document ID
+    if the webpage depth is < maxDepth, explore the webpage to find the links it contains:
+      use pagescanner to parse the webpage to extract all its embedded URLs
+      for each extracted URL:
+        normalize the URL (per requirements spec)
+        if that URL is internal (per requirements spec):
+          try to insert that URL into the *hashtable* of URLs seen;
+            if it was already in the table, do nothing;
+            if it was added to the table:
+                create a new webpage for that URL, marked with depth+1
+                add that new webpage to the bag of webpages to be crawled
 ```
 
 Notice that our pseudocode says nothing about the order in which it crawls webpages.

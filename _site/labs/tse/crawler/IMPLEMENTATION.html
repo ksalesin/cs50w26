@@ -26,7 +26,7 @@ The knowledge unit noted that an <a href="https://www.spongium.org/unit/design">
 Here we focus on the core subset:</p>
 <ul>
 <li>Data structures</li>
-<li>Control flow: pseudo code for overall flow, and for each of the functions</li>
+<li>Control flow: pseudocode for overall flow, and for each of the functions</li>
 <li>Detailed function prototypes and their parameters</li>
 <li>Error handling and recovery</li>
 <li>Testing plan</li>
@@ -50,45 +50,48 @@ The size of the hashtable (slots) is impossible to determine in advance, so we u
 <h3>crawl</h3>
 <p>Do the real work of crawling from <code>seedURL</code> to <code>maxDepth</code> and saving pages in <code>pageDirectory</code>.
 Pseudocode:</p>
-<pre><code>	initialize the hashtable and add the seedURL
-	initialize the bag and add a webpage representing the seedURL at depth 0
-	while bag is not empty
-		pull a webpage from the bag
-		fetch the HTML for that webpage
-		if fetch was successful,
-			save the webpage to pageDirectory
-			if the webpage is not at maxDepth,
-				pageScan that HTML
-		delete that webpage
-	delete the hashtable
-	delete the bag
+<pre><code>initialize the hashtable and add the seedURL
+initialize the bag and add a webpage representing the seedURL at depth 0
+while bag is not empty
+	pull a webpage from the bag
+	fetch the HTML for that webpage
+	if fetch was successful,
+		save the webpage to pageDirectory
+		if the webpage is not at maxDepth,
+			pageScan that HTML
+	delete that webpage
+delete the hashtable
+delete the bag
 </code></pre>
 <h3>pageScan</h3>
 <p>This function implements the <em>pagescanner</em> mentioned in the design.
 Given a <code>webpage</code>, scan the given page to extract any links (URLs), ignoring non-internal URLs; for any URL not already seen before (i.e., not in the hashtable), add the URL to both the hashtable <code>pages_seen</code> and to the bag <code>pages_to_crawl</code>.
 Pseudocode:</p>
-<p>while there is another URL in the page
-if that URL is Internal,
-insert the webpage into the hashtable
-if that succeeded,
-create a webpage_t for it
-insert the webpage into the bag
-free the URL</p>
+<pre><code>while there is another URL in the page
+	if that URL is Internal,
+		insert the webpage into the hashtable
+		if that succeeded,
+			create a webpage_t for it
+			insert the webpage into the bag
+	free the URL
+</code></pre>
 <h2>Other modules</h2>
 <h3>pagedir</h3>
 <p>We create a re-usable module <code>pagedir.c</code> to handles the <em>pagesaver</em>  mentioned in the design (writing a page to the pageDirectory), and marking it as a Crawler-produced pageDirectory (as required in the spec).
 We chose to write this as a separate module, in <code>../common</code>, to encapsulate all the knowledge about how to initialize and validate a pageDirectory, and how to write and read page files, in one place... anticipating future use by the Indexer and Querier.</p>
 <p>Pseudocode for <code>pagedir_init</code>:</p>
-<p>construct the pathname for the .crawler file in that directory
+<pre><code>construct the pathname for the .crawler file in that directory
 open the file for writing; on error, return false.
-close the file and return true.</p>
+close the file and return true.
+</code></pre>
 <p>Pseudocode for <code>pagedir_save</code>:</p>
-<p>construct the pathname for the page file in pageDirectory
+<pre><code>construct the pathname for the page file in pageDirectory
 open that file for writing
 print the URL
 print the depth
 print the contents of the webpage
-close the file</p>
+close the file
+</code></pre>
 <h3>libcs50</h3>
 <p>We leverage the modules of libcs50, most notably <code>bag</code>, <code>hashtable</code>, and <code>webpage</code>.
 See that directory for module interfaces.
