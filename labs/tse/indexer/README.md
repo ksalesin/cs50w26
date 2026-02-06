@@ -23,12 +23,7 @@ You will lose points for memory errors and leaks reported by valgrind on our tes
 
 ## Preparation
 
-1. Start with the same repository you used for Lab 4.
-*Before you begin*, make sure you submitted Lab 4 correctly, [as instructed](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md).
-1. Check to ensure your local repo is clean with `make clean` and everything looks correct according to `git status`.
-    **Do not proceed** if you have uncommitted changes or unpushed commits.
-    Seek help if you need to sort out your repo or GitHub.
-1. Ensure you are again working on the `main` branch **and** that the `main` branch is up to date if you made any changes on `submit4` after branching off `main`.
+1. Start with the same repository you used for Lab 4. Make sure your `main` branch is up to date from `lab4` (you merged it properly), then from `main` make a new `lab5` branch and switch to it.
 1. Create a new subdirectory `indexer`.
 1. Review Section 4 in *[Searching the Web](https://www.spongium.org/unit/search)*, the paper about search engines.
 
@@ -66,16 +61,39 @@ Your implementation must follow the [Requirements Spec](REQUIREMENTS.html) and [
 ### Submission
 
 Add/commit all the code and ancillary files required to build and test your solution; at a minimum your **indexer** directory should include the following files:
-`.gitignore README.md IMPLEMENTATION.md Makefile indexer.c indextest.c testing.sh testing.out`
+* .gitignore 
+* README\.md 
+* IMPLEMENTATION\.md 
+* Makefile 
+* indexer.c 
+* indextest.c 
+* testing\.sh
+* testing.out
+
 and your **common** directory should contain the following files:
-`Makefile index.h index.c pagedir.h pagedir.c word.h word.c`
+* Makefile 
+* index.h 
+* index.c 
+* pagedir.h 
+* pagedir.c 
+* word.h 
+* word.c
 
 *Do not commit any data files produced by the crawler or indexer, any binary/object files produced by the compiler, backup files, core dumps, etc.*
 
-If you finish Lab 5 early, we encourage you to begin work on Lab 6.
+**If you finish Lab 5 early, we encourage you to begin work on Lab 6.**
 Your Lab 5 submission may contain a partly-completed querier; the graders will ignore those files, but must be able to build your libraries and programs *from the top-level directory* without compilation errors and test your indexer without run-time errors.
 
-To submit, read the [Lab submission instructions](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md).
+> [!IMPORTANT]
+> Your final push to your `lab5` branch before the assignment deadline (Wed, Feb 18th at 11:59 pm) will serve as your submission for Lab 5. Do not push any changes to this branch after the deadline (unless you are using one of your extensions).
+
+After you are done with Lab 5, **pull all the commits from your `lab5` branch to your `main` branch** like so:
+```
+git checkout main
+git merge lab5
+```
+
+You will now be ready to work on Lab 6.
 
 ## Hints and tips
 
@@ -85,7 +103,7 @@ Many of the [Lab 4 hints](../crawler/README.html) are still relevant, and there 
 
 If your crawler never quite worked, never fear!
 You do not need a working crawler to write or test your indexer.
-Try your indexer on our crawler's output, which we provide in `~/cs50-dev/shared/tse/output`.
+Try your indexer on our crawler's output, which we provide in `~/home/cs50/shared/tse/output`.
 Our indexer's output is in that same directory.
 
 It can be tricky to compare two index files for equivalence - because the lines of an index file can be in any order, and the docIDs within a line can be in any order - so a simple run of `diff` won't always be sufficient.

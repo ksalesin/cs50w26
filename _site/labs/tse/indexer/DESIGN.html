@@ -49,25 +49,25 @@
 </ol>
 <h3>Pseudo code for logic/algorithmic flow</h3>
 <p>The indexer will run as follows:</p>
-<pre><code>    parse the command line
-    validate parameters
-    initialize other modules
-    call indexBuild with pageDirectory
+<pre><code>parse the command line
+validate parameters
+initialize other modules
+call indexBuild with pageDirectory
 </code></pre>
 <p>where <em>indexBuild:</em></p>
-<pre><code>      creates a new 'index' object
-      loops over document ID numbers, counting from 1
-        loads a webpage from the document file 'pageDirectory/id'
-        if successful, 
-          passes the webpage and docID to indexPage
+<pre><code>creates a new 'index' object
+loops over document ID numbers, counting from 1
+    loads a webpage from the document file 'pageDirectory/id'
+    if successful, 
+        passes the webpage and docID to indexPage
 </code></pre>
 <p>where <em>indexPage:</em></p>
-<pre><code>     steps through each word of the webpage,
-       skips trivial words (less than length 3),
-       normalizes the word (converts to lower case),
-       looks up the word in the index,
-         adding the word to the index if needed
-       increments the count of occurrences of this word in this docID
+<pre><code>steps through each word of the webpage,
+    skips trivial words (less than length 3),
+    normalizes the word (converts to lower case),
+    looks up the word in the index,
+        adding the word to the index if needed
+    increments the count of occurrences of this word in this docID
 </code></pre>
 <h3>Major data structures</h3>
 <p>The key data structure is the <em>index</em>, mapping from <em>word</em> to <em>(docID, #occurrences)</em> pairs.
