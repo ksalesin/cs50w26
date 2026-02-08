@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | Activity</title>
+    <link rel="stylesheet" href="/~ksalesin/cs50/styles.css">
+    <link rel="stylesheet" href="/~ksalesin/cs50/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/~ksalesin/cs50/" id="cs50">CS 50: Software Design and Implementation (Winter 2026)</a></h3>
+        <ul>
+            <li><a href="/~ksalesin/cs50/syllabus.html">Syllabus</a></li>
+            <li><a href="/~ksalesin/cs50/schedule.html">Schedule</a></li>
+            <li><a href="/~ksalesin/cs50/style.html">Style Guide</a></li>
+            <li><a href="/~ksalesin/cs50/resources.html">Resources</a></li>
+            <li id="knowledge-base"><a href="http://spongium.org/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Activity: Bit Packing &amp; Masking</h1>
+<p>Copy the file <code>rgb.c</code> from our examples directory into your home directory on plink.</p>
+<p>As you may know, it is common to digitally represent a color using RGB format: Red, Green, and Blue. Each channel is typically represented with a single integer from 0 to 255. The RGB value can also be combined into a single hex code: for example, a pure red color with RGB values (255, 0, 0) could also be represented with the hex code 0xFF0000, a pure green (0, 255, 0) would be 0x00FF00, and a pure blue (0, 0, 255) would be 0x0000FF.</p>
+<p>While we could represent a color using a struct that holds three separate integers for Red, Green, and Blue, this would be a waste of space since we can assume that each value will always be in [0, 255]. Instead, we will use a <em>single</em> integer to contain all three RGB values (which is often done in practice). This is called <strong>bit packing</strong>: storing multiple pieces of information in a single variable by segmenting its bits into chunks.</p>
+<p>Fill in <code>rgb.c</code> such that you can set and get each component of an RGB color stored in a single integer variable.</p>
+<p>For the 3 <code>set</code> functions, remember to practice <em>defensive programming</em> – verify that the input value is in [0, 255]. If it is not, print an error message and <code>exit(1)</code>.</p>
+<p>As always, test your functions as you write them!</p>
+<p><strong>Hint</strong>: how many bits do you need to represent the full range [0, 255]?</p>
+<p><strong>Hint #2</strong>: aside from printing and input validation, all of the functions should be simple one-liners involving <code>&amp;</code>, <code>|</code>, <code>&lt;&lt;</code>, and <code>&gt;&gt;</code>.</p>
+<p><strong>Hint #3</strong>: you will likely want to utilize <strong>bit masks</strong> that resemble the hex codes above.</p>
+
+    </div>
+</body>
+<script src="/~ksalesin/cs50/_includes/spoilers.js"></script>
+</html>

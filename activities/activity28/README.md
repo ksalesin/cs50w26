@@ -7,9 +7,7 @@ Write at least 3 tests for each function in `main`, and include a comment about 
 ```
 // Test cases
 int main() {
-    ...
     printf("%d\n", isBitSet(5, 2));  // Should return 1
-    ...
 
     // Lots more tests
 
@@ -17,6 +15,6 @@ int main() {
 }
 ```
 > [!TIP]
-> You can print numbers in binary using the `%032b` format. You might get a compiler warning; just ignore it this time.
+> You can print numbers in binary using the `%032b` format. You might get a compiler warning; just ignore it.
 
 Turn in your completed `bitwise.c` to Canvas for this activity.

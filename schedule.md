@@ -120,9 +120,9 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 </tr>
 <tr>
     <td>Feb 9</td>
-    <td>TBD <br>
-    <strong>Reading: TBD</strong></td>
-    <td></td>
+    <td>Bitwise operations <br>
+    <strong>Reading: None</strong></td>
+    <td><a href="/activities/activity28/README.html">Bitwise operations</a>, <a href="/activities/activity29/README.html">Bit packing & masking</a></td>
     <td></td>
     <td></td>
 </tr>
