@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | Activity</title>
+    <link rel="stylesheet" href="/~ksalesin/cs50/styles.css">
+    <link rel="stylesheet" href="/~ksalesin/cs50/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/~ksalesin/cs50/" id="cs50">CS 50: Software Design and Implementation (Winter 2026)</a></h3>
+        <ul>
+            <li><a href="/~ksalesin/cs50/syllabus.html">Syllabus</a></li>
+            <li><a href="/~ksalesin/cs50/schedule.html">Schedule</a></li>
+            <li><a href="/~ksalesin/cs50/style.html">Style Guide</a></li>
+            <li><a href="/~ksalesin/cs50/resources.html">Resources</a></li>
+            <li id="knowledge-base"><a href="http://spongium.org/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Activity - One Ping Only</h1>
+<h2>Build A UDP Echo Service</h2>
+<h2>Overview</h2>
+<p>In this activity, you'll implement a UDP client-server application. The server
+receives messages, adds a timestamp, and echoes them back. The client sends a
+message and measures the round-trip time (RTT).</p>
+<pre><code>   CLIENT                                      SERVER         
+                                                 
+1. Create                                   1. Create         
+   socket                                      socket         
+                                                 
+                                            2. Bind to        
+                                               port 8888      
+                                                 
+2. Send msg  ───── &quot;Hello!&quot; ──────────────&gt; 3. Receive        
+                      (UDP packet)               
+                                            4. Add       
+                                               timestamp      
+                                                 
+3. Receive   &lt;──── &quot;[10:30:45] Hello!&quot; ──── 5. Send back      
+                      (UDP packet)               
+4. Print RTT
+
+
+</code></pre>
+<h2>Remember: UDP is Connectionless</h2>
+<p>Unlike TCP, there's no &quot;connection&quot; - each packet is independent, so</p>
+<ul>
+<li>Packets might arrive out of order</li>
+<li>Packets might be lost (no automatic retry)</li>
+<li>Packets might be duplicated</li>
+<li>But it's FAST and has low overhead</li>
+</ul>
+<h2>Files</h2>
+<p>Located in <code>udp_io</code> in our examples directory.</p>
+<ul>
+<li>common.h</li>
+<li>Makefile</li>
+<li>README.md</li>
+<li>sanity_check.c</li>
+<li>socket_utils.c <strong>Implement TODO 1-7</strong></li>
+<li>socket_utils.h</li>
+<li>udp_client.c <strong>Implement any TODOs</strong></li>
+<li>udp_server.c <strong>Implement any TODOs</strong></li>
+</ul>
+<h2>Getting Started</h2>
+<h3>Step 1: Implement TODO 1 in socket_utils.c</h3>
+<p>Open <code>socket_utils.c</code> and implement <code>create_udp_socket()</code>.</p>
+<h3>Step 2: Test it</h3>
+<pre><code class="language-bash">make sanity_check
+./sanity_check
+</code></pre>
+<p>You should see: <code>SUCCESS: Created UDP socket (fd=3)</code></p>
+<h3>Step 3: Implement remaining TODOs</h3>
+<p>Work through TODOs 2-6 in <code>socket_utils.c</code>. Each one has detailed comments.</p>
+<h3>Step 4: Complete server and client</h3>
+<p>Fill in the TODO sections in <code>udp_server.c</code> and <code>udp_client.c</code>.</p>
+<h3>Step 5: Build and test</h3>
+<pre><code class="language-bash">make GROUP=2  # Build server and client for group 2
+./server      # In terminal 1
+./client 127.0.0.1 &quot;Hello!&quot;   # In terminal 2
+</code></pre>
+<p>Or use the automated test:</p>
+<pre><code class="language-bash">make GROUP=2 test
+</code></pre>
+<h2>Quick Reference</h2>
+<h3>Byte Order Conversion</h3>
+<pre><code class="language-c">htons(port)  // Host to Network Short (for ports)
+ntohs(port)  // Network to Host Short
+htonl(addr)  // Host to Network Long (for addresses)
+ntohl(addr)  // Network to Host Long
+</code></pre>
+<h3>Address Setup</h3>
+<pre><code class="language-c">struct sockaddr_in addr;
+memset(&amp;addr, 0, sizeof(addr));      // Zero it out!
+addr.sin_family = AF_INET;           // IPv4
+addr.sin_port = htons(1234);         // Port number in network byte order
+addr.sin_addr.s_addr = INADDR_ANY;   // Any interface (server)
+// OR
+inet_pton(AF_INET, &quot;127.0.0.1&quot;, &amp;addr.sin_addr);  // Specific IP (client)
+</code></pre>
+<h3>Socket Calls</h3>
+<pre><code class="language-c">// Create
+int sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+
+// Bind (server only)
+bind(sockfd, (struct sockaddr*)&amp;addr, sizeof(addr));
+
+// Send
+sendto(sockfd, buffer, length, 0, (struct sockaddr*)&amp;dest, sizeof(dest));
+
+// Receive
+recvfrom(sockfd, buffer, size, 0, (struct sockaddr*)&amp;sender, &amp;addr_len);
+</code></pre>
+<h2>Common Mistakes</h2>
+<ol>
+<li><strong>Forgetting <code>htons()</code></strong> - Port numbers MUST be converted</li>
+<li><strong>Not zeroing the address struct</strong> - Always <code>memset(&amp;addr, 0, ...)</code></li>
+<li><strong>Missing cast</strong> - Use <code>(struct sockaddr*)&amp;addr</code> in bind/sendto/recvfrom</li>
+<li><strong>Wrong addr_len</strong> - Set it BEFORE calling recvfrom, not after</li>
+<li><strong>Not null-terminating</strong> - After recv: <code>buffer[bytes_received] = '\0'</code></li>
+</ol>
+<h2>BONUS</h2>
+<p>Implement TODO 7 (<code>receive_with_timeout</code>) so the client doesn't hang forever
+if the server isn't running.</p>
+
+    </div>
+</body>
+<script src="/~ksalesin/cs50/_includes/spoilers.js"></script>
+</html>
