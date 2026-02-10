@@ -130,9 +130,9 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Feb 11</td>
     <td>TinySearchEngine: Indexer design; Fuzz testing <br>
     <strong>Reading: 5.8; 6.1</strong></td>
-    <td>Use the Fuzz, Luke!</td>
+    <td>Use the Fuzz, Luke!, Lab 5 Implementation Spec</td>
     <td>Lab 4</td>
-    <td>Lab 5</td>
+    <td><a href="/labs/tse/indexer/README.html">Lab 5</a></td>
 </tr>
 
 <tr>
