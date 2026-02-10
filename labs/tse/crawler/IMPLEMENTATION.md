@@ -104,7 +104,7 @@ Indeed, `webpage_fetch` enforces the 1-second delay for each fetch, so our crawl
 
 ### crawler
 
-Detailed descriptions of each function's interface is provided as a paragraph comment prior to each function's implementation in `crawler.c` and is not repeated here.
+Detailed descriptions of each function are provided above and are not repeated here.
 
 ```c
 int main(const int argc, char* argv[]);
@@ -116,7 +116,7 @@ static void pageScan(webpage_t* page, bag_t* pagesToCrawl, hashtable_t* pagesSee
 
 ### pagedir
 
-Detailed descriptions of each function's interface is provided as a paragraph comment prior to each function's declaration in `pagedir.h` and is not repeated here.
+Detailed descriptions of each function are provided above and are not repeated here.
 
 ```c
 bool pagedir_init(const char* pageDirectory);

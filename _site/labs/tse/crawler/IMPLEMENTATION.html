@@ -99,7 +99,7 @@ The new <code>webpage</code> module allows us to represent pages as <code>webpag
 Indeed, <code>webpage_fetch</code> enforces the 1-second delay for each fetch, so our crawler need not implement that part of the spec.</p>
 <h2>Function prototypes</h2>
 <h3>crawler</h3>
-<p>Detailed descriptions of each function's interface is provided as a paragraph comment prior to each function's implementation in <code>crawler.c</code> and is not repeated here.</p>
+<p>Detailed descriptions of each function are provided above and are not repeated here.</p>
 <pre><code class="language-c">int main(const int argc, char* argv[]);
 static void parseArgs(const int argc, char* argv[],
                       char** seedURL, char** pageDirectory, int* maxDepth);
@@ -107,7 +107,7 @@ static void crawl(char* seedURL, char* pageDirectory, const int maxDepth);
 static void pageScan(webpage_t* page, bag_t* pagesToCrawl, hashtable_t* pagesSeen);
 </code></pre>
 <h3>pagedir</h3>
-<p>Detailed descriptions of each function's interface is provided as a paragraph comment prior to each function's declaration in <code>pagedir.h</code> and is not repeated here.</p>
+<p>Detailed descriptions of each function are provided above and are not repeated here.</p>
 <pre><code class="language-c">bool pagedir_init(const char* pageDirectory);
 void pagedir_save(const webpage_t* page, const char* pageDirectory, const int docID);
 </code></pre>
