@@ -122,7 +122,7 @@ body {
 
 .schedule td:nth-child(1),
 .schedule th:nth-child(1) {
-  width: 9%;
+  width: 10%;
 }
 
 .schedule td:nth-child(2),
@@ -137,12 +137,12 @@ body {
 
 .schedule td:nth-child(4),
 .schedule th:nth-child(4) {
-  width: 10.5%;
+  width: 10%;
 }
 
 .schedule td:nth-child(5),
 .schedule th:nth-child(5) {
-  width: 10.5%;
+  width: 10%;
 }
 
 .headshot {
