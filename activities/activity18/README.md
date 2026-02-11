@@ -1,8 +1,8 @@
 # Activity 18 - Use the Fuzz, Luke!
 
-note: QAengineer is a Quality Assurance Engineer (tester)
+Note: QA Engineer is a Quality Assurance Engineer (tester)
 
-A QA engineer walks into a bar. 
+A QA Engineer walks into a bar. 
 
 - Orders a beer.  
 - Orders 0 beers. 
@@ -15,19 +15,13 @@ A QA engineer walks into a bar.
 
 ***Testing Complete!***
 
-First real customer walks in and asks where the  bathroom is.  The bar bursts into flames.
+First real customer walks in and asks where the  bathroom is. The bar bursts into flames.
 
->-- adapted from @brenankeller
-
-
-
----
-
-Put your team's answers in a Markdown file and upload it to Canvas for Activity 18.
-
----
+– Adapted from @brenankeller
 
 ## Fuzz Testing
+
+Put your team's answers in a Markdown file and upload it to Canvas for this activity.
 
 1. For the given example applications, discuss ...
 
@@ -36,26 +30,33 @@ Put your team's answers in a Markdown file and upload it to Canvas for Activity 
   - how would you automate the generation of those fuzzed inputs?
   - how would you automatically verify correctness?
 
-      a. `histo` from Lab-2
+      a. `histo` from Lab 2
 
-      b. `bag.c` from Lab-3
+      b. `bag.c` from Lab 3
       
       c. a simple `+,-,*,=` calculator program , and assume you know the 
       specifics of the hardware such as largest integer, largest float, etc.
 
-2. Can you fuzz-test an app that you use across a network:
+2. Can you fuzz test an app that you use across a network:
+
 		a. *the login program*
+
 		b. *a web server*
-        c. *a web application*
+
+    c. *a web application*
 
 3. Can you fuzz test things other than with specific, predictable inputs?
+
 		a. *the operating temperature of a system; is the system affected as the ambient the temperature fluctuates?*
-		b. *combinations of weather on a on a surveillance drone?*
+
+		b. *combinations of weather on a surveillance drone?*
 
 	 Would such testing be repeatable? Does that matter?
 
 4. Are there programs that cannot be meaningfully fuzz-tested? 
+
 		a. *If there are none, why not?*
+    
 		b. *If there are some programs like that, why would fuzz-tests not be helpful?*
 
 ## General Testing Challenge Question
