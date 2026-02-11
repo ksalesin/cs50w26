@@ -23,41 +23,39 @@ First real customer walks in and asks where the  bathroom is. The bar bursts int
 
 Put your team's answers in a Markdown file and upload it to Canvas for this activity.
 
-1. For the given example applications, discuss ...
+**Hint**: looking at this [fuzz tester](https://www.spongium.org/unit/querier-testing) we give you for the TSE Querier might provide some inspiration.
+
+1. For each of the example applications below, discuss ...
 
   - would fuzz testing be useful?
   - what would fuzzed inputs look like?
   - how would you automate the generation of those fuzzed inputs?
   - how would you automatically verify correctness?
 
-      a. `histo` from Lab 2
+Example applications:
+  - `histo` from Lab 2
+  - `bag.c` from Lab 3
+  - a simple calculator program that handles `+`, `-`, `*`, and `/` , and assume you know the specifics of the hardware such as largest integer, largest float, etc.
 
-      b. `bag.c` from Lab 3
-      
-      c. a simple `+,-,*,=` calculator program , and assume you know the 
-      specifics of the hardware such as largest integer, largest float, etc.
-
-2. Can you fuzz test an app that you use across a network:
+<!-- 2. Can you fuzz test an app that you use across a network:
 
 		a. *the login program*
 
 		b. *a web server*
 
-    c. *a web application*
+    c. *a web application* -->
 
-3. Can you fuzz test things other than with specific, predictable inputs?
+<!-- 3. Can you fuzz test things other than with specific, predictable inputs?
 
 		a. *the operating temperature of a system; is the system affected as the ambient the temperature fluctuates?*
 
 		b. *combinations of weather on a surveillance drone?*
 
-	 Would such testing be repeatable? Does that matter?
+	 Would such testing be repeatable? Does that matter? -->
 
-4. Are there programs that cannot be meaningfully fuzz-tested? 
-
-		a. *If there are none, why not?*
-    
-		b. *If there are some programs like that, why would fuzz-tests not be helpful?*
+2. Can your group think of any programs that *cannot* be meaningfully fuzz-tested?  
+		a. If there are none, why not?  
+		b. If there are some programs like that, why would fuzz-tests not be helpful?
 
 ## General Testing Challenge Question
 
