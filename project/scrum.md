@@ -14,7 +14,7 @@ Scrum is an agile form of project management centered around transparency, inspe
 
 Scrum is based on core **values** of commitment, courage, focus, openness and respect.
 
-Scrum is a timeboxed framework that begins with the **Sprint Retrospective, Sprint Review, and Sprint Planning** meetings.
+Scrum is a timeboxed framework that begins with the **Sprint Retrospective, Sprint Review,** and **Sprint Planning** meetings.
 
 These meetings provide teams time to reflect on their performance during the previous time period (**Sprint**), discuss potential improvements, and create a plan for achieving the upcoming **Sprint Goal**.
 
@@ -159,23 +159,25 @@ Your Project Board setup should generally look like this:
 
 
 ## Setup Your Project Board
-Follow the steps below to setup a project board for managing your Sprint Backglog items.
+Follow the steps below to setup a project board for managing your Sprint Backlog items.
 
-1. Navigate to your team's nuggets repo on GitHub, and in the repository menu bar click "Projects" then "Create a project". Fill out the forms the same way that I have in the picture below then click "Create project".
+1. Navigate to your team's nuggets repo on GitHub, and in the repository menu bar click "Projects" then "New Project". Under "Start From Scratch" click "Board" and then "Create project".
 
 ![CreateAProject](/images/project/create-a-project.png)
 
-2. Next, we need to add columns to organize our Sprint Backlog items. Let's start with the "To Do" column; Click "Add a column". Name the column and then set "Preset: To Do". Finally, under "Move issues here when..." select both checkmark boxes.
+2. Next, we need to add columns to organize our Sprint Backlog items. Columns for "Todo", "In Progress", and "Done" will likely be created for you. Click "New Column" and create a new column for "Needs Review". Drag this column between "In Progress" and "Done".
+
+<!-- Let's start with the "To Do" column; Click "Add a column". Name the column and then set "Preset: To Do". Finally, under "Move issues here when..." select both checkmark boxes. -->
 
 ![CreateToDoColumn](/images/project/create-todo-column.png)
 
-3. Click "Add column" again, and name this column "In Progress". Leave it with the default automation setting "Preset: None" and click "Create Column".
+<!-- 3. Click "Add column" again, and name this column "In Progress". Leave it with the default automation setting "Preset: None" and click "Create Column". -->
 
-![CreateInProgressColumn](/images/project/create-in-progress-column.png)
+<!-- ![CreateInProgressColumn](/images/project/create-in-progress-column.png) -->
 
-4. Click "Add column" again, and name this column "Needs Review". Set "Preset: In progress" and under "Move pull requests here when..." select checkboxes: "Newly added", "Reopened", and "Pending approval by reviewer".
+<!-- 4. Click "Add column" again, and name this column "Needs Review". Set "Preset: In progress" and under "Move pull requests here when..." select checkboxes: "Newly added", "Reopened", and "Pending approval by reviewer". -->
 
-![CreateInReviewColumn](/images/project/create-in-review-column.png)
+<!-- ![CreateInReviewColumn](/images/project/create-in-review-column.png) -->
 
 5. Finally, click "Add column" one more time and name this column "Done". Set "Preset: Done" and mark every checkbox.
 

@@ -140,9 +140,9 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 </tr>
 <tr>
     <td>Feb 16</td>
-    <td>TBD<br>
-    <strong>Reading: TBD</strong></td>
-    <td>TBD</td>
+    <td>UDP Networking<br>
+    <strong>Reading: Extra: Socket programming and TCP; Extra: UDP sockets</strong></td>
+    <td><a href="/activities/activity27/README.html">One Ping Only</a></td>
     <td></td>
     <td></td>
 </tr>
