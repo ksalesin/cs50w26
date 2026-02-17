@@ -148,9 +148,9 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 </tr>
 <tr>
     <td>Feb 18</td>
-    <td>TinySearchEngine: Querier design; Expression parsing <br>
+    <td>TinySearchEngine: Querier design; Setup for Team Project<br>
     <strong>Reading: 6.2–6.5; 7.1–7.2</strong></td>
-    <td></td>
+    <td><a href="/activities/activity30/README.html">Teamwork Plan</a>, <a href="/activities/activity31/README.html">Scrum</a></td>
     <td>Lab 5</td>
     <td>Lab 6</td>
 </tr>
