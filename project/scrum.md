@@ -23,17 +23,17 @@ While teams have the freedom to decide what tasks needs to be done to accomplish
 First, some definitions:
 
 * A ***Scrum Master*** is responsible for helping team members understand Scrum theory, practice, rules, and values.
-They ensure that teams stay on topic during Retrospective, Review, and Planning meetings and ensure teams do not run over the allotted amount of time. **<u>Your Learning Fellow will serve as your Scrum Master.</u>**
+They ensure that teams stay on topic during Retrospective, Review, and Planning meetings and ensure teams do not run over the allotted amount of time. **Your Learning Fellow will serve as your Scrum Master.**
 
 * A ***Sprint*** is a period of time in which a subsection, or increment, of the required work for the project will be completed.
-Some companies use sprints as long as a month, but **<u>we will use weekly sprints due to the small time scale of our project.</u>**
+Some companies use sprints as long as a month, but **we will use weekly sprints due to the small time scale of our project.**
 
 * A ***Sprint Goal*** is the project objective that the team aims to meet by the end of the Sprint by completing all of the items in the Sprint Backlog.
-Due to the time constraints of the course, **<u>we will provide you with a goal for every Sprint, but your team will be responsible for creating an appropriate Sprint Backlog.</u>**
+Due to the time constraints of the course, **we will provide you with a goal for every Sprint, but your team will be responsible for creating an appropriate Sprint Backlog.**
 
 * The ***Sprint Backlog*** is the set of tasks that need to be accomplished during the Sprint period to achieve the Sprint Goal.
 Each task should be a small, well-defined chunk of work that can be completed in a few hours' work by one person. 
-**<u>Your team is responsible for generating this list of to-do items during the Sprint Planning meeting.**</u>
+**Your team is responsible for generating this list of to-do items during the Sprint Planning meeting.**
 
 ## Scrum Process
 
@@ -66,8 +66,6 @@ The 15-minute time limit will be enforced by Scrum Masters.
 After the Daily Scrum, you should proceed to work on your Sprint Backlog items, or break off into smaller groups to finish discussing items from the Daily Scrum with relevant members.
 Your team is encouraged to meet for a Daily Scrum on non-class days as well.
 
----
-
 ## Wiki
 
 During your Sprint Retrospective your team will fill out the [Retrospective template](/project/retrospective.html) that we have provided.
@@ -81,58 +79,48 @@ To create a Wiki page for your Sprint Retrospective, follow the steps listed bel
 5. Title it "Sprint Retrospective N", where N is the current Sprint iteration.
 6. Click "Save Page".
 
----
-
 # GitHub Project Board
 
 [Video demo](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=96060b11-898b-4296-a856-ad2401472f32)
 
-You will be using GitHub Project Board to manage your Sprint Backlog. Your Sprint Backlog is a list of items that your team needs to complete in order to meet the Sprint Goal. Each Sprint Backlog item will be represented by a GitHub Issue, and the set of issues that makes up your Sprint Backlog will be organized inside of your Project Board. Your Project Board will have four columns for organization that represent different stages of completeness:
+You will be using GitHub Project Board to manage your Sprint Backlog. Your Sprint Backlog is a list of items that your team needs to complete in order to meet the Sprint Goal. Each Sprint Backlog item will be represented by a GitHub Issue, and the set of issues that makes up your Sprint Backlog will be organized inside of your Project Board. Your Project Board will have three columns for organization that represent different stages of completeness:
 
-* ***To Do*** newly created issues (backlog items) are automatically placed in this column. Issues should remain in this column until some team member begins work on it.
-* ***In Progress*** this is the only column in the Project Board that is not automated. **You will need to manually move issues** from the *To Do* column into the *In Progress* column to indicate to your team that you have started working on it.
+* ***To Do***: newly created issues (backlog items) are automatically placed in this column. Issues should remain in this column until some team member begins work on it.
+* ***In Progress***: new pull requests are placed in this column, and should be associated with an issue.  this is the only column in the Project Board that is not automated. **You will need to manually move issues** from the *To Do* column into the *In Progress* column to indicate to your team that you have started working on it.
 * ***Needs Review*** new pull requests are placed in this column, and should be associated with an issue. This column indicate that the author is ready for their teammates to review their finished work.
 * ***Done*** issues are automatically moved here when their associated pull request has been merged and the issue closed. Issues in this column indicate that they have been fully tested, reviewed, and merged into the master branch.
 
 Your Project Board setup should generally look like this:
 
-![ProjectBoardExample](/images/project/project-board.png)
+![ProjectBoardExample](/images/project/board-example.jpg)
 
 
-## Setup Your Project Board
-Follow the steps below to setup a project board for managing your Sprint Backlog items.
+## Set Up Your Project Board
+Follow the steps below to set up a project board for managing your Sprint Backlog items.
 
 1. Navigate to your team's nuggets repo on GitHub, and in the repository menu bar click "Projects" then "New Project". Under "Start From Scratch" click "Board" and then "Create project".
 
-![CreateAProject](/images/project/create-a-project.png)
+![CreateAProject](/images/project/create-board.jpg)
 
-2. Next, we need to add columns to organize our Sprint Backlog items. Columns for "Todo", "In Progress", and "Done" will likely be created for you. Click "New Column" and create a new column for "Needs Review". Drag this column between "In Progress" and "Done".
+2. Next, we need to add columns to organize our Sprint Backlog items. Columns for "Todo", "In Progress", and "Done" will be created for you. Click the + to the right of "Done" and create a new column for "Needs Review". Drag this column between "In Progress" and "Done". Your board should look like this:
 
-<!-- Let's start with the "To Do" column; Click "Add a column". Name the column and then set "Preset: To Do". Finally, under "Move issues here when..." select both checkmark boxes. -->
+![NeedsReview](/images/project/board-example.jpg)
 
-![CreateToDoColumn](/images/project/create-todo-column.png)
+3. Toward the upper right of your board, click "Workflows". Go to "Pull request linked to issue" and click "Edit" at the top right. In the "Set value" box, click "Status: In Progress" and choose "Needs Review" instead. Click "Save Workflow".
 
-<!-- 3. Click "Add column" again, and name this column "In Progress". Leave it with the default automation setting "Preset: None" and click "Create Column". -->
+![ChangeWorkflow](/images/project/change-workflow.jpg)
 
-<!-- ![CreateInProgressColumn](/images/project/create-in-progress-column.png) -->
+If you explore this Workflows area, you can see the other Workflows that have been automatically set up.
 
-<!-- 4. Click "Add column" again, and name this column "Needs Review". Set "Preset: In progress" and under "Move pull requests here when..." select checkboxes: "Newly added", "Reopened", and "Pending approval by reviewer". -->
-
-<!-- ![CreateInReviewColumn](/images/project/create-in-review-column.png) -->
-
-5. Finally, click "Add column" one more time and name this column "Done". Set "Preset: Done" and mark every checkbox.
-
-![CreateDoneColumn](/images/project/create-done-column.png)
-
-6. Now that your project board is created, there is still one more thing you need to do before you can begin adding Sprint Backlog items to it. That is, you need to create a GitHub "Milestone" that represents the goal(s) of each of your 3 Sprints. Click the "Issues" tab in the top menu bar of your repository. Click the "Milestones" button (which is located next to the green "New Issue" button).
+4. Now that your project board is created, there is still one more thing you need to do before you can begin adding Sprint Backlog items to it. That is, you need to create a GitHub "Milestone" that represents the goal(s) of each of your 3 Sprints. Click the "Issues" tab in the top menu bar of your repository. Click the "Milestones" button (which is located next to the green "New Issue" button).
 
 ![EmptyMilestones](/images/project/milestones-empty.png)
 
-7. Click "New milestone" and then give it an appropriate name, due date, and description. Below is an example of a milestone for your Sprint 1 Goal.
+5. Click "New milestone" and then give it an appropriate name, due date, and description. Below is an example of a milestone for your Sprint 1 Goal.
 
 ![CreateMilestones](/images/project/milestones-create.png)
 
-8. Repeat the process in step 7 so that you end up with three milestones like the ones in the picture below.
+6. Repeat the process in step 7 so that you end up with three milestones like the ones in the picture below.
 
 ![AllMilestones](/images/project/milestones-all.png)
 
@@ -161,7 +149,9 @@ You should manually drag issues from the *To Do* column to the *In Progress* col
 
 ![screenshot of the project board showing in-progress items](/images/project/issue-assign.png)
 
-**REMEMBER GIT FLOW** Moving an issue to *In Progress* indicates to your teammates that you are actively working on it. In terms of your git usage, this means that you should creat a new branch specifically for that issue where you will do all of your work. Later, after testing, you will create a pull request so that you team can review your work and merge it into master if satisfactory.
+### Remember Git Flow
+
+Moving an issue to *In Progress* indicates to your teammates that you are actively working on it. In terms of your git usage, this means that you should create a new branch specifically for that issue where you will do all of your work. Later, after testing, you will create a pull request so that you team can review your work and merge it into master if satisfactory.
 
 ## Needs Review
 
@@ -170,7 +160,7 @@ After completing and **testing** your work for a specific issue, it is time to c
 1. Make sure that all of the work on your issue branch is committed and pushed
 2. From your repository GitHub page, click the "Pull requests" tab near the top and then "New pull request"
 3. At the top, you should see base: master <- compare: master. Click the "compare" dropdown bar and select the issue branch that you wish to create a pull request for. Then click "Create pull request"
-4. Give your pull request a title and description. You can reference the issue it is associated with by using the syntax "#number", where number is the number of the issue.
+4. Give your pull request a title and description. Reference the issue it is associated with by using the syntax "#number", where number is the number of the issue.
 5. Use the menu to the right to
     * assign your teammates as reviewers of your pull request
     * assign yourself as owner of the pull request
