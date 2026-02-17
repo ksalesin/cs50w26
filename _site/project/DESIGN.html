@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | Final Project</title>
+    <link rel="stylesheet" href="/~ksalesin/cs50/styles.css">
+    <link rel="stylesheet" href="/~ksalesin/cs50/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/~ksalesin/cs50/" id="cs50">CS 50: Software Design and Implementation (Winter 2026)</a></h3>
+        <ul>
+            <li><a href="/~ksalesin/cs50/syllabus.html">Syllabus</a></li>
+            <li><a href="/~ksalesin/cs50/schedule.html">Schedule</a></li>
+            <li><a href="/~ksalesin/cs50/style.html">Style Guide</a></li>
+            <li><a href="/~ksalesin/cs50/resources.html">Resources</a></li>
+            <li id="knowledge-base"><a href="http://spongium.org/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Nuggets: Design Hints</h1>
+<p>Consider these thoughts while you develop your design spec.</p>
+<h3>Client/server</h3>
+<p><strong>All game logic is handled in the server,</strong> as noted in the spec.
+The client only provides a user interface; it has no role in tracking gold, determining visibility, handling moves, or even checking the validity of user's keystrokes.
+Indeed, the network protocol makes it impossible for the client to be anything other than pass keystrokes to the server and display the maps that come back.</p>
+<h3>Grid</h3>
+<p>The game is played on an <em>NR x NC</em> grid of gridpoints.
+How will you represent the grid?
+How will the client and/or server use the grid?
+What functions must a &quot;grid&quot; support?
+This is a critical design decision, and one I spent a lot of time considering before I started writing code.
+I started one approach to the representation and implementation of a grid, and later switched to another approach... but because I'd wrapped the entire approach in an abstract <code>grid</code> module, <em>none of the code that used the grid needed to change.</em></p>
+<p>The right representation of a grid can make your code vastly simpler than it would be if you choose other representations.
+Consider:</p>
+<ul>
+<li>What information must the <em>spectator</em> keep about the state of the game?</li>
+<li>What information must the <em>player</em> keep about the state of the game?</li>
+<li>What information must the <em>server</em> keep about the state of the game?</li>
+<li>What information does the string below record about the state of the game?</li>
+<li>What information does the string below <strong>not</strong> record about the state of the game?</li>
+<li>How much gold is in each pile... and does any player know until they step on a pile?</li>
+<li>Do these questions give you ideas about how to store game state?</li>
+</ul>
+<pre><code class="language-c">char* grid = ...;   // a string variable
+puts(grid);         // produces the output below
+</code></pre>
+<pre><code>  +----------+
+  |..........|                 +---------+
+  |..........###################.........|
+  |..........|                 +-----#---+
+  +---------#+                       #
+            #                        #
+            #  +-----------+         #
+            ####...........##############
+               |...........|
+               +-----------+
+</code></pre>
+<h3>Keep it simple</h3>
+<p>As I mulled over design choices, and implementation choices, a question frequently appeared in my head: <em>but won't that approach be inefficient, in either time or memory? what about this other approach, that would be more efficient?</em>
+I always opted for the simpler approach.  Always.
+This philosophy meant I was able to write the code faster, debug it more easily,  test it more reliably, and reach a correct outcome sooner.
+And, my code is shorter and easier to read than it would be in a complex approach.</p>
+<p>Later, if I discovered the inefficient approach was too slow, or too bloated, for the game's purposes, I could make a branch and explore an optimization of some component or algorithm.
+But I've not had the need, or the time, to do so.</p>
+<h3>Keyboard input</h3>
+<p>The client needs to read and react to keystrokes immediately... but all of the code we've seen in CS50 cannot read any input from stdin (when it is a keyboard) until the user hits Return.
+In other words, the keyboard is normally in &quot;line-oriented mode&quot;.
+Your client program needs it in &quot;character-oriented mode&quot;, technically called &quot;cbreak&quot; mode.</p>
+<p>No problem.
+The <em>ncurses</em> library provides that feature (<a href="#ncurses">see below about ncurses</a>).
+As a design hint, just be confident that you can read one character from the keyboard when told that stdin has input ready, and know that your program will not block (get stuck) waiting for the user to hit a key.</p>
+<p>The message module (part of the starter kit) provides you a way of looping forever, waiting for input to be ready on stdin or on the network, and calling you when either occurs.
+Thus, you need not worry about how to know when to read stdin, or how to know when a message arrives.</p>
+
+    </div>
+</body>
+<script src="/~ksalesin/cs50/_includes/spoilers.js"></script>
+</html>

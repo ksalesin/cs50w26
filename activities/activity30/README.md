@@ -6,7 +6,7 @@ Remember that your team will be expected to use <a href="https://www.spongium.or
 
 1. What will your team's weekly meeting schedule be? Where will you meet? (You will meet twice a week during class, and we recommend you also meet *at least* once a week outside of class.)
 
-1. How will your team communicate with each other? (We recommend setting up a private Slack channel, a text chain, a GroupMe, a WhatsApp, etc.) **If you have not already set this up, do so now!**
+1. How will your team communicate with each other? (We recommend setting up a private Slack channel, text chain, GroupMe, WhatsApp, etc.) **If you have not already set this up, do so now!**
 
 1. How will your team decide on the set of tasks to be completed by the following week?
 
