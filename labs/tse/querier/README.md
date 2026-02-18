@@ -38,8 +38,8 @@ Your design and implementation must follow the **Querier Requirements Spec** (ak
 
 **In the `querier` subdirectory,**
 
-1. Add a file `DESIGN.md` to provide the Design Spec for querier.
-  Your `DESIGN.md` file should not repeat the information provided in the assignment or in the [Requirements Spec](REQUIREMENTS.html); instead, it should describe the abstract data structures and pseudo code for *your* querier.
+<!-- 1. Add a file `DESIGN.md` to provide the Design Spec for querier.
+  Your `DESIGN.md` file should not repeat the information provided in the assignment or in the [Requirements Spec](REQUIREMENTS.html); instead, it should describe the abstract data structures and pseudo code for *your* querier. -->
 1. Add a file `IMPLEMENTATION.md` to provide the implementation spec and testing plan for querier.
   Your `IMPLEMENTATION.md` file need not repeat the information provided in the assignment or other specs; instead, it should describe implementation details specific to *your* implementation.
 1. Add a file `README.md` to describe any assumptions you made while writing the querier, any ways in which your implementation differs from the Specs, or any ways in which you know your implementation fails to work.
@@ -60,7 +60,6 @@ Your design and implementation must follow the **Querier Requirements Spec** (ak
 Add/commit all the code and ancillary files required to build and test your solution; at a minimum your **querier** directory should include the following files:
 * .gitignore 
 * README\.md 
-* DESIGN\.md
 * IMPLEMENTATION\.md 
 * Makefile 
 * querier.c 
