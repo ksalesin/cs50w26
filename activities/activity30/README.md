@@ -17,3 +17,5 @@ Remember that your team will be expected to use <a href="https://www.spongium.or
 1. How will your team handle testing? For example, will each team member be responsible for writing and running unit tests of their code *before* creating a pull request?
 
 1. If you get stuck on a task (started the task but cannot move forward), what will you do? (more detail beyond just "ask my teammates for help")
+
+**Once you have completed this activity, call your LF over and go through your answers with them.**
