@@ -33,12 +33,10 @@ In short, it is far better for you to demonstrate you *know* about the bug than 
 You will lose points for memory errors and leaks reported by valgrind on our tests.</p>
 <h2>Preparation</h2>
 <ol>
-<li>Start with the same repository you used for Lab 5.
-<em>Before you begin</em>, make sure you submitted Lab 5 correctly, <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/labs/submit.md">as instructed</a>.</li>
+<li>Start with the same repository you used for Lab 5. Make sure your <code>main</code> branch is up to date from <code>lab5</code> (you merged it properly), then from <code>main</code> make a new <code>lab6</code> branch and switch to it.</li>
 <li>Check to ensure your local repo is clean with <code>make clean</code> and everything looks correct according to <code>git status</code>.
 <strong>Do not proceed</strong> if you have uncommitted changes or unpushed commits.
 Seek help if you need to sort out your repo or GitHub.</li>
-<li>Ensure you are again working on the <code>main</code> branch <strong>and</strong> that the <code>main</code> branch is up to date if you made any changes on <code>submit5</code> after branching off <code>main</code>.</li>
 <li>Create a new subdirectory <code>querier</code>.</li>
 </ol>
 <h2>Assignment</h2>
@@ -68,13 +66,31 @@ For best results, <code>make test</code> should run <code>bash -v testing.sh</co
 <li>Add a <code>.gitignore</code> file telling Git to ignore the binary files (like <code>querier</code>) and other unnecessary files in this directory.</li>
 </ol>
 <h3>Submission</h3>
-<p>Add/commit all the code and ancillary files required to build and test your solution; at a minimum your <strong>querier</strong> directory should include the following files:
-<code>.gitignore README.md DESIGN.md IMPLEMENTATION.md Makefile querier.c testing.sh testing.out</code>
-and your <strong>common</strong> directory should contain the following files:
-<code>Makefile index.h index.c pagedir.h pagedir.c word.h word.c</code></p>
+<p>Add/commit all the code and ancillary files required to build and test your solution; at a minimum your <strong>querier</strong> directory should include the following files:</p>
+<ul>
+<li>.gitignore</li>
+<li>README.md</li>
+<li>DESIGN.md</li>
+<li>IMPLEMENTATION.md</li>
+<li>Makefile</li>
+<li>querier.c</li>
+<li>testing.sh</li>
+<li>testing.out</li>
+</ul>
+<p>and your <strong>common</strong> directory should contain the following files:</p>
+<ul>
+<li>Makefile</li>
+<li>index.h</li>
+<li>index.c</li>
+<li>pagedir.h</li>
+<li>pagedir.c</li>
+<li>word.h</li>
+<li>word.c</li>
+</ul>
 <p><em>Do not commit any data files produced by the crawler or indexer, any binary/object files produced by the compiler, backup files, core dumps, etc.</em></p>
 <p>The graders must be able to build your TSE <em>from the top-level directory</em> without compilation errors and test your querier without run-time errors.</p>
-<p>See the <a href="https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md">Lab submission instructions</a>.</p>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p>Your final push to your <code>lab6</code> branch before the assignment deadline (Wed, Feb 25th at 11:59 pm) will serve as your submission for Lab 6. Do not push any changes to this branch after the deadline (unless you are using one of your extensions).</p>
+</div>
 <h2>Grading</h2>
 <p>Lab 6 is scored on the basis of 100 points, with Delivery, Documentation, Style, Testing comprising most of the points.</p>
 <p>&quot;Functionality&quot; represents 30/100 points.

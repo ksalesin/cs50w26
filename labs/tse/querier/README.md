@@ -21,12 +21,10 @@ You will lose points for memory errors and leaks reported by valgrind on our tes
 
 ## Preparation
 
-1. Start with the same repository you used for Lab 5.
-*Before you begin*, make sure you submitted Lab 5 correctly, [as instructed](https://github.com/CS50DartmouthFA2025/home/blob/main/labs/submit.md).
+1. Start with the same repository you used for Lab 5. Make sure your `main` branch is up to date from `lab5` (you merged it properly), then from `main` make a new `lab6` branch and switch to it.
 1. Check to ensure your local repo is clean with `make clean` and everything looks correct according to `git status`.
     **Do not proceed** if you have uncommitted changes or unpushed commits.
     Seek help if you need to sort out your repo or GitHub.
-1. Ensure you are again working on the `main` branch **and** that the `main` branch is up to date if you made any changes on `submit5` after branching off `main`.
 1. Create a new subdirectory `querier`.
 
 ## Assignment
@@ -60,15 +58,30 @@ Your design and implementation must follow the **Querier Requirements Spec** (ak
 ### Submission
 
 Add/commit all the code and ancillary files required to build and test your solution; at a minimum your **querier** directory should include the following files:
-`.gitignore README.md DESIGN.md IMPLEMENTATION.md Makefile querier.c testing.sh testing.out`
+* .gitignore 
+* README\.md 
+* DESIGN\.md
+* IMPLEMENTATION\.md 
+* Makefile 
+* querier.c 
+* testing\.sh 
+* testing.out
+
 and your **common** directory should contain the following files:
-`Makefile index.h index.c pagedir.h pagedir.c word.h word.c`
+* Makefile 
+* index.h 
+* index.c 
+* pagedir.h 
+* pagedir.c 
+* word.h 
+* word.c
 
 *Do not commit any data files produced by the crawler or indexer, any binary/object files produced by the compiler, backup files, core dumps, etc.*
 
 The graders must be able to build your TSE *from the top-level directory* without compilation errors and test your querier without run-time errors.
 
-See the [Lab submission instructions](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md).
+> [!IMPORTANT]
+> Your final push to your `lab6` branch before the assignment deadline (Wed, Feb 25th at 11:59 pm) will serve as your submission for Lab 6. Do not push any changes to this branch after the deadline (unless you are using one of your extensions).
 
 ## Grading
 

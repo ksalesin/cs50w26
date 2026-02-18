@@ -152,7 +152,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <strong>Reading: 6.2–6.5; 7.1–7.2</strong></td>
     <td><a href="/activities/activity30/README.html">Teamwork Plan</a>, <a href="/activities/activity31/README.html">Volcano Resort Scrum</a></td>
     <td>Lab 5</td>
-    <td>Lab 6</td>
+    <td><a href="/labs/tse/querier/README.html">Lab 6</a></td>
 </tr>
 
 <tr>
@@ -160,14 +160,14 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 </tr>
 <tr>
     <td>Feb 23</td>
-    <td>Work on Querier design</td>
+    <td>Work on Final Project Design Spec</td>
     <td></td>
     <td></td>
     <td></td>
 </tr>
 <tr>
     <td>Feb 25</td>
-    <td>Introduction to the Team Project</td>
+    <td>Team Project development</td>
     <td></td>
     <td>Lab 6</td>
     <td>Team project</td>
