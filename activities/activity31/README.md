@@ -32,7 +32,7 @@ One person on your team (while sharing their screen) should follow the instructi
 
 Decide which team member will do each task. Each team member should create a new Issue for each task they were assigned. Assign yourself under "Assignees" and choose the Project and Milestone that were just created. 
 
-Note how once each issue is created, it automatically shows up in the "Todo" column of the Project Board.
+*Note how once each issue is created, it automatically shows up in the "Todo" column of the Project Board.*
 
 ## Step 4: Do the Work!
 
@@ -48,7 +48,7 @@ Once you have completed work on an Issue, create a new Pull Request (follow the 
 
 You might see the message "Can’t automatically merge. Don’t worry, you can still create the pull request." This is because you are all working on the same file and there will be merge conflicts; this is ok, create the Pull Request anyway.
 
-Note how once the Pull Request is created and linked to an Issue, it shows up in the Needs Review column of your Project Board.
+*Note how once the Pull Request is created and linked to an Issue, it shows up in the Needs Review column of your Project Board.*
 
 ## Step 6: Close All Pull Requests and Issues
 
@@ -56,7 +56,7 @@ Team members should review each other's Pull Requests, look at the work done, co
 
 If there is a merge conflict with `main`, there will be a message that says "This branch has conflicts that must be resolved." Click Resolve Conflicts and resolve the merge conflict. Delete the `<<<<<<<` and `=======` that GitHub inserts to mark the conflict and modify the file as needed to combine the changes, then click Mark as Resolved, then Commit Merge.
 
-Note how once the Pull Request is merged, the PR and its Issue are moved to the Done column of your Project Board.
+*Note how once the Pull Request is merged, the PR and its Issue are moved to the Done column of your Project Board.*
 
 ## Step 7: Submit Your Proposal!
 

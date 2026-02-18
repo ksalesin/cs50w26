@@ -85,8 +85,8 @@ To create a Wiki page for your Sprint Retrospective, follow the steps listed bel
 
 You will be using GitHub Project Board to manage your Sprint Backlog. Your Sprint Backlog is a list of items that your team needs to complete in order to meet the Sprint Goal. Each Sprint Backlog item will be represented by a GitHub Issue, and the set of issues that makes up your Sprint Backlog will be organized inside of your Project Board. Your Project Board will have three columns for organization that represent different stages of completeness:
 
-* ***To Do***: newly created issues (backlog items) are automatically placed in this column. Issues should remain in this column until some team member begins work on it.
-* ***In Progress***: new pull requests are placed in this column, and should be associated with an issue.  this is the only column in the Project Board that is not automated. **You will need to manually move issues** from the *To Do* column into the *In Progress* column to indicate to your team that you have started working on it.
+* ***Todo***: newly created issues (backlog items) are automatically placed in this column. Issues should remain in this column until some team member begins work on it.
+* ***In Progress***: this is the only column in the Project Board that is not automated. **You will need to manually move issues** from the *Todo* column into the *In Progress* column to indicate to your team that you have started working on it.
 * ***Needs Review*** new pull requests are placed in this column, and should be associated with an issue. This column indicate that the author is ready for their teammates to review their finished work.
 * ***Done*** issues are automatically moved here when their associated pull request has been merged and the issue closed. Issues in this column indicate that they have been fully tested, reviewed, and merged into the master branch.
 
@@ -125,7 +125,7 @@ If you explore this Workflows area, you can see the other Workflows that have be
 ![AllMilestones](/images/project/milestones-all.png)
 
 
-## To Do
+## todo
 
 During your Sprint Planning meeting, you will be coming up with items for your Sprint Backlog. As you do this, you will be adding these items to your Project Board as ***GitHub Issues***. Below, we detail how to create an issue.
 
@@ -134,13 +134,13 @@ During your Sprint Planning meeting, you will be coming up with items for your S
 3. If you already know which team member will be working on this issue, assign them to it using the menu on the right.
 4. Assign this issue to your Sprint Backlog Project Board using the menu on the right.
 5. Click on "Milestone" in the menu to the right and assign the issue to the current Sprint Goal.
-6. Your new issue should look similar to what is shown below. Click "Submit new issue". Afterwards, you should see your newly created issue in the *To Do* column of your Project Board.
+6. Your new issue should look similar to what is shown below. Click "Submit new issue". Afterwards, you should see your newly created issue in the *todo* column of your Project Board.
 
 ![screenshot showing creation of a new issue](/images/project/issue-create.png)
 
 ## In Progress
 
-You should manually drag issues from the *To Do* column to the *In Progress* column to indicate to your team that you have begun work on them. You should also make sure to assign yourself to this issue if you have not done so already. From the Project Board, you can assign yourself by following these steps:
+You should manually drag issues from the *todo* column to the *In Progress* column to indicate to your team that you have begun work on them. You should also make sure to assign yourself to this issue if you have not done so already. From the Project Board, you can assign yourself by following these steps:
 
 1. Click on the title of an issue (they are highlighted in blue), which will open menu bar to the right of the screen
 2. Click on the "Assignees" button and find your GitHub account in the dropdown bar
