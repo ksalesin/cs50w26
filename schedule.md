@@ -160,17 +160,17 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 </tr>
 <tr>
     <td>Feb 23</td>
-    <td>Work on Final Project Design Spec</td>
+    <td>Intro to Team Project; Work on Team Project Design Spec</td>
     <td></td>
     <td></td>
-    <td></td>
+    <td>Team project</td>
 </tr>
 <tr>
     <td>Feb 25</td>
     <td>Team Project development</td>
     <td></td>
     <td>Lab 6</td>
-    <td>Team project</td>
+    <td></td>
 </tr>
 
 <tr>
@@ -197,6 +197,13 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
 <tr>
     <td>Mar 9</td>
     <td>Team Project development</td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td><strong>Mar 13 (Fri)</strong></td>
+    <td><strong>Team Project due</strong></td>
     <td></td>
     <td></td>
     <td></td>

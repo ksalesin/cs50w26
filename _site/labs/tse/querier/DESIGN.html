@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS 50 | Lab</title>
+    <link rel="stylesheet" href="/~ksalesin/cs50/styles.css">
+    <link rel="stylesheet" href="/~ksalesin/cs50/github-markdown.css">
+</head>
+<body>
+    <div class="markdown-body nav">
+        <h3><a href="/~ksalesin/cs50/" id="cs50">CS 50: Software Design and Implementation (Winter 2026)</a></h3>
+        <ul>
+            <li><a href="/~ksalesin/cs50/syllabus.html">Syllabus</a></li>
+            <li><a href="/~ksalesin/cs50/schedule.html">Schedule</a></li>
+            <li><a href="/~ksalesin/cs50/style.html">Style Guide</a></li>
+            <li><a href="/~ksalesin/cs50/resources.html">Resources</a></li>
+            <li id="knowledge-base"><a href="http://spongium.org/" target="_blank">Knowledge Base</a></li>
+        </ul>
+    </div>
+    <div class="markdown-body content">
+        <h1>Lab 6: TSE Querier</h1>
+<h2>Design Spec</h2>
+<p>According to the <a href="/~ksalesin/cs50/labs/tse/querier/REQUIREMENTS.html">Querier Requirements Spec</a>, the TSE <em>querier</em> is a standalone program that reads the index file produced by the TSE Indexer, and page files produced by the TSE Querier, and answers search queries submitted via stdin.</p>
+<h3>User interface</h3>
+<p>The querier has two command-line arguments.</p>
+<pre><code>querier pageDirectory indexFilename
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-bash">$ querier ../data/ ../index
+</code></pre>
+<p>Once started, the querier prompts for queries on stdin, and accepts queries according to the query syntax.</p>
+<p>It exits when it reaches EOF on stdin.</p>
+<h3>Inputs and outputs</h3>
+<p><strong>Input</strong>: the querier reads an index file using the format described in the Requirements.</p>
+<p>The querier also reads URLs from webpage files in a directory by constructing file pathnames from the <code>pageDirectory</code> parameter followed by a numeric document ID (as described in the Requirements).</p>
+<p>The querier also reads queries from stdin according to the query syntax.</p>
+<p><strong>Output</strong>: for each query the querier prints a list of matching documents (listing each document's URL), in ranked order, where the ranking is determined by the document's score.
+Document score is computed according to the requirements.</p>
+<h3>Functional decomposition into modules</h3>
+<p>We anticipate the following modules or functions:</p>
+<ol>
+<li><em>main</em>, which parses arguments and initializes other modules;</li>
+<li><em>query_loop</em>, which loops over queries from stdin and processes each one in turn.</li>
+</ol>
+<p>And some helper modules that provide data structures:</p>
+<ol>
+<li><em>index</em>, a module providing the data structure to represent the in-memory index, and functions to read and write index files;</li>
+<li><em>webpage</em>, a module providing the data structure to represent webpages;</li>
+<li><em>pagedir</em>, a module providing functions to load webpages from files in the pageDirectory;</li>
+<li><em>word</em>, a module providing a function to normalize a word.</li>
+</ol>
+<h3>Pseudo code for logic/algorithmic flow</h3>
+<p>The querier will run as follows:</p>
+<ol>
+<li>execute from a command line as shown in the User Interface</li>
+<li>parse the command line, validate parameters, initialize other modules</li>
+<li>call <em>query_loop</em>, with <code>index</code> and <code>pageDirectory</code></li>
+</ol>
+<p>where <em>query_loop</em> will</p>
+<ol>
+<li>read a line from stdin</li>
+<li>parse the query into an array of words</li>
+<li>print the query for user reference</li>
+<li>validate the query syntax</li>
+<li>if valid, call <em>answer_query</em></li>
+</ol>
+<p>where <em>answer_query</em></p>
+<ol>
+<li>calls <em>match_query</em> to find the set of matching documents and their scores</li>
+<li>loops while there are documents in the set with score &gt; 0
+<ul>
+<li>find the top-scoring document</li>
+<li>print that document</li>
+<li>set that document's score to 0</li>
+</ul>
+</li>
+</ol>
+<p>where <em>match_query</em></p>
+<ol>
+<li>treats the query as an &quot;or sequence&quot; of &quot;and sequences&quot;.</li>
+<li>initializes the orSequence as empty.</li>
+<li>steps throught the words of the query, constructing a set of documents (with scores) for a current andSequence, until it hits &quot;or&quot; or the end of the line;</li>
+<li>then it merges the current andSequence into the ongoing orSequence result,</li>
+<li>and resets the andSequence to begin anew.</li>
+<li>at end of line, return the orSequence.</li>
+</ol>
+<h3>Dataflow through modules</h3>
+<ol>
+<li><em>main</em> parses parameters and passes them to other functions.</li>
+<li><em>index_load</em> receives the index file and returns an index.</li>
+<li><em>answer_query</em> loops over queries from stdin.</li>
+<li><em>match_query</em> computes the matching docs for each query.</li>
+<li><em>index</em> (module) includes functions that implement the <em>index</em> data structure, notably, <em>index_load</em> to load the index from indexFile.</li>
+</ol>
+<h3>Major data structures</h3>
+<p>The <em>index</em> module provides the key data structure, <em>index</em>, mapping from <em>word</em> to (docID, #occurrences) pairs.</p>
+<h3>Testing plan</h3>
+<p><em>Unit testing</em>. No unit tests. It would have been smart to develop a unit test for the parsing functions.</p>
+<p><em>Integration testing</em>.  The <em>querier</em>, as a complete program, will be tested by loading an index produced by the indexer, then pushing a bunch of queries through it.</p>
+<ol>
+<li>Test <code>querier</code> with various invalid arguments.
+2. no arguments
+3. one argument
+4. three or more arguments
+5. invalid <code>pageDirectory</code> (non-existent path)
+5. invalid <code>pageDirectory</code> (not a crawler directory)
+6. invalid <code>indexFile</code> (non-existent path)
+7. invalid <code>indexFile</code> (existing, unreadable file)</li>
+<li>Test <code>querier</code> with various uninteresting or invalid queries.
+<ol>
+<li>empty line</li>
+<li>blank line</li>
+<li>illegal characters</li>
+<li>and/or at beginning</li>
+<li>and/or at end</li>
+<li>and/or adjacent to and/or</li>
+</ol>
+</li>
+<li>Test <code>querier</code> with real queries.</li>
+<li>Test <code>querier</code> with fuzzquery-produced queries.</li>
+<li>Test <code>querier</code> for memory leaks by running it under <code>valgrind</code>.</li>
+</ol>
+
+    </div>
+</body>
+<script src="/~ksalesin/cs50/_includes/spoilers.js"></script>
+</html>

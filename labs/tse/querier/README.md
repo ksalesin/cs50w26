@@ -1,8 +1,8 @@
 # Lab 6: TSE Querier
 
-In this lab you'll continue the Tiny Search Engine (TSE) by coding the Querier according to the [Requirements Spec](REQUIREMENTS.html).
+In this lab you'll continue the Tiny Search Engine (TSE) by coding the Querier according to the [Requirements Spec](REQUIREMENTS.html) and the [Design Spec](DESIGN.html).
 
-You will also write the Design Spec and Implementation Spec.
+You will write the Implementation Spec.
 
 Grading will focus on [CS 50 coding style](/style.html) - including consistent formatting, selection of identifier names, and use of meaningful comments - in addition to correctness, testing, and documentation.
 

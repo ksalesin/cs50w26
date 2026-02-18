@@ -15,7 +15,7 @@ Your team will develop the code for the *Nuggets* game, according to the [Requir
 * Good design, good style, good documentation, and good testing are expected.
 * Consider the characteristics of a successful team that we've discussed all term.
 
-You may find this [demo video](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=dbece9b4-30f1-49ab-8669-ad220160f0f0) to be helpful.
+### **Watch This [Demo Video](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=dbece9b4-30f1-49ab-8669-ad220160f0f0)**
 
 * [Requirements Spec](/project/REQUIREMENTS.html)
 * [Design Hints](/project/DESIGN.html)
@@ -30,11 +30,11 @@ All members of the team should then clone the team's new repository, which inclu
 
 ## Submissions
 
-* **Design spec**: due ...
-* **Implementation spec**: due ...
-* **Final submission**: due ...
-* **Group survey**: due ...
-
+* **Design spec**: due Wednesday, February 25rd at 11:59 pm
+* **Implementation spec**: due Friday, February 27th at 11:59 pm
+* **Final submission**: due Friday, March 13th **at noon**
+* **Final presentation**: Friday, March 13th somewhere in 3 to 6 pm
+* **Group survey**: due Friday, March 13th at 11:59 pm
 
 ## Sprint timeline
 
