@@ -160,7 +160,7 @@ After completing and **testing** your work for a specific issue, it is time to c
 1. Make sure that all of the work on your issue branch is committed and pushed
 2. From your repository GitHub page, click the "Pull requests" tab near the top and then "New pull request"
 3. At the top, you should see base: master <- compare: master. Click the "compare" dropdown bar and select the issue branch that you wish to create a pull request for. Then click "Create pull request"
-4. Give your pull request a title and description. Reference the issue it is associated with by using the syntax "#number", where number is the number of the issue.
+4. Give your pull request a title and description. **Link the issue it is associated with by using the syntax "closes #number", where number is the number of the issue.** This can be in either the title or the description.
 5. Use the menu to the right to
     * assign your teammates as reviewers of your pull request
     * assign yourself as owner of the pull request
