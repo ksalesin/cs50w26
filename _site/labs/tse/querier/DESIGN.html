@@ -100,13 +100,16 @@ Document score is computed according to the requirements.</p>
 <p><em>Integration testing</em>.  The <em>querier</em>, as a complete program, will be tested by loading an index produced by the indexer, then pushing a bunch of queries through it.</p>
 <ol>
 <li>Test <code>querier</code> with various invalid arguments.
-2. no arguments
-3. one argument
-4. three or more arguments
-5. invalid <code>pageDirectory</code> (non-existent path)
-5. invalid <code>pageDirectory</code> (not a crawler directory)
-6. invalid <code>indexFile</code> (non-existent path)
-7. invalid <code>indexFile</code> (existing, unreadable file)</li>
+<ol>
+<li>no arguments</li>
+<li>one argument</li>
+<li>three or more arguments</li>
+<li>invalid <code>pageDirectory</code> (non-existent path)</li>
+<li>invalid <code>pageDirectory</code> (not a crawler directory)</li>
+<li>invalid <code>indexFile</code> (non-existent path)</li>
+<li>invalid <code>indexFile</code> (existing, unreadable file)</li>
+</ol>
+</li>
 <li>Test <code>querier</code> with various uninteresting or invalid queries.
 <ol>
 <li>empty line</li>

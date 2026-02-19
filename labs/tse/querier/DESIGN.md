@@ -98,21 +98,21 @@ The *index* module provides the key data structure, *index*, mapping from *word*
 *Integration testing*.  The *querier*, as a complete program, will be tested by loading an index produced by the indexer, then pushing a bunch of queries through it.
 
 1. Test `querier` with various invalid arguments.
-	2. no arguments
-	3. one argument
-	4. three or more arguments
-	5. invalid `pageDirectory` (non-existent path)
+	1. no arguments
+	2. one argument
+	3. three or more arguments
+	4. invalid `pageDirectory` (non-existent path)
 	5. invalid `pageDirectory` (not a crawler directory)
 	6. invalid `indexFile` (non-existent path)
 	7. invalid `indexFile` (existing, unreadable file)
-0. Test `querier` with various uninteresting or invalid queries.
+2. Test `querier` with various uninteresting or invalid queries.
 	1. empty line
 	2. blank line
 	3. illegal characters
 	4. and/or at beginning
 	5. and/or at end
 	6. and/or adjacent to and/or
-7. Test `querier` with real queries.
-8. Test `querier` with fuzzquery-produced queries.
-9. Test `querier` for memory leaks by running it under `valgrind`.
+3. Test `querier` with real queries.
+4. Test `querier` with fuzzquery-produced queries.
+5. Test `querier` for memory leaks by running it under `valgrind`.
 
