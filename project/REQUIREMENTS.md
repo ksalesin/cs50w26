@@ -8,17 +8,17 @@ The game ends when all gold nuggets have been collected by some player.
 
 * The *server* is a program that implements all game logic.
 * The *client* is a program that allows a human to join the game as either *player* or *spectator*.
-* A game includes zero to *MaxPlayers* players, and zero or one spectators.
-* Thus a game involves one server and [0..MaxPlayers+1] clients.
-* Game play occurs in a set of interconnected *rooms* and *passages*, laid out on a rectangular grid of *gridpoints*, as defined by a [map](#maps).
+* A game includes zero to `MaxPlayers` players, and zero or one spectators.
+* Thus a game involves one server and [0..`MaxPlayers`+1] clients.
+* Game play occurs in a set of interconnected *rooms* and *passages*, laid out on a rectangular grid of *gridpoints*, as defined by a *map* (see below).
 * Gridpoints within a room or passage are called *spots*.  A *room spot* can be occupied by a player or a gold pile, or be empty.  A *passage spot* can be occupied by a player or be empty.
 * At game start time, `GoldTotal` nuggets are randomly dropped in a random number of random-sized piles, each pile at some spot in a room.  Gold nuggets are indistinguishable; a pile contains at least one nugget.
 * A new *player* is dropped into a randomly selected empty room spot.
-* A new player initially has 0 nuggets in its *purse*.
-* A player can *see* the spots and boundaries that are [*visible*](#visibility) from its current location.
-* A player can *see* the occupants of only those spots that are [*visible*](#visibility) from its current location.
-* A player can *know* the spots and boundaries of all rooms and passages it has seen since the player began playing.
-* The spectator immediately *knows* and always *sees* all gridpoints.
+* A new player initially has 0 nuggets in their *purse*.
+* A player can *see* the spots and boundaries that are *visible* from their current location.
+* A player can *see* the occupants of only those spots that are *visible* from their current location.
+* A player can *know* the spots and boundaries of all rooms and passages they have seen since the player began playing.
+* A spectator immediately *knows* and always *sees* all gridpoints.
 * The *display* is an ASCII screen large enough to represent the entire grid.
 * At any given time, a player's display illustrates all known gridpoints and visible occupants; the spectator's display illustrates all gridpoints and all occupants.
 * A player moving into a spot containing a pile of gold *collects* that gold, adding all the pile's nuggets to the player's purse. The pile is then gone and that pile's spot is then empty.
@@ -50,16 +50,16 @@ The *message* module also imposes a maximum size for each message; see `support/
 
 The server ***shall***
 
-1. Start from the commandline of the form above; thus the first argument is the pathname for a [map file](#map-files) and the second argument is an optional seed for the random-number generator; if provided, the seed must be a positive integer.
+1. Start from the commandline of the form above; thus the first argument is the pathname for a map file and the second argument is an optional seed for the random-number generator; if provided, the seed must be a positive integer.
 2. Verify its arguments; if error, provide a useful error message and exit non-zero.
 3. If the optional seed is provided, the server shall pass it to `srand(seed)`.  If no seed is provided, the server shall use `srand(getpid())` to produce random behavior.
-4. Load the designated map file; the server may assume it is [valid](#valid-maps), but shall verify the file can be opened for reading.
+4. Load the designated map file; the server may assume it is valid, but shall verify the file can be opened for reading.
 5. Initialize the game by dropping at least `GoldMinNumPiles` and at most `GoldMaxNumPiles` gold piles on random room spots; each pile shall have a random number of nuggets.
 6. Initialize the network and announce the port number.
 7. Wait for messages from *clients* (players or spectators).
-8. Accept up to *MaxPlayers* players; if a player exits or quits the game, it can neither rejoin nor be replaced. Thus: once a player has quit, its letter is never re-used.
+8. Accept up to `MaxPlayers` players; if a player exits or quits the game, it can neither rejoin nor be replaced. Thus: once a player has quit, its letter is never re-used.
 9. Accept up to 1 spectator; if a new spectator joins while one is active, the server shall tell the current spectator to quit, and the server shall then forget that current spectator.
-10. React to each type of inbound message as described in the [protocol](#network-protocol) below.
+10. React to each type of inbound message as described in the protocol below.
 11. Handle errors, including malloc failures, gracefully.
 12. If a player quits the game, that player's symbol is removed from the map.
 13. Update all clients whenever any player moves or gold is collected.
@@ -84,24 +84,24 @@ a typical approach would be to log to stderr and thus usage could be:
 ```
 
 The client allows a human to join the game as an interactive *player* or as a *spectator*.
-The client ***shall*** :
+The client ***shall***
 
-1. start from the commandline of the form above; thus the first argument is the hostname or IP address where the server is running, and the second argument is the port number on which the server expects messages; the third (optional) argument determines whether to join as a *player* or *spectator*.
+1. Start from the command line of the form above; thus the first argument is the hostname or IP address where the server is running, and the second argument is the port number on which the server expects messages; the third (optional) argument determines whether to join as a *player* or *spectator*.
 2. Verify its arguments; if error, provide a useful error message and exit non-zero.
 3. If the `playername` argument is provided, the client joins as a *player* and can interactively play the game.
 4. If the `playername` argument is not provided, the client joins as a view-only *spectator*.
 5. Initialize the display.
 6. Initialize the network and join the game with a `PLAY` or `SPECTATE` message accordingly.
-7. Upon receipt of a `GRID` message, ensure the display is large enough for the grid (it should be *NR+1* x *NC+1* for best results).
-8. Show a status line on the first line of the display, as noted in the [protocol](#network-protocol) below.
-9. Show the game grid on the subsequent lines of the display, as noted in the [protocol](#network-protocol) below.
+7. Upon receipt of a `GRID` message, ensure the display is large enough for the grid (it should be *NR+1* x *NC* for best results).
+8. Show a status line on the first line of the display, as noted in the protocol below.
+9. Show the game grid on the subsequent lines of the display, as noted in the protocol below.
 10. Send all client keystrokes to the server.
 11. Update the display any time new information arrives from the server.
 12. Handle errors, including malloc failures, gracefully.
 13. Quit the game (by sending `KEY Q`) if reaching EOF on stdin.
-14. Quit when told to do so by the server, as noted in the [protocol](#network-protocol) below.
+14. Quit when told to do so by the server, as noted in the protocol below.
 15. Display a brief note on the status line if an unknown or malformed message arrives from the server.
-16. Print a Game-over summary and exit, as noted in the [protocol](#network-protocol) below.
+16. Print a Game Over summary and exit, as noted in the protocol below.
 
 The client ***shall not*** print anything to stdout other than what is required for game play.
 
@@ -150,7 +150,7 @@ The remaining *NR* lines present the grid using *map characters:*
 
 or *occupant characters:*
 
-* `@` the player
+* `@` the current player
 * `A`-`Z` another player
 * `*` a pile of gold
 
@@ -196,7 +196,7 @@ A *map* defines the set of rooms and passages in which the game is played.
 * The *map* is laid out on a *grid*.
 * The grid is *NR* rows by *NC* columns; thus there are *NR x NC* *gridpoints*.
 * The grid will fit in a `DISPLAY` message; thus, *NR x NC + 10 < message_MaxBytes*.
-* The grid has enough spots to accommodate *MaxPlayers* players and `GoldMaxNumPiles` gold piles.
+* The grid has enough spots to accommodate `MaxPlayers` players and `GoldMaxNumPiles` gold piles.
 * A *room* is an [axis-aligned rectilinear polygon](https://en.wikipedia.org/wiki/Rectilinear_polygon); it may have hole(s).
 * A *spot* is a gridpoint in the interior of a room or along a passage.
 * A room is defined by its *boundaries*.
@@ -205,9 +205,7 @@ A *map* defines the set of rooms and passages in which the game is played.
 * A *passage* is one-spot wide and connects rooms to other rooms and passages. Passages are rectilinear but may not be straight, that is, they may have 90-degree turns.
 * A passage interrupts a room's vertical or horizontal boundary; a passage never meets a room at a corner.
 * The map is one connected component; thus, one can reach any spot from any other spot by some sequence of the eight valid moves.
-
 * Every gridpoint is one of these characters:
-  
   * ` ` solid rock - interstitial space outside rooms
   * `-` a horizontal boundary
   * `|` a vertical boundary
@@ -219,7 +217,7 @@ A *map* defines the set of rooms and passages in which the game is played.
 
 A *map file* is a text file with exactly *NR* lines and in which every line has exactly *NC* characters.
 
-> Your solution may assume all map files are [valid](#valid-maps), but must infer *NR* and *NC* by reading the file.
+> Your solution may assume all map files are valid, but must infer *NR* and *NC* by reading the file.
 
 ### Example map
 
@@ -470,7 +468,7 @@ When a *player* client starts, it shall send a message to the server:
 
 Everything after the `PLAY` and one space is captured as the player's "real name" (free text, optionally including spaces).
 
-If there are already *MaxPlayers* players,  the server shall respond with
+If there are already `MaxPlayers` players,  the server shall respond with
 
 	QUIT Game is full: no more players can join.
 
@@ -500,7 +498,7 @@ When the player's keystroke causes them to collect gold, the server shall inform
 
 When the player's keystroke causes them to move to a new spot, the server shall inform all clients of a change in the game grid using a `DISPLAY` message as described below.
 
-When the player's keystroke is not a valid character, according to the [Client interface](#client-interface) above, the server *shall* ignore that keystroke and *may* send back an `ERROR` message as described below.
+When the player's keystroke is not a valid character, according to the client interface above, the server *shall* ignore that keystroke and *may* send back an `ERROR` message as described below.
 
 ### Spectator to server
 
@@ -583,7 +581,7 @@ C        230 Carol
 ### Malformed messages
 
 Any message not following the above protocol, *exactly*, is malformatted.
-Both client and server shall be robust in the face of malformatted messages - they should not crash, exit, or proceed incorrectly.
+Both client and server shall be robust in the face of malformatted messages – they should not crash, exit, or proceed incorrectly.
 At a minimum they shall log an error and ignore the message.
 
 The server *may* send, in response to the client,

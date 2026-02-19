@@ -40,48 +40,43 @@ All members of the team should then clone the team's new repository, which inclu
 
 We suggest the following timeline.
 
-### Sprint 1 (Feb 23–25) <!-- @CHANGEME date -->
+### Sprint 1 (Feb 23–Mar 2) <!-- @CHANGEME date -->
 
 * **Monday:** Project Board and Sprint Planning
 * **Wednesday:** Daily Scrum
 
 **Goals:**
 
-* `DESIGN.md` complete
-* `IMPLEMENTATION.md` complete
+* `DESIGN.md` complete, submitted by Wed
+* `IMPLEMENTATION.md` complete, submitted by Fri
+* Server: allows players and spectators to join, move, and quit.
+* Client: joins as spectator.
 
-### Sprint 2 (Feb 25-Mar 2) <!-- @CHANGEME date -->
+### Sprint 2 (Mar 2–9) <!-- @CHANGEME date -->
 
 * **Monday:** Sprint Retrospective + Review + Planning
 * **Wednesday:** Daily Scrum
 
 **Goals:**
 
-* First, a minimum server: allows players and spectators to join, move, and quit.
-* Then, enhanced server: creates gold piles, allows players to collect gold, detects end of game, produces *Game Over* list.
-* Client: joins as spectator, handles all message types from server.
-* `IMPLEMENTATION.md` complete, ready for submission
+* Server: creates gold piles, allows players to collect gold, detects end of game, produces *Game Over* list, add 'knows' and 'sees' functionality.
+* Client: handles all message types from server.
 * Update documentation to track changes in design, implementation, or testing plan.
 
-### Sprint 3 (Mar 2–9) <!-- @CHANGEME date -->
+### Sprint 3 (Mar 9–13) <!-- @CHANGEME date -->
 
 * **Monday:** Sprint Retrospective + Review + Planning
-* **Wednesday:** Daily Scrum
+* **Wednesday:** (no class)
 
 **Goals:**
 
-* Server: add 'knows' and 'sees' functionality.
-* Client: add player behavior.  (For teams of 4, only.)
+* Client: add player behavior.
 * Complete any other missing functionality.
 * Write tools to assist in testing.
 * Extensive testing to ensure all code meets spec.
-* Complete required documentation.
+* Complete all required documentation.
 
-### Final sprint (Mar 2-3) <!-- @CHANGEME date -->
-
-* **Monday:** Sprint Retrospective + Review + Planning
-
-**Goals:**
+**Once you are "finished"**
 
 * Review the Final submission checklist.
 * Clean up your repository.
@@ -102,7 +97,7 @@ Your design document (written in Markdown) shall describe the major design decis
 * Inputs and outputs;
 * Functional decomposition into functions/modules;
 * Major data structures;
-* High-level pseudo code (plain English-like language) for logic/algorithmic flow;
+* High-level pseudocode (plain English-like language) for logic/algorithmic flow;
 * Testing plan, including unit tests, integration tests, system tests.
 
 Recall the unit about Design; it has a section about [design specs](https://www.spongium.org/unit/design).
@@ -131,11 +126,11 @@ Be prepared to answer questions and receive feedback.
 
 **Read the [Implementation Hints](/project/IMPLEMENTATION.html)**
 
-You must submit an Implementation spec (written in Markdown): a summary of your approach to implementing the server (and client, for teams of 4) and any modules, providing the prototype and brief description of each function, and specifics of the data structure(s) you plan to use.
+You must submit an Implementation spec (written in Markdown): a summary of your approach to implementing the server and client and any modules, providing the prototype and brief description of each function, and specifics of the data structure(s) you plan to use.
 You do not need to describe the `support` library or, if you use it, `libcs50`.
 
 Recall the lecture unit about Design; it has a section about [Implementation specs](https://www.spongium.org/unit/design).
-Of those details, your implementation spec should describe all of your implementation's units (other than those we provide), provide pseudo code for each unit's functions (including prototypes and their parameters), describe every major data structure, and briefly describe a testing plan.
+Of those details, your implementation spec should describe all of your implementation's units (other than those we provide), provide pseudocode for each unit's functions (including prototypes and their parameters), describe every major data structure, and briefly describe a testing plan.
 When describing data structures, we recommend pasting in a C-language `struct` declaration, with comments describing each member.
 When describing the testing plan, consider unit testing of each module, integration testing = client alone or server alone, system testing = client + server together.
 
@@ -147,7 +142,7 @@ Before the deadline, [push a branch called 'submit-implementation'](https://gith
 
 ## Final submission
 
-Everything -- all code and documentation -- must be pushed to GitHub by the deadline.
+Everything – all code and documentation – must be pushed to GitHub by the deadline.
 ***Do not wait to the final minutes before the deadline;***
 you are far more likely to make a mistake, and have no time to correct it.
 Plan to submit everything several hours before the deadline.
@@ -158,7 +153,7 @@ Before the deadline, [push a branch called 'submit-final'](https://github.com/CS
 
 We will grade the version of the code in the branch `submit-final` at the time of the deadline; if no such branch appears until later you will ***lose 10 points per hour after the deadline***.
 Specifically, we take 10 points per hour, prorated by the minute, which means that you lose (10/60 x minutesPastDeadline) points off your total project grade.
-No extensions will be permitted.
+**No extensions will be permitted.**
 
 **What:** Your GitHub project shall include all necessary source and documentation files.
 
@@ -167,7 +162,7 @@ No extensions will be permitted.
  2. There shall be a Makefile for each library (if any), and a top-level Makefile to build the client and server and (recursively) any necessary libraries.
 We must be able to `make clean` and `make all` from the top-level directory and result in a complete compilation.
 
- 3. All code must compile (with no warnings) on the CS50 Linux servers with the usual CFLAGS.
+ 3. All code must compile (with no warnings) on plink with the usual CFLAGS.
 The programs must run without segfaults.
 They must not have memory leaks as determined with `valgrind` (exception: leaks directly attributable to ncurses).
 They must not output anything to stdout, other than what is required to play the game, though they may use the `log` module and send that output to either `stderr` or to a file.

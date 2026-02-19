@@ -62,7 +62,7 @@ In other words, the keyboard is normally in "line-oriented mode".
 Your client program needs it in "character-oriented mode", technically called "cbreak" mode.
 
 No problem.
-The *ncurses* library provides that feature ([see below about ncurses](#ncurses)).
+The *ncurses* library provides that feature ([see Knowledge Unit about ncurses](https://www.spongium.org/unit/ncurses)).
 As a design hint, just be confident that you can read one character from the keyboard when told that stdin has input ready, and know that your program will not block (get stuck) waiting for the user to hit a key.
 
 The message module (part of the starter kit) provides you a way of looping forever, waiting for input to be ready on stdin or on the network, and calling you when either occurs.

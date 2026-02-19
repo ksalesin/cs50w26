@@ -28,17 +28,17 @@ The game ends when all gold nuggets have been collected by some player.</p>
 <ul>
 <li>The <em>server</em> is a program that implements all game logic.</li>
 <li>The <em>client</em> is a program that allows a human to join the game as either <em>player</em> or <em>spectator</em>.</li>
-<li>A game includes zero to <em>MaxPlayers</em> players, and zero or one spectators.</li>
-<li>Thus a game involves one server and [0..MaxPlayers+1] clients.</li>
-<li>Game play occurs in a set of interconnected <em>rooms</em> and <em>passages</em>, laid out on a rectangular grid of <em>gridpoints</em>, as defined by a <a href="#maps">map</a>.</li>
+<li>A game includes zero to <code>MaxPlayers</code> players, and zero or one spectators.</li>
+<li>Thus a game involves one server and [0..<code>MaxPlayers</code>+1] clients.</li>
+<li>Game play occurs in a set of interconnected <em>rooms</em> and <em>passages</em>, laid out on a rectangular grid of <em>gridpoints</em>, as defined by a <em>map</em> (see below).</li>
 <li>Gridpoints within a room or passage are called <em>spots</em>.  A <em>room spot</em> can be occupied by a player or a gold pile, or be empty.  A <em>passage spot</em> can be occupied by a player or be empty.</li>
 <li>At game start time, <code>GoldTotal</code> nuggets are randomly dropped in a random number of random-sized piles, each pile at some spot in a room.  Gold nuggets are indistinguishable; a pile contains at least one nugget.</li>
 <li>A new <em>player</em> is dropped into a randomly selected empty room spot.</li>
-<li>A new player initially has 0 nuggets in its <em>purse</em>.</li>
-<li>A player can <em>see</em> the spots and boundaries that are <a href="#visibility"><em>visible</em></a> from its current location.</li>
-<li>A player can <em>see</em> the occupants of only those spots that are <a href="#visibility"><em>visible</em></a> from its current location.</li>
-<li>A player can <em>know</em> the spots and boundaries of all rooms and passages it has seen since the player began playing.</li>
-<li>The spectator immediately <em>knows</em> and always <em>sees</em> all gridpoints.</li>
+<li>A new player initially has 0 nuggets in their <em>purse</em>.</li>
+<li>A player can <em>see</em> the spots and boundaries that are <em>visible</em> from their current location.</li>
+<li>A player can <em>see</em> the occupants of only those spots that are <em>visible</em> from their current location.</li>
+<li>A player can <em>know</em> the spots and boundaries of all rooms and passages they have seen since the player began playing.</li>
+<li>A spectator immediately <em>knows</em> and always <em>sees</em> all gridpoints.</li>
 <li>The <em>display</em> is an ASCII screen large enough to represent the entire grid.</li>
 <li>At any given time, a player's display illustrates all known gridpoints and visible occupants; the spectator's display illustrates all gridpoints and all occupants.</li>
 <li>A player moving into a spot containing a pile of gold <em>collects</em> that gold, adding all the pile's nuggets to the player's purse. The pile is then gone and that pile's spot is then empty.</li>
@@ -63,16 +63,16 @@ GoldMaxNumPiles = 30; // maximum number of gold piles
 </code></pre>
 <p>The server <em><strong>shall</strong></em></p>
 <ol>
-<li>Start from the commandline of the form above; thus the first argument is the pathname for a <a href="#map-files">map file</a> and the second argument is an optional seed for the random-number generator; if provided, the seed must be a positive integer.</li>
+<li>Start from the commandline of the form above; thus the first argument is the pathname for a map file and the second argument is an optional seed for the random-number generator; if provided, the seed must be a positive integer.</li>
 <li>Verify its arguments; if error, provide a useful error message and exit non-zero.</li>
 <li>If the optional seed is provided, the server shall pass it to <code>srand(seed)</code>.  If no seed is provided, the server shall use <code>srand(getpid())</code> to produce random behavior.</li>
-<li>Load the designated map file; the server may assume it is <a href="#valid-maps">valid</a>, but shall verify the file can be opened for reading.</li>
+<li>Load the designated map file; the server may assume it is valid, but shall verify the file can be opened for reading.</li>
 <li>Initialize the game by dropping at least <code>GoldMinNumPiles</code> and at most <code>GoldMaxNumPiles</code> gold piles on random room spots; each pile shall have a random number of nuggets.</li>
 <li>Initialize the network and announce the port number.</li>
 <li>Wait for messages from <em>clients</em> (players or spectators).</li>
-<li>Accept up to <em>MaxPlayers</em> players; if a player exits or quits the game, it can neither rejoin nor be replaced. Thus: once a player has quit, its letter is never re-used.</li>
+<li>Accept up to <code>MaxPlayers</code> players; if a player exits or quits the game, it can neither rejoin nor be replaced. Thus: once a player has quit, its letter is never re-used.</li>
 <li>Accept up to 1 spectator; if a new spectator joins while one is active, the server shall tell the current spectator to quit, and the server shall then forget that current spectator.</li>
-<li>React to each type of inbound message as described in the <a href="#network-protocol">protocol</a> below.</li>
+<li>React to each type of inbound message as described in the protocol below.</li>
 <li>Handle errors, including malloc failures, gracefully.</li>
 <li>If a player quits the game, that player's symbol is removed from the map.</li>
 <li>Update all clients whenever any player moves or gold is collected.</li>
@@ -89,24 +89,24 @@ a typical approach would be to log to stderr and thus usage could be:</p>
 <pre><code class="language-bash">./client hostname port [playername]
 </code></pre>
 <p>The client allows a human to join the game as an interactive <em>player</em> or as a <em>spectator</em>.
-The client <em><strong>shall</strong></em> :</p>
+The client <em><strong>shall</strong></em></p>
 <ol>
-<li>start from the commandline of the form above; thus the first argument is the hostname or IP address where the server is running, and the second argument is the port number on which the server expects messages; the third (optional) argument determines whether to join as a <em>player</em> or <em>spectator</em>.</li>
+<li>Start from the command line of the form above; thus the first argument is the hostname or IP address where the server is running, and the second argument is the port number on which the server expects messages; the third (optional) argument determines whether to join as a <em>player</em> or <em>spectator</em>.</li>
 <li>Verify its arguments; if error, provide a useful error message and exit non-zero.</li>
 <li>If the <code>playername</code> argument is provided, the client joins as a <em>player</em> and can interactively play the game.</li>
 <li>If the <code>playername</code> argument is not provided, the client joins as a view-only <em>spectator</em>.</li>
 <li>Initialize the display.</li>
 <li>Initialize the network and join the game with a <code>PLAY</code> or <code>SPECTATE</code> message accordingly.</li>
-<li>Upon receipt of a <code>GRID</code> message, ensure the display is large enough for the grid (it should be <em>NR+1</em> x <em>NC+1</em> for best results).</li>
-<li>Show a status line on the first line of the display, as noted in the <a href="#network-protocol">protocol</a> below.</li>
-<li>Show the game grid on the subsequent lines of the display, as noted in the <a href="#network-protocol">protocol</a> below.</li>
+<li>Upon receipt of a <code>GRID</code> message, ensure the display is large enough for the grid (it should be <em>NR+1</em> x <em>NC</em> for best results).</li>
+<li>Show a status line on the first line of the display, as noted in the protocol below.</li>
+<li>Show the game grid on the subsequent lines of the display, as noted in the protocol below.</li>
 <li>Send all client keystrokes to the server.</li>
 <li>Update the display any time new information arrives from the server.</li>
 <li>Handle errors, including malloc failures, gracefully.</li>
 <li>Quit the game (by sending <code>KEY Q</code>) if reaching EOF on stdin.</li>
-<li>Quit when told to do so by the server, as noted in the <a href="#network-protocol">protocol</a> below.</li>
+<li>Quit when told to do so by the server, as noted in the protocol below.</li>
 <li>Display a brief note on the status line if an unknown or malformed message arrives from the server.</li>
-<li>Print a Game-over summary and exit, as noted in the <a href="#network-protocol">protocol</a> below.</li>
+<li>Print a Game Over summary and exit, as noted in the protocol below.</li>
 </ol>
 <p>The client <em><strong>shall not</strong></em> print anything to stdout other than what is required for game play.</p>
 <p>The client <em><strong>should</strong></em> log useful information that can be saved in a logfile;
@@ -140,7 +140,7 @@ The remaining <em>NR</em> lines present the grid using <em>map characters:</em><
 </ul>
 <p>or <em>occupant characters:</em></p>
 <ul>
-<li><code>@</code> the player</li>
+<li><code>@</code> the current player</li>
 <li><code>A</code>-<code>Z</code> another player</li>
 <li><code>*</code> a pile of gold</li>
 </ul>
@@ -234,44 +234,19 @@ The valid keystrokes for the player are</p>
 <p>A <em>map</em> defines the set of rooms and passages in which the game is played.</p>
 <h3>Valid maps</h3>
 <ul>
-<li>
-<p>The <em>map</em> is laid out on a <em>grid</em>.</p>
-</li>
-<li>
-<p>The grid is <em>NR</em> rows by <em>NC</em> columns; thus there are <em>NR x NC</em> <em>gridpoints</em>.</p>
-</li>
-<li>
-<p>The grid will fit in a <code>DISPLAY</code> message; thus, <em>NR x NC + 10 &lt; message_MaxBytes</em>.</p>
-</li>
-<li>
-<p>The grid has enough spots to accommodate <em>MaxPlayers</em> players and <code>GoldMaxNumPiles</code> gold piles.</p>
-</li>
-<li>
-<p>A <em>room</em> is an <a href="https://en.wikipedia.org/wiki/Rectilinear_polygon">axis-aligned rectilinear polygon</a>; it may have hole(s).</p>
-</li>
-<li>
-<p>A <em>spot</em> is a gridpoint in the interior of a room or along a passage.</p>
-</li>
-<li>
-<p>A room is defined by its <em>boundaries</em>.</p>
-</li>
-<li>
-<p>A horizontal boundary always meets a vertical boundary at a corner boundary.</p>
-</li>
-<li>
-<p>Thus, the <em>boundaries</em> of rooms are not spots, nor are gridpoints outside rooms and passages.</p>
-</li>
-<li>
-<p>A <em>passage</em> is one-spot wide and connects rooms to other rooms and passages. Passages are rectilinear but may not be straight, that is, they may have 90-degree turns.</p>
-</li>
-<li>
-<p>A passage interrupts a room's vertical or horizontal boundary; a passage never meets a room at a corner.</p>
-</li>
-<li>
-<p>The map is one connected component; thus, one can reach any spot from any other spot by some sequence of the eight valid moves.</p>
-</li>
-<li>
-<p>Every gridpoint is one of these characters:</p>
+<li>The <em>map</em> is laid out on a <em>grid</em>.</li>
+<li>The grid is <em>NR</em> rows by <em>NC</em> columns; thus there are <em>NR x NC</em> <em>gridpoints</em>.</li>
+<li>The grid will fit in a <code>DISPLAY</code> message; thus, <em>NR x NC + 10 &lt; message_MaxBytes</em>.</li>
+<li>The grid has enough spots to accommodate <code>MaxPlayers</code> players and <code>GoldMaxNumPiles</code> gold piles.</li>
+<li>A <em>room</em> is an <a href="https://en.wikipedia.org/wiki/Rectilinear_polygon">axis-aligned rectilinear polygon</a>; it may have hole(s).</li>
+<li>A <em>spot</em> is a gridpoint in the interior of a room or along a passage.</li>
+<li>A room is defined by its <em>boundaries</em>.</li>
+<li>A horizontal boundary always meets a vertical boundary at a corner boundary.</li>
+<li>Thus, the <em>boundaries</em> of rooms are not spots, nor are gridpoints outside rooms and passages.</li>
+<li>A <em>passage</em> is one-spot wide and connects rooms to other rooms and passages. Passages are rectilinear but may not be straight, that is, they may have 90-degree turns.</li>
+<li>A passage interrupts a room's vertical or horizontal boundary; a passage never meets a room at a corner.</li>
+<li>The map is one connected component; thus, one can reach any spot from any other spot by some sequence of the eight valid moves.</li>
+<li>Every gridpoint is one of these characters:
 <ul>
 <li><code> </code> solid rock - interstitial space outside rooms</li>
 <li><code>-</code> a horizontal boundary</li>
@@ -285,7 +260,7 @@ The valid keystrokes for the player are</p>
 <h3>Map files</h3>
 <p>A <em>map file</em> is a text file with exactly <em>NR</em> lines and in which every line has exactly <em>NC</em> characters.</p>
 <blockquote>
-<p>Your solution may assume all map files are <a href="#valid-maps">valid</a>, but must infer <em>NR</em> and <em>NC</em> by reading the file.</p>
+<p>Your solution may assume all map files are valid, but must infer <em>NR</em> and <em>NC</em> by reading the file.</p>
 </blockquote>
 <h3>Example map</h3>
 <p>The following is a valid 21x79 map.</p>
@@ -491,7 +466,7 @@ The client can join in one of two roles: <em>players</em> and <em>spectators</em
 <p>When a <em>player</em> client starts, it shall send a message to the server:</p>
 <p>PLAY real name</p>
 <p>Everything after the <code>PLAY</code> and one space is captured as the player's &quot;real name&quot; (free text, optionally including spaces).</p>
-<p>If there are already <em>MaxPlayers</em> players,  the server shall respond with</p>
+<p>If there are already <code>MaxPlayers</code> players,  the server shall respond with</p>
 <p>QUIT Game is full: no more players can join.</p>
 <p>If the player's <code>real name</code> is empty (no non-space characters), the server shall respond with</p>
 <p>QUIT Sorry - you must provide player's name.</p>
@@ -507,7 +482,7 @@ The server shall then respond with</p>
 <p>where k is the single-character keystroke typed by the user.</p>
 <p>When the player's keystroke causes them to collect gold, the server shall inform all clients using a <code>GOLD</code> message as described below.</p>
 <p>When the player's keystroke causes them to move to a new spot, the server shall inform all clients of a change in the game grid using a <code>DISPLAY</code> message as described below.</p>
-<p>When the player's keystroke is not a valid character, according to the <a href="#client-interface">Client interface</a> above, the server <em>shall</em> ignore that keystroke and <em>may</em> send back an <code>ERROR</code> message as described below.</p>
+<p>When the player's keystroke is not a valid character, according to the client interface above, the server <em>shall</em> ignore that keystroke and <em>may</em> send back an <code>ERROR</code> message as described below.</p>
 <h3>Spectator to server</h3>
 <p>When a <em>spectator</em> client starts, it shall send a message to the server:</p>
 <p>SPECTATE</p>
@@ -557,7 +532,7 @@ C        230 Carol
 </code></pre>
 <h3>Malformed messages</h3>
 <p>Any message not following the above protocol, <em>exactly</em>, is malformatted.
-Both client and server shall be robust in the face of malformatted messages - they should not crash, exit, or proceed incorrectly.
+Both client and server shall be robust in the face of malformatted messages – they should not crash, exit, or proceed incorrectly.
 At a minimum they shall log an error and ignore the message.</p>
 <p>The server <em>may</em> send, in response to the client,</p>
 <p>ERROR explanation</p>

@@ -1,6 +1,6 @@
 # Nuggets: Implementation Hints
 
-Consider these thoughts while you develop your implementation spec.
+Consider these thoughts while you develop your Implementation Spec.
 
 ### Iterative development
 
@@ -47,7 +47,7 @@ Review the [unit](https://www.spongium.org/unit/cohesion) about *cohesion* and *
 If a function starts to get large, break it down into smaller functions.
 I found this to be particularly important for my `handleMessage` functions, because there are multiple message types and every message needs to be handled in a different way.
 Thus, my `handleMessage()` became a really short `if... then... else if... else if... else` structure, wherein each "then" and "else" block was a single statement: calling a `handleXYZ()` function that was specifically focused on handling only that `XYZ` type of message.
-Those functions were sometimes really short - just one or two lines - but the code was much easier to read.
+Those functions were sometimes really short – just one or two lines – but the code was much easier to read.
 (They also make great breakpoints in gdb!)
 
 ### Encapsulate message detail
@@ -72,7 +72,7 @@ Insert calls to `log_x()` at critical points in your code, and you'll be able to
 
 ### Unit testing
 
-As I noted above, the [grid](#grid) is an incredibly important design and implementation choice.
+As noted elsewhere, the grid is an incredibly important design and implementation choice.
 I wrote my grid module first, before writing a single line of code for the server or client.
 And, I wrote a glass-box unit test for the grid module in parallel with writing the module itself.
 This decision took time - but saved me a ton of time later.
@@ -83,15 +83,15 @@ Consider the same approach for any unit you develop.
 
 ### Style
 
-As noted in under the [grading](#grading) heading, a substantial portion of your project grade rests on style.
+As noted in the [rubric](/project/rubric.html), a substantial portion of your project grade rests on style.
 Some things to consider:
 
-* Follow [CS 50 style guidelines](style.html), including naming conventions.
+* Follow [CS 50 style guidelines](/style.html), including naming conventions.
 * Use a consistent naming scheme: choose function and variable names that follow a consistent pattern, recalling the naming tips from a [recent unit](https://www.spongium.org/unit/cohesion).
 * Use consistent terminology across all specs and code comments: the Requirements Spec gives precise definitions for certain terms (like *gridpoint*, *player*, *purse*, *visible*, and more); use those terms rather than making up new terms, and use those terms consistent with their definitions.
 * Use a consistent coordinate system: the Requirement Spec refers to *rows* and *columns* of the grid and of the display; your two specs, and your implementation, should follow that lead. If you choose to refer to (x,y) instead of (col,row), do it consistently... do not mix the two notations, which leads to confusion.
 * Avoid sprinkling char literals throughout code: define some global named constants, e.g., `static const char roomSpot = '.';`  your code will be much more readable and maintainable!
-* Peruse this [list of the most common style-related comments applied to final projects in recent years](style.md).
+<!-- * Peruse this [list of the most common style-related comments applied to final projects in recent years](style.md). -->
 
 ### Global variables
 
@@ -106,7 +106,7 @@ I found it useful to declare a *single* global variable, a `struct` called `game
 I could thus refer to the members of that struct in various points throughout the server or client code, e.g., `game.goldRemaining`.
 The presence of `game.` makes it clear to the reader that this variable is global, not some variable local to the function.
 
-The alternative - and actually, my initial approach - was to allocate a `struct` called `game` in my `main()` function, and then pass it around through every function call in the program.
+The alternative – and actually, my initial approach – was to allocate a `struct` called `game` in my `main()` function, and then pass it around through every function call in the program.
 Yes, that avoided the use of the global variable, but it meant every function had to have a parameter `game_t *game` and to check `if (game==NULL)` before proceeding.
 That code was much less readable, so I ripped it all out and made that `game` a global.
 
@@ -119,7 +119,7 @@ The above `struct {...} game` approach counts as one variable.
 The core of our provided support library is the `message` module, provided in the `support` directory of the starter kit.
 It enables applications to send and receive network messages and also handle keyboard input, without dealing with gory details of sockets and without need for threads.
 
-[Video walk-through](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f8811bb1-0fec-4c05-8a46-ad2201693f7f).
+[Video walkthrough](https://dartmouth.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f8811bb1-0fec-4c05-8a46-ad2201693f7f)
 
 > Note: the Requirements Spec makes no mention of timeouts, either in the client or in the server, so neither your client nor server should be implementing a `handleTimeout` function.
 >
@@ -235,7 +235,7 @@ Language|files|blank|comment|code
 :-------|-------:|-------:|-------:|-------:
 C|6|361|855|1944
 C Header|4|62|310|90
-SUM:|10|423|1165|2034
+**Total**|10|423|1165|2034
 
 **Nuggets, excluding the support code:**
     `cloc *.[ch]`
@@ -244,7 +244,7 @@ Language|files|blank|comment|code
 :-------|-------:|-------:|-------:|-------:
 C|4|294|606|1544
 C Header|2|35|120|48
-SUM:|6|329|726|1592
+**Total**|6|329|726|1592
 
 
 **For reference, my Tiny Search Engine (without libcs50):**
@@ -254,7 +254,7 @@ Language|files|blank|comment|code
 :-------|-------:|-------:|-------:|-------:
 C|8|251|440|980
 C Header|3|23|77|30
-SUM:|11|274|517|1010
+**Total**|11|274|517|1010
 
 As you can see, my code is heavily commented: about half the lines of code are comments!
 
@@ -295,12 +295,12 @@ prof/padmap maps/draft.txt > maps/new.txt
 The starter kit includes a small `miniclient` program that can be useful for feeding messages to your server -- either from the keyboard or from an input file.
 This approach allows you to test your server's response to malformatted messages.
 
-#### Notes
+### Notes
 
 Our server sends two GOLD messages to a player that steps on a gold pile; although not required, it is harmless and is a result of the way our server's code is structured.
 
 Our client (`client`) has a special capability: it can run as a *bot*, that is, as an automated player.
-This capability goes 'beyond the spec' but I found it useful for testing the server, and also a lot of fun to watch.
+This capability goes beyond the spec but I found it useful for testing the server, and also a lot of fun to watch.
 If you give the name `bot` as the `playerName`, it will periodically send random movement keystrokes to the server; you can just sit and watch the bot play the game!
 If you give the name `botbg` as the `playerName`, it will play as a bot but *not display anything*, which makes it suitable to run in the background.
 I demonstrate both types of bot in the video below. 
