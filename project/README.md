@@ -50,7 +50,7 @@ We suggest the following timeline.
 * `DESIGN.md` complete, submitted by Fri
 * `IMPLEMENTATION.md` complete, submitted by Fri
 * Server: allows players and spectators to join and quit.
-* Client: joins as spectator.
+* Client: joins as player or spectator.
 
 ### Sprint 2 (Mar 2–9) <!-- @CHANGEME date -->
 
@@ -71,7 +71,6 @@ We suggest the following timeline.
 **Goals:**
 
 * Server: add 'knows' and 'sees' functionality.
-* Client: add player behavior.
 * Complete any other missing functionality.
 * Write tools to assist in testing.
 * Extensive testing to ensure all code meets spec.
