@@ -122,6 +122,6 @@ Breakdown of points TBD
 * (-1..5) doesn't handle errors gracefully
 * -10 Segmentation Faults (each unique one)
 
-## Lateness (-10%)
+## Lateness
 
 For any late commits to `main`, we take **10 points per hour**, *off the top.*

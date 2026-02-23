@@ -23,8 +23,9 @@ Your team will develop the code for the *Nuggets* game, according to the [Requir
 
 ## Starter kit
 
-When you accept the assignment using the GitHub Classroom, you will be asked to join an existing team or to create a new team.
-Please coordinate with your teammates to ensure that your team is registered just once.
+Have **one member of your team** accept the invitation link on Canvas for the final project. Follow the instructions on Canvas to add the other members of your team.
+**Change the repo name** to `nuggets-` your team's name!
+
 One member should **immediately** configure your repo to [protect the main branch](https://www.spongium.org/unit/protect-main).
 All members of the team should then clone the team's new repository, which includes the starter kit.
 
