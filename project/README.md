@@ -76,7 +76,7 @@ We suggest the following timeline.
 * Extensive testing to ensure all code meets spec.
 * Complete all required documentation.
 
-**Once you are "finished"**
+**Once you are "finished"**:
 
 * Review the Final submission checklist.
 * Clean up your repository.
@@ -107,7 +107,7 @@ As examples, see the design specs provided as part of the TSE.
 **How to submit:**
 Commit a file `DESIGN.md` and any associated files.
 Your spec may include diagrams; be sure to commit them.
-Before the deadline, [push a branch called 'submit-design'](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md).
+Before the deadline, **push your final file to a branch called `specs`**.
 *Make sure your Markdown renders properly on GitHub!*
 
 ### Design review
@@ -137,7 +137,7 @@ When describing the testing plan, consider unit testing of each module, integrat
 **How to submit:**
 Commit a file `IMPLEMENTATION.md` and any associated files.
 Your spec may include diagrams; be sure to commit them.
-Before the deadline, [push a branch called 'submit-implementation'](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md).
+Before the deadline, **push your final file to a branch called `specs`**.
 *Make sure your Markdown renders properly on GitHub!*
 
 ## Final submission
@@ -148,12 +148,11 @@ you are far more likely to make a mistake, and have no time to correct it.
 Plan to submit everything several hours before the deadline.
 
 **How to submit:**
-Commit all necessary files.
-Before the deadline, [push a branch called 'submit-final'](https://github.com/CS50DartmouthFA2025/home/blob/main/logistics/submit.md).
+Commit all necessary files to the `main` branch of your Git repo.
 
-We will grade the version of the code in the branch `submit-final` at the time of the deadline; if no such branch appears until later you will ***lose 10 points per hour after the deadline***.
-Specifically, we take 10 points per hour, prorated by the minute, which means that you lose (10/60 x minutesPastDeadline) points off your total project grade.
-**No extensions will be permitted.**
+We will grade the version of the code in `main` at the time of the deadline; if there are any commits pushed after this time, **we will deduct 10 points per hour after the deadline**.
+
+**No extensions will be permitted.** Late is late, no exceptions.
 
 **What:** Your GitHub project shall include all necessary source and documentation files.
 

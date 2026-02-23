@@ -163,7 +163,7 @@ This is a tentative schedule for the course, subject to change. Readings (in bol
     <td>Intro to Team Project; Work on Team Project Design Spec</td>
     <td></td>
     <td></td>
-    <td>Team project</td>
+    <td><a href="/project/README.html">Team project</a></td>
 </tr>
 <tr>
     <td>Feb 25</td>

@@ -1,4 +1,4 @@
-# CS50 Final Project Rubric
+# CS 50 Final Project Rubric
 
 This is an *initial rubric* and we reserve the right to update it based on things that come up after posting the rubric.
 This page provides detail on the published grade breakdown.
@@ -24,19 +24,19 @@ We grade this section out of 38 points.
 * (2) User interface
 * (2) Inputs and outputs
 * (4) Functional decomposition into functions/modules
-* (4) High-level pseudo code
+* (4) High-level pseudocode
 
 **Server (16):**
 
 * (4) Inputs and outputs
 * (4) Functional decomposition into functions/modules
 * (4) Major data structures
-* (4) High-level pseudo code
+* (4) High-level pseudocode
 
 ## Implementation spec (15%)
 
-We asked for "a summary of your approach to implementing the server (and client, for teams of 4) and any modules, providing the prototype and brief description of each function, and specifics of the data structure(s) you plan to use."
-The "implementation spec should describe all of your implementation's units (other than those we provide), provide pseudo code for each unit's functions (including prototypes and their parameters), describe every major data structure, and briefly describe a testing plan."
+We asked for "a summary of your approach to implementing the server and client and any modules, providing the prototype and brief description of each function, and specifics of the data structure(s) you plan to use."
+The "implementation spec should describe all of your implementation's units (other than those we provide), provide pseudocode for each unit's functions (including prototypes and their parameters), describe every major data structure, and briefly describe a testing plan."
 
 We're looking for a clear, modular structure with well-chosen data structures, function names, and function interfaces.
 
@@ -71,8 +71,8 @@ We grade this section out of 15 points.
 
 ## Git and Git-Flow practices (10%)
 
-Your repo *must* have a git branch `submit-final`.
-We will grade the contents of that branch as it appears on GitHub at the moment of the deadline; if you want us to grade a later commit, despite the lateness penalty, let us know.
+<!-- Your repo *must* have a git branch `submit-final`. -->
+We will grade the contents of your `main` branch as it appears on GitHub at the moment of the deadline; if you want us to grade a later commit, despite the lateness penalty, let us know.
 
 We grade this section out of 20 points.
 
@@ -119,6 +119,4 @@ We grade this section out of 60 points.
 
 ## Lateness (-10%)
 
-If the `submit-final` branch appears late, we take
-**10 points per hour**, prorated by the minute, *off the top.*
-This means that you lose (10/60 x minutesPastDeadline) points off your total project grade.
+For any late commits to `main`, we take **10 points per hour**, *off the top.*
