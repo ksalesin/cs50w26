@@ -3,7 +3,7 @@
 This is an *initial rubric* and we reserve the right to update it based on things that come up after posting the rubric.
 This page provides detail on the published grade breakdown.
 
-## Design spec (20%)
+## Design spec (15%)
 
 We grade this section out of 38 points.
 
@@ -80,7 +80,7 @@ We grade this section out of 20 points.
 * (8) git-flow - good use of branches and Git Flow.
 * (6) no executable files, object files, core dump files, editor backup files, or extraneous files existing in any directory.
 
-## Functionally correct and complete (30%)
+## Functionally correct and complete (25%)
 
 To be "correct and complete" means your code conforms to the Requirements Spec.
 
@@ -99,6 +99,11 @@ We grade this section out of 60 points.
 * (6) client plays as spectator, per spec
 * (4) client asks for window to grow, per spec
 * (2) client prints Game Over summary, per spec
+
+## Final presentation (20%)
+
+Breakdown of points TBD
+
 
 ## Extra Credit 
 
