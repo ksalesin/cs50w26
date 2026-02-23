@@ -30,7 +30,7 @@ All members of the team should then clone the team's new repository, which inclu
 
 ## Submissions
 
-* **Design spec**: due Friday, February 27rd at 11:59 pm
+* **Design spec**: due Friday, February 27th at 11:59 pm
 * **Implementation spec**: due Friday, February 27th at 11:59 pm
 * **Final submission**: due Friday, March 13th **at noon**
 * **Final presentation**: Friday, March 13th somewhere in 3 to 6 pm
