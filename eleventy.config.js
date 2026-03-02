@@ -22,6 +22,7 @@ module.exports = async function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("styles.css");
     eleventyConfig.addPassthroughCopy("github-markdown.css");
     eleventyConfig.addPassthroughCopy("_includes/spoilers.js");
+    eleventyConfig.addPassthroughCopy("project/retrospective.md");
 
     eleventyConfig.addShortcode("spoiler", function(content) {
         return `<div class="spoiler spoiler-hidden">${content}</div>`;

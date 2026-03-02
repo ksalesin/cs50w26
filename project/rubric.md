@@ -77,7 +77,7 @@ We will grade the contents of your `main` branch as it appears on GitHub at the 
 We grade this section out of 20 points.
 
 * (6) git commit history - logical groupings of changes in each commit, and meaningful commit messages.
-* (8) git-flow - good use of branches and Git Flow.
+* (8) git-flow - good use of the project board, branches and Git Flow.
 * (6) no executable files, object files, core dump files, editor backup files, or extraneous files existing in any directory.
 
 ## Functionally correct and complete (25%)

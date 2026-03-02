@@ -68,13 +68,13 @@ Your team is encouraged to meet for a Daily Scrum on non-class days as well.
 
 ## Wiki
 
-During your Sprint Retrospective your team will fill out the [Retrospective template](/project/retrospective.html) that we have provided.
+During your Sprint Retrospective your team will fill out the [Retrospective template](/project/retrospective.md) that we have provided.
 These retrospective documents will live in your repo's **GitHub Wiki page**.
 To create a Wiki page for your Sprint Retrospective, follow the steps listed below.
 
 1. From your repository GitHub page, click the "Wiki" tab near the top.
 2. If this is your first retrospective, click "Create the first page". Otherwise, click "New Page" in the top right.
-3. Copy and paste the [Retrospective template](/project/retrospective.html).
+3. Copy and paste the [Retrospective template](/project/retrospective.md).
 4. Fill out the template.
 5. Title it "Sprint Retrospective N", where N is the current Sprint iteration.
 6. Click "Save Page".
