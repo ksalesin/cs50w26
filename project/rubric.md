@@ -52,24 +52,20 @@ We grade this section out of 34 points.
 * (2) testing plan (server)
 * (2) testing plan (client)
 
-## Code style and quality (15%)
+## Code style and quality (10%)
 
 See [CS 50 coding standards](/style.html).
 
-We grade this section out of 15 points.
+We grade this section out of 18 points.
 
-* (2) organized and efficient
-* (2) all members have meaningful speaking role
-* (2) identify known limitations of implementation
-* (1) show a new, nontrivial map
-* (8) game runs smoothly, demonstrating that the core requirements work:
-  * spectator mode
-  * multiple players
-  * visibility - "known" and "sees"
-  * gold collection
-  * game over
+* (3)	good decomposition of and within methods
+* (3)	proper used of instance and local variables
+* (3)	proper use of parameters
+* (3)	comments for methods (purpose, parameters, what is returned)
+* (3)	reasonable names for methods, variables, parameters
+* (3)	layout (blank lines, indentation, no line wraps, etc.)
 
-## Git and Git-Flow practices (10%)
+## Git, Git Flow, and Scrum practices (10%)
 
 <!-- Your repo *must* have a git branch `submit-final`. -->
 We will grade the contents of your `main` branch as it appears on GitHub at the moment of the deadline; if you want us to grade a later commit, despite the lateness penalty, let us know.
@@ -77,10 +73,11 @@ We will grade the contents of your `main` branch as it appears on GitHub at the 
 We grade this section out of 20 points.
 
 * (6) git commit history - logical groupings of changes in each commit, and meaningful commit messages.
-* (8) git-flow - good use of the project board, branches and Git Flow.
-* (6) no executable files, object files, core dump files, editor backup files, or extraneous files existing in any directory.
+* (8) git-flow - good use of issues, branches, PRs, and Git Flow in general.
+* (6) Sprint retrospectives and good use of the project board.
+* (-1) for each executable file, object file, core dump file, editor backup file, or other extraneous file existing in any directory.
 
-## Functionally correct and complete (25%)
+## Functionally correct and complete (30%)
 
 To be "correct and complete" means your code conforms to the Requirements Spec.
 
@@ -102,8 +99,18 @@ We grade this section out of 60 points.
 
 ## Final presentation (20%)
 
-Breakdown of points TBD
+We grade this section out of 28 points.
 
+* (8) good overview of final implementation and design decisions
+* (4) all members have meaningful speaking role
+* (8) satisfactory answers to questions about design and implementation
+* (8) game runs smoothly during presentation, demonstrating that the core requirements work:
+  * spectator mode
+  * multiple players
+  * visibility - "known" and "sees"
+  * gold collection
+  * game over
+  * show new, non-trivial map
 
 ## Extra Credit 
 
